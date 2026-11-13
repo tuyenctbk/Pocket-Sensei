@@ -1,0 +1,192 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with language learning statistics and daily streaks.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the user."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the learner."
+        },
+        "targetLanguage": {
+          "type": "string",
+          "description": "Active learning language (e.g., Japanese, Spanish, French)."
+        },
+        "currentStreak": {
+          "type": "integer",
+          "description": "Current consecutive days streak."
+        },
+        "wordsMastered": {
+          "type": "integer",
+          "description": "Count of vocabulary words mastered."
+        },
+        "totalMinutesPracticed": {
+          "type": "integer",
+          "description": "Total speaking practice time in minutes."
+        },
+        "avgPronunciationScore": {
+          "type": "integer",
+          "description": "Average pronunciation score out of 100."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp. Clients must submit FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp. Clients must submit FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["userId", "displayName", "targetLanguage", "currentStreak", "wordsMastered", "createdAt"]
+    },
+    "VocabItem": {
+      "title": "VocabItem",
+      "description": "A vocabulary word or phrase tracked for mastery.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the owner."
+        },
+        "word": {
+          "type": "string",
+          "description": "Target language word or phrase."
+        },
+        "translation": {
+          "type": "string",
+          "description": "Translation in learner's native tongue."
+        },
+        "phonetic": {
+          "type": "string",
+          "description": "Phonetic transcription, IPA, or romaji/pinyin."
+        },
+        "language": {
+          "type": "string",
+          "description": "Language identifier."
+        },
+        "masteryLevel": {
+          "type": "integer",
+          "description": "Mastery level from 1 to 5."
+        },
+        "pronunciationScore": {
+          "type": "integer",
+          "description": "Latest pronunciation score out of 100."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp. Clients must submit FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp. Clients must submit FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["userId", "word", "translation", "language", "masteryLevel", "pronunciationScore", "createdAt"]
+    },
+    "PracticeSession": {
+      "title": "PracticeSession",
+      "description": "Log of a voice conversation or roleplay session with Pocket Sensei.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the user."
+        },
+        "scenarioTitle": {
+          "type": "string",
+          "description": "Roleplay scenario title."
+        },
+        "language": {
+          "type": "string",
+          "description": "Language used in session."
+        },
+        "turnsCount": {
+          "type": "integer",
+          "description": "Number of dialog turns exchanged."
+        },
+        "avgScore": {
+          "type": "integer",
+          "description": "Average pronunciation score for this session."
+        },
+        "feedbackSummary": {
+          "type": "string",
+          "description": "Sensei feedback on accent and grammar."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp. Clients must submit FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["userId", "scenarioTitle", "language", "turnsCount", "avgScore", "createdAt"]
+    },
+    "LeaderboardEntry": {
+      "title": "LeaderboardEntry",
+      "description": "Global or league community leaderboard record for a learner.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the user."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the learner."
+        },
+        "targetLanguage": {
+          "type": "string",
+          "description": "Learning language track."
+        },
+        "leagueTier": {
+          "type": "string",
+          "description": "Current league tier: White Belt, Bronze, Silver, Gold, Black Belt."
+        },
+        "totalXp": {
+          "type": "integer",
+          "description": "Accumulated experience points from accent drills and roleplay."
+        },
+        "streakDays": {
+          "type": "integer",
+          "description": "Current daily streak."
+        },
+        "avgAccuracy": {
+          "type": "integer",
+          "description": "Average pronunciation accuracy percentage (0-100)."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp. Clients must submit FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["userId", "displayName", "targetLanguage", "leagueTier", "totalXp", "streakDays", "avgAccuracy", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "UserProfile" },
+      "description": "User profile document containing learning stats and streaks."
+    },
+    "/users/{userId}/vocab/{vocabId}": {
+      "schema": { "$ref": "VocabItem" },
+      "description": "Subcollection of vocabulary words mastered or practiced by the user."
+    },
+    "/users/{userId}/sessions/{sessionId}": {
+      "schema": { "$ref": "PracticeSession" },
+      "description": "Subcollection of voice conversation session history."
+    },
+    "/leaderboard/{entryUserId}": {
+      "schema": { "$ref": "LeaderboardEntry" },
+      "description": "Community speaking league leaderboard document for each learner."
+    }
+  }
+}

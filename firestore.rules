@@ -1,0 +1,158 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidUserProfile(data) {
+      return data.userId is string && data.userId == request.auth.uid &&
+             data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 100 &&
+             data.targetLanguage is string && data.targetLanguage.size() >= 2 && data.targetLanguage.size() <= 50 &&
+             data.currentStreak is int && data.currentStreak >= 0 &&
+             data.wordsMastered is int && data.wordsMastered >= 0 &&
+             (!('totalMinutesPracticed' in data) || (data.totalMinutesPracticed is int && data.totalMinutesPracticed >= 0)) &&
+             (!('avgPronunciationScore' in data) || (data.avgPronunciationScore is int && data.avgPronunciationScore >= 0 && data.avgPronunciationScore <= 100)) &&
+             data.createdAt is timestamp && data.createdAt <= request.time &&
+             (!('updatedAt' in data) || (data.updatedAt is timestamp && data.updatedAt <= request.time));
+    }
+
+    function isValidVocabItem(data) {
+      return data.userId is string && data.userId == request.auth.uid &&
+             data.word is string && data.word.size() >= 1 && data.word.size() <= 200 &&
+             data.translation is string && data.translation.size() >= 1 && data.translation.size() <= 300 &&
+             (!('phonetic' in data) || (data.phonetic is string && data.phonetic.size() <= 200)) &&
+             data.language is string && data.language.size() >= 2 && data.language.size() <= 50 &&
+             data.masteryLevel is int && data.masteryLevel >= 1 && data.masteryLevel <= 5 &&
+             data.pronunciationScore is int && data.pronunciationScore >= 0 && data.pronunciationScore <= 100 &&
+             data.createdAt is timestamp && data.createdAt <= request.time &&
+             (!('updatedAt' in data) || (data.updatedAt is timestamp && data.updatedAt <= request.time));
+    }
+
+    function isValidPracticeSession(data) {
+      return data.userId is string && data.userId == request.auth.uid &&
+             data.scenarioTitle is string && data.scenarioTitle.size() >= 1 && data.scenarioTitle.size() <= 150 &&
+             data.language is string && data.language.size() >= 2 && data.language.size() <= 50 &&
+             data.turnsCount is int && data.turnsCount >= 0 &&
+             data.avgScore is int && data.avgScore >= 0 && data.avgScore <= 100 &&
+             (!('feedbackSummary' in data) || (data.feedbackSummary is string && data.feedbackSummary.size() <= 2000)) &&
+             data.createdAt is timestamp && data.createdAt <= request.time;
+    }
+
+    function isValidLeaderboardEntry(data) {
+      return data.userId is string && data.userId == request.auth.uid &&
+             data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 100 &&
+             data.targetLanguage is string && data.targetLanguage.size() >= 2 && data.targetLanguage.size() <= 50 &&
+             data.leagueTier is string && data.leagueTier.size() >= 2 && data.leagueTier.size() <= 50 &&
+             data.totalXp is int && data.totalXp >= 0 &&
+             data.streakDays is int && data.streakDays >= 0 &&
+             data.avgAccuracy is int && data.avgAccuracy >= 0 && data.avgAccuracy <= 100 &&
+             data.updatedAt is timestamp && data.updatedAt <= request.time;
+    }
+
+    match /users/{userId} {
+      allow get: if isSignedIn() && request.auth.uid == userId;
+      allow list: if false;
+
+      allow create: if isSignedIn() &&
+                       request.auth.uid == userId &&
+                       incoming().userId == request.auth.uid &&
+                       incoming().keys().hasAll(['userId', 'displayName', 'targetLanguage', 'currentStreak', 'wordsMastered', 'createdAt']) &&
+                       incoming().keys().hasOnly(['userId', 'displayName', 'targetLanguage', 'currentStreak', 'wordsMastered', 'totalMinutesPracticed', 'avgPronunciationScore', 'createdAt', 'updatedAt']) &&
+                       incoming().createdAt is timestamp &&
+                       incoming().createdAt <= request.time &&
+                       isValidUserProfile(incoming());
+
+      allow update: if isSignedIn() &&
+                       request.auth.uid == userId &&
+                       incoming().userId == existing().userId &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'targetLanguage', 'currentStreak', 'wordsMastered', 'totalMinutesPracticed', 'avgPronunciationScore', 'updatedAt']) &&
+                       isValidUserProfile(incoming());
+
+      allow delete: if isSignedIn() && request.auth.uid == userId;
+
+      match /vocab/{vocabId} {
+        allow get, list: if isSignedIn() && request.auth.uid == userId;
+
+        allow create: if isSignedIn() &&
+                         request.auth.uid == userId &&
+                         isValidId(vocabId) &&
+                         incoming().userId == request.auth.uid &&
+                         incoming().keys().hasAll(['userId', 'word', 'translation', 'language', 'masteryLevel', 'pronunciationScore', 'createdAt']) &&
+                         incoming().keys().hasOnly(['userId', 'word', 'translation', 'phonetic', 'language', 'masteryLevel', 'pronunciationScore', 'createdAt', 'updatedAt']) &&
+                         incoming().createdAt is timestamp &&
+                         incoming().createdAt <= request.time &&
+                         isValidVocabItem(incoming());
+
+        allow update: if isSignedIn() &&
+                         request.auth.uid == userId &&
+                         isValidId(vocabId) &&
+                         incoming().userId == existing().userId &&
+                         incoming().createdAt == existing().createdAt &&
+                         incoming().diff(existing()).affectedKeys().hasOnly(['word', 'translation', 'phonetic', 'language', 'masteryLevel', 'pronunciationScore', 'updatedAt']) &&
+                         isValidVocabItem(incoming());
+
+        allow delete: if isSignedIn() && request.auth.uid == userId && isValidId(vocabId);
+      }
+
+      match /sessions/{sessionId} {
+        allow get, list: if isSignedIn() && request.auth.uid == userId;
+
+        allow create: if isSignedIn() &&
+                         request.auth.uid == userId &&
+                         isValidId(sessionId) &&
+                         incoming().userId == request.auth.uid &&
+                         incoming().keys().hasAll(['userId', 'scenarioTitle', 'language', 'turnsCount', 'avgScore', 'createdAt']) &&
+                         incoming().keys().hasOnly(['userId', 'scenarioTitle', 'language', 'turnsCount', 'avgScore', 'feedbackSummary', 'createdAt']) &&
+                         incoming().createdAt is timestamp &&
+                         incoming().createdAt <= request.time &&
+                         isValidPracticeSession(incoming());
+
+        allow update: if false;
+
+        allow delete: if isSignedIn() && request.auth.uid == userId && isValidId(sessionId);
+      }
+    }
+
+    match /leaderboard/{entryUserId} {
+      allow get, list: if isSignedIn();
+
+      allow create: if isSignedIn() &&
+                       request.auth.uid == entryUserId &&
+                       isValidId(entryUserId) &&
+                       incoming().userId == request.auth.uid &&
+                       incoming().keys().hasAll(['userId', 'displayName', 'targetLanguage', 'leagueTier', 'totalXp', 'streakDays', 'avgAccuracy', 'updatedAt']) &&
+                       incoming().keys().hasOnly(['userId', 'displayName', 'targetLanguage', 'leagueTier', 'totalXp', 'streakDays', 'avgAccuracy', 'updatedAt']) &&
+                       isValidLeaderboardEntry(incoming());
+
+      allow update: if isSignedIn() &&
+                       request.auth.uid == entryUserId &&
+                       isValidId(entryUserId) &&
+                       incoming().userId == existing().userId &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'targetLanguage', 'leagueTier', 'totalXp', 'streakDays', 'avgAccuracy', 'updatedAt']) &&
+                       isValidLeaderboardEntry(incoming());
+
+      allow delete: if isSignedIn() && request.auth.uid == entryUserId && isValidId(entryUserId);
+    }
+  }
+}

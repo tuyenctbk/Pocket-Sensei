@@ -1,0 +1,554 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">互动式 3D 语言与发音教练</string>
+    <string name="splash_ready">准备好自信开口了吗 ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">3D 老师</string>
+    <string name="auth_subtitle">3D 互动语言与发音教练</string>
+    <string name="auth_feature_avatar_title">本地 3D 老师虚拟形象</string>
+    <string name="auth_feature_avatar_desc">具备实时口型同步与面部表情的 Three.js 角色</string>
+    <string name="auth_feature_coach_title">Gemini 实时发音指导</string>
+    <string name="auth_feature_coach_desc">即时语音反馈与口型、舌位指导建议</string>
+    <string name="auth_feature_roleplay_title">语音情景对话</string>
+    <string name="auth_feature_roleplay_desc">咖啡厅点单、集市交流或模拟面试练习</string>
+    <string name="auth_feature_sync_title">Firestore 云端同步</string>
+    <string name="auth_feature_sync_desc">记录已掌握的词汇并保持每日学习连胜</string>
+    <string name="cd_sign_in_icon">登录图标</string>
+    <string name="auth_sign_in_google">使用 Google 登录</string>
+    <string name="auth_sign_in_footer">登录即可在 Firestore 中永久保存连胜记录与词汇库</string>
+    <string name="auth_error_missing_client_id">缺少 Google 登录配置：未找到 default_web_client_id</string>
+    <string name="auth_error_unexpected_credential">意外的凭据类型</string>
+    <string name="auth_error_sign_in_failed">登录失败</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">教练</string>
+    <string name="nav_roleplay">对话</string>
+    <string name="nav_vocab">词汇</string>
+    <string name="nav_league">联赛</string>
+    <string name="nav_profile">我的</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">活跃支持者</string>
+    <string name="supporter_badge_short">支持者</string>
+    <string name="cd_support_app">支持 Pocket Sensei</string>
+    <string name="cd_streak">连胜</string>
+    <string name="streak_day_format">%1$d 天</string>
+    <string name="cd_cycle_outfit">切换老师服装</string>
+    <string name="cd_praise_sensei">老师点赞</string>
+    <string name="cd_sensei_greet">老师问候</string>
+    <string name="mic_permission_required">分析您的口语发音需要麦克风权限</string>
+    <string name="mood_idle">老师已就绪</string>
+    <string name="mood_listening">正在聆听…</string>
+    <string name="mood_speaking">老师正在说</string>
+    <string name="mood_praising">厉害！太棒了！</string>
+    <string name="mood_thinking">正在分析发音…</string>
+    <string name="mood_correcting">老师小贴士</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">全部</string>
+    <string name="lang_japanese">日语</string>
+    <string name="lang_spanish">西班牙语</string>
+    <string name="lang_french">法语</string>
+    <string name="lang_german">德语</string>
+    <string name="lang_korean">韩语</string>
+    <string name="lang_mandarin">普通话</string>
+    <string name="lang_italian">意大利语</string>
+    <string name="lang_english">英语</string>
+    <string name="difficulty_beginner">初级</string>
+    <string name="difficulty_intermediate">中级</string>
+    <string name="difficulty_advanced">高级</string>
+    <string name="difficulty_core">核心</string>
+    <string name="tier_black_belt">黑带导师</string>
+    <string name="tier_gold">黄金段位</string>
+    <string name="tier_silver">白银段位</string>
+    <string name="tier_bronze">青铜段位</string>
+    <string name="tier_white_belt">白带学员</string>
+    <string name="engine_cache">Room 缓存 ($0)</string>
+    <string name="engine_offline">离线教练 ($0)</string>
+    <string name="engine_offline_fallback">离线备选 ($0)</string>
+    <string name="engine_offline_cap">离线备选 ($0 • 已省日限额)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">个人 Gemini 密钥 (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">发现新版本 (v%1$s)</string>
+    <string name="prompt_rate_title">喜欢 Pocket Sensei 吗？</string>
+    <string name="prompt_share_title">分享您的学习进步！</string>
+    <string name="prompt_donation_title">支持 Pocket Sensei？</string>
+    <string name="prompt_update_default_notes">Google Play 上有新版本可用，带来更出色的发音指导与 3D 动画体验。</string>
+    <string name="prompt_rate_body">您已完成 %1$d 次练习并达成 %2$d 个口语里程碑！方便在 Google Play 留下真诚评价吗？</string>
+    <string name="prompt_share_score_note">您刚刚取得了 %1$d%% 的好成绩！</string>
+    <string name="prompt_share_body">练得真棒！%1$s 邀请朋友一起来 Pocket Sensei 3D 开口学外语吧。</string>
+    <string name="prompt_share_body_plain">练得真棒！邀请朋友一起来 Pocket Sensei 3D 开口学外语吧。</string>
+    <string name="prompt_donation_body">您已完成 %1$d 次口语练习！Pocket Sensei 坚持 100%% 无广告——欢迎通过 Google Play、PayPal 二维码或 Ko-fi 请独立开发者喝杯咖啡。</string>
+    <string name="prompt_dont_ask_again">不再提示</string>
+    <string name="prompt_update_now">立即更新</string>
+    <string name="prompt_rate_cta">去 Play 商店评分</string>
+    <string name="prompt_share_cta">分享应用</string>
+    <string name="prompt_donation_cta">查看支持方式</string>
+    <string name="prompt_maybe_later">以后再说</string>
+    <string name="share_app_text">我正在用 Pocket Sensei 3D 练习地道发音和情景对话！一起来试试：%1$s</string>
+    <string name="share_app_subject">Pocket Sensei — 3D 语言与发音教练</string>
+    <string name="share_app_chooser">分享 Pocket Sensei</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">练习短句</string>
+    <string name="coach_dojo_blitz_btn">道场闪电战 ($0)</string>
+    <string name="cd_normal_speed">常速播放</string>
+    <string name="cd_slow_speed">慢速播放</string>
+    <string name="coach_focus_format">练习重点：%1$s</string>
+    <string name="coach_listening_format">🎙️ 正在聆听：“%1$s”</string>
+    <string name="coach_transcribed_format">识别内容：“%1$s”</string>
+    <string name="cd_speak_to_sensei">对老师说话</string>
+    <string name="coach_type_input">手动输入</string>
+    <string name="coach_waveform_title">实时语音波形</string>
+    <string name="coach_waveform_ready">麦克风就绪</string>
+    <string name="coach_waveform_hint">对着麦克风说话即可查看音量峰值、停顿与节奏变化。</string>
+    <string name="coach_waveform_db_format">音量 %1$s dB</string>
+    <string name="coach_evaluating">老师正在评估语音与声调重音…</string>
+    <string name="toast_saved_vocab_firestore">已保存至 Firestore 词汇库！</string>
+    <string name="coach_eval_note_format">评估提示：%1$s</string>
+    <string name="manual_dialog_title">手动语音文本输入</string>
+    <string name="manual_dialog_desc">输入您说出的内容以测试发音评估：</string>
+    <string name="btn_analyze">开始评估</string>
+    <string name="btn_cancel">取消</string>
+    <string name="result_title">发音教练反馈</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">发音准确度</string>
+    <string name="result_pitch_accent">音高重音 / 声调</string>
+    <string name="result_fluency_rhythm">流利度与节奏</string>
+    <string name="cd_mouth_coach">口型教练</string>
+    <string name="result_placement_tip_title">舌位与口型技巧：</string>
+    <string name="result_phonemes_to_refine">待改进音素：</string>
+    <string name="result_native_phrasings">母语者常见地道表达：</string>
+    <string name="cd_synced">已同步</string>
+    <string name="result_saved_to_vocab">已存词汇库</string>
+    <string name="result_support_micro_footer">发音真棒！如果今天 Sensei 帮到了您，欢迎请开发者喝杯咖啡。</string>
+    <string name="result_support_cta_arrow">支持 →</string>
+    <string name="pitch_comparison_title">音高曲线对比</string>
+    <string name="pitch_legend_native">母语目标</string>
+    <string name="pitch_legend_yours">您的音高</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">语音角色扮演场景</string>
+    <string name="roleplay_thinking">%1$s 正在思考回复…</string>
+    <string name="roleplay_suggested_label">推荐回复（点击朗读或发送）：</string>
+    <string name="roleplay_listening_placeholder">🎙️ 正在聆听…</string>
+    <string name="roleplay_input_placeholder">用 %1$s 说话或输入…</string>
+    <string name="cd_send">发送</string>
+    <string name="cd_normal_voice">正常语音</string>
+    <string name="cd_slow_voice">慢速语音</string>
+    <string name="roleplay_hide_translation">隐藏翻译</string>
+    <string name="roleplay_show_translation">查看释义</string>
+    <string name="roleplay_sensei_note">💡 老师：%1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">词汇精通</string>
+    <string name="vocab_tracked_count">Cloud Firestore 中已记录 %1$d 个词条</string>
+    <string name="vocab_empty_title">暂无保存的词汇</string>
+    <string name="vocab_empty_subtitle">在发音教练中练习短句即可添加到这里！</string>
+    <string name="vocab_accuracy_format">准确度 %1$d%%</string>
+    <string name="cd_play_normal">常速播放</string>
+    <string name="vocab_btn_drill">复习</string>
+    <string name="vocab_flashcard_title">🥋 闪卡记忆训练</string>
+    <string name="vocab_meaning_label">释义：</string>
+    <string name="vocab_tap_to_reveal">👉 点击翻看释义</string>
+    <string name="vocab_btn_listen">听读音</string>
+    <string name="vocab_btn_slow">0.75x 慢速</string>
+    <string name="vocab_btn_practice_coach">在教练中练习</string>
+    <string name="btn_close">关闭</string>
+    <string name="vocab_mastery_summary_format">本地记录 %1$d 词 • 已掌握 %2$d 词</string>
+    <string name="vocab_filter_mastery_all">全部等级</string>
+    <string name="vocab_filter_needs_review">待复习 (%1$d)</string>
+    <string name="vocab_filter_learning">学习中 (%1$d)</string>
+    <string name="vocab_filter_mastered">已掌握 (%1$d)</string>
+    <string name="vocab_status_needs_review">待复习</string>
+    <string name="vocab_status_learning">学习中</string>
+    <string name="vocab_status_mastered">已掌握</string>
+    <string name="vocab_level_format">等级 %1$d/5</string>
+    <string name="vocab_practice_count_format">练习 %1$d 次</string>
+    <string name="vocab_btn_drill_weakest">强化弱项</string>
+    <string name="vocab_empty_filtered_subtitle">当前掌握度筛选下暂无词条，可切换筛选或继续练习！</string>
+    <string name="vocab_btn_got_it">已记住</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">道场学员</string>
+    <string name="profile_signed_in_google">已通过 Google 登录</string>
+    <string name="profile_tier_badge">🏆 大师级口语段位</string>
+    <string name="profile_outfit_title">3D 老师装扮</string>
+    <string name="costume_traditional">靛蓝道服</string>
+    <string name="costume_crimson">绯红武士</string>
+    <string name="costume_cyber">赛博霓虹</string>
+    <string name="costume_sakura">樱花羽织</string>
+    <string name="profile_stats_title">学习掌握度与连胜</string>
+    <string name="profile_stat_streak">每日连胜</string>
+    <string name="profile_stat_streak_value">%1$d 天</string>
+    <string name="profile_stat_mastered">已掌握词汇</string>
+    <string name="profile_stat_practice_time">练习时长</string>
+    <string name="profile_stat_practice_value">%1$d 分钟</string>
+    <string name="profile_stat_avg_accuracy">平均准确度</string>
+    <string name="profile_recent_sessions_title">最近对话记录</string>
+    <string name="profile_no_sessions">暂无保存的情景对话。前往“对话”标签页开始练习吧！</string>
+    <string name="profile_telemetry_title">本地 Room 缓存与统计</string>
+    <string name="profile_telemetry_counts">%1$d 个词 • %2$d 条记录</string>
+    <string name="profile_btn_share_app">分享应用</string>
+    <string name="profile_btn_rate_app">评价应用</string>
+    <string name="profile_btn_sign_out">退出 Google 账号</string>
+    <string name="session_accuracy_format">准确度 %1$d%%</string>
+    <string name="session_meta_format">语言：%1$s • %2$d 轮对话</string>
+
+    <!-- League Screen -->
+    <string name="league_title">道场发音联赛</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">练习发音教练（+30–50 XP）或情景对话（+25 XP）即可晋级！</string>
+    <string name="league_empty_title">%1$s 暂无上榜学员</string>
+    <string name="league_empty_subtitle">完成一次发音训练即可将成绩发布到 Cloud Firestore！</string>
+    <string name="league_user_you">%1$s（我）</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$d天 • 平均 %3$d%%</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">AI 教练引擎与成本控制</string>
+    <string name="ai_cached_count">已缓存 %1$d 项 ($0)</string>
+    <string name="ai_cloud_quota_summary">今日免费云端调用：%1$d/%2$d。重复练习直接从 Room 缓存免费加载。</string>
+    <string name="ai_mode_chip_hybrid">混合模式</string>
+    <string name="ai_mode_chip_offline">离线 $0</string>
+    <string name="ai_mode_chip_byok">我的密钥</string>
+    <string name="ai_mode_desc_hybrid">Room 缓存 + 每日免费云端 AI，满额自动切换离线引擎</string>
+    <string name="ai_mode_desc_offline">纯本地音素与音高匹配，零网络流量消耗</string>
+    <string name="ai_mode_desc_byok">使用您自己的个人 Gemini API 密钥享无限 AI 辅导</string>
+    <string name="ai_byok_edit_saved">已保存个人 Gemini 密钥（编辑）</string>
+    <string name="ai_byok_add_prompt">使用自有 Gemini API 密钥 (BYOK)</string>
+    <string name="ai_byok_clear">清除密钥</string>
+    <string name="ai_byok_input_label">您的 Gemini API 密钥（仅私密存储在设备本地）</string>
+    <string name="ai_byok_save_btn">保存并启用 BYOK</string>
+    <string name="blitz_title">道场口语闪电战</string>
+    <string name="blitz_initial_feedback">大声读出短句或点击“听读音”开启连击！</string>
+    <string name="blitz_hit_feedback">命中！准确度 %1$d%%（+%2$d XP，%3$d 连击）</string>
+    <string name="blitz_miss_feedback">差一点 (%1$d%%)！听一下示范再试试。</string>
+    <string name="blitz_skip_feedback">已跳过 — 挑战下一句！</string>
+    <string name="blitz_timer_label">倒计时：%1$d秒</string>
+    <string name="blitz_score_label">得分：%1$d XP</string>
+    <string name="blitz_combo_label">连击：x%1$d</string>
+    <string name="cd_hear_phrase">听取短句</string>
+    <string name="blitz_btn_hear">听读音</string>
+    <string name="cd_blitz_mic">在闪电战中发言</string>
+    <string name="blitz_btn_skip">跳过</string>
+    <string name="blitz_times_up">时间到！+%1$d 道场 XP</string>
+    <string name="blitz_summary">您在 100%% 免费离线模式下完成了 %1$d 个短句。</string>
+    <string name="blitz_play_again">再玩一次</string>
+    <string name="blitz_finish_early">提前结束</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">练习还顺手吗？</string>
+    <string name="donation_banner_subtitle">请独立开发者喝杯咖啡，支持无广告持续更新。</string>
+    <string name="donation_banner_cta">支持</string>
+    <string name="cd_dismiss_donation_banner">关闭支持横幅</string>
+    <string name="support_active_supporter">活跃支持者</string>
+    <string name="support_development_title">支持开发</string>
+    <string name="support_badge_ad_free">无广告独立应用</string>
+    <string name="support_active_desc">感谢您支持 Pocket Sensei！所有赞赏提示已为您永久关闭。</string>
+    <string name="support_inactive_desc">Pocket Sensei 坚持 100%% 无广告与隐私优先。您已完成 %1$d 个练习里程碑，欢迎随时助力新增更多语种。</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / 二维码</string>
+    <string name="channel_paypal_tab">PayPal 与二维码</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">查看隐私政策与数据说明</string>
+    <string name="privacy_policy_title">隐私政策</string>
+    <string name="donation_sheet_subtitle">选择 Google Play、PayPal 二维码或 Ko-fi</string>
+    <string name="donation_active_unlocked">已解锁活跃支持者徽章！所有赞赏提示将永久关闭。</string>
+    <string name="donation_play_desc">Google Pay 一键支付。验证收据后将自动解锁永久支持者徽章。</string>
+    <string name="donation_play_connecting">正在连接 Google Play 结算…</string>
+    <string name="donation_paypal_desc">使用另一台设备扫描实时 PayPal 二维码，或直接打开 PayPal.me。</string>
+    <string name="donation_paypal_any">任意金额</string>
+    <string name="donation_paypal_custom_label">自定义美元金额（可选）</string>
+    <string name="donation_paypal_custom_hint">例如 15</string>
+    <string name="cd_paypal_qr">%1$s 的 PayPal 赞赏二维码</string>
+    <string name="cd_copy_paypal_url">复制 PayPal 链接</string>
+    <string name="donation_btn_open_paypal">打开 PayPal</string>
+    <string name="donation_btn_copy">复制</string>
+    <string name="donation_btn_share">分享</string>
+    <string name="donation_kofi_title">Ko-fi 打赏罐</string>
+    <string name="donation_kofi_desc">通过 Ko-fi 送出一杯虚拟咖啡。将打开浏览器，若无浏览器则自动复制链接。</string>
+    <string name="donation_btn_open_kofi">打开 Ko-fi 页面</string>
+    <string name="donation_btn_copy_link">复制链接</string>
+    <string name="tier1_title">抹茶清茶</string>
+    <string name="tier1_subtitle">档位 1 • 一点心意</string>
+    <string name="tier1_badge">档位 1</string>
+    <string name="tier2_title">老师的咖啡</string>
+    <string name="tier2_subtitle">档位 2 • 助力新短句包</string>
+    <string name="tier2_badge">热门</string>
+    <string name="tier3_title">道场便当</string>
+    <string name="tier3_subtitle">档位 3 • 支持 3D 语音辅导</string>
+    <string name="tier3_badge">档位 3</string>
+    <string name="tier4_title">大师赞助人</string>
+    <string name="tier4_subtitle">档位 4 • 守护独立教育应用</string>
+    <string name="tier4_badge">档位 4</string>
+    <string name="billing_purchase_canceled">购买已取消 — 感谢您考虑支持 Pocket Sensei！</string>
+    <string name="billing_service_unavailable">服务不可用</string>
+    <string name="billing_error_fallback">Google Play 结算返回：%1$s。您也可以使用下方的 PayPal 或 Ko-fi。</string>
+    <string name="billing_receipt_failed">收据验证失败，请重试。</string>
+    <string name="billing_pending">您的 Google Play 赞赏正在处理中。确认后将自动解锁活跃支持者徽章。</string>
+    <string name="billing_verified">感谢！您的 Google Play 赞赏已核验，活跃支持者徽章已永久解锁。</string>
+    <string name="billing_missing_activity">无法定位用于 Google Play 结账的活动窗口。请从主屏幕重试或使用 PayPal / Ko-fi。</string>
+    <string name="billing_store_unavailable">此设备/版本暂不支持 Google Play 商店结算 (%1$s)。您随时可以使用 PayPal 二维码或 Ko-fi。</string>
+    <string name="billing_code_prefix">代码 %1$d</string>
+    <string name="billing_disconnected">Google Play 结算已断开。请重试或选择 PayPal / Ko-fi。</string>
+    <string name="billing_item_unpublished">应用内商品“%1$s”尚未在此构建的 Play Console 轨道上发布。下方的 PayPal 二维码和 Ko-fi 可立即使用！</string>
+    <string name="billing_checkout_error">无法打开 Google Play 结账页面 (%1$s)。</string>
+    <string name="paypal_label">PayPal 赞赏链接</string>
+    <string name="paypal_no_browser_toast">未找到浏览器 — 已将 PayPal 链接复制到剪贴板！</string>
+    <string name="paypal_copied_toast">已复制 PayPal 链接：%1$s</string>
+    <string name="paypal_share_subject">支持 Pocket Sensei</string>
+    <string name="paypal_share_text">支持 Pocket Sensei 3D 语言与发音教练：%1$s</string>
+    <string name="paypal_share_chooser">分享赞赏链接</string>
+    <string name="kofi_label">Ko-fi 主页链接</string>
+    <string name="kofi_no_browser_toast">未找到浏览器 — 已将 Ko-fi 链接复制到剪贴板！</string>
+    <string name="kofi_copied_toast">已复制 Ko-fi 链接：%1$s</string>
+    <string name="privacy_loaded_in_app">已在应用内加载隐私政策。</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">此设备不支持语音识别，请改用“输入”功能。</string>
+    <string name="hud_praise_speech">太棒了！非常出色！</string>
+    <string name="hud_greet_speech">你好！今天一起来练习口语吧！</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">评估失败</string>
+    <string name="error_roleplay_failed">老师暂时无法回复。</string>
+    <string name="coach_default_accent_focus">元音与辅音清晰度</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">元音长度饱满，辅音发音干脆！请保持这种放松的语速。</string>
+    <string name="eval_tip_missed_format">请重点清晰拼读：%1$s。发重读元音时保持下颌稳定。</string>
+    <string name="eval_tip_slow_down">音节之间稍微放慢一些，清晰饱满地发出重读元音。</string>
+    <string name="eval_encourage_high">太棒了！已完成本地评估（$0 离线模式）。</string>
+    <string name="eval_encourage_mid">节奏很好！再放慢语速练一遍，口音会更地道。</string>
+    <string name="eval_encourage_low">不错的尝试——点击“慢速”音频，听清每个音节的发音。</string>
+    <string name="eval_contour_type_format">%1$s 本地音调曲线</string>
+    <string name="eval_pitch_guidance_default">顺畅贴合绿色虚线所示母语者音高的起伏变化。</string>
+    <string name="eval_contour_default">自然重音曲线</string>
+    <string name="eval_tip_default">保持口腔放松，清晰吐字。</string>
+    <string name="eval_encourage_default">很棒的尝试！勤加练习定能熟能生巧。</string>
+    <string name="eval_pitch_guidance_cloud_default">让重音升调贴合母语者的语调曲线。</string>
+    <string name="roleplay_offline_note_format">离线教练（$0 模式）：已顺利收到“%1$s”。请保持自然语速！</string>
+    <string name="roleplay_offline_translation_fallback">离线练习模式回复</string>
+    <string name="roleplay_offline_reply_default">太棒了！让我们继续用 %1$s 练习自然的语流节奏。</string>
+    <string name="roleplay_offline_reply_ja_translation">好的，明白了！请问还需要点些什么吗？</string>
+    <string name="roleplay_offline_reply_fr_translation">好的！请问还需要搭配其他东西吗？</string>
+    <string name="roleplay_offline_reply_es_translation">太好了！我马上为您端来。还需要点什么喝的吗？</string>
+    <string name="roleplay_offline_reply_ko_translation">好的，明白了！请稍等片刻。</string>
+    <string name="roleplay_offline_reply_de_translation">太精彩了！可以再多和我讲讲这方面的情况吗？</string>
+    <string name="roleplay_offline_reply_it_translation">没问题！今天还需要些什么吗？</string>
+    <string name="roleplay_cloud_note_default">对话非常流畅自然！</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">你好，最近怎么样？</string>
+    <string name="phrase_ja_1_focus">“Konnichiwa”的平板音调</string>
+    <string name="phrase_ja_2_translation">请给我这个。</string>
+    <string name="phrase_ja_2_focus">轻巧的舌尖闪音“r”</string>
+    <string name="phrase_ja_3_translation">非常感谢！</string>
+    <string name="phrase_ja_3_focus">长元音“ou”的拉长</string>
+    <string name="phrase_ja_4_translation">请问车站怎么走？</string>
+    <string name="phrase_ja_4_focus">礼貌询问的句尾升调</string>
+    <string name="phrase_ja_5_translation">非常美味！</string>
+    <string name="phrase_ja_5_focus">“desu”中清化弱读的“u”</string>
+
+    <string name="phrase_fr_1_translation">你好，很高兴认识你。</string>
+    <string name="phrase_fr_1_focus">柔和鼻元音“en”和“on”</string>
+    <string name="phrase_fr_2_translation">请给我一个牛角面包和一杯咖啡。</string>
+    <string name="phrase_fr_2_focus">法语小舌音“r”</string>
+    <string name="phrase_fr_3_translation">请问洗手间在哪里？</string>
+    <string name="phrase_fr_3_focus">顺畅的连诵（Liaison）</string>
+    <string name="phrase_fr_4_translation">真是太美妙了！</string>
+    <string name="phrase_fr_4_focus">双唇撮圆的纯元音“u”</string>
+
+    <string name="phrase_es_1_translation">你好！你今天怎么样？</string>
+    <string name="phrase_es_1_focus">清晰饱满的单元音</string>
+    <string name="phrase_es_2_translation">请给我们一张两人桌。</string>
+    <string name="phrase_es_2_focus">轻点一下的单颤音“r”</string>
+    <string name="phrase_es_3_translation">快速铁路。</string>
+    <string name="phrase_es_3_focus">大舌颤音“rr”</string>
+    <string name="phrase_es_4_translation">请结账。</string>
+    <string name="phrase_es_4_focus">重音落在词尾音节上</string>
+
+    <string name="phrase_de_1_translation">早上好，您好吗？</string>
+    <string name="phrase_de_1_focus">Ihnen 中的长元音“ee”</string>
+    <string name="phrase_de_2_translation">请给我来一杯咖啡。</string>
+    <string name="phrase_de_2_focus">柔和的硬腭/软腭擦音“ch”</string>
+    <string name="phrase_de_3_translation">非常感谢您的帮助！</string>
+    <string name="phrase_de_3_focus">圆唇元音“ö”和“ü”</string>
+
+    <string name="phrase_ko_1_translation">你好，很高兴见到你！</string>
+    <string name="phrase_ko_1_focus">礼貌舒缓的句调起伏</string>
+    <string name="phrase_ko_2_translation">这个多少钱？</string>
+    <string name="phrase_ko_2_focus">eol-ma 中柔和的收音“l”</string>
+    <string name="phrase_ko_3_translation">请慢用！</string>
+    <string name="phrase_ko_3_focus">送气音与紧音的区分</string>
+
+    <string name="phrase_zh_1_translation">你好，很高兴认识你！</string>
+    <string name="phrase_zh_1_focus">“你好”双上声的变调规律</string>
+    <string name="phrase_zh_2_translation">请问这个多少钱？</string>
+    <string name="phrase_zh_2_focus">“这”的第四声与“钱”的第二声</string>
+    <string name="phrase_zh_3_translation">太好吃了，谢谢！</string>
+    <string name="phrase_zh_3_focus">“太”和“谢”的干脆去声（四声）</string>
+
+    <string name="phrase_it_1_translation">您好！最近怎么样？</string>
+    <string name="phrase_it_1_focus">富有音乐感的音节节奏</string>
+    <string name="phrase_it_2_translation">请给我一个开心果冰淇淋。</string>
+    <string name="phrase_it_2_focus">双辅音“cch”的短暂停顿</string>
+    <string name="phrase_it_3_translation">万分感谢您所做的一切！</string>
+    <string name="phrase_it_3_focus">明快的齿音“t”和“z”</string>
+
+    <string name="phrase_en_1_translation">问路请求</string>
+    <string name="phrase_en_1_focus">the 中的浊齿擦音“th”</string>
+    <string name="phrase_en_2_translation">职场面试日程沟通</string>
+    <string name="phrase_en_2_focus">schedule 中的辅音音群过渡</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">东京咖啡馆点单</string>
+    <string name="scenario_tokyo_cafe_sensei">咖啡师</string>
+    <string name="scenario_tokyo_cafe_user">顾客</string>
+    <string name="scenario_tokyo_cafe_init_translation">欢迎光临！请问决定好点什么了吗？</string>
+
+    <string name="scenario_paris_boulangerie_title">巴黎烘焙坊</string>
+    <string name="scenario_paris_boulangerie_sensei">面包大师</string>
+    <string name="scenario_paris_boulangerie_user">顾客</string>
+    <string name="scenario_paris_boulangerie_init_translation">你好！今天想吃点什么呢？</string>
+
+    <string name="scenario_madrid_tapas_title">马德里小吃吧</string>
+    <string name="scenario_madrid_tapas_sensei">酒馆店主</string>
+    <string name="scenario_madrid_tapas_user">食客</string>
+    <string name="scenario_madrid_tapas_init_translation">下午好！先来点什么喝的吗？</string>
+
+    <string name="scenario_seoul_market_title">首尔夜市</string>
+    <string name="scenario_seoul_market_sensei">街头摊主大厨</string>
+    <string name="scenario_seoul_market_user">游客</string>
+    <string name="scenario_seoul_market_init_translation">欢迎光临！快来尝尝热气腾腾的炒年糕吧！</string>
+
+    <string name="scenario_rome_gelato_title">佛罗伦萨冰淇淋店</string>
+    <string name="scenario_rome_gelato_sensei">意式冰淇淋师</string>
+    <string name="scenario_rome_gelato_user">顾客</string>
+    <string name="scenario_rome_gelato_init_translation">你好！要甜筒还是杯装？喜欢什么口味？</string>
+
+    <string name="scenario_berlin_tech_title">柏林科技交流会</string>
+    <string name="scenario_berlin_tech_sensei">技术负责人</string>
+    <string name="scenario_berlin_tech_user">工程师</string>
+    <string name="scenario_berlin_tech_init_translation">你好！很高兴你来参加。你目前在做什么项目？</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">跳过</string>
+    <string name="onboarding_back">上一步</string>
+    <string name="onboarding_next">下一步</string>
+    <string name="onboarding_get_started">开始开口说</string>
+    <string name="onboarding_step_format">第 %1$d / %2$d 步</string>
+    <string name="onboarding_page1_badge">3D 语音与音调工作室</string>
+    <string name="onboarding_page1_title">跟随 3D 老师练就地道发音</string>
+    <string name="onboarding_page1_subtitle">通过 60fps 实时声波、音高曲线与口型舌位指导，直观掌握每一个音节。</string>
+    <string name="onboarding_page2_badge">沉浸式文化角色扮演</string>
+    <string name="onboarding_page2_title">演练真实旅行对话场景</string>
+    <string name="onboarding_page2_subtitle">在东京咖啡馆、巴黎面包房或马德里小吃吧畅所欲言，配有实时音标与智能回复建议。</string>
+    <string name="onboarding_page3_badge">词汇精通与道场联赛</string>
+    <string name="onboarding_page3_title">积累核心词汇，冲击联赛榜首</string>
+    <string name="onboarding_page3_subtitle">使用间隔重复闪卡复习单词，挑战 45 秒道场闪电战，并在下方选择你的第一门练习语言。</string>
+    <string name="onboarding_select_language_label">选择你要开始练习的语言：</string>
+    <string name="profile_btn_replay_onboarding">互动导览</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">切换 3D 先生舞台大小</string>
+    <string name="daily_goal_title">每日道场目标</string>
+    <string name="daily_goal_progress_format">今日已完成 %1$d / %2$d 次练习</string>
+    <string name="daily_goal_completed_badge">已达成目标！</string>
+    <string name="donation_perks_title">包含支持者权益</string>
+    <string name="donation_perks_summary">永久隐藏横幅与提示，并支持开发更多语音和离线语言包。</string>
+    <string name="donation_recommended_tag">最受欢迎</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">每日学习连胜</string>
+    <string name="streak_best_format">最高纪录：%1$d 天</string>
+    <string name="streak_status_active_today">今日连胜已锁定！继续开口打磨你的发音吧。</string>
+    <string name="streak_status_pending_today">今天完成 1 次发音教练评估即可锁定每日连胜。</string>
+    <string name="streak_new_day_banner_format">已解锁 %1$d 天连胜！</string>
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">录制音样</string>
+    <string name="coach_stop_pitch_rec">停止录音</string>
+    <string name="coach_play_mine">听听自己</string>
+    <string name="coach_stop_mine">停止播放</string>
+    <string name="pitch_live_mic_badge">实时F0麦克风</string>
+    <string name="result_play_sensei">老师原声</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">今日待复习 (%1$d)</string>
+    <string name="vocab_due_now_badge">待复习</string>
+    <string name="vocab_next_interval_format">%1$d天后</string>
+    <string name="vocab_next_review_hint_format">记住后将于%1$d天后再次复习</string>
+    <string name="vocab_btn_repeat">再练一遍</string>
+    <string name="streak_freeze_count_format">连胜保护卡: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">连胜保护卡保住了你的连胜纪录！</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">通勤跟读模式</string>
+    <string name="shadowing_subtitle">免提循环听读训练</string>
+    <string name="shadowing_speed_slow">0.75倍速</string>
+    <string name="shadowing_speed_normal">1.0倍速</string>
+    <string name="shadowing_btn_start">开始</string>
+    <string name="shadowing_btn_stop">停止</string>
+    <string name="shadowing_step_listening">老师朗读中 — 请仔细聆听…</string>
+    <string name="shadowing_step_repeat">轮到你了 — 请大声跟读…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">添加短语</string>
+    <string name="custom_phrase_dialog_title">添加自定义%1$s短语</string>
+    <string name="custom_phrase_target_label">目标语言短语</string>
+    <string name="custom_phrase_phonetic_label">音标 / 拼音提示</string>
+    <string name="custom_phrase_translation_label">释义</string>
+    <string name="custom_phrase_focus_label">发音重点提示</string>
+    <string name="custom_save_btn">保存</string>
+    <string name="custom_scenario_btn">新建场景</string>
+    <string name="custom_scenario_dialog_title">创建%1$s角色扮演</string>
+    <string name="custom_scenario_templates_label">快速预设模板:</string>
+    <string name="custom_scenario_title_label">场景标题</string>
+    <string name="custom_scenario_sensei_role_label">老师角色（如：面试官）</string>
+    <string name="custom_scenario_user_role_label">你的角色（如：求职者）</string>
+    <string name="custom_scenario_opening_label">老师开场白</string>
+    <string name="scenario_template_interview_title">求职面试</string>
+    <string name="scenario_template_interview_sensei">招聘经理</string>
+    <string name="scenario_template_interview_user">应聘者</string>
+    <string name="scenario_template_interview_open">你好！感谢今天前来面试，请先简单介绍一下你自己吧？</string>
+    <string name="scenario_template_hotel_title">酒店入住</string>
+    <string name="scenario_template_hotel_sensei">前台接待</string>
+    <string name="scenario_template_hotel_user">住客</string>
+    <string name="scenario_template_hotel_open">欢迎光临本酒店！请问您有用您的姓名预订房间吗？</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">每日练习提醒</string>
+    <string name="reminder_channel_desc">如果当天的连胜尚未完成，将在晚间发送可选提醒。</string>
+    <string name="reminder_notif_title">保持道场连胜不断！ 🔥</string>
+    <string name="reminder_notif_body_format">你已连续打卡 %1$d 天 — 睡前练一句巩固发音吧。</string>
+    <string name="reminder_card_title">晚间连胜提醒</string>
+    <string name="reminder_card_subtitle">仅在今天尚未练习时发送智能提醒</string>
+    <string name="reminder_time_label">提醒时间:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">请在系统设置中开启通知权限以接收提醒。</string>
+    <string name="share_card_btn">分享战绩卡</string>
+    <string name="share_card_chooser">分享成就卡片</string>
+    <string name="share_card_headline_score">发音精通认证</string>
+    <string name="share_card_headline_streak">道场连胜里程碑</string>
+    <string name="share_card_streak_format">连续 %1$d 天</string>
+    <string name="difficulty_custom">自定义</string>
+    <string name="ai_byok_get_key_btn">获取免费 Gemini 密钥 (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ 生成 AI 主题课程包</string>
+    <string name="roleplay_live_call_start">实时通话</string>
+    <string name="roleplay_live_call_active">结束通话</string>
+    <string name="topic_pack_phrase1_trans">打扰一下，请向我介绍一下%1$s。</string>
+    <string name="topic_pack_phrase2_trans">您推荐哪一个？</string>
+    <string name="topic_pack_phrase3_trans">非常有帮助，太感谢了！</string>
+    <string name="topic_pack_sensei_role">当地向导</string>
+    <string name="topic_pack_user_role">旅行者</string>
+    <string name="scenario_shanghai_tea_title">上海茶馆品茗</string>
+    <string name="scenario_shanghai_tea_sensei">茶艺师</string>
+    <string name="scenario_shanghai_tea_user">茶客</string>
+    <string name="scenario_shanghai_tea_init_translation">欢迎光临！今天您想品尝哪款茗茶？</string>
+    <string name="scenario_london_interview_title">伦敦工作室咖啡</string>
+    <string name="scenario_london_interview_sensei">项目负责人</string>
+    <string name="scenario_london_interview_user">创作者</string>
+    <string name="scenario_london_interview_init_translation">早上好！聊聊你的下一个项目中最让你兴奋的地方吧。</string>
+</resources>

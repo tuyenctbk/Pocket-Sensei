@@ -1,0 +1,554 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">Interactieve 3D taal- en uitspraakcoach</string>
+    <string name="splash_ready">Klaar om vol vertrouwen te spreken ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">Sensei 3D</string>
+    <string name="auth_subtitle">Interactieve 3D taal- &amp; accentcoach</string>
+    <string name="auth_feature_avatar_title">Lokale 3D Sensei-avatar</string>
+    <string name="auth_feature_avatar_desc">Three.js-personage met realtime lipsynchronisatie &amp; gezichtsuitdrukkingen</string>
+    <string name="auth_feature_coach_title">Gemini Live-accentcoaching</string>
+    <string name="auth_feature_coach_desc">Directe uitspraakfeedback &amp; tips voor tong- en mondstand</string>
+    <string name="auth_feature_roleplay_title">Gesproken rollenspellen</string>
+    <string name="auth_feature_roleplay_desc">Bestel in een café, praat op de markt of oefen sollicitaties</string>
+    <string name="auth_feature_sync_title">Firestore-cloudsync</string>
+    <string name="auth_feature_sync_desc">Sla beheerste woorden op en behoud je dagelijkse reeks</string>
+    <string name="cd_sign_in_icon">Inlogpictogram</string>
+    <string name="auth_sign_in_google">Inloggen met Google</string>
+    <string name="auth_sign_in_footer">Log in om je reeksen en woordenschat op te slaan in Firestore</string>
+    <string name="auth_error_missing_client_id">Google-inlogconfiguratie ontbreekt: default_web_client_id niet gevonden</string>
+    <string name="auth_error_unexpected_credential">Onverwacht inlogtype</string>
+    <string name="auth_error_sign_in_failed">Inloggen mislukt</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">Spraakcoach</string>
+    <string name="nav_roleplay">Dialoog</string>
+    <string name="nav_vocab">Woorden</string>
+    <string name="nav_league">Divisie</string>
+    <string name="nav_profile">Profiel</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">Actieve Supporter</string>
+    <string name="supporter_badge_short">Steuner</string>
+    <string name="cd_support_app">Steun Pocket Sensei</string>
+    <string name="cd_streak">Reeks</string>
+    <string name="streak_day_format">%1$d d</string>
+    <string name="cd_cycle_outfit">Sensei-outfit wisselen</string>
+    <string name="cd_praise_sensei">Sensei-compliment</string>
+    <string name="cd_sensei_greet">Sensei-groet</string>
+    <string name="mic_permission_required">Microfoontoegang is vereist om je uitspraak te analyseren</string>
+    <string name="mood_idle">Sensei klaar</string>
+    <string name="mood_listening">Luisteren…</string>
+    <string name="mood_speaking">Sensei spreekt</string>
+    <string name="mood_praising">Sugoi! Uitstekend!</string>
+    <string name="mood_thinking">Accent analyseren…</string>
+    <string name="mood_correcting">Tip van Sensei</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">Alle</string>
+    <string name="lang_japanese">Japans</string>
+    <string name="lang_spanish">Spaans</string>
+    <string name="lang_french">Frans</string>
+    <string name="lang_german">Duits</string>
+    <string name="lang_korean">Koreaans</string>
+    <string name="lang_mandarin">Mandarijn</string>
+    <string name="lang_italian">Italiaans</string>
+    <string name="lang_english">Engels</string>
+    <string name="difficulty_beginner">Starter</string>
+    <string name="difficulty_intermediate">Gemiddeld</string>
+    <string name="difficulty_advanced">Gevorderd</string>
+    <string name="difficulty_core">Basis</string>
+    <string name="tier_black_belt">Zwarte Band Sensei</string>
+    <string name="tier_gold">Gouden Niveau</string>
+    <string name="tier_silver">Zilveren Niveau</string>
+    <string name="tier_bronze">Bronzen Niveau</string>
+    <string name="tier_white_belt">Witte Band</string>
+    <string name="engine_cache">Room-cache ($0)</string>
+    <string name="engine_offline">Offline coach ($0)</string>
+    <string name="engine_offline_fallback">Offline back-up ($0)</string>
+    <string name="engine_offline_cap">Offline back-up ($0 • Limiet gespaard)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">Jouw Gemini-sleutel (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">Nieuwe update klaar (v%1$s)</string>
+    <string name="prompt_rate_title">Tevreden over Pocket Sensei?</string>
+    <string name="prompt_share_title">Deel je voortgang!</string>
+    <string name="prompt_donation_title">Pocket Sensei steunen?</string>
+    <string name="prompt_update_default_notes">Er is een nieuwere versie op Google Play met verbeterde accentcoaching en 3D-animaties.</string>
+    <string name="prompt_rate_body">Je hebt %1$d sessies en %2$d spreekmijlpalen gehaald! Wil je een eerlijke review achterlaten op Google Play?</string>
+    <string name="prompt_share_score_note">Je scoorde zojuist %1$d%%!</string>
+    <string name="prompt_share_body">Geweldig geoefend! %1$s Nodig een vriend uit om talen te spreken met Pocket Sensei 3D.</string>
+    <string name="prompt_share_body_plain">Geweldig geoefend! Nodig een vriend uit om talen te spreken met Pocket Sensei 3D.</string>
+    <string name="prompt_donation_body">Je hebt %1$d spreeksessies voltooid! Pocket Sensei blijft 100%% reclamevrij — trakteer de indie-ontwikkelaar op een kopje koffie via Google Play, PayPal QR of Ko-fi.</string>
+    <string name="prompt_dont_ask_again">Niet meer vragen</string>
+    <string name="prompt_update_now">Nu bijwerken</string>
+    <string name="prompt_rate_cta">Beoordeel in Play Store</string>
+    <string name="prompt_share_cta">App delen</string>
+    <string name="prompt_donation_cta">Steunopties</string>
+    <string name="prompt_maybe_later">Misschien later</string>
+    <string name="share_app_text">Ik oefen uitspraak en live dialogen met Pocket Sensei 3D! Doe mee: %1$s</string>
+    <string name="share_app_subject">Pocket Sensei — 3D Taal- &amp; Accentcoach</string>
+    <string name="share_app_chooser">Pocket Sensei delen</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">Oefenzinnen</string>
+    <string name="coach_dojo_blitz_btn">Dojo Bliksem ($0)</string>
+    <string name="cd_normal_speed">Normale snelheid</string>
+    <string name="cd_slow_speed">Langzame audio</string>
+    <string name="coach_focus_format">Aandachtspunt: %1$s</string>
+    <string name="coach_listening_format">🎙️ Luisteren: \"%1$s\"</string>
+    <string name="coach_transcribed_format">Herkenning: \"%1$s\"</string>
+    <string name="cd_speak_to_sensei">Spreek tegen Sensei</string>
+    <string name="coach_type_input">Typen</string>
+    <string name="coach_waveform_title">Live Spraakpatroon</string>
+    <string name="coach_waveform_ready">Microfoon gereed</string>
+    <string name="coach_waveform_hint">Spreek in de microfoon om volumepieken, pauzes en ritme te zien.</string>
+    <string name="coach_waveform_db_format">Niveau %1$s dB</string>
+    <string name="coach_evaluating">Sensei beoordeelt fonetiek &amp; toonhoogte…</string>
+    <string name="toast_saved_vocab_firestore">Opgeslagen in Firestore Woordenbank!</string>
+    <string name="coach_eval_note_format">Beoordelingsnotitie: %1$s</string>
+    <string name="manual_dialog_title">Handmatige spraakinvoer</string>
+    <string name="manual_dialog_desc">Voer in wat je hebt gezegd om de uitspraakbeoordeling te testen:</string>
+    <string name="btn_analyze">Analyseren</string>
+    <string name="btn_cancel">Annuleren</string>
+    <string name="result_title">Feedback van Accentcoach</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">Fonetische precisie</string>
+    <string name="result_pitch_accent">Toonhoogte / Toon</string>
+    <string name="result_fluency_rhythm">Vloeiendheid &amp; ritme</string>
+    <string name="cd_mouth_coach">Uitspraakcoach</string>
+    <string name="result_placement_tip_title">Tip voor tong- en mondstand:</string>
+    <string name="result_phonemes_to_refine">Klanken om te verfijnen:</string>
+    <string name="result_native_phrasings">Zo zeggen moedertaalsprekers het ook:</string>
+    <string name="cd_synced">Gesynchroniseerd</string>
+    <string name="result_saved_to_vocab">Opgeslagen</string>
+    <string name="result_support_micro_footer">Mooie uitspraak! Trakteer de maker op koffie als Sensei vandaag hielp.</string>
+    <string name="result_support_cta_arrow">Steun →</string>
+    <string name="pitch_comparison_title">Vergelijking tooncurve</string>
+    <string name="pitch_legend_native">Moedertaaldoel</string>
+    <string name="pitch_legend_yours">Jouw toon</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">Gesproken rollenspel-scenario\'s</string>
+    <string name="roleplay_thinking">%1$s bedenkt een antwoord…</string>
+    <string name="roleplay_suggested_label">Voorgestelde antwoorden (tik om te spreken of te sturen):</string>
+    <string name="roleplay_listening_placeholder">🎙️ Luisteren…</string>
+    <string name="roleplay_input_placeholder">Spreek of typ in het %1$s…</string>
+    <string name="cd_send">Verzenden</string>
+    <string name="cd_normal_voice">Normale stem</string>
+    <string name="cd_slow_voice">Langzame stem</string>
+    <string name="roleplay_hide_translation">Vertaling verbergen</string>
+    <string name="roleplay_show_translation">Betekenis tonen</string>
+    <string name="roleplay_sensei_note">💡 Sensei-tip: %1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">Woordenschatbeheersing</string>
+    <string name="vocab_tracked_count">%1$d woorden bijgehouden in Cloud Firestore</string>
+    <string name="vocab_empty_title">Nog geen woorden opgeslagen</string>
+    <string name="vocab_empty_subtitle">Oefen zinnen in de Accentcoach om ze hier toe te voegen!</string>
+    <string name="vocab_accuracy_format">%1$d%% nauwkeurig</string>
+    <string name="cd_play_normal">Normaal afspelen</string>
+    <string name="vocab_btn_drill">Oefen</string>
+    <string name="vocab_flashcard_title">🥋 Flitskaart-oefening</string>
+    <string name="vocab_meaning_label">Betekenis:</string>
+    <string name="vocab_tap_to_reveal">👉 Tik om de betekenis te tonen</string>
+    <string name="vocab_btn_listen">Luister</string>
+    <string name="vocab_btn_slow">0.75x Langzaam</string>
+    <string name="vocab_btn_practice_coach">Oefen in Coach</string>
+    <string name="btn_close">Sluiten</string>
+    <string name="vocab_mastery_summary_format">%1$d offline • %2$d beheerst</string>
+    <string name="vocab_filter_mastery_all">Alle niveaus</string>
+    <string name="vocab_filter_needs_review">Herhalen (%1$d)</string>
+    <string name="vocab_filter_learning">Lerend (%1$d)</string>
+    <string name="vocab_filter_mastered">Beheerst (%1$d)</string>
+    <string name="vocab_status_needs_review">Herhalen</string>
+    <string name="vocab_status_learning">Lerend</string>
+    <string name="vocab_status_mastered">Beheerst</string>
+    <string name="vocab_level_format">Niv %1$d/5</string>
+    <string name="vocab_practice_count_format">%1$d× geoefend</string>
+    <string name="vocab_btn_drill_weakest">Zwakste oefenen</string>
+    <string name="vocab_empty_filtered_subtitle">Nog geen woorden voor dit niveaufilter. Kies een ander filter of oefen meer!</string>
+    <string name="vocab_btn_got_it">Begrepen</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">Sensei-leerling</string>
+    <string name="profile_signed_in_google">Ingelogd met Google</string>
+    <string name="profile_tier_badge">🏆 Meesterspreker-niveau</string>
+    <string name="profile_outfit_title">3D Sensei-outfit</string>
+    <string name="costume_traditional">Indigo Kimono</string>
+    <string name="costume_crimson">Karmozijn Samoerai</string>
+    <string name="costume_cyber">Cyber-neon</string>
+    <string name="costume_sakura">Sakura-gewaad</string>
+    <string name="profile_stats_title">Beheersing &amp; reeksen</string>
+    <string name="profile_stat_streak">Dagelijkse reeks</string>
+    <string name="profile_stat_streak_value">%1$d dagen</string>
+    <string name="profile_stat_mastered">Woorden beheerst</string>
+    <string name="profile_stat_practice_time">Oefentijd</string>
+    <string name="profile_stat_practice_value">%1$d min</string>
+    <string name="profile_stat_avg_accuracy">Gem. nauwkeurig</string>
+    <string name="profile_recent_sessions_title">Recente rollenspelsessies</string>
+    <string name="profile_no_sessions">Nog geen gesprekken opgeslagen. Oefen een scenario in Dialoog!</string>
+    <string name="profile_telemetry_title">Lokale Room-cache &amp; telemetrie</string>
+    <string name="profile_telemetry_counts">%1$d woorden • %2$d events</string>
+    <string name="profile_btn_share_app">App delen</string>
+    <string name="profile_btn_rate_app">Beoordeel</string>
+    <string name="profile_btn_sign_out">Uitloggen bij Google</string>
+    <string name="session_accuracy_format">%1$d%% nauwkeurig</string>
+    <string name="session_meta_format">Taal: %1$s • %2$d beurten</string>
+
+    <!-- League Screen -->
+    <string name="league_title">Dojo Accentdivisie</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">Oefen in Coach (+30–50 XP) of Dialoog (+25 XP) om te stijgen!</string>
+    <string name="league_empty_title">Nog geen geklasseerde leerlingen voor %1$s</string>
+    <string name="league_empty_subtitle">Voltooi een accenoefening om je score op Cloud Firestore te plaatsen!</string>
+    <string name="league_user_you">%1$s (Jij)</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$dd • %3$d%% gem</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">AI-coachmotor &amp; kostenbeheer</string>
+    <string name="ai_cached_count">%1$d gecacht ($0)</string>
+    <string name="ai_cloud_quota_summary">Gratis cloud-aanroepen vandaag: %1$d/%2$d. Herhalingen laden gratis uit Room.</string>
+    <string name="ai_mode_chip_hybrid">Hybride</string>
+    <string name="ai_mode_chip_offline">Lokaal $0</string>
+    <string name="ai_mode_chip_byok">Mijn sleutel</string>
+    <string name="ai_mode_desc_hybrid">Room-cache + dagelijkse gratis cloud-AI met directe offline back-up</string>
+    <string name="ai_mode_desc_offline">Volledig lokale fonetiek- &amp; toonvergelijking zonder dataverbruik</string>
+    <string name="ai_mode_desc_byok">Onbeperkte AI-coaching met je eigen persoonlijke Gemini API-sleutel</string>
+    <string name="ai_byok_edit_saved">Persoonlijke Gemini-sleutel opgeslagen (Bewerken)</string>
+    <string name="ai_byok_add_prompt">Gebruik eigen Gemini API-sleutel (BYOK)</string>
+    <string name="ai_byok_clear">Sleutel wissen</string>
+    <string name="ai_byok_input_label">Jouw Gemini API-sleutel (privé op apparaat opgeslagen)</string>
+    <string name="ai_byok_save_btn">Opslaan &amp; BYOK inschakelen</string>
+    <string name="blitz_title">Dojo Spreek Blitz</string>
+    <string name="blitz_initial_feedback">Spreek de zin uit of tik op Luister om je combo te starten!</string>
+    <string name="blitz_hit_feedback">Raak! %1$d%% nauwkeurig (+%2$d XP, x%3$d combo)</string>
+    <string name="blitz_miss_feedback">Bijna (%1$d%%)! Tik op Luister en probeer nog eens.</string>
+    <string name="blitz_skip_feedback">Overgeslagen — probeer de volgende zin!</string>
+    <string name="blitz_timer_label">Tijd: %1$ds</string>
+    <string name="blitz_score_label">Punten: %1$d XP</string>
+    <string name="blitz_combo_label">Reeks: x%1$d</string>
+    <string name="cd_hear_phrase">Zin beluisteren</string>
+    <string name="blitz_btn_hear">Luister</string>
+    <string name="cd_blitz_mic">Spreek in Dojo Blitz</string>
+    <string name="blitz_btn_skip">Overslaan</string>
+    <string name="blitz_times_up">Tijd om! +%1$d Dojo XP</string>
+    <string name="blitz_summary">Je hebt %1$d zinnen voltooid in 100%% gratis offlinemodus.</string>
+    <string name="blitz_play_again">Opnieuw spelen</string>
+    <string name="blitz_finish_early">Stoppen</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">Bevalt het oefenen?</string>
+    <string name="donation_banner_subtitle">Steun reclamevrije indie-ontwikkeling met een kopje koffie.</string>
+    <string name="donation_banner_cta">Steun</string>
+    <string name="cd_dismiss_donation_banner">Steunbanner sluiten</string>
+    <string name="support_active_supporter">Actieve Supporter</string>
+    <string name="support_development_title">Steun ontwikkeling</string>
+    <string name="support_badge_ad_free">Reclamevrije indie-app</string>
+    <string name="support_active_desc">Bedankt voor je steun aan Pocket Sensei! Alle donatieverzoeken zijn permanent uitgeschakeld.</string>
+    <string name="support_inactive_desc">Pocket Sensei blijft 100%% reclamevrij en privacygericht. Je hebt %1$d mijlpalen behaald — steun nieuwe talen wanneer je wilt.</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / QR</string>
+    <string name="channel_paypal_tab">PayPal &amp; QR</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">Bekijk Privacybeleid &amp; Gegevens</string>
+    <string name="privacy_policy_title">Privacybeleid</string>
+    <string name="donation_sheet_subtitle">Kies Google Play, PayPal QR of Ko-fi</string>
+    <string name="donation_active_unlocked">Actieve Supporter ontgrendeld! Alle donatieverzoeken zijn blijvend uitgeschakeld.</string>
+    <string name="donation_play_desc">Afrekenen met één tik via Google Pay. Ontgrendelt de permanente badge automatisch na controle.</string>
+    <string name="donation_play_connecting">Verbinden met Google Play Billing…</string>
+    <string name="donation_paypal_desc">Scan de live PayPal QR-code met een ander apparaat of open PayPal.me rechtstreeks.</string>
+    <string name="donation_paypal_any">Vrij</string>
+    <string name="donation_paypal_custom_label">Aangepast USD-bedrag (optioneel)</string>
+    <string name="donation_paypal_custom_hint">bijv. 15</string>
+    <string name="cd_paypal_qr">PayPal-donatie QR-code voor %1$s</string>
+    <string name="cd_copy_paypal_url">PayPal-URL kopiëren</string>
+    <string name="donation_btn_open_paypal">PayPal openen</string>
+    <string name="donation_btn_copy">Kopiëren</string>
+    <string name="donation_btn_share">Delen</string>
+    <string name="donation_kofi_title">Ko-fi Fooienpot</string>
+    <string name="donation_kofi_desc">Stuur een virtueel kopje koffie via Ko-fi. Opent de browser of kopieert de link automatisch.</string>
+    <string name="donation_btn_open_kofi">Ko-fi-pagina openen</string>
+    <string name="donation_btn_copy_link">Link kopiëren</string>
+    <string name="tier1_title">Matcha-thee</string>
+    <string name="tier1_subtitle">Niveau 1 • Klein bedankje</string>
+    <string name="tier1_badge">Niveau 1</string>
+    <string name="tier2_title">Sensei\'s Koffie</string>
+    <string name="tier2_subtitle">Niveau 2 • Steun nieuwe zinspakketten</string>
+    <string name="tier2_badge">Populair</string>
+    <string name="tier3_title">Dojo Bento</string>
+    <string name="tier3_subtitle">Niveau 3 • Steun 3D-stemcoaching</string>
+    <string name="tier3_badge">Niveau 3</string>
+    <string name="tier4_title">Meester-beschermer</string>
+    <string name="tier4_subtitle">Niveau 4 • Steun indie-onderwijs</string>
+    <string name="tier4_badge">Niveau 4</string>
+    <string name="billing_purchase_canceled">Aankoop geannuleerd — bedankt dat je overwoog Pocket Sensei te steunen!</string>
+    <string name="billing_service_unavailable">Dienst niet beschikbaar</string>
+    <string name="billing_error_fallback">Google Play Billing meldde: %1$s. Je kunt hieronder ook PayPal of Ko-fi gebruiken.</string>
+    <string name="billing_receipt_failed">Bonvalidatie mislukt. Probeer het opnieuw.</string>
+    <string name="billing_pending">Je Google Play-donatie is in behandeling. De badge wordt automatisch ontgrendeld na bevestiging.</string>
+    <string name="billing_verified">Bedankt! Je Google Play-donatie is geverifieerd en je Actieve Supporter-badge is blijvend ontgrendeld.</string>
+    <string name="billing_missing_activity">Geen actief venster gevonden voor Google Play. Probeer opnieuw vanaf het hoofdscherm of gebruik PayPal / Ko-fi.</string>
+    <string name="billing_store_unavailable">Google Play-facturering niet beschikbaar op dit apparaat (%1$s). Gebruik gerust PayPal QR of Ko-fi.</string>
+    <string name="billing_code_prefix">code %1$d</string>
+    <string name="billing_disconnected">Verbinding met Google Play Billing verbroken. Probeer opnieuw of kies PayPal / Ko-fi.</string>
+    <string name="billing_item_unpublished">In-app item \"%1$s\" is nog niet gepubliceerd in deze Play Console-track. PayPal QR en Ko-fi werken direct hieronder!</string>
+    <string name="billing_checkout_error">Kan Google Play-checkout niet openen (%1$s).</string>
+    <string name="paypal_label">PayPal-donatielink</string>
+    <string name="paypal_no_browser_toast">Geen browser gevonden — PayPal-link gekopieerd!</string>
+    <string name="paypal_copied_toast">PayPal-link gekopieerd: %1$s</string>
+    <string name="paypal_share_subject">Steun Pocket Sensei</string>
+    <string name="paypal_share_text">Steun 3D Taal- &amp; Accentcoach Pocket Sensei: %1$s</string>
+    <string name="paypal_share_chooser">Deel donatielink</string>
+    <string name="kofi_label">Ko-fi-paginalink</string>
+    <string name="kofi_no_browser_toast">Geen browser gevonden — Ko-fi-link gekopieerd!</string>
+    <string name="kofi_copied_toast">Ko-fi-link gekopieerd: %1$s</string>
+    <string name="privacy_loaded_in_app">Privacybeleid in app geladen.</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">Spraakherkenning is niet beschikbaar op dit apparaat. Gebruik in plaats daarvan Tekst invoeren.</string>
+    <string name="hud_praise_speech">Geweldig! Zeer indrukwekkend!</string>
+    <string name="hud_greet_speech">Hallo! Laten we vandaag spreken oefenen!</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">Evaluatie mislukt</string>
+    <string name="error_roleplay_failed">Sensei kon niet antwoorden.</string>
+    <string name="coach_default_accent_focus">Klinker- &amp; Medeklinkerhelderheid</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">Zuivere klinkerlengte en helder medeklinkerbegin! Houd dit ontspannen tempo vast.</string>
+    <string name="eval_tip_missed_format">Focus duidelijk op het uitspreken van: %1$s. Houd je kaak stabiel bij beklemtoonde klinkers.</string>
+    <string name="eval_tip_slow_down">Vertraag iets tussen lettergrepen en spreek beklemtoonde klinkers helder uit.</string>
+    <string name="eval_encourage_high">Top! Geëvalueerd op apparaat ($0 offline modus).</string>
+    <string name="eval_encourage_mid">Goed ritme! Een tweede, langzamere poging scherpt je accent aan.</string>
+    <string name="eval_encourage_low">Goede poging — tik op \'Langzaam\' om elke lettergreep duidelijk te horen.</string>
+    <string name="eval_contour_type_format">%1$s-contour op apparaat</string>
+    <string name="eval_pitch_guidance_default">Volg de stijging en daling van de groene stippellijn van de moedertaalspreker nauwkeurig.</string>
+    <string name="eval_contour_default">Natuurlijke accentcontour</string>
+    <string name="eval_tip_default">Ontspan je mond en articuleer duidelijk.</string>
+    <string name="eval_encourage_default">Geweldige inspanning! Oefening baart kunst.</string>
+    <string name="eval_pitch_guidance_cloud_default">Stem de klemtoonstijging af op de contour van de moedertaalspreker.</string>
+    <string name="roleplay_offline_note_format">Offline Coach ($0-modus): \"%1$s\" vloeiend ontvangen. Houd je natuurlijke tempo aan!</string>
+    <string name="roleplay_offline_translation_fallback">Reactie in offline oefenmodus</string>
+    <string name="roleplay_offline_reply_default">Fantastisch! Laten we blijven oefenen op je natuurlijke cadans in het %1$s.</string>
+    <string name="roleplay_offline_reply_ja_translation">Natuurlijk! Wilt u nog iets anders?</string>
+    <string name="roleplay_offline_reply_fr_translation">Prima! Wilt u daar nog iets bij?</string>
+    <string name="roleplay_offline_reply_es_translation">Perfect! Ik breng het meteen. Nog iets te drinken?</string>
+    <string name="roleplay_offline_reply_ko_translation">Ja, begrepen! Een moment geduld alstublieft.</string>
+    <string name="roleplay_offline_reply_de_translation">Uitstekend! Wilt u daar meer over vertellen?</string>
+    <string name="roleplay_offline_reply_it_translation">Perfect! Wilt u vandaag nog iets anders?</string>
+    <string name="roleplay_cloud_note_default">Geweldige gespreksstroom!</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">Hallo, hoe gaat het met je?</string>
+    <string name="phrase_ja_1_focus">Vlakke toonhoogte op \'Konnichiwa\'</string>
+    <string name="phrase_ja_2_translation">Ik neem deze, alstublieft.</string>
+    <string name="phrase_ja_2_focus">Lichte tongtik voor \'r\'</string>
+    <string name="phrase_ja_3_translation">Hartelijk dank!</string>
+    <string name="phrase_ja_3_focus">Lange \'ou\'-klinker</string>
+    <string name="phrase_ja_4_translation">Pardon, waar is het station?</string>
+    <string name="phrase_ja_4_focus">Beleefde stijgende intonatie</string>
+    <string name="phrase_ja_5_translation">Het is erg lekker!</string>
+    <string name="phrase_ja_5_focus">Strakke stemloze \'u\' in \'desu\'</string>
+
+    <string name="phrase_fr_1_translation">Hallo, aangenaam kennis te maken.</string>
+    <string name="phrase_fr_1_focus">Zachte nasale \'en\' &amp; \'on\'</string>
+    <string name="phrase_fr_2_translation">Een croissant en een koffie, alstublieft.</string>
+    <string name="phrase_fr_2_focus">Keel-\'r\' op zijn Frans</string>
+    <string name="phrase_fr_3_translation">Waar is het toilet?</string>
+    <string name="phrase_fr_3_focus">Vloeiende woordkoppeling (liaison)</string>
+    <string name="phrase_fr_4_translation">Het is werkelijk schitterend!</string>
+    <string name="phrase_fr_4_focus">Zuivere \'u\' met geronde lippen</string>
+
+    <string name="phrase_es_1_translation">Hallo! Hoe gaat het vandaag met je?</string>
+    <string name="phrase_es_1_focus">Heldere open klinkers</string>
+    <string name="phrase_es_2_translation">Een tafel voor twee, alstublieft.</string>
+    <string name="phrase_es_2_focus">Zachte enkele tik \'r\'</string>
+    <string name="phrase_es_3_translation">De snelle spoorweg.</string>
+    <string name="phrase_es_3_focus">Dubbele rollende \'rr\'</string>
+    <string name="phrase_es_4_translation">De rekening, alstublieft.</string>
+    <string name="phrase_es_4_focus">Klemtoon op de laatste lettergrepen</string>
+
+    <string name="phrase_de_1_translation">Goedemorgen, hoe gaat het met u?</string>
+    <string name="phrase_de_1_focus">Lange \'ee\'-klinker in Ihnen</string>
+    <string name="phrase_de_2_translation">Ik wil graag een koffie, alstublieft.</string>
+    <string name="phrase_de_2_focus">Zachte verhemelte-\'ch\' fricatief</string>
+    <string name="phrase_de_3_translation">Hartelijk dank voor uw hulp!</string>
+    <string name="phrase_de_3_focus">Geronde \'ö\' en \'ü\'</string>
+
+    <string name="phrase_ko_1_translation">Hallo, leuk je te ontmoeten!</string>
+    <string name="phrase_ko_1_focus">Beleefde melodische cadans</string>
+    <string name="phrase_ko_2_translation">Hoeveel kost dit?</string>
+    <string name="phrase_ko_2_focus">Zachte \'l\'-klank in eol-ma</string>
+    <string name="phrase_ko_3_translation">Eet smakelijk!</string>
+    <string name="phrase_ko_3_focus">Aangeblazen vs gespannen medeklinkers</string>
+
+    <string name="phrase_zh_1_translation">Hallo, leuk je te ontmoeten!</string>
+    <string name="phrase_zh_1_focus">3e toonsandhi bij Nǐ hǎo</string>
+    <string name="phrase_zh_2_translation">Pardon, hoeveel kost dit?</string>
+    <string name="phrase_zh_2_focus">4e toon op zhè, 2e toon op qián</string>
+    <string name="phrase_zh_3_translation">Ontzettend lekker, bedankt!</string>
+    <string name="phrase_zh_3_focus">Dalende 4e toon op Tài en xiè</string>
+
+    <string name="phrase_it_1_translation">Goedendag! Hoe gaat het met je?</string>
+    <string name="phrase_it_1_focus">Muzikaal lettergreepritme</string>
+    <string name="phrase_it_2_translation">Een pistachegelato, alstublieft.</string>
+    <string name="phrase_it_2_focus">Pauze op dubbele medeklinker \'cch\'</string>
+    <string name="phrase_it_3_translation">Duizendmaal dank voor alles!</string>
+    <string name="phrase_it_3_focus">Levendige dentale \'t\' &amp; \'z\'</string>
+
+    <string name="phrase_en_1_translation">De weg vragen</string>
+    <string name="phrase_en_1_focus">Stemhebbende \'th\' in the</string>
+    <string name="phrase_en_2_translation">Professionele loopbaanvraag</string>
+    <string name="phrase_en_2_focus">Getikte \'d\' in schedule</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">Bestellen in Tokio-café</string>
+    <string name="scenario_tokyo_cafe_sensei">Café-barista</string>
+    <string name="scenario_tokyo_cafe_user">Klant</string>
+    <string name="scenario_tokyo_cafe_init_translation">Welkom! Heeft u uw bestelling al gekozen?</string>
+
+    <string name="scenario_paris_boulangerie_title">Parijse bakkerij</string>
+    <string name="scenario_paris_boulangerie_sensei">Meesterbakker</string>
+    <string name="scenario_paris_boulangerie_user">Klant</string>
+    <string name="scenario_paris_boulangerie_init_translation">Hallo! Wat wilt u vandaag graag?</string>
+
+    <string name="scenario_madrid_tapas_title">Tapasbar in Madrid</string>
+    <string name="scenario_madrid_tapas_sensei">Taverne-gastheer</string>
+    <string name="scenario_madrid_tapas_user">Gast</string>
+    <string name="scenario_madrid_tapas_init_translation">Goedemiddag! Wat kan ik voor u inschenken om mee te beginnen?</string>
+
+    <string name="scenario_seoul_market_title">Avondmarkt in Seoel</string>
+    <string name="scenario_seoul_market_sensei">Streetfood-chef</string>
+    <string name="scenario_seoul_market_user">Bezoeker</string>
+    <string name="scenario_seoul_market_init_translation">Welkom! Kom onze dampend hete tteokbokki proeven!</string>
+
+    <string name="scenario_rome_gelato_title">Gelateria in Florence</string>
+    <string name="scenario_rome_gelato_sensei">IJsmeester</string>
+    <string name="scenario_rome_gelato_user">Klant</string>
+    <string name="scenario_rome_gelato_init_translation">Hoi! Hoorntje of bekertje? Welke smaken wilt u?</string>
+
+    <string name="scenario_berlin_tech_title">Berlijnse Tech Meetup</string>
+    <string name="scenario_berlin_tech_sensei">Technisch Leider</string>
+    <string name="scenario_berlin_tech_user">Ingenieur</string>
+    <string name="scenario_berlin_tech_init_translation">Hallo! Geweldig dat je er bent. Aan welk project werk je?</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">Overslaan</string>
+    <string name="onboarding_back">Terug</string>
+    <string name="onboarding_next">Volgende</string>
+    <string name="onboarding_get_started">Begin met spreken</string>
+    <string name="onboarding_step_format">Stap %1$d van %2$d</string>
+    <string name="onboarding_page1_badge">3D Stem- &amp; Toonstudio</string>
+    <string name="onboarding_page1_title">Spreek als een local met je 3D Sensei</string>
+    <string name="onboarding_page1_subtitle">Visualiseer je stem realtime met een 60fps-golfvorm, toonhoogtecurven en uitspraaktips.</string>
+    <string name="onboarding_page2_badge">Meeslepende Culturele Rollenspellen</string>
+    <string name="onboarding_page2_title">Oefen echte reisscenario\'s</string>
+    <string name="onboarding_page2_subtitle">Bestel matcha in Tokio, croissants in Parijs of tapas in Madrid met fonetische hulp en antwoordsuggesties.</string>
+    <string name="onboarding_page3_badge">Woordenschat &amp; Dojo-competitie</string>
+    <string name="onboarding_page3_title">Vergroot je woordenschat &amp; stijg in rang</string>
+    <string name="onboarding_page3_subtitle">Herhaal woorden met flashcards, speel Dojo Blitz van 45s en kies hieronder je eerste taal.</string>
+    <string name="onboarding_select_language_label">Kies je eerste taal om te oefenen:</string>
+    <string name="profile_btn_replay_onboarding">Interactieve rondleiding</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">Grootte van 3D-Sensei podium wisselen</string>
+    <string name="daily_goal_title">Dagelijks Dojo-doel</string>
+    <string name="daily_goal_progress_format">%1$d / %2$d sessies vandaag</string>
+    <string name="daily_goal_completed_badge">Doel behaald!</string>
+    <string name="donation_perks_title">Supportervoordelen inbegrepen</string>
+    <string name="donation_perks_summary">Verbergt banners definitief en financiert nieuwe stemmen en offline pakketten.</string>
+    <string name="donation_recommended_tag">Beste keuze</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">Dagelijkse leerreeks</string>
+    <string name="streak_best_format">Beste reeks: %1$d dagen</string>
+    <string name="streak_status_active_today">Reeks voor vandaag vastgelegd! Blijf spreken om je accent te verfijnen.</string>
+    <string name="streak_status_pending_today">Voltooi vandaag 1 Uitspraakcoach-evaluatie om je reeks te behouden.</string>
+    <string name="streak_new_day_banner_format">Reeks van %1$d dagen ontgrendeld!</string>
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">Sample opnemen</string>
+    <string name="coach_stop_pitch_rec">Stop opn.</string>
+    <string name="coach_play_mine">Hoor jezelf</string>
+    <string name="coach_stop_mine">Stop audio</string>
+    <string name="pitch_live_mic_badge">Live F0-mic</string>
+    <string name="result_play_sensei">Stem Sensei</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">Vandaag (%1$d)</string>
+    <string name="vocab_due_now_badge">Nu herhalen</string>
+    <string name="vocab_next_interval_format">Over %1$dd</string>
+    <string name="vocab_next_review_hint_format">Volgende herhaling over %1$d dagen bij onthouden</string>
+    <string name="vocab_btn_repeat">Nog oefenen</string>
+    <string name="streak_freeze_count_format">Reeks-bescherming: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">Een Reeks-bescherming heeft je reeks gered!</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">Onderweg Shadowen</string>
+    <string name="shadowing_subtitle">Handsfree luister- &amp; herhaalmodus</string>
+    <string name="shadowing_speed_slow">0,75x</string>
+    <string name="shadowing_speed_normal">1,0x</string>
+    <string name="shadowing_btn_start">Starten</string>
+    <string name="shadowing_btn_stop">Stoppen</string>
+    <string name="shadowing_step_listening">Sensei spreekt — luister aandachtig…</string>
+    <string name="shadowing_step_repeat">Jouw beurt — zeg het hardop na…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">Zin toevoegen</string>
+    <string name="custom_phrase_dialog_title">Eigen %1$s-zin toevoegen</string>
+    <string name="custom_phrase_target_label">Zin in doeltaal</string>
+    <string name="custom_phrase_phonetic_label">Fonetische gids</string>
+    <string name="custom_phrase_translation_label">Betekenis</string>
+    <string name="custom_phrase_focus_label">Uitspraak-aandachtspunt</string>
+    <string name="custom_save_btn">Opslaan</string>
+    <string name="custom_scenario_btn">Nieuw scenario</string>
+    <string name="custom_scenario_dialog_title">%1$s-rollenspel maken</string>
+    <string name="custom_scenario_templates_label">Snelle sjablonen:</string>
+    <string name="custom_scenario_title_label">Scenariotitel</string>
+    <string name="custom_scenario_sensei_role_label">Rol Sensei (bijv. Interviewer)</string>
+    <string name="custom_scenario_user_role_label">Jouw rol (bijv. Sollicitant)</string>
+    <string name="custom_scenario_opening_label">Openingszin Sensei</string>
+    <string name="scenario_template_interview_title">Sollicitatiegesprek</string>
+    <string name="scenario_template_interview_sensei">Wervingsmanager</string>
+    <string name="scenario_template_interview_user">Kandidaat</string>
+    <string name="scenario_template_interview_open">Hallo! Bedankt dat je er vandaag bent. Kun je jezelf kort voorstellen?</string>
+    <string name="scenario_template_hotel_title">Hotel check-in</string>
+    <string name="scenario_template_hotel_sensei">Receptionist</string>
+    <string name="scenario_template_hotel_user">Gast</string>
+    <string name="scenario_template_hotel_open">Welkom in ons hotel! Heeft u een reservering op uw naam?</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">Dagelijkse oefenherinneringen</string>
+    <string name="reminder_channel_desc">Optionele avondmelding als je dagelijkse reeks nog niet voltooid is.</string>
+    <string name="reminder_notif_title">Houd je Dojo-reeks levend! 🔥</string>
+    <string name="reminder_notif_body_format">Je hebt een reeks van %1$d dagen — zeg 1 korte zin voor het slapen.</string>
+    <string name="reminder_card_title">Avond-reeksherinnering</string>
+    <string name="reminder_card_subtitle">Slimme melding alleen als je vandaag nog niet geoefend hebt</string>
+    <string name="reminder_time_label">Herinneren om:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">Schakel meldingen in de systeeminstellingen in om herinneringen te ontvangen.</string>
+    <string name="share_card_btn">Kaart delen</string>
+    <string name="share_card_chooser">Mijlpaalkaart delen</string>
+    <string name="share_card_headline_score">Uitspraakmeesterschap</string>
+    <string name="share_card_headline_streak">Dojo-reeksmijlpaal</string>
+    <string name="share_card_streak_format">%1$d-daagse reeks</string>
+    <string name="difficulty_custom">Aangepast</string>
+    <string name="ai_byok_get_key_btn">Gratis Gemini-sleutel halen (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ Genereer AI-lespakket op onderwerp</string>
+    <string name="roleplay_live_call_start">Live gesprek</string>
+    <string name="roleplay_live_call_active">Gesprek stoppen</string>
+    <string name="topic_pack_phrase1_trans">Pardon, kunt u mij meer vertellen over %1$s?</string>
+    <string name="topic_pack_phrase2_trans">Welke raadt u aan?</string>
+    <string name="topic_pack_phrase3_trans">Dat was erg nuttig, hartelijk dank!</string>
+    <string name="topic_pack_sensei_role">Lokale gids</string>
+    <string name="topic_pack_user_role">Reiziger</string>
+    <string name="scenario_shanghai_tea_title">Theehuis in Shanghai</string>
+    <string name="scenario_shanghai_tea_sensei">Theemeester</string>
+    <string name="scenario_shanghai_tea_user">Gast</string>
+    <string name="scenario_shanghai_tea_init_translation">Welkom! Welke thee wilt u vandaag proeven?</string>
+    <string name="scenario_london_interview_title">Londense Studio Koffie</string>
+    <string name="scenario_london_interview_sensei">Projectleider</string>
+    <string name="scenario_london_interview_user">Maker</string>
+    <string name="scenario_london_interview_init_translation">Goedemorgen! Vertel eens wat je enthousiast maakt over je volgende project.</string>
+</resources>

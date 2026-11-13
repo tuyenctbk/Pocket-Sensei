@@ -1,0 +1,232 @@
+Locale,App Name,Short Description,Full Description
+en-US,"Pocket Sensei: 3D Voice Coach","Speak naturally with a 3D avatar, live waveform, pitch feedback, and roleplays.","Practice real spoken conversations instead of repetitive flashcards with Pocket Sensei, an interactive 3D language and accent coach.
+
+Key Features:
+- Interactive 3D Avatar Tutor: Speak face-to-face with an expressive 3D Sensei rendered directly on your device with lip-sync and customizable outfits.
+- Live Waveform & Pitch Contour Coach: See real-time microphone audio waves, phonetic breakdowns, mouth placement tips, and pitch curve comparisons.
+- Dojo Speak Blitz & Offline Mode: Train daily speaking speed offline with zero network required, plus smart local caching for instant drill feedback.
+- Real-World Voice Roleplay: Order at a Tokyo cafe, a Parisian bakery, a Madrid tapas bar, a Seoul night market, a Florence gelateria, or a Berlin meetup.
+- Vocabulary Bank & Flashcard Drills: Sync practiced words across Cloud Firestore and your local Room cache with mastery tracking from level 1 to 5.
+- Flexible AI Coaching: Choose Hybrid mode, pure Offline mode, or connect your own personal Gemini API key (BYOK) stored privately on your device.
+- Dojo Accent Leagues: Build daily streaks, accuracy averages, and XP across Japanese, Spanish, French, German, Korean, Mandarin, Italian, and English.
+- Ad-Free & Privacy-First: Learn without ad interruptions, with optional voluntary supporter tiers."
+ja-JP,"Pocket Sensei：3D音声発音コーチ","3Dアバター、リアルタイム波形、ピッチ分析、ロールプレイ会話で自然に話せる語学コーチ。","暗記カードだけでなく、声に出して学ぶ3D語学・発音コーチ「Pocket Sensei」で自然な会話力を身につけましょう。
+
+主な機能：
+- 対話型3Dアバター講師：端末上で滑らかに動く3Dアバターが口の動きを合わせながら会話と発音をサポート。衣装の着せ替えにも対応。
+- ライブ音声波形＆ピッチ比較：マイク入力のリアルタイム波形、音素ごとのフィードバック、舌・口の位置のコツ、音調比較グラフを表示します。
+- 道場スピーク・ブリッツ＆オフライン学習：通信不要のオフライン判定やローカルキャッシュで、いつでもテンポよく発音トレーニングができます。
+- 実践ボイスロールプレイ：東京のカフェ、パリのパン屋、マドリードのバル、ソウルの屋台市場など、リアルな場面で会話練習ができます。
+- 単語帳＆フラッシュカード復習：練習した表現はクラウドと端末内のRoomキャッシュに保存され、習熟度レベル（1〜5）で管理できます。
+- 選べるAIコーチ設定：ハイブリッド、完全オフライン、または端末内に安全に保存する自分のGemini APIキー（BYOK）を切り替え可能。
+- 道場アクセントリーグ：日本語、英語、スペイン語、フランス語、ドイツ語、韓国語、中国語、イタリア語に対応し、連続日数やXPを記録できます。
+- 広告なしの学習体験：煩わしい広告なしで集中して学習でき、任意のサポーター応援にも対応しています。"
+es-ES,"Pocket Sensei: Tutor Vocal 3D","Habla con un avatar 3D, onda de voz en vivo, análisis tonal y juegos de rol.","Deja atrás las tarjetas repetitivas y habla con naturalidad junto a Pocket Sensei, tu tutor interactivo de idiomas y acento en 3D.
+
+Funciones principales:
+- Avatar 3D interactivo: Conversa cara a cara con un Sensei en 3D renderizado en tu dispositivo, con sincronización labial y atuendos personalizables.
+- Onda de voz y curva tonal en vivo: Visualiza tu micrófono al instante con desgloses fonéticos, consejos de lengua y labios, y gráficos de tono.
+- Dojo Speak Blitz y modo sin conexión: Entrena agilidad oral sin internet gracias al motor fonético local y caché rápida en el dispositivo.
+- Juegos de rol por voz: Practica pidiendo en una cafetería de Tokio, una panadería en París, un bar de tapas en Madrid o un mercado en Seúl.
+- Banco de vocabulario y repaso: Guarda tus frases practicadas en Cloud Firestore y en caché local Room con niveles de dominio del 1 al 5.
+- Motor de IA flexible: Elige modo Híbrido, Offline local o conecta tu propia clave Gemini API (BYOK) guardada solo en tu dispositivo.
+- Ligas Dojo de acento: Mantén tu racha diaria y gana XP en japonés, español, francés, alemán, coreano, mandarín, italiano e inglés.
+- Sin anuncios y privado: Aprende sin interrupciones publicitarias y con apoyo voluntario opcional."
+fr-FR,"Pocket Sensei : Coach Vocal 3D","Parlez avec un avatar 3D, onde vocale en direct, intonation et jeux de rôle.","Entraînez-vous à parler naturellement plutôt que de répéter des cartes mémoire avec Pocket Sensei, votre coach vocal de langues et d'accent en 3D.
+
+Fonctionnalités clés :
+- Tuteur Avatar 3D interactif : Dialoguez face à face avec un Sensei 3D animé localement, doté de synchronisation labiale et de tenues personnalisables.
+- Onde vocale et courbe d'intonation : Visualisez le signal du micro en temps réel avec conseils phonétiques, placement articulatoire et courbes comparatives.
+- Dojo Speak Blitz & Mode Hors Ligne : Exercez votre fluidité sans connexion grâce à l'évaluation locale rapide et au cache Room sur l'appareil.
+- Jeux de rôle vocaux réalistes : Commandez dans un café à Tokyo, une boulangerie parisienne, un bar à tapas à Madrid ou un marché à Séoul.
+- Carnet de vocabulaire synchronisé : Retrouvez vos expressions dans Cloud Firestore et hors ligne avec suivi de maîtrise de niveau 1 à 5.
+- Coaching IA flexible : Passez du mode Hybride au mode Hors Ligne local, ou utilisez votre propre clé Gemini API (BYOK) stockée sur l'appareil.
+- Ligues Dojo : Suivez vos séries quotidiennes et progressez en japonais, français, espagnol, allemand, coréen, mandarin, italien et anglais.
+- Expérience sans publicité : Apprenez sereinement sans coupures publicitaires, avec soutien volontaire optionnel."
+de-DE,"Pocket Sensei: 3D Sprachtutor","Sprich mit einem 3D-Avatar, Live-Wellenform, Tonhöhenkurve und Rollenspielen.","Lerne frei zu sprechen statt nur Karteikarten zu klicken – mit Pocket Sensei, deinem interaktiven 3D-Sprach- und Akzenttrainer.
+
+Funktionen im Überblick:
+- Interaktiver 3D-Avatar: Sprich direkt mit einem ausdrucksstarken 3D-Sensei mit Lippensynchronisation und wechselbaren Outfits.
+- Live-Wellenform & Intonationskurve: Sieh deine Mikrofon-Wellenform in Echtzeit samt Phonetik-Tipps zur Zungenstellung und Tonhöhen-Vergleich.
+- Dojo Speak Blitz & Offline-Modus: Trainiere Sprechtempo komplett offline dank lokaler Aussprache-Analyse und schnellem Room-Cache.
+- Realistische Sprach-Rollenspiele: Bestelle im Café in Tokio, in einer Pariser Bäckerei, in Madrid, Seoul, Florenz oder auf einem Berliner Meetup.
+- Vokabelbank & Lernfortschritt: Synchronisiere geübte Phrasen über Cloud Firestore und lokalen Cache mit Meisterungsstufen von 1 bis 5.
+- Flexible KI-Steuerung: Wähle zwischen Hybrid-Modus, reinem Offline-Modus oder deinem eigenen privaten Gemini API-Schlüssel (BYOK).
+- Dojo-Akzentligen: Verfolge tägliche Lernserien und XP für Japanisch, Spanisch, Französisch, Deutsch, Koreanisch, Mandarin, Italienisch und Englisch.
+- Werbefrei & datenschutzbewusst: Konzentriertes Lernen ohne Werbeunterbrechungen mit freiwilliger Unterstützer-Option."
+ko-KR,"Pocket Sensei: 3D 발음 음성 코치","3D 아바타, 실시간 음성 파형, 억양 비교 및 실전 롤플레이로 자연스럽게 말하세요.","반복적인 단어장 암기 대신 직접 말하며 배우는 3D 언어·발음 코치 Pocket Sensei를 만나보세요.
+
+주요 기능:
+- 인터랙티브 3D 아바타 튜터: 기기에서 직접 렌더링되는 3D 센세이와 립싱크 대화 및 다양한 의상 커스터마이징을 제공합니다.
+- 실시간 파형 및 억양 그래프: 마이크 입력 파형과 함께 음소별 분석, 입·혀 모양 발성 팁, 목표 억양 비교 곡선을 바로 확인하세요.
+- 도장 스피크 블리츠 & 오프라인 모드: 인터넷 연결 없이도 로컬 음성 엔진과 Room 캐시로 빠르고 끊김 없는 발음 훈련이 가능합니다.
+- 실전 음성 롤플레이: 도쿄 카페, 파리 빵집, 마드리드 타파스 바, 서울 야시장 등 현지 상황별 회화를 연습할 수 있습니다.
+- 단어장 및 플래시카드 복습: 연습한 문장은 Cloud Firestore와 기기 내 캐시에 저장되어 1~5단계 숙련도로 관리됩니다.
+- 유연한 AI 코치 설정: 하이브리드, 100% 오프라인, 또는 기기에 안전하게 저장되는 개인 Gemini API 키(BYOK) 모드를 선택하세요.
+- 도장 악센트 리그: 일본어, 한국어, 영어, 스페인어, 프랑스어, 독일어, 중국어, 이탈리아어 학습 기록과 연속 일수를 쌓아보세요.
+- 광고 없는 학습 환경: 방해되는 광고 없이 쾌적하게 학습할 수 있으며, 자발적 후원 기능을 제공합니다."
+zh-CN,"Pocket Sensei：3D语音发音教练","3D虚拟导师实时声波反馈、声调曲线与情景语音对话练习。","告别机械背单词卡片，与交互式 3D 语言与口音教练 Pocket Sensei 直接开口对话。
+
+核心功能：
+- 交互式 3D 虚拟导师：本地实时渲染 3D 老师形象，支持口型同步动画与多套道馆服饰切换。
+- 实时声波与音高对比曲线：说话时即时显示麦克风声波、音标拆解、舌位与口型指导以及音调对比图。
+- 道场极速口语与离线模式：内置本地语音评估与 Room 缓存引擎，无需联网也能流畅训练口语反应。
+- 真实场景语音角色扮演：涵盖东京咖啡馆、巴黎面包店、马德里小吃吧、首尔夜市等日常实用对话。
+- 词库与闪卡复习：练习过的短语同步至 Cloud Firestore 与本地缓存，按 1 至 5 级追踪掌握程度。
+- 灵活 AI 引擎模式：支持混合模式、纯离线模式，或绑定仅保存在本机的个人 Gemini API 密钥（BYOK）。
+- 道场口音排行榜：追踪每日连续学习天数与准确率，支持日语、英语、西班牙语、法语、德语、韩语、中文和意大利语。
+- 无广告纯净体验：专注沉浸式口语训练，无广告打扰，支持自愿赞助开发者。"
+zh-TW,"Pocket Sensei：3D語音發音教練","3D虛擬導師即時聲波回饋、聲調曲線與情境語音對話練習。","告別重複的單字卡片記憶，與互動式 3D 語言與口音教練 Pocket Sensei 直接開口說外語。
+
+核心功能：
+- 互動式 3D 虛擬導師：裝置端即時繪製 3D 老師角色，支援嘴型同步動畫與多款造型切換。
+- 即時聲波與音高對比曲線：說話時同步顯示麥克風波形、音標拆解、舌位與口型技巧及音高對比圖。
+- 道場極速口說與離線模式：內建本機發音評分與 Room 快取引擎，無網路時也能流暢練習口說。
+- 真實情境語音角色扮演：包含東京咖啡館、巴黎烘焙坊、馬德里小酒館、首爾夜市等實用會話場景。
+- 詞庫與閃卡複習：練習過的語句同步至 Cloud Firestore 與本機快取，並以 1 至 5 級追蹤熟練度。
+- 彈性 AI 引擎選擇：支援混合模式、純離線模式，或使用僅存於裝置內的個人 Gemini API 金鑰（BYOK）。
+- 道場口音聯盟：累積每日連續學習天數與準確率，支援日語、英語、西班牙語、法語、德語、韓語、華語與義大利語。
+- 無廣告學習環境：專注口說訓練不受廣告干擾，並提供自願贊助支持選項。"
+it-IT,"Pocket Sensei: Coach Vocale 3D","Parla con un avatar 3D, forma d'onda dal vivo, intonazione e giochi di ruolo.","Esercitati a parlare in modo naturale invece di ripetere schede mnemoniche con Pocket Sensei, il tuo tutor interattivo 3D di lingue e pronuncia.
+
+Caratteristiche principali:
+- Avatar 3D interattivo: Parla faccia a faccia con un Sensei 3D animato localmente sul dispositivo, con sincronizzazione labiale e costumi personalizzabili.
+- Onda vocale e curva intonativa: Visualizza la voce in tempo reale con dettagli fonetici, posizione di lingua e bocca e grafici della curva di tono.
+- Dojo Speak Blitz e modalità offline: Allena la pronuncia senza connessione grazie al motore locale e alla cache Room su dispositivo.
+- Giochi di ruolo vocali: Ordina in un caffè di Tokyo, una panetteria di Parigi, un locale a Madrid o una gelateria di Firenze.
+- Banca vocaboli e ripasso: Salva le frasi su Cloud Firestore e in cache locale con livelli di padronanza da 1 a 5.
+- Coaching IA flessibile: Scegli modalità Ibrida, Offline locale oppure usa la tua chiave Gemini API personale (BYOK) salvata sul dispositivo.
+- Leghe Dojo: Monitora serie giornaliere e precisione in giapponese, italiano, spagnolo, francese, tedesco, coreano, mandarino e inglese.
+- Senza pubblicità: Studia senza interruzioni pubblicitarie, con supporto volontario facoltativo."
+pt-BR,"Pocket Sensei: Tutor Voz 3D","Pratique fala com avatar 3D, onda sonora ao vivo, entonação e diálogos reais.","Fale com naturalidade em vez de apenas repetir cartões com o Pocket Sensei, seu tutor interativo de idiomas e pronúncia em 3D.
+
+Recursos principais:
+- Avatar 3D interativo: Converse frente a frente com um Sensei 3D renderizado no aparelho, com sincronização labial e trajes personalizáveis.
+- Onda sonora e curva de tom ao vivo: Veja o áudio do microfone em tempo real, dicas de língua e lábios, fonética detalhada e gráficos de entonação.
+- Dojo Speak Blitz e modo offline: Treine sua agilidade ao falar sem precisar de internet, com avaliação local e cache Room instantâneo.
+- Roleplays reais por voz: Peça em um café de Tóquio, padaria em Paris, bar de tapas em Madri ou mercado noturno em Seul.
+- Banco de vocabulário sincronizado: Salve suas frases no Cloud Firestore e no cache local com níveis de domínio de 1 a 5.
+- IA flexível no seu controle: Use o modo Híbrido, modo Offline local ou sua própria chave da API Gemini (BYOK) guardada apenas no aparelho.
+- Ligas Dojo: Acompanhe sequências diárias e precisão em japonês, espanhol, francês, alemão, coreano, mandarim, italiano e inglês.
+- Sem anúncios e focado em privacidade: Estude sem interrupções publicitárias, com apoio voluntário opcional."
+ru-RU,"Pocket Sensei: 3D Репетитор","Тренируйте речь с 3D-аватаром, волной звука, анализом тона и диалогами.","Говорите уверенно вместо скучной зубрёжки карточек с Pocket Sensei — интерактивным 3D-тренером произношения и акцента.
+
+Основные возможности:
+- Интерактивный 3D-аватар: Общайтесь с 3D-сэнсэем на экране с синхронизацией губ, эмоциями и сменными костюмами.
+- Живая звуковая волна и контур тона: Следите за сигналом микрофона в реальном времени, получайте советы по положению языка и губ и сравнивайте кривые интонации.
+- Dojo Speak Blitz и офлайн-режим: Тренируйте беглость речи без интернета благодаря локальной оценке и быстрому кэшу Room.
+- Голосовые ролевые диалоги: Закажите кофе в Токио, выпечку в Париже, тапас в Мадриде или уличную еду в Сеуле.
+- Словарь и карточки повторения: Изученные фразы синхронизируются с Cloud Firestore и локальной базой с уровнями освоения от 1 до 5.
+- Гибкий выбор ИИ-движка: Используйте гибридный режим, полностью офлайн-тренировку или собственный ключ Gemini API (BYOK) на устройстве.
+- Лиги Додзё: Отслеживайте ежедневные серии и точность в японском, испанском, французском, немецком, корейском, китайском, итальянском и английском.
+- Без рекламы: Учитесь без рекламных пауз и с добровольной поддержкой разработчика."
+ar,"Pocket Sensei: مدرب نطق 3D","تحدث بطلاقة مع أفاتار 3D وموجة صوت حية وتحليل نبرة الصوت ومحادثات واقعية.","تدرّب على المحادثة المنطوقة الواقعية بدلاً من البطاقات المكررة مع Pocket Sensei، مدرب اللغات والنطق التفاعلي ثلاثي الأبعاد.
+
+المزايا الرئيسية:
+- معلم أفاتار 3D تفاعلي: تحدّث وجهاً لوجه مع مدرب ثلاثي الأبعاد يُعرض على جهازك مع مزامنة حركة الشفاه وأزياء قابلة للتخصيص.
+- موجة صوت حية ومنحنى النبرة: شاهد موجات الميكروفون مباشرة مع تحليل صوتي ونصائح وضع اللسان والفم ومقارنة منحنى النغمة.
+- تحدي Dojo Blitz والوضع غير المتصل: درّب سرعة النطق دون إنترنت بفضل المحرك المحلي وذاكرة التخزين المؤقت Room.
+- تمثيل أدوار صوتي واقعي: اطلب في مقهى بطوكيو أو مخبز في باريس أو مطعم في مدريد أو سوق ليلي في سيول.
+- بنك المفردات والمراجعة: احفظ عباراتك في Cloud Firestore والمخزن المحلي مع مستويات إتقان من 1 إلى 5.
+- محرك ذكاء مرن: اختر الوضع الهجين أو الوضع المحلي بالكامل أو أدخل مفتاح Gemini API الشخصي (BYOK) المحفوظ على جهازك فقط.
+- دوريات Dojo: تابع سلسلة الأيام والدقة عبر اليابانية والإسبانية والفرنسية والألمانية والكورية والصينية والإيطالية والإنجليزية.
+- خالٍ من الإعلانات ويحترم الخصوصية: تعلّم بلا إعلانات مزعجة مع خيار دعم تطوعي."
+hi-IN,"Pocket Sensei: 3D भाषा कोच","3D अवतार, लाइव वॉइस वेवफॉर्म, पिच विश्लेषण और रोलप्ले के साथ सहज बोलें।","बार-बार फ़्लैशकार्ड दोहराने के बजाय Pocket Sensei के साथ असली बोलचाल का अभ्यास करें—यह एक इंटरैक्टिव 3D भाषा और उच्चारण कोच है।
+
+मुख्य विशेषताएँ:
+- इंटरैक्टिव 3D अवतार शिक्षक: लिप-सिंक, हाव-भाव और बदलते परिधानों वाले 3D सेंसेई के साथ आमने-सामने बोलने का अभ्यास करें।
+- लाइव वेवफॉर्म और पिच कर्व कोच: माइक्रोफ़ोन की ध्वनि तरंगें लाइव देखें और जीभ-होंठ की स्थिति, ध्वन्यात्मक सुझाव व स्वर तुलना ग्राफ़ पाएँ।
+- डोजो स्पीक ब्लिट्ज़ और ऑफ़लाइन मोड: बिना इंटरनेट के लोकल उच्चारण स्कोरिंग और तेज़ Room कैश के साथ बोलने की गति बढ़ाएँ।
+- वास्तविक वॉइस रोलप्ले: टोक्यो कैफ़े, पेरिस बेकरी, मैड्रिड कैफ़े या सियोल नाइट मार्केट जैसे परिदृश्यों में संवाद करें।
+- शब्दावली बैंक और फ़्लैशकार्ड: अपने वाक्यांशों को Cloud Firestore और ऑफ़लाइन कैश में स्तर 1 से 5 की महारत के साथ सहेजें।
+- लचीला AI इंजन: हाइब्रिड मोड, शुद्ध ऑफ़लाइन मोड चुनें या केवल अपने डिवाइस पर सहेजी निजी Gemini API कुंजी (BYOK) उपयोग करें।
+- डोजो एक्सेंट लीग: जापानी, स्पेनिश, फ़्रेंच, जर्मन, कोरियाई, मंदारिन, इतालवी और अंग्रेज़ी में दैनिक स्ट्रीक व XP ट्रैक करें।
+- विज्ञापन-रहित अनुभव: बिना विज्ञापन रुकावट के सीखें, वैकल्पिक स्वैच्छिक सहयोग के साथ।"
+vi,"Pocket Sensei: Phát Âm 3D","Luyện nói tự nhiên với nhân vật 3D, sóng âm trực tiếp, ngữ điệu và nhập vai.","Thực hành hội thoại thực tế thay vì chỉ học thẻ ghi nhớ lặp lại cùng Pocket Sensei — trợ lý luyện phát âm và ngôn ngữ 3D tương tác.
+
+Tính năng nổi bật:
+- Thầy giáo 3D tương tác: Trò chuyện trực tiếp với Sensei 3D ngay trên thiết bị, khớp khẩu hình miệng theo âm thanh và tùy chỉnh trang phục.
+- Sóng âm trực tiếp & biểu đồ cao độ: Quan sát sóng micro theo thời gian thực, nhận phân tích âm vị, mẹo đặt lưỡi và so sánh đường ngữ điệu.
+- Dojo Speak Blitz & Chế độ Ngoại tuyến: Rèn phản xạ nói nhanh không cần mạng nhờ bộ chấm điểm cục bộ và bộ nhớ đệm Room trên máy.
+- Nhập vai hội thoại thực tế: Đặt món ở quán cà phê Tokyo, tiệm bánh Paris, quán tapas Madrid hay chợ đêm Seoul.
+- Kho từ vựng & thẻ ôn tập: Lưu từ vựng đồng bộ qua Cloud Firestore và bộ nhớ ngoại tuyến với 5 cấp độ thành thạo.
+- Tùy chọn AI linh hoạt: Chọn chế độ Kết hợp, Ngoại tuyến hoàn toàn hoặc dùng khóa Gemini API cá nhân (BYOK) lưu riêng trên thiết bị.
+- Bảng xếp hạng Dojo: Theo dõi chuỗi ngày học, độ chính xác và điểm XP với tiếng Nhật, Tây Ban Nha, Pháp, Đức, Hàn, Trung, Ý và Anh.
+- Không quảng cáo & tôn trọng riêng tư: Học tập liền mạch không quảng cáo, hỗ trợ đóng góp tự nguyện tùy chọn."
+th-TH,"Pocket Sensei: ฝึกพูด 3D","ฝึกพูดอย่างเป็นธรรมชาติกับอวาตาร์ 3D คลื่นเสียงสด กราฟโทนเสียง และบทบาทสมมติ","ฝึกพูดสื่อสารจริงแทนการท่องจำบัตรคำซ้ำๆ ด้วย Pocket Sensei โค้ชฝึกภาษาและการออกเสียงแบบ 3D เชิงโต้ตอบ
+
+ฟีเจอร์เด่น:
+- ครูอวาตาร์ 3D โต้ตอบได้: สนทนาแบบเห็นหน้ากับเซนเซ 3D ที่ประมวลผลบนอุปกรณ์ พร้อมขยับปากตรงเสียงและเปลี่ยนชุดได้
+- คลื่นเสียงสดและกราฟระดับเสียง: ดูคลื่นไมโครโฟนแบบเรียลไทม์ พร้อมคำแนะนำการวางลิ้นและริมฝีปาก และกราฟเปรียบเทียบโทนเสียง
+- Dojo Speak Blitz และโหมดออฟไลน์: ฝึกความไวในการพูดแบบไม่ใช้อินเทอร์เน็ตด้วยระบบประเมินผลบนเครื่องและแคช Room
+- บทบาทสมมติฝึกพูดจริง: ฝึกสั่งอาหารในคาเฟ่โตเกียว ร้านเบเกอรี่ปารีส บาร์มาดริด หรือตลาดกลางคืนโซล
+- คลังคำศัพท์และบัตรทบทวน: ซิงค์วลีที่ฝึกกับ Cloud Firestore และแคชออฟไลน์ พร้อมระดับความชำนาญ 1 ถึง 5
+- เลือกโหมด AI ได้ตามต้องการ: ใช้โหมดไฮบริด โหมดออฟไลน์ล้วน หรือคีย์ Gemini API ส่วนตัว (BYOK) ที่เก็บเฉพาะในเครื่องของคุณ
+- ลีกฝึกสำเนียง Dojo: สะสมสถิติต่อเนื่องและความแม่นยำในภาษาญี่ปุ่น สเปน ฝรั่งเศส เยอรมัน เกาหลี จีน อิตาลี และอังกฤษ
+- ไร้โฆษณาและใส่ใจความเป็นส่วนตัว: เรียนรู้ต่อเนื่องไม่มีโฆษณาคั่น พร้อมตัวเลือกสนับสนุนผู้พัฒนาตามความสมัครใจ"
+id,"Pocket Sensei: Tutor Suara 3D","Berbicara alami dengan avatar 3D, gelombang suara langsung, nada, dan peran.","Latih percakapan lisan nyata alih-alih kartu hafalan berulang bersama Pocket Sensei, pelatih bahasa dan pelafalan 3D interaktif.
+
+Fitur Utama:
+- Tutor Avatar 3D Interaktif: Berbicara langsung dengan Sensei 3D di perangkat Anda, lengkap dengan sinkronisasi bibir dan kostum pilihan.
+- Gelombang Suara & Kurva Nada Langsung: Lihat sinyal mikrofon real-time, rincian fonetik, tips posisi lidah, dan grafik perbandingan nada.
+- Dojo Speak Blitz & Mode Offline: Latih kecepatan bicara tanpa internet berkat penilaian lokal dan cache Room yang cepat di perangkat.
+- Roleplay Suara Situasi Nyata: Pesan di kafe Tokyo, toko roti Paris, bar tapas Madrid, atau pasar malam Seoul.
+- Bank Kosakata & Kartu Latihan: Simpan frasa yang dilatih ke Cloud Firestore dan cache lokal dengan tingkat penguasaan level 1 hingga 5.
+- Mode AI Fleksibel: Pilih mode Hibrida, mode Offline lokal, atau gunakan kunci Gemini API pribadi Anda (BYOK) yang tersimpan aman di perangkat.
+- Liga Aksen Dojo: Pantau rekor harian dan akurasi di bahasa Jepang, Spanyol, Prancis, Jerman, Korea, Mandarin, Italia, dan Inggris.
+- Tanpa Iklan & Jaga Privasi: Belajar tenang tanpa gangguan iklan, dengan dukungan sukarela opsional."
+tr-TR,"Pocket Sensei: 3D Ses Koçu","3D avatar, canlı ses dalgası, tonlama analizi ve rol yapmayla doğal konuşun.","Ezber kartları yerine gerçek konuşma pratiği yapın: Pocket Sensei, etkileşimli 3D dil ve telaffuz koçunuzdur.
+
+Öne Çıkan Özellikler:
+- Etkileşimli 3D Avatar Öğretmen: Dudak senkronizasyonu ve değiştirilebilir kıyafetlerle cihazınızda çalışan 3D Sensei ile yüz yüze konuşun.
+- Canlı Ses Dalgası ve Ton Eğrisi: Konuşurken mikrofon dalga formunu, fonetik ipuçlarını, dil-dudak yerleşimini ve ton karşılaştırma grafiğini görün.
+- Dojo Speak Blitz ve Çevrimdışı Mod: Yerel konuşma değerlendirmesi ve Room önbelleği sayesinde internet olmadan hızlı akıcılık çalışın.
+- Gerçekçi Sesli Rol Yapma: Tokyo kafesinde, Paris fırınında, Madrid tapas barında veya Seul gece pazarında sipariş verin.
+- Kelime Bankası ve Kart Tekrarı: Çalıştığınız ifadeleri 1'den 5'e ustalık seviyesiyle Cloud Firestore ve yerel önbellekte saklayın.
+- Esnek Yapay Zeka Seçimi: Hibrit mod, tamamen Çevrimdışı mod veya yalnızca cihazınızda saklanan kişisel Gemini API anahtarınızı (BYOK) kullanın.
+- Dojo Aksan Ligleri: Japonca, İspanyolca, Fransızca, Almanca, Korece, Çince, İtalyanca ve İngilizce serilerinizi ve XP puanınızı takip edin.
+- Reklamsız ve Gizlilik Odaklı: Reklam kesintisi olmadan öğrenin, dilerseniz gönüllü destek sunun."
+pl-PL,"Pocket Sensei: 3D Trener Mowy","Mów naturalnie z awatarem 3D, falą dźwięku na żywo, analizą tonu i scenkami.","Ćwicz żywe rozmowy zamiast powtarzania fiszek z Pocket Sensei — interaktywnym trenerem języków i wymowy 3D.
+
+Najważniejsze funkcje:
+- Interaktywny awatar 3D: Rozmawiaj twarzą w twarz z renderowanym na urządzeniu Sensei 3D z synchronizacją ust i wyborem strojów.
+- Fala głosu i wykres intonacji: Obserwuj sygnał mikrofonu na żywo, wskazówki ułożenia języka i ust oraz krzywe porównania tonu.
+- Dojo Speak Blitz i tryb offline: Trenuj tempo mówienia bez internetu dzięki lokalnej ocenie fonetycznej i pamięci Room na urządzeniu.
+- Głosowe scenki sytuacyjne: Zamawiaj w kawiarni w Tokio, paryskiej piekarni, barze w Madrycie lub na nocnym targu w Seulu.
+- Bank słówek i fiszki: Zapisuj przećwiczone zwroty w Cloud Firestore i pamięci lokalnej z poziomem opanowania od 1 do 5.
+- Elastyczny silnik AI: Wybierz tryb hybrydowy, czysty tryb offline lub własny klucz Gemini API (BYOK) przechowywany wyłącznie na urządzeniu.
+- Ligi Akcentu Dojo: Buduj dzienne serie i zdobywaj XP w języku japońskim, hiszpańskim, francuskim, niemieckim, koreańskim, mandaryńskim, włoskim i angielskim.
+- Bez reklam: Ucz się w skupieniu bez przerw reklamowych, z opcją dobrowolnego wsparcia twórcy."
+nl-NL,"Pocket Sensei: 3D Stemcoach","Spreek natuurlijk met een 3D-avatar, live golfvorm, toonhoogte en dialogen.","Oefen echte gesprekken in plaats van eindeloze flashcards met Pocket Sensei, jouw interactieve 3D-taal- en uitspraakcoach.
+
+Belangrijkste functies:
+- Interactieve 3D-avatar: Praat rechtstreeks met een lokaal weergegeven 3D-Sensei met lipsynchronisatie en wisselbare outfits.
+- Live golfvorm & toonhoogtecurve: Bekijk je microfoongolven in realtime met fonetische tips, tongpositie en vergelijkende tooncurves.
+- Dojo Speak Blitz & Offlinemodus: Train spreektempo zonder internet dankzij lokale beoordeling en snelle Room-cache op je apparaat.
+- Realistische rollenspellen: Bestel in een café in Tokio, een Parijse bakkerij, een tapasbar in Madrid of een avondmarkt in Seoel.
+- Woordenbank & flitskaarten: Sla geoefende zinnen op in Cloud Firestore en lokale cache met beheersingsniveaus van 1 tot 5.
+- Flexibele AI-keuze: Kies voor Hybride, volledig Offline of je eigen Gemini API-sleutel (BYOK) die privé op je apparaat blijft.
+- Dojo-competities: Houd dagelijkse reeksen en XP bij voor Japans, Spaans, Frans, Duits, Koreaans, Mandarijn, Italiaans en Engels.
+- Zonder advertenties: Studeer ongestoord zonder reclame, met vrijwillige steunopties."
+uk,"Pocket Sensei: 3D Репетитор","Тренуйте мовлення з 3D-аватаром, хвилею звуку, тоном і рольовими іграми.","Практикуйте живе мовлення замість одноманітних карток із Pocket Sensei — інтерактивним 3D-тренером мови та акценту.
+
+Основні можливості:
+- Інтерактивний 3D-аватар: Спілкуйтеся з 3D-сенсеєм із синхронізацією губ, мімікою та налаштуванням образу прямо на пристрої.
+- Жива хвиля звуку й графік тону: Бачте сигнал мікрофона в реальному часі, фонетичні поради щодо положення язика й губ та порівняння інтонації.
+- Dojo Speak Blitz і офлайн-режим: Тренуйте швидкість мовлення без інтернету завдяки локальній оцінці та швидкому кешу Room.
+- Голосові рольові сценарії: Замовляйте каву в Токіо, випічку в Парижі, тапас у Мадриді або страви на ринку в Сеулі.
+- Словник і картки повторення: Зберігайте фрази у Cloud Firestore та локальному кеші з рівнями засвоєння від 1 до 5.
+- Гнучкі режими ШІ: Обирайте гібридний режим, повний офлайн або власний ключ Gemini API (BYOK), що зберігається лише на пристрої.
+- Ліги Додзьо: Відстежуйте щоденні серії та точність у японській, іспанській, французькій, німецькій, корейській, китайській, італійській та англійській.
+- Без реклами: Навчайтеся без рекламних перерв із можливістю добровільної підтримки."
+sv-SE,"Pocket Sensei: 3D Röstcoach","Tala naturligt med en 3D-avatar, ljudvåg i realtid, tonhöjd och rollspel.","Öva verkliga talade samtal istället för upprepande gloskort med Pocket Sensei, din interaktiva 3D-språk- och uttalscoach.
+
+Huvudfunktioner:
+- Interaktiv 3D-avatar: Prata direkt med en lokalt renderad 3D-Sensei med läppsynk och anpassningsbara dräkter.
+- Ljudvåg & tonhöjdskurva i realtid: Se mikrofonens ljudvågor live med fonetiska tips, tungplacering och jämförande tonkurvor.
+- Dojo Speak Blitz & Offlineläge: Träna taltempo utan internet tack vare lokal uttalsbedömning och snabb Room-cache på enheten.
+- Verklighetstrogna röstrollspel: Beställ på ett kafé i Tokyo, ett bageri i Paris, en tapasbar i Madrid eller en nattmarknad i Seoul.
+- Ordbank & snabbkort: Synka övade fraser med Cloud Firestore och lokal cache med kunskapsnivåer från 1 till 5.
+- Flexibel AI-motor: Välj Hybridläge, rent Offlineläge eller anslut din egen privata Gemini API-nyckel (BYOK) lokalt på enheten.
+- Dojo-ligor: Följ dagliga sviter och träffsäkerhet i japanska, spanska, franska, tyska, koreanska, mandarin, italienska och engelska.
+- Reklamfri & integritetsvänlig: Lär dig utan reklamavbrott med frivilligt stöd till utvecklaren."

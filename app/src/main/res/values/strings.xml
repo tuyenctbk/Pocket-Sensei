@@ -1,0 +1,555 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">Interactive 3D Language &amp; Accent Coach</string>
+    <string name="splash_ready">Ready to speak with confidence ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">Sensei 3D</string>
+    <string name="auth_subtitle">3D Interactive Language &amp; Accent Coach</string>
+    <string name="auth_feature_avatar_title">On-Device 3D Sensei Avatar</string>
+    <string name="auth_feature_avatar_desc">Three.js character with real-time lip-sync &amp; facial expressions</string>
+    <string name="auth_feature_coach_title">Gemini Live Accent Coaching</string>
+    <string name="auth_feature_coach_desc">Instant pronunciation feedback &amp; mouth placement tips</string>
+    <string name="auth_feature_roleplay_title">Conversational Voice Roleplay</string>
+    <string name="auth_feature_roleplay_desc">Order at a café, chat at market stalls, or practice interviews</string>
+    <string name="auth_feature_sync_title">Firestore Cloud Sync</string>
+    <string name="auth_feature_sync_desc">Track mastered vocabulary and keep your daily learning streak</string>
+    <string name="cd_sign_in_icon">Sign in icon</string>
+    <string name="auth_sign_in_google">Sign in with Google</string>
+    <string name="auth_sign_in_footer">Sign in to persist your streaks and mastered vocabulary in Firestore</string>
+    <string name="auth_error_missing_client_id">Google Sign-In configuration missing: default_web_client_id not found</string>
+    <string name="auth_error_unexpected_credential">Unexpected credential type</string>
+    <string name="auth_error_sign_in_failed">Sign in failed</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">Coach</string>
+    <string name="nav_roleplay">Roleplay</string>
+    <string name="nav_vocab">Vocab</string>
+    <string name="nav_league">League</string>
+    <string name="nav_profile">Profile</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">Active Supporter</string>
+    <string name="supporter_badge_short">Supporter</string>
+    <string name="cd_support_app">Support Pocket Sensei</string>
+    <string name="cd_streak">Streak</string>
+    <string name="streak_day_format">%1$d Day</string>
+    <string name="cd_cycle_outfit">Cycle Sensei Outfit</string>
+    <string name="cd_praise_sensei">Praise Sensei</string>
+    <string name="cd_sensei_greet">Sensei Greet</string>
+    <string name="mic_permission_required">Microphone permission is required to analyze spoken pronunciation</string>
+    <string name="mood_idle">Sensei Ready</string>
+    <string name="mood_listening">Listening…</string>
+    <string name="mood_speaking">Sensei Speaking</string>
+    <string name="mood_praising">Sugoi! Excellent!</string>
+    <string name="mood_thinking">Analyzing Accent…</string>
+    <string name="mood_correcting">Tip from Sensei</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">All</string>
+    <string name="lang_japanese">Japanese</string>
+    <string name="lang_spanish">Spanish</string>
+    <string name="lang_french">French</string>
+    <string name="lang_german">German</string>
+    <string name="lang_korean">Korean</string>
+    <string name="lang_mandarin">Mandarin</string>
+    <string name="lang_italian">Italian</string>
+    <string name="lang_english">English</string>
+    <string name="difficulty_beginner">Beginner</string>
+    <string name="difficulty_intermediate">Intermediate</string>
+    <string name="difficulty_advanced">Advanced</string>
+    <string name="difficulty_core">Core</string>
+    <string name="tier_black_belt">Black Belt Sensei</string>
+    <string name="tier_gold">Gold Tier</string>
+    <string name="tier_silver">Silver Tier</string>
+    <string name="tier_bronze">Bronze Tier</string>
+    <string name="tier_white_belt">White Belt</string>
+    <string name="engine_cache">Room Cache ($0)</string>
+    <string name="engine_offline">Offline Coach ($0)</string>
+    <string name="engine_offline_fallback">Offline Fallback ($0)</string>
+    <string name="engine_offline_cap">Offline Fallback ($0 • Daily cap saved)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">Your Gemini Key (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">New Update Ready (v%1$s)</string>
+    <string name="prompt_rate_title">Enjoying Pocket Sensei?</string>
+    <string name="prompt_share_title">Share Your Progress!</string>
+    <string name="prompt_donation_title">Support Pocket Sensei?</string>
+    <string name="prompt_update_default_notes">A newer version of Pocket Sensei is available on Google Play with improved accent coaching and 3D animations.</string>
+    <string name="prompt_rate_body">You\'ve completed %1$d sessions and %2$d speaking milestones! Mind leaving an honest review on Google Play?</string>
+    <string name="prompt_share_score_note">You just scored %1$d%%!</string>
+    <string name="prompt_share_body">Awesome practice! %1$s Invite a friend to speak and learn languages with Pocket Sensei 3D.</string>
+    <string name="prompt_share_body_plain">Awesome practice! Invite a friend to speak and learn languages with Pocket Sensei 3D.</string>
+    <string name="prompt_donation_body">You\'ve completed %1$d speaking sessions! Pocket Sensei stays 100%% ad-free—consider buying the indie developer a coffee via Google Play, PayPal QR, or Ko-fi.</string>
+    <string name="prompt_dont_ask_again">Don\'t ask again</string>
+    <string name="prompt_update_now">Update Now</string>
+    <string name="prompt_rate_cta">Rate on Play Store</string>
+    <string name="prompt_share_cta">Share App</string>
+    <string name="prompt_donation_cta">Support Options</string>
+    <string name="prompt_maybe_later">Maybe Later</string>
+    <string name="share_app_text">I\'m practicing pronunciation and live roleplays with Pocket Sensei 3D! Join me: %1$s</string>
+    <string name="share_app_subject">Pocket Sensei — 3D Language &amp; Accent Coach</string>
+    <string name="share_app_chooser">Share Pocket Sensei</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">Practice Phrases</string>
+    <string name="coach_dojo_blitz_btn">Dojo Blitz ($0)</string>
+    <string name="cd_normal_speed">Normal Speed</string>
+    <string name="cd_slow_speed">Slow Speed Audio</string>
+    <string name="coach_focus_format">Focus: %1$s</string>
+    <string name="coach_listening_format">🎙️ Listening: \"%1$s\"</string>
+    <string name="coach_transcribed_format">Transcribed: \"%1$s\"</string>
+    <string name="cd_speak_to_sensei">Speak to Sensei</string>
+    <string name="coach_type_input">Type Input</string>
+    <string name="coach_waveform_title">Live Speech Pattern</string>
+    <string name="coach_waveform_ready">Mic Ready</string>
+    <string name="coach_waveform_hint">Speak into your microphone to see volume peaks, pauses, and rhythm.</string>
+    <string name="coach_waveform_db_format">Level %1$s dB</string>
+    <string name="coach_evaluating">Sensei is evaluating phonetics &amp; pitch accent…</string>
+    <string name="toast_saved_vocab_firestore">Saved to Vocabulary Bank in Firestore!</string>
+    <string name="coach_eval_note_format">Evaluation note: %1$s</string>
+    <string name="manual_dialog_title">Manual Speech Transcription</string>
+    <string name="manual_dialog_desc">Enter what was spoken to test pronunciation evaluation:</string>
+    <string name="btn_analyze">Analyze</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="result_title">Accent Coach Feedback</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">Phonetic Precision</string>
+    <string name="result_pitch_accent">Pitch Accent / Tone</string>
+    <string name="result_fluency_rhythm">Fluency &amp; Rhythm</string>
+    <string name="cd_mouth_coach">Mouth coach</string>
+    <string name="result_placement_tip_title">Tongue &amp; Mouth Placement Tip:</string>
+    <string name="result_phonemes_to_refine">Phonemes to refine:</string>
+    <string name="result_native_phrasings">How native speakers also say this:</string>
+    <string name="cd_synced">Synced</string>
+    <string name="result_saved_to_vocab">Saved to Vocab</string>
+    <string name="result_support_micro_footer">Great pronunciation! Buy the dev a coffee if Sensei helped today.</string>
+    <string name="result_support_cta_arrow">Support →</string>
+    <string name="pitch_comparison_title">Pitch Contour Comparison</string>
+    <string name="pitch_legend_native">Native Target</string>
+    <string name="pitch_legend_yours">Your Pitch</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">Voice Roleplay Scenarios</string>
+    <string name="roleplay_thinking">%1$s is thinking of reply…</string>
+    <string name="roleplay_suggested_label">Suggested responses (tap to speak or send):</string>
+    <string name="roleplay_listening_placeholder">🎙️ Listening…</string>
+    <string name="roleplay_input_placeholder">Speak or type in %1$s…</string>
+    <string name="cd_send">Send</string>
+    <string name="cd_normal_voice">Normal voice</string>
+    <string name="cd_slow_voice">Slow voice</string>
+    <string name="roleplay_hide_translation">Hide translation</string>
+    <string name="roleplay_show_translation">Show English meaning</string>
+    <string name="roleplay_sensei_note">💡 Sensei: %1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">Vocabulary Mastery</string>
+    <string name="vocab_tracked_count">%1$d words tracked in Cloud Firestore</string>
+    <string name="vocab_empty_title">No words saved yet</string>
+    <string name="vocab_empty_subtitle">Practice phrases in Accent Coach to add them here!</string>
+    <string name="vocab_accuracy_format">%1$d%% accuracy</string>
+    <string name="cd_play_normal">Play normal</string>
+    <string name="vocab_btn_drill">Drill</string>
+    <string name="vocab_flashcard_title">🥋 Flashcard Drill</string>
+    <string name="vocab_meaning_label">Meaning in English:</string>
+    <string name="vocab_tap_to_reveal">👉 Tap to reveal English meaning</string>
+    <string name="vocab_btn_listen">Listen</string>
+    <string name="vocab_btn_slow">0.75x Slow</string>
+    <string name="vocab_btn_practice_coach">Practice in Coach</string>
+    <string name="btn_close">Close</string>
+    <string name="vocab_mastery_summary_format">%1$d tracked offline • %2$d mastered</string>
+    <string name="vocab_filter_mastery_all">All Levels</string>
+    <string name="vocab_filter_needs_review">Needs Review (%1$d)</string>
+    <string name="vocab_filter_learning">Learning (%1$d)</string>
+    <string name="vocab_filter_mastered">Mastered (%1$d)</string>
+    <string name="vocab_status_needs_review">Needs Review</string>
+    <string name="vocab_status_learning">Learning</string>
+    <string name="vocab_status_mastered">Mastered</string>
+    <string name="vocab_level_format">Lv %1$d/5</string>
+    <string name="vocab_practice_count_format">%1$dx practiced</string>
+    <string name="vocab_btn_drill_weakest">Drill Weakest</string>
+    <string name="vocab_empty_filtered_subtitle">No words match this mastery filter yet. Try another filter or practice more phrases!</string>
+    <string name="vocab_btn_got_it">Got It</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">Sensei Student</string>
+    <string name="profile_signed_in_google">Signed in with Google</string>
+    <string name="profile_tier_badge">🏆 Master Speaker Tier</string>
+    <string name="profile_outfit_title">3D Sensei Outfit</string>
+    <string name="costume_traditional">Indigo Gi</string>
+    <string name="costume_crimson">Crimson Samurai</string>
+    <string name="costume_cyber">Cyber Neon</string>
+    <string name="costume_sakura">Sakura Robe</string>
+    <string name="profile_stats_title">Learning Mastery &amp; Streaks</string>
+    <string name="profile_stat_streak">Daily Streak</string>
+    <string name="profile_stat_streak_value">%1$d Days</string>
+    <string name="profile_stat_mastered">Words Mastered</string>
+    <string name="profile_stat_practice_time">Practice Time</string>
+    <string name="profile_stat_practice_value">%1$d min</string>
+    <string name="profile_stat_avg_accuracy">Avg Accuracy</string>
+    <string name="profile_recent_sessions_title">Recent Voice Roleplay Sessions</string>
+    <string name="profile_no_sessions">No roleplay conversations saved yet. Practice a scenario in the Roleplay tab!</string>
+    <string name="profile_telemetry_title">On-Device Room Cache &amp; Telemetry</string>
+    <string name="profile_telemetry_counts">%1$d words • %2$d events</string>
+    <string name="profile_btn_share_app">Share App</string>
+    <string name="profile_btn_rate_app">Rate App</string>
+    <string name="profile_btn_sign_out">Sign Out of Google Account</string>
+    <string name="session_accuracy_format">%1$d%% accuracy</string>
+    <string name="session_meta_format">Language: %1$s • %2$d dialog turns</string>
+
+    <!-- League Screen -->
+    <string name="league_title">Dojo Accent League</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">Practice Accent Coach (+30–50 XP) or Roleplay (+25 XP) to rank up!</string>
+    <string name="league_empty_title">No ranked learners yet for %1$s</string>
+    <string name="league_empty_subtitle">Complete an accent drill to post your score on Cloud Firestore!</string>
+    <string name="league_user_you">%1$s (You)</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$dd • %3$d%% avg</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">AI Coaching Engine &amp; Cost Control</string>
+    <string name="ai_cached_count">%1$d cached ($0)</string>
+    <string name="ai_cloud_quota_summary">Today\'s free cloud calls: %1$d/%2$d. Repeated drills load free from Room cache.</string>
+    <string name="ai_mode_chip_hybrid">Hybrid</string>
+    <string name="ai_mode_chip_offline">Offline $0</string>
+    <string name="ai_mode_chip_byok">My Key</string>
+    <string name="ai_mode_desc_hybrid">Room cache + daily free cloud AI, with instant offline fallback</string>
+    <string name="ai_mode_desc_offline">Pure on-device phonetic &amp; pitch matching with zero network usage</string>
+    <string name="ai_mode_desc_byok">Unlimited AI coaching funded by your own personal Gemini API key</string>
+    <string name="ai_byok_edit_saved">Personal Gemini Key Saved (Edit)</string>
+    <string name="ai_byok_add_prompt">Use Own Gemini API Key (BYOK)</string>
+    <string name="ai_byok_clear">Clear Key</string>
+    <string name="ai_byok_input_label">Your Gemini API Key (stored privately on device)</string>
+    <string name="ai_byok_save_btn">Save &amp; Enable BYOK</string>
+    <string name="blitz_title">Dojo Speak Blitz</string>
+    <string name="blitz_initial_feedback">Speak the phrase or tap Hear to build your combo!</string>
+    <string name="blitz_hit_feedback">Hit! %1$d%% accuracy (+%2$d XP, x%3$d combo)</string>
+    <string name="blitz_miss_feedback">Almost (%1$d%%)! Tap Hear and try again.</string>
+    <string name="blitz_skip_feedback">Skipped — try this next phrase!</string>
+    <string name="blitz_timer_label">Time: %1$ds</string>
+    <string name="blitz_score_label">Score: %1$d XP</string>
+    <string name="blitz_combo_label">Combo: x%1$d</string>
+    <string name="cd_hear_phrase">Hear phrase</string>
+    <string name="blitz_btn_hear">Hear</string>
+    <string name="cd_blitz_mic">Speak in Dojo Blitz</string>
+    <string name="blitz_btn_skip">Skip</string>
+    <string name="blitz_times_up">Time\'s Up! +%1$d Dojo XP</string>
+    <string name="blitz_summary">You cleared %1$d phrases in 100%% zero-cost offline mode.</string>
+    <string name="blitz_play_again">Play Again</string>
+    <string name="blitz_finish_early">Finish Early</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">Enjoying your practice?</string>
+    <string name="donation_banner_subtitle">Support ad-free indie development with a coffee.</string>
+    <string name="donation_banner_cta">Support</string>
+    <string name="cd_dismiss_donation_banner">Dismiss donation banner</string>
+    <string name="support_active_supporter">Active Supporter</string>
+    <string name="support_development_title">Support Development</string>
+    <string name="support_badge_ad_free">Ad-Free Indie App</string>
+    <string name="support_active_desc">Thank you for supporting Pocket Sensei! All donation banners and prompts are permanently turned off.</string>
+    <string name="support_inactive_desc">Pocket Sensei stays 100%% ad-free and privacy-first. You\'ve completed %1$d practice milestones — support future languages anytime.</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / QR</string>
+    <string name="channel_paypal_tab">PayPal &amp; QR</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">View Privacy Policy &amp; Data Disclosures</string>
+    <string name="privacy_policy_title">Privacy Policy</string>
+    <string name="donation_sheet_subtitle">Choose Google Play, PayPal QR, or Ko-fi</string>
+    <string name="donation_active_unlocked">Active Supporter unlocked! All donation prompts are permanently disabled.</string>
+    <string name="donation_play_desc">One-tap Google Pay checkout. Automatically unlocks the permanent Active Supporter badge on receipt validation.</string>
+    <string name="donation_play_connecting">Connecting to Google Play Billing…</string>
+    <string name="donation_paypal_desc">Scan the live PayPal QR code with another device or open PayPal.me directly.</string>
+    <string name="donation_paypal_any">Any</string>
+    <string name="donation_paypal_custom_label">Custom USD amount (optional)</string>
+    <string name="donation_paypal_custom_hint">e.g. 15</string>
+    <string name="cd_paypal_qr">PayPal donation QR code for %1$s</string>
+    <string name="cd_copy_paypal_url">Copy PayPal URL</string>
+    <string name="donation_btn_open_paypal">Open PayPal</string>
+    <string name="donation_btn_copy">Copy</string>
+    <string name="donation_btn_share">Share</string>
+    <string name="donation_kofi_title">Ko-fi Tip Jar</string>
+    <string name="donation_kofi_desc">Send a quick virtual coffee via Ko-fi. Opens your browser cleanly, or copies the link if no browser is present.</string>
+    <string name="donation_btn_open_kofi">Open Ko-fi Page</string>
+    <string name="donation_btn_copy_link">Copy Link</string>
+    <string name="tier1_title">Matcha Tea</string>
+    <string name="tier1_subtitle">Tier 1 • Small token of thanks</string>
+    <string name="tier1_badge">Tier 1</string>
+    <string name="tier2_title">Sensei\'s Coffee</string>
+    <string name="tier2_subtitle">Tier 2 • Fuel new phrase packs</string>
+    <string name="tier2_badge">Popular</string>
+    <string name="tier3_title">Dojo Bento</string>
+    <string name="tier3_subtitle">Tier 3 • Support 3D voice coaching</string>
+    <string name="tier3_badge">Tier 3</string>
+    <string name="tier4_title">Master Patron</string>
+    <string name="tier4_subtitle">Tier 4 • Champion indie education</string>
+    <string name="tier4_badge">Tier 4</string>
+    <string name="billing_purchase_canceled">Purchase canceled — thank you for considering supporting Pocket Sensei!</string>
+    <string name="billing_service_unavailable">Service unavailable</string>
+    <string name="billing_error_fallback">Google Play Billing returned: %1$s. You can also use PayPal or Ko-fi below.</string>
+    <string name="billing_receipt_failed">Receipt validation failed. Please try again.</string>
+    <string name="billing_pending">Your Google Play donation is pending completion. Active Supporter badge will unlock automatically once confirmed.</string>
+    <string name="billing_verified">Thank you! Your Google Play donation is verified and your Active Supporter badge is now unlocked permanently.</string>
+    <string name="billing_missing_activity">Unable to locate active window for Google Play checkout. Please retry from the main screen or use PayPal / Ko-fi.</string>
+    <string name="billing_store_unavailable">Google Play Store billing is unavailable on this device/build (%1$s). You can use PayPal QR or Ko-fi anytime.</string>
+    <string name="billing_code_prefix">code %1$d</string>
+    <string name="billing_disconnected">Google Play Billing disconnected. Please try again or choose PayPal / Ko-fi.</string>
+    <string name="billing_item_unpublished">In-app item \"%1$s\" is not published on this build\'s Play Console track yet. PayPal QR and Ko-fi work immediately below!</string>
+    <string name="billing_checkout_error">Could not open Google Play checkout (%1$s).</string>
+    <string name="paypal_label">PayPal Donation Link</string>
+    <string name="paypal_no_browser_toast">No browser found — PayPal link copied to clipboard!</string>
+    <string name="paypal_copied_toast">Copied PayPal link: %1$s</string>
+    <string name="paypal_share_subject">Support Pocket Sensei</string>
+    <string name="paypal_share_text">Support Pocket Sensei 3D Language &amp; Accent Coach: %1$s</string>
+    <string name="paypal_share_chooser">Share Donation Link</string>
+    <string name="kofi_label">Ko-fi Page Link</string>
+    <string name="kofi_no_browser_toast">No browser found — Ko-fi link copied to clipboard!</string>
+    <string name="kofi_copied_toast">Copied Ko-fi link: %1$s</string>
+    <string name="privacy_loaded_in_app">Privacy Policy loaded in-app.</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">Speech recognition is not available on this device. Use Type Input instead.</string>
+    <string name="hud_praise_speech">Sugoi! Very impressive!</string>
+    <string name="hud_greet_speech">Konnichiwa! Let\'s practice speaking today!</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">Evaluation failed</string>
+    <string name="error_roleplay_failed">Sensei could not respond.</string>
+    <string name="coach_default_accent_focus">Vowel &amp; Consonant clarity</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">Clean vowel length and crisp consonant onset! Keep this relaxed pace.</string>
+    <string name="eval_tip_missed_format">Focus clearly on enunciating: %1$s. Keep your jaw steady on stressed vowels.</string>
+    <string name="eval_tip_slow_down">Slow down slightly between syllables and project stressed vowels cleanly.</string>
+    <string name="eval_encourage_high">Sugoi! Evaluated on-device ($0 offline mode).</string>
+    <string name="eval_encourage_mid">Good rhythm! A second slower pass will sharpen your accent.</string>
+    <string name="eval_encourage_low">Nice try — tap \'Slow\' audio to hear every syllable clearly.</string>
+    <string name="eval_contour_type_format">%1$s On-Device Contour</string>
+    <string name="eval_pitch_guidance_default">Match the dashed green native contour rise and fall cleanly.</string>
+    <string name="eval_contour_default">Natural Accent Contour</string>
+    <string name="eval_tip_default">Keep your mouth relaxed and articulate clearly.</string>
+    <string name="eval_encourage_default">Great effort! Practice makes permanent.</string>
+    <string name="eval_pitch_guidance_cloud_default">Align stress rise with native speaker contour.</string>
+    <string name="roleplay_offline_note_format">Offline Coach ($0 mode): Received \"%1$s\" smoothly. Keep your pacing natural!</string>
+    <string name="roleplay_offline_translation_fallback">Offline Practice Mode response</string>
+    <string name="roleplay_offline_reply_default">Wonderful! Let\'s keep practicing your natural cadence in %1$s.</string>
+    <string name="roleplay_offline_reply_ja_translation">Certainly! Would you like anything else?</string>
+    <string name="roleplay_offline_reply_fr_translation">Very well! Would you like anything else with that?</string>
+    <string name="roleplay_offline_reply_es_translation">Perfect! I\'ll bring that right out. Anything else to drink?</string>
+    <string name="roleplay_offline_reply_ko_translation">Yes, understood! Please wait just a moment.</string>
+    <string name="roleplay_offline_reply_de_translation">Excellent! Would you like to tell me more about that?</string>
+    <string name="roleplay_offline_reply_it_translation">Perfect! Would you like anything else today?</string>
+    <string name="roleplay_cloud_note_default">Great conversational flow!</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">Hello, how are you?</string>
+    <string name="phrase_ja_1_focus">Flat pitch on \'Konnichiwa\'</string>
+    <string name="phrase_ja_2_translation">I will take this, please.</string>
+    <string name="phrase_ja_2_focus">Light \'r\' tongue flap</string>
+    <string name="phrase_ja_3_translation">Thank you very much!</string>
+    <string name="phrase_ja_3_focus">Long \'ou\' vowel</string>
+    <string name="phrase_ja_4_translation">Excuse me, where is the station?</string>
+    <string name="phrase_ja_4_focus">Rising polite inflection</string>
+    <string name="phrase_ja_5_translation">It is very delicious!</string>
+    <string name="phrase_ja_5_focus">Clean \'desu\' unvoiced \'u\'</string>
+
+    <string name="phrase_fr_1_translation">Hello, pleased to meet you.</string>
+    <string name="phrase_fr_1_focus">Soft nasal \'en\' &amp; \'on\'</string>
+    <string name="phrase_fr_2_translation">A croissant and a coffee, please.</string>
+    <string name="phrase_fr_2_focus">Throaty French \'r\'</string>
+    <string name="phrase_fr_3_translation">Where is the restroom?</string>
+    <string name="phrase_fr_3_focus">Smooth liaison</string>
+    <string name="phrase_fr_4_translation">It is absolutely magnificent!</string>
+    <string name="phrase_fr_4_focus">Pure \'u\' lips rounded</string>
+
+    <string name="phrase_es_1_translation">Hello! How are you today?</string>
+    <string name="phrase_es_1_focus">Clear open vowels</string>
+    <string name="phrase_es_2_translation">A table for two, please.</string>
+    <string name="phrase_es_2_focus">Soft single tap \'r\'</string>
+    <string name="phrase_es_3_translation">The fast railway.</string>
+    <string name="phrase_es_3_focus">Double rolled \'rr\' trill</string>
+    <string name="phrase_es_4_translation">The bill, please.</string>
+    <string name="phrase_es_4_focus">Stress on final syllables</string>
+
+    <string name="phrase_de_1_translation">Good morning, how are you?</string>
+    <string name="phrase_de_1_focus">Long \'ee\' vowel in Ihnen</string>
+    <string name="phrase_de_2_translation">I would like a coffee, please.</string>
+    <string name="phrase_de_2_focus">Soft palate \'ch\' fricative</string>
+    <string name="phrase_de_3_translation">Thank you very much for your help!</string>
+    <string name="phrase_de_3_focus">Rounded \'ö\' and \'ü\'</string>
+
+    <string name="phrase_ko_1_translation">Hello, nice to meet you!</string>
+    <string name="phrase_ko_1_focus">Polite melodic cadence</string>
+    <string name="phrase_ko_2_translation">How much is this?</string>
+    <string name="phrase_ko_2_focus">Soft \'l\' sound in eol-ma</string>
+    <string name="phrase_ko_3_translation">Enjoy your meal!</string>
+    <string name="phrase_ko_3_focus">Aspirated vs tense consonants</string>
+
+    <string name="phrase_zh_1_translation">Hello, nice to meet you!</string>
+    <string name="phrase_zh_1_focus">3rd tone sandhi on Nǐ hǎo</string>
+    <string name="phrase_zh_2_translation">Excuse me, how much is this?</string>
+    <string name="phrase_zh_2_focus">4th tone on zhè, 2nd tone on qián</string>
+    <string name="phrase_zh_3_translation">Extremely delicious, thanks!</string>
+    <string name="phrase_zh_3_focus">Falling 4th tone on Tài and xiè</string>
+
+    <string name="phrase_it_1_translation">Good day! How are you?</string>
+    <string name="phrase_it_1_focus">Musical syllable rhythm</string>
+    <string name="phrase_it_2_translation">A pistachio gelato, please.</string>
+    <string name="phrase_it_2_focus">Double consonant \'cch\' pause</string>
+    <string name="phrase_it_3_translation">A thousand thanks for everything!</string>
+    <string name="phrase_it_3_focus">Lively dental \'t\' &amp; \'z\'</string>
+
+    <string name="phrase_en_1_translation">Direction request</string>
+    <string name="phrase_en_1_focus">Voiced \'th\' in the</string>
+    <string name="phrase_en_2_translation">Professional career query</string>
+    <string name="phrase_en_2_focus">Flapped \'d\' in schedule</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">Tokyo Café Order</string>
+    <string name="scenario_tokyo_cafe_sensei">Café Barista</string>
+    <string name="scenario_tokyo_cafe_user">Customer</string>
+    <string name="scenario_tokyo_cafe_init_translation">Welcome! Have you decided on your order?</string>
+
+    <string name="scenario_paris_boulangerie_title">Parisian Boulangerie</string>
+    <string name="scenario_paris_boulangerie_sensei">Master Baker</string>
+    <string name="scenario_paris_boulangerie_user">Customer</string>
+    <string name="scenario_paris_boulangerie_init_translation">Hello! What would you like today?</string>
+
+    <string name="scenario_madrid_tapas_title">Madrid Tapas Bar</string>
+    <string name="scenario_madrid_tapas_sensei">Tavern Host</string>
+    <string name="scenario_madrid_tapas_user">Patron</string>
+    <string name="scenario_madrid_tapas_init_translation">Good afternoon! What can I get started for you to drink?</string>
+
+    <string name="scenario_seoul_market_title">Seoul Night Market</string>
+    <string name="scenario_seoul_market_sensei">Street Food Chef</string>
+    <string name="scenario_seoul_market_user">Visitor</string>
+    <string name="scenario_seoul_market_init_translation">Welcome! Come try our steaming hot tteokbokki!</string>
+
+    <string name="scenario_rome_gelato_title">Florence Gelateria</string>
+    <string name="scenario_rome_gelato_sensei">Gelatiere</string>
+    <string name="scenario_rome_gelato_user">Customer</string>
+    <string name="scenario_rome_gelato_init_translation">Hi! Cone or cup? Which flavors would you like?</string>
+
+    <string name="scenario_berlin_tech_title">Berlin Tech Meetup</string>
+    <string name="scenario_berlin_tech_sensei">Tech Lead</string>
+    <string name="scenario_berlin_tech_user">Engineer</string>
+    <string name="scenario_berlin_tech_init_translation">Hello! Great to have you here. What project are you working on?</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Start Speaking</string>
+    <string name="onboarding_step_format">Step %1$d of %2$d</string>
+    <string name="onboarding_page1_badge">3D Voice &amp; Pitch Studio</string>
+    <string name="onboarding_page1_title">Speak Like a Local with Your 3D Sensei</string>
+    <string name="onboarding_page1_subtitle">Visualize your voice in real time with a 60fps Canvas waveform, pitch accent contours, and physical mouth placement tips.</string>
+    <string name="onboarding_page2_badge">Immersive Cultural Roleplay</string>
+    <string name="onboarding_page2_title">Practice Real-World Travel Scenarios</string>
+    <string name="onboarding_page2_subtitle">Order matcha in Shibuya, croissants in Paris, or tapas in Madrid with instant phonetic guides and smart reply suggestions.</string>
+    <string name="onboarding_page3_badge">Mastery &amp; Global Dojo</string>
+    <string name="onboarding_page3_title">Build Your Vocabulary &amp; Climb the League</string>
+    <string name="onboarding_page3_subtitle">Review words with spaced-repetition flashcards, play 45-second Dojo Blitz challenges, and pick your target language below.</string>
+    <string name="onboarding_select_language_label">Choose your first language to practice:</string>
+    <string name="profile_btn_replay_onboarding">Interactive App Tour</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">Toggle 3D Sensei stage size</string>
+    <string name="daily_goal_title">Daily Dojo Goal</string>
+    <string name="daily_goal_progress_format">%1$d / %2$d sessions today</string>
+    <string name="daily_goal_completed_badge">Goal Met!</string>
+    <string name="donation_perks_title">Supporter Perks Included</string>
+    <string name="donation_perks_summary">Permanently hides banners &amp; prompts while funding new voices and offline packs.</string>
+    <string name="donation_recommended_tag">Best Value</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">Daily Learning Streak</string>
+    <string name="streak_best_format">Best streak: %1$d days</string>
+    <string name="streak_status_active_today">Streak locked in for today! Keep speaking to sharpen your accent.</string>
+    <string name="streak_status_pending_today">Complete 1 Pronunciation Coach evaluation today to lock in your streak.</string>
+    <string name="streak_new_day_banner_format">%1$d-day streak unlocked!</string>
+
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">Record Sample</string>
+    <string name="coach_stop_pitch_rec">Stop Rec</string>
+    <string name="coach_play_mine">Hear Yourself</string>
+    <string name="coach_stop_mine">Stop Audio</string>
+    <string name="pitch_live_mic_badge">Live F0 Mic</string>
+    <string name="result_play_sensei">Sensei Voice</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">Due Today (%1$d)</string>
+    <string name="vocab_due_now_badge">Due Now</string>
+    <string name="vocab_next_interval_format">In %1$dd</string>
+    <string name="vocab_next_review_hint_format">Next review in %1$d days if remembered</string>
+    <string name="vocab_btn_repeat">Needs Practice</string>
+    <string name="streak_freeze_count_format">Streak Freezes: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">A Streak Freeze protected your streak!</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">Commuter Shadowing</string>
+    <string name="shadowing_subtitle">Hands-free listen &amp; repeat loop</string>
+    <string name="shadowing_speed_slow">0.75x</string>
+    <string name="shadowing_speed_normal">1.0x</string>
+    <string name="shadowing_btn_start">Start</string>
+    <string name="shadowing_btn_stop">Stop</string>
+    <string name="shadowing_step_listening">Sensei speaking — listen closely…</string>
+    <string name="shadowing_step_repeat">Your turn — repeat aloud now…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">Add Phrase</string>
+    <string name="custom_phrase_dialog_title">Add Custom %1$s Phrase</string>
+    <string name="custom_phrase_target_label">Phrase in target language</string>
+    <string name="custom_phrase_phonetic_label">Phonetic / Romaji guide</string>
+    <string name="custom_phrase_translation_label">English meaning</string>
+    <string name="custom_phrase_focus_label">Pronunciation focus note</string>
+    <string name="custom_save_btn">Save</string>
+    <string name="custom_scenario_btn">New Scenario</string>
+    <string name="custom_scenario_dialog_title">Create %1$s Roleplay</string>
+    <string name="custom_scenario_templates_label">Quick starter presets:</string>
+    <string name="custom_scenario_title_label">Scenario title</string>
+    <string name="custom_scenario_sensei_role_label">Sensei\'s role (e.g. Interviewer)</string>
+    <string name="custom_scenario_user_role_label">Your role (e.g. Applicant)</string>
+    <string name="custom_scenario_opening_label">Sensei\'s opening line</string>
+    <string name="scenario_template_interview_title">Job Interview</string>
+    <string name="scenario_template_interview_sensei">Hiring Manager</string>
+    <string name="scenario_template_interview_user">Candidate</string>
+    <string name="scenario_template_interview_open">Hello! Thanks for coming today. Could you introduce yourself briefly?</string>
+    <string name="scenario_template_hotel_title">Hotel Check-in</string>
+    <string name="scenario_template_hotel_sensei">Front Desk Host</string>
+    <string name="scenario_template_hotel_user">Guest</string>
+    <string name="scenario_template_hotel_open">Welcome to our hotel! Do you have a reservation under your name?</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">Daily Practice Reminders</string>
+    <string name="reminder_channel_desc">Optional evening reminder if your daily streak is not locked in yet.</string>
+    <string name="reminder_notif_title">Keep your Dojo streak alive! 🔥</string>
+    <string name="reminder_notif_body_format">You\'re on a %1$d-day streak—say 1 quick phrase before bedtime.</string>
+    <string name="reminder_card_title">Evening Streak Reminder</string>
+    <string name="reminder_card_subtitle">Smart alert only if you haven\'t practiced today</string>
+    <string name="reminder_time_label">Remind at:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">Enable notifications in system settings to receive reminders.</string>
+    <string name="share_card_btn">Share Card</string>
+    <string name="share_card_chooser">Share Milestone Card</string>
+    <string name="share_card_headline_score">Pronunciation Mastery</string>
+    <string name="share_card_headline_streak">Dojo Streak Milestone</string>
+    <string name="share_card_streak_format">%1$d-Day Streak</string>
+    <string name="difficulty_custom">Custom</string>
+    <string name="ai_byok_get_key_btn">Get Free Gemini Key (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ Generate AI Topic Lesson Pack</string>
+    <string name="roleplay_live_call_start">Live Call</string>
+    <string name="roleplay_live_call_active">End Call</string>
+    <string name="topic_pack_phrase1_trans">Excuse me, please tell me about %1$s.</string>
+    <string name="topic_pack_phrase2_trans">Which one do you recommend?</string>
+    <string name="topic_pack_phrase3_trans">That was very helpful, thank you!</string>
+    <string name="topic_pack_sensei_role">Local Guide</string>
+    <string name="topic_pack_user_role">Traveler</string>
+    <string name="scenario_shanghai_tea_title">Shanghai Teahouse</string>
+    <string name="scenario_shanghai_tea_sensei">Tea Master</string>
+    <string name="scenario_shanghai_tea_user">Guest</string>
+    <string name="scenario_shanghai_tea_init_translation">Welcome! Which tea would you like to taste today?</string>
+    <string name="scenario_london_interview_title">London Studio Coffee</string>
+    <string name="scenario_london_interview_sensei">Project Host</string>
+    <string name="scenario_london_interview_user">Creator</string>
+    <string name="scenario_london_interview_init_translation">Good morning! Tell me what excites you about your next project.</string>
+</resources>

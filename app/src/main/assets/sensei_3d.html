@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Pocket Sensei 3D</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #1E1B4B 0%, #0F0E26 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    #canvas-container { width: 100%; height: 100%; position: relative; }
+    #mood-badge {
+      position: absolute;
+      top: 12px; left: 16px;
+      padding: 4px 10px;
+      background: rgba(30, 27, 75, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      color: #A5B4FC;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #818CF8;
+      box-shadow: 0 0 8px #818CF8;
+    }
+  </style>
+  <script src="three.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container">
+    <div id="mood-badge"><span class="badge-dot" id="mood-dot"></span><span id="mood-text">Ready to Learn</span></div>
+  </div>
+
+  <script>
+    // Pocket Sensei 3D Engine
+    let scene, camera, renderer;
+    let senseiGroup, headGroup, mouthMesh, eyeLeft, eyeRight, browLeft, browRight;
+    let giMat, obiMat, headbandMat, goldMat, stageMat;
+    let visualizerRings = [];
+    let particles;
+    let currentMood = 'idle';
+    let isSpeaking = false;
+    let speakEndTime = 0;
+    let mouthVisemePhase = 0;
+    let targetHeadRot = { x: 0, y: 0 };
+    let currentHeadRot = { x: 0, y: 0 };
+    let blinkTimer = 0;
+    let nextBlinkTime = 2.5;
+    let isBlinking = false;
+    let blinkProgress = 0;
+    let clock = new THREE.Clock();
+
+    function init() {
+      const container = document.getElementById('canvas-container');
+      const width = container.clientWidth || window.innerWidth;
+      const height = container.clientHeight || window.innerHeight;
+
+      // 1. Scene & Camera
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+      camera.position.set(0, 1.2, 4.2);
+
+      // 2. Renderer
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      container.appendChild(renderer.domElement);
+
+      // 3. Lighting
+      const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.7);
+      scene.add(ambientLight);
+
+      const keyLight = new THREE.DirectionalLight(0xFFF1E6, 1.1);
+      keyLight.position.set(3, 4, 3);
+      keyLight.castShadow = true;
+      scene.add(keyLight);
+
+      const rimLight = new THREE.DirectionalLight(0x818CF8, 0.8);
+      rimLight.position.set(-3, 3, -3);
+      scene.add(rimLight);
+
+      const fillLight = new THREE.PointLight(0xF472B6, 0.5, 8);
+      fillLight.position.set(0, -1, 2);
+      scene.add(fillLight);
+
+      // 4. Build Stylized 3D Sensei
+      buildSensei();
+
+      // 5. Build Stage Pedestal & Visualizer Rings
+      buildStage();
+
+      // 6. Floating Particles
+      buildParticles();
+
+      // 7. Touch & Drag Interaction
+      setupTouchControls(renderer.domElement);
+
+      window.addEventListener('resize', onWindowResize);
+
+      // Notify Android Bridge that 3D scene is initialized
+      if (window.SenseiBridge && window.SenseiBridge.onSceneReady) {
+        window.SenseiBridge.onSceneReady();
+      }
+
+      animate();
+    }
+
+    function buildSensei() {
+      senseiGroup = new THREE.Group();
+      senseiGroup.position.y = 0.1;
+
+      // --- Materials ---
+      const skinMat = new THREE.MeshToonMaterial({ color: 0xFED7AA });
+      const hairMat = new THREE.MeshToonMaterial({ color: 0xE2E8F0 });
+      headbandMat = new THREE.MeshToonMaterial({ color: 0xF8FAFC });
+      giMat = new THREE.MeshToonMaterial({ color: 0x312E81 });
+      const trimMat = new THREE.MeshToonMaterial({ color: 0xEEF2FF });
+      goldMat = new THREE.MeshStandardMaterial({ color: 0xFBBF24, metalness: 0.8, roughness: 0.2 });
+      const eyeWhiteMat = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+      const eyeIrisMat = new THREE.MeshBasicMaterial({ color: 0x3730A3 });
+      const eyePupilMat = new THREE.MeshBasicMaterial({ color: 0x111827 });
+      const mouthMat = new THREE.MeshToonMaterial({ color: 0xBE185D });
+      const blushMat = new THREE.MeshBasicMaterial({ color: 0xFB7185, transparent: true, opacity: 0.35 });
+
+      // --- Body / Torso (Kimono / Gi) ---
+      const torsoGeo = new THREE.CylinderGeometry(0.55, 0.7, 1.1, 24);
+      const torso = new THREE.Mesh(torsoGeo, giMat);
+      torso.position.y = -0.55;
+      torso.castShadow = true;
+      senseiGroup.add(torso);
+
+      // White collar trim
+      const collarLGeo = new THREE.BoxGeometry(0.12, 0.8, 0.08);
+      const collarL = new THREE.Mesh(collarLGeo, trimMat);
+      collarL.position.set(-0.16, -0.4, 0.52);
+      collarL.rotation.z = 0.35;
+      senseiGroup.add(collarL);
+
+      const collarR = new THREE.Mesh(collarLGeo, trimMat);
+      collarR.position.set(0.16, -0.4, 0.52);
+      collarR.rotation.z = -0.35;
+      senseiGroup.add(collarR);
+
+      // Obi Sash & Gold Knot
+      const obiGeo = new THREE.TorusGeometry(0.66, 0.08, 12, 28);
+      obiMat = new THREE.MeshToonMaterial({ color: 0x1E1B4B });
+      const obi = new THREE.Mesh(obiGeo, obiMat);
+      obi.rotation.x = Math.PI / 2;
+      obi.position.y = -0.65;
+      senseiGroup.add(obi);
+
+      const amuletGeo = new THREE.SphereGeometry(0.1, 16, 16);
+      const amulet = new THREE.Mesh(amuletGeo, goldMat);
+      amulet.position.set(0, -0.65, 0.7);
+      senseiGroup.add(amulet);
+
+      // Shoulder pads / Kimono Sleeves
+      const sleeveGeo = new THREE.SphereGeometry(0.32, 16, 16);
+      const sleeveL = new THREE.Mesh(sleeveGeo, giMat);
+      sleeveL.scale.set(0.9, 1.4, 0.9);
+      sleeveL.position.set(-0.7, -0.4, 0.05);
+      senseiGroup.add(sleeveL);
+
+      const sleeveR = new THREE.Mesh(sleeveGeo, giMat);
+      sleeveR.scale.set(0.9, 1.4, 0.9);
+      sleeveR.position.set(0.7, -0.4, 0.05);
+      senseiGroup.add(sleeveR);
+
+      // --- Head Group ---
+      headGroup = new THREE.Group();
+      headGroup.position.set(0, 0.45, 0);
+
+      // Head Base
+      const headGeo = new THREE.SphereGeometry(0.62, 32, 32);
+      headGeo.scale(1.0, 1.08, 0.96);
+      const head = new THREE.Mesh(headGeo, skinMat);
+      head.castShadow = true;
+      headGroup.add(head);
+
+      // Stylized Ears
+      const earGeo = new THREE.SphereGeometry(0.15, 12, 12);
+      earGeo.scale(0.5, 1.0, 0.8);
+      const earL = new THREE.Mesh(earGeo, skinMat);
+      earL.position.set(-0.62, 0.02, -0.05);
+      headGroup.add(earL);
+
+      const earR = new THREE.Mesh(earGeo, skinMat);
+      earR.position.set(0.62, 0.02, -0.05);
+      headGroup.add(earR);
+
+      // Cheeks (Blush)
+      const blushGeo = new THREE.CircleGeometry(0.12, 16);
+      const blushL = new THREE.Mesh(blushGeo, blushMat);
+      blushL.position.set(-0.35, -0.08, 0.58);
+      headGroup.add(blushL);
+
+      const blushR = new THREE.Mesh(blushGeo, blushMat);
+      blushR.position.set(0.35, -0.08, 0.58);
+      headGroup.add(blushR);
+
+      // Stylized Anime Eyes
+      function createEye(isRight) {
+        const eyeG = new THREE.Group();
+        const white = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 16), eyeWhiteMat);
+        white.scale.set(1.0, 1.15, 0.4);
+        eyeG.add(white);
+
+        const iris = new THREE.Mesh(new THREE.SphereGeometry(0.085, 16, 16), eyeIrisMat);
+        iris.scale.set(1.0, 1.05, 0.5);
+        iris.position.z = 0.04;
+        eyeG.add(iris);
+
+        const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 12), eyePupilMat);
+        pupil.position.z = 0.08;
+        eyeG.add(pupil);
+
+        const glint = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), eyeWhiteMat);
+        glint.position.set(0.03, 0.03, 0.1);
+        eyeG.add(glint);
+
+        const xPos = isRight ? 0.23 : -0.23;
+        eyeG.position.set(xPos, 0.08, 0.56);
+        return eyeG;
+      }
+
+      eyeLeft = createEye(false);
+      eyeRight = createEye(true);
+      headGroup.add(eyeLeft);
+      headGroup.add(eyeRight);
+
+      // Eyebrows (Dynamic for expressions)
+      const browGeo = new THREE.BoxGeometry(0.18, 0.04, 0.03);
+      browLeft = new THREE.Mesh(browGeo, hairMat);
+      browLeft.position.set(-0.24, 0.25, 0.59);
+      browLeft.rotation.z = -0.1;
+      headGroup.add(browLeft);
+
+      browRight = new THREE.Mesh(browGeo, hairMat);
+      browRight.position.set(0.24, 0.25, 0.59);
+      browRight.rotation.z = 0.1;
+      headGroup.add(browRight);
+
+      // Cute Button Nose
+      const noseGeo = new THREE.SphereGeometry(0.065, 12, 12);
+      const nose = new THREE.Mesh(noseGeo, skinMat);
+      nose.position.set(0, -0.04, 0.62);
+      headGroup.add(nose);
+
+      // Glasses (Sensei signature look)
+      const glassMat = new THREE.MeshStandardMaterial({ color: 0xF59E0B, metalness: 0.9, roughness: 0.1 });
+      const rimL = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.022, 12, 24), glassMat);
+      rimL.position.set(-0.24, 0.08, 0.6);
+      headGroup.add(rimL);
+
+      const rimR = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.022, 12, 24), glassMat);
+      rimR.position.set(0.24, 0.08, 0.6);
+      headGroup.add(rimR);
+
+      const bridge = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.16, 8), glassMat);
+      bridge.rotation.z = Math.PI / 2;
+      bridge.position.set(0, 0.08, 0.62);
+      headGroup.add(bridge);
+
+      // Dynamic Mouth Mesh (Blendable Visemes)
+      const mouthGeo = new THREE.CylinderGeometry(0.08, 0.08, 0.03, 16);
+      mouthMesh = new THREE.Mesh(mouthGeo, mouthMat);
+      mouthMesh.rotation.x = Math.PI / 2;
+      mouthMesh.position.set(0, -0.22, 0.58);
+      mouthMesh.scale.set(1.2, 0.35, 1.0);
+      headGroup.add(mouthMesh);
+
+      // Moustache & Wise Sensei Beard
+      const stacheL = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.35, 12), hairMat);
+      stacheL.rotation.set(0.3, 0.2, -1.2);
+      stacheL.position.set(-0.16, -0.15, 0.59);
+      headGroup.add(stacheL);
+
+      const stacheR = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.35, 12), hairMat);
+      stacheR.rotation.set(0.3, -0.2, 1.2);
+      stacheR.position.set(0.16, -0.15, 0.59);
+      headGroup.add(stacheR);
+
+      const beardGeo = new THREE.ConeGeometry(0.22, 0.55, 16);
+      const beard = new THREE.Mesh(beardGeo, hairMat);
+      beard.rotation.x = 0.2;
+      beard.position.set(0, -0.42, 0.52);
+      headGroup.add(beard);
+
+      // White Headband (Hachimaki)
+      const bandGeo = new THREE.TorusGeometry(0.61, 0.07, 12, 32);
+      const headband = new THREE.Mesh(bandGeo, headbandMat);
+      headband.position.set(0, 0.32, 0);
+      headband.rotation.x = Math.PI / 2.2;
+      headGroup.add(headband);
+
+      // Kanji Crest badge on headband
+      const crestGeo = new THREE.CylinderGeometry(0.12, 0.12, 0.02, 16);
+      const crest = new THREE.Mesh(crestGeo, goldMat);
+      crest.rotation.x = Math.PI / 2;
+      crest.position.set(0, 0.32, 0.65);
+      headGroup.add(crest);
+
+      // Hair Spikes & Topknot
+      for (let i = 0; i < 9; i++) {
+        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.45, 8), hairMat);
+        const angle = (i / 9) * Math.PI + 0.1;
+        spike.position.set(Math.cos(angle) * 0.55, 0.45 + Math.sin(angle) * 0.3, Math.sin(angle) * -0.2);
+        spike.rotation.z = -Math.cos(angle) * 0.8;
+        spike.rotation.x = -0.4;
+        headGroup.add(spike);
+      }
+
+      // Topknot Bundle
+      const bunGeo = new THREE.SphereGeometry(0.24, 16, 16);
+      const bun = new THREE.Mesh(bunGeo, hairMat);
+      bun.position.set(0, 0.78, -0.15);
+      headGroup.add(bun);
+
+      const bunRing = new THREE.Mesh(new THREE.TorusGeometry(0.14, 0.04, 8, 16), goldMat);
+      bunRing.rotation.x = Math.PI / 2;
+      bunRing.position.set(0, 0.66, -0.15);
+      headGroup.add(bunRing);
+
+      senseiGroup.add(headGroup);
+      scene.add(senseiGroup);
+    }
+
+    function buildStage() {
+      // Cylindrical Pedestal
+      const stageGeo = new THREE.CylinderGeometry(1.4, 1.6, 0.25, 32);
+      stageMat = new THREE.MeshStandardMaterial({
+        color: 0x1E1B4B,
+        metalness: 0.4,
+        roughness: 0.6
+      });
+      const stage = new THREE.Mesh(stageGeo, stageMat);
+      stage.position.y = -1.2;
+      stage.receiveShadow = true;
+      scene.add(stage);
+
+      // Dynamic Audio Visualizer Rings
+      const ringColors = [0x818CF8, 0xA5B4FC, 0x6366F1];
+      for (let i = 0; i < 3; i++) {
+        const ringGeo = new THREE.TorusGeometry(1.25 + i * 0.18, 0.02, 12, 48);
+        const ringMat = new THREE.MeshBasicMaterial({
+          color: ringColors[i],
+          transparent: true,
+          opacity: 0.45 - i * 0.12
+        });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.rotation.x = Math.PI / 2;
+        ring.position.y = -1.05 + i * 0.02;
+        scene.add(ring);
+        visualizerRings.push(ring);
+      }
+    }
+
+    function buildParticles() {
+      const pCount = 45;
+      const geo = new THREE.BufferGeometry();
+      const pos = new Float32Array(pCount * 3);
+      for (let i = 0; i < pCount * 3; i += 3) {
+        pos[i] = (Math.random() - 0.5) * 5;
+        pos[i + 1] = (Math.random() - 0.5) * 4 + 0.5;
+        pos[i + 2] = (Math.random() - 0.5) * 4;
+      }
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const mat = new THREE.PointsMaterial({
+        color: 0xF472B6,
+        size: 0.08,
+        transparent: true,
+        opacity: 0.65
+      });
+      particles = new THREE.Points(geo, mat);
+      scene.add(particles);
+    }
+
+    function setupTouchControls(dom) {
+      let isDragging = false;
+      let prevX = 0;
+      let prevY = 0;
+      let dragDistance = 0;
+
+      dom.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        prevX = e.clientX;
+        prevY = e.clientY;
+        dragDistance = 0;
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        if (!isDragging) {
+          // Subtle look-at tracking when hovering
+          const normX = (e.clientX / window.innerWidth) * 2 - 1;
+          const normY = -(e.clientY / window.innerHeight) * 2 + 1;
+          targetHeadRot.y = normX * 0.25;
+          targetHeadRot.x = -normY * 0.15;
+          return;
+        }
+        const deltaX = e.clientX - prevX;
+        const deltaY = e.clientY - prevY;
+        dragDistance += Math.abs(deltaX) + Math.abs(deltaY);
+        prevX = e.clientX;
+        prevY = e.clientY;
+
+        senseiGroup.rotation.y += deltaX * 0.012;
+        senseiGroup.rotation.x = Math.max(-0.22, Math.min(0.22, senseiGroup.rotation.x + deltaY * 0.004));
+      });
+
+      window.addEventListener('pointerup', () => { isDragging = false; });
+      window.addEventListener('pointercancel', () => { isDragging = false; });
+
+      // Tap on Sensei triggers greeting nod + subtle chime (skip if user was orbiting)
+      dom.addEventListener('click', () => {
+        if (dragDistance < 8 && window.Sensei) {
+          window.Sensei.speak(1800, "Ready!");
+          window.Sensei.playChime('tap');
+        }
+      });
+    }
+
+    // Zero-cost procedural WebAudio dojo chimes
+    function synthChime(kind) {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const notes = kind === 'praise' ? [523.25, 659.25, 783.99] : [440, 554.37];
+        notes.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.07);
+          gain.gain.setValueAtTime(0.001, ctx.currentTime + idx * 0.07);
+          gain.gain.exponentialRampToValueAtTime(0.06, ctx.currentTime + idx * 0.07 + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + idx * 0.07 + 0.35);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + idx * 0.07);
+          osc.stop(ctx.currentTime + idx * 0.07 + 0.36);
+        });
+      } catch (_) {}
+    }
+
+    let localizedDefaultLabels = {
+      idle: "Sensei Ready",
+      speaking: "Sensei Speaking"
+    };
+
+    // --- Public API for Android Jetpack Compose Bridge ---
+    window.Sensei = {
+      setDefaultLabels: function(idleLabel, speakingLabel) {
+        if (idleLabel) localizedDefaultLabels.idle = idleLabel;
+        if (speakingLabel) localizedDefaultLabels.speaking = speakingLabel;
+        if (currentMood === 'idle') {
+          const badge = document.getElementById('mood-text');
+          if (badge) badge.textContent = localizedDefaultLabels.idle;
+        }
+      },
+      playChime: function(kind) {
+        synthChime(kind || 'tap');
+      },
+      setMood: function(mood, customLabel) {
+        currentMood = mood || 'idle';
+        const badge = document.getElementById('mood-text');
+        const dot = document.getElementById('mood-dot');
+
+        if (mood === 'listening') {
+          badge.textContent = customLabel || "Listening...";
+          dot.style.background = "#34D399";
+          dot.style.boxShadow = "0 0 10px #34D399";
+          targetHeadRot.x = 0.1;
+          targetHeadRot.y = 0.05;
+        } else if (mood === 'speaking') {
+          badge.textContent = customLabel || localizedDefaultLabels.speaking;
+          dot.style.background = "#818CF8";
+          dot.style.boxShadow = "0 0 10px #818CF8";
+        } else if (mood === 'praising') {
+          badge.textContent = customLabel || "Sugoi! Excellent!";
+          dot.style.background = "#F472B6";
+          dot.style.boxShadow = "0 0 12px #F472B6";
+          this.praise();
+        } else if (mood === 'thinking') {
+          badge.textContent = customLabel || "Analyzing Accent...";
+          dot.style.background = "#FBBF24";
+          dot.style.boxShadow = "0 0 10px #FBBF24";
+          targetHeadRot.x = -0.15;
+          targetHeadRot.y = 0.2;
+        } else if (mood === 'correcting') {
+          badge.textContent = customLabel || "Tip from Sensei";
+          dot.style.background = "#F97316";
+          dot.style.boxShadow = "0 0 10px #F97316";
+        } else {
+          badge.textContent = customLabel || localizedDefaultLabels.idle;
+          dot.style.background = "#818CF8";
+          dot.style.boxShadow = "0 0 8px #818CF8";
+          targetHeadRot.x = 0;
+          targetHeadRot.y = 0;
+        }
+      },
+
+      speak: function(durationMs, text, speakingLabel) {
+        isSpeaking = true;
+        speakEndTime = performance.now() + (durationMs || 2500);
+        this.setMood('speaking', speakingLabel || localizedDefaultLabels.speaking);
+      },
+
+      praise: function() {
+        currentMood = 'praising';
+        targetHeadRot.x = 0.22;
+        if (browLeft && browRight) {
+          browLeft.position.y = 0.30;
+          browRight.position.y = 0.30;
+          browLeft.rotation.z = -0.25;
+          browRight.rotation.z = 0.25;
+        }
+        setTimeout(() => { targetHeadRot.x = -0.12; }, 180);
+        setTimeout(() => { targetHeadRot.x = 0.18; }, 360);
+        setTimeout(() => { 
+          targetHeadRot.x = 0; 
+          if (browLeft && browRight) {
+            browLeft.position.y = 0.25;
+            browRight.position.y = 0.25;
+            browLeft.rotation.z = -0.1;
+            browRight.rotation.z = 0.1;
+          }
+        }, 800);
+
+        // Flash visualizer rings
+        visualizerRings.forEach(r => {
+          r.scale.set(1.5, 1.5, 1.5);
+          setTimeout(() => r.scale.set(1.0, 1.0, 1.0), 600);
+        });
+
+        // Trigger celebratory petal burst
+        if (particles) {
+          const positions = particles.geometry.attributes.position.array;
+          for (let i = 0; i < positions.length; i += 3) {
+            positions[i] = (Math.random() - 0.5) * 1.5;
+            positions[i + 1] = Math.random() * 0.8 + 0.2;
+            positions[i + 2] = (Math.random() - 0.5) * 1.5 + 0.5;
+          }
+          particles.geometry.attributes.position.needsUpdate = true;
+        }
+      },
+
+      setMouthOpen: function(value) {
+        if (mouthMesh) {
+          const v = Math.max(0.1, Math.min(1.0, value));
+          mouthMesh.scale.y = 0.35 + v * 0.9;
+          mouthMesh.scale.x = 1.2 - v * 0.2;
+        }
+      },
+
+      setCostume: function(theme) {
+        const themes = {
+          traditional: { gi: 0x312E81, obi: 0x1E1B4B, band: 0xF8FAFC, crest: 0xFBBF24, ring: 0x818CF8, stage: 0x1E1B4B },
+          crimson:     { gi: 0x991B1B, obi: 0x111827, band: 0xFEF2F2, crest: 0xF59E0B, ring: 0xF87171, stage: 0x2D1318 },
+          cyber:       { gi: 0x0F766E, obi: 0x083344, band: 0x22D3EE, crest: 0x34D399, ring: 0x22D3EE, stage: 0x0D222B },
+          sakura:      { gi: 0xBE185D, obi: 0x4C1D95, band: 0xFCE7F3, crest: 0xF472B6, ring: 0xF472B6, stage: 0x2E1035 }
+        };
+        const t = themes[theme] || themes.traditional;
+        if (giMat) giMat.color.setHex(t.gi);
+        if (obiMat) obiMat.color.setHex(t.obi);
+        if (headbandMat) headbandMat.color.setHex(t.band);
+        if (goldMat) goldMat.color.setHex(t.crest);
+        if (stageMat) stageMat.color.setHex(t.stage);
+        visualizerRings.forEach((r) => r.material.color.setHex(t.ring));
+      }
+    };
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+      const time = clock.getElapsedTime();
+
+      // 1. Natural Breathing Animation + smooth pitch recovery
+      if (senseiGroup) {
+        senseiGroup.position.y = 0.1 + Math.sin(time * 2.2) * 0.025;
+        senseiGroup.rotation.x *= 0.94;
+      }
+
+      // 2. Head Rotation Smoothing
+      currentHeadRot.x += (targetHeadRot.x - currentHeadRot.x) * 0.1;
+      currentHeadRot.y += (targetHeadRot.y - currentHeadRot.y) * 0.1;
+      if (headGroup) {
+        headGroup.rotation.x = currentHeadRot.x + Math.sin(time * 1.5) * 0.015;
+        headGroup.rotation.y = currentHeadRot.y;
+        headGroup.rotation.z = Math.sin(time * 1.2) * 0.01;
+      }
+
+      // 3. Eye Blinking Loop
+      blinkTimer += delta;
+      if (blinkTimer > nextBlinkTime && !isBlinking) {
+        isBlinking = true;
+        blinkProgress = 0;
+        nextBlinkTime = 2.0 + Math.random() * 4.0;
+        blinkTimer = 0;
+      }
+      if (isBlinking) {
+        blinkProgress += delta * 12;
+        const scaleY = Math.max(0.08, Math.abs(Math.cos(blinkProgress)));
+        if (eyeLeft && eyeRight) {
+          eyeLeft.scale.y = scaleY;
+          eyeRight.scale.y = scaleY;
+        }
+        if (blinkProgress >= Math.PI) {
+          isBlinking = false;
+          if (eyeLeft && eyeRight) {
+            eyeLeft.scale.y = 1.0;
+            eyeRight.scale.y = 1.0;
+          }
+        }
+      }
+
+      // 4. Speech Viseme Animation
+      if (isSpeaking) {
+        if (performance.now() > speakEndTime) {
+          isSpeaking = false;
+          if (mouthMesh) {
+            mouthMesh.scale.set(1.2, 0.35, 1.0);
+          }
+          if (currentMood === 'speaking') {
+            window.Sensei.setMood('idle');
+          }
+        } else {
+          // Dynamic phoneme viseme cadence
+          mouthVisemePhase += delta * 18;
+          const openVal = Math.abs(Math.sin(mouthVisemePhase)) * 0.75 + 0.15;
+          if (mouthMesh) {
+            mouthMesh.scale.y = 0.3 + openVal * 0.8;
+            mouthMesh.scale.x = 1.25 - openVal * 0.25;
+          }
+          // Slight speaking head nod
+          if (headGroup) {
+            headGroup.position.y = 0.45 + Math.sin(mouthVisemePhase * 0.5) * 0.02;
+          }
+        }
+      }
+
+      // 5. Audio Visualizer Pulse
+      visualizerRings.forEach((ring, idx) => {
+        const speed = isSpeaking ? 6 : (currentMood === 'listening' ? 4 : 1.2);
+        const amp = isSpeaking ? 0.06 : (currentMood === 'listening' ? 0.04 : 0.015);
+        const scale = 1.0 + Math.sin(time * speed + idx * 0.8) * amp;
+        ring.scale.set(scale, scale, 1.0);
+      });
+
+      // 6. Floating Particles
+      if (particles) {
+        particles.rotation.y = time * 0.05;
+        const positions = particles.geometry.attributes.position.array;
+        for (let i = 1; i < positions.length; i += 3) {
+          positions[i] += delta * 0.08;
+          if (positions[i] > 2.5) positions[i] = -1.2;
+        }
+        particles.geometry.attributes.position.needsUpdate = true;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    function onWindowResize() {
+      const container = document.getElementById('canvas-container');
+      const width = container.clientWidth || window.innerWidth;
+      const height = container.clientHeight || window.innerHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>

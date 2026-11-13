@@ -1,0 +1,6 @@
+{
+  "name": "Pocket Sensei",
+  "description": "Interactive 3D language and accent coach with conversational voice roleplay, pronunciation feedback, and vocabulary mastery tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

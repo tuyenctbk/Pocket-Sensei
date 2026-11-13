@@ -1,0 +1,554 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">इंटरैक्टिव 3D भाषा और उच्चारण कोच</string>
+    <string name="splash_ready">आत्मविश्वास से बोलने के लिए तैयार ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">3D सेंसेई</string>
+    <string name="auth_subtitle">3D इंटरैक्टिव भाषा और उच्चारण कोच</string>
+    <string name="auth_feature_avatar_title">ऑन-डिवाइस 3D सेंसेई अवतार</string>
+    <string name="auth_feature_avatar_desc">रीयल-टाइम लिप-सिंक और भावों वाला Three.js कैरेक्टर</string>
+    <string name="auth_feature_coach_title">Gemini लाइव उच्चारण कोचिंग</string>
+    <string name="auth_feature_coach_desc">तुरंत उच्चारण फ़ीडबैक और मुँह व जीभ रखने के सुझाव</string>
+    <string name="auth_feature_roleplay_title">वॉइस रोलप्ले संवाद</string>
+    <string name="auth_feature_roleplay_desc">कैफ़े में ऑर्डर करें, बाज़ार में बात करें या इंटरव्यू का अभ्यास करें</string>
+    <string name="auth_feature_sync_title">Firestore क्लाउड सिंक</string>
+    <string name="auth_feature_sync_desc">सीखे हुए शब्द सहेजें और अपनी दैनिक स्ट्रीक बनाए रखें</string>
+    <string name="cd_sign_in_icon">साइन-इन आइकन</string>
+    <string name="auth_sign_in_google">Google से साइन इन करें</string>
+    <string name="auth_sign_in_footer">Firestore में अपनी स्ट्रीक और शब्दावली सहेजने के लिए साइन इन करें</string>
+    <string name="auth_error_missing_client_id">Google साइन-इन कॉन्फ़िगरेशन गुम: default_web_client_id नहीं मिला</string>
+    <string name="auth_error_unexpected_credential">अप्रत्याशित क्रेडेंशियल प्रकार</string>
+    <string name="auth_error_sign_in_failed">साइन इन विफल रहा</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">कोच</string>
+    <string name="nav_roleplay">संवाद</string>
+    <string name="nav_vocab">शब्दावली</string>
+    <string name="nav_league">लीग</string>
+    <string name="nav_profile">प्रोफ़ाइल</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">सक्रिय समर्थक</string>
+    <string name="supporter_badge_short">समर्थक</string>
+    <string name="cd_support_app">Pocket Sensei का समर्थन करें</string>
+    <string name="cd_streak">स्ट्रीक</string>
+    <string name="streak_day_format">%1$d दिन</string>
+    <string name="cd_cycle_outfit">सेंसेई की पोशाक बदलें</string>
+    <string name="cd_praise_sensei">सेंसेई की प्रशंसा</string>
+    <string name="cd_sensei_greet">सेंसेई अभिवादन</string>
+    <string name="mic_permission_required">बोलकर उच्चारण जांचने के लिए माइक्रोफ़ोन अनुमति आवश्यक है</string>
+    <string name="mood_idle">सेंसेई तैयार</string>
+    <string name="mood_listening">सुन रहा है…</string>
+    <string name="mood_speaking">सेंसेई बोल रहे हैं</string>
+    <string name="mood_praising">सुगोई! शानदार!</string>
+    <string name="mood_thinking">लहजा जांच रहे हैं…</string>
+    <string name="mood_correcting">सेंसेई की सलाह</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">सभी</string>
+    <string name="lang_japanese">जापानी</string>
+    <string name="lang_spanish">स्पेनिश</string>
+    <string name="lang_french">फ़्रेंच</string>
+    <string name="lang_german">जर्मन</string>
+    <string name="lang_korean">कोरियाई</string>
+    <string name="lang_mandarin">मंदारिन</string>
+    <string name="lang_italian">इतालवी</string>
+    <string name="lang_english">अंग्रेज़ी</string>
+    <string name="difficulty_beginner">शुरुआती</string>
+    <string name="difficulty_intermediate">मध्यम</string>
+    <string name="difficulty_advanced">उन्नत</string>
+    <string name="difficulty_core">मुख्य</string>
+    <string name="tier_black_belt">ब्लैक बेल्ट सेंसेई</string>
+    <string name="tier_gold">गोल्ड टियर</string>
+    <string name="tier_silver">सिल्वर टियर</string>
+    <string name="tier_bronze">ब्रॉन्ज़ टियर</string>
+    <string name="tier_white_belt">व्हाइट बेल्ट</string>
+    <string name="engine_cache">Room कैश ($0)</string>
+    <string name="engine_offline">ऑफ़लाइन कोच ($0)</string>
+    <string name="engine_offline_fallback">ऑफ़लाइन बैकअप ($0)</string>
+    <string name="engine_offline_cap">ऑफ़लाइन बैकअप ($0 • कोटा सुरक्षित)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">आपकी Gemini कुंजी (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">नया अपडेट तैयार (v%1$s)</string>
+    <string name="prompt_rate_title">क्या आपको Pocket Sensei पसंद है?</string>
+    <string name="prompt_share_title">अपनी प्रगति साझा करें!</string>
+    <string name="prompt_donation_title">Pocket Sensei का समर्थन करें?</string>
+    <string name="prompt_update_default_notes">बेहतर उच्चारण कोचिंग और 3D एनिमेशन के साथ Google Play पर नया संस्करण उपलब्ध है।</string>
+    <string name="prompt_rate_body">आपने %1$d सत्र और %2$d बोलने के मील के पत्थर पूरे किए हैं! क्या आप Google Play पर ईमानदार समीक्षा देंगे?</string>
+    <string name="prompt_share_score_note">आपने अभी %1$d%% स्कोर किया!</string>
+    <string name="prompt_share_body">शानदार अभ्यास! %1$s Pocket Sensei 3D के साथ भाषाएँ बोलने के लिए किसी मित्र को आमंत्रित करें।</string>
+    <string name="prompt_share_body_plain">शानदार अभ्यास! Pocket Sensei 3D के साथ भाषाएँ बोलने के लिए किसी मित्र को आमंत्रित करें।</string>
+    <string name="prompt_donation_body">आपने %1$d बोलने के सत्र पूरे किए हैं! Pocket Sensei 100%% विज्ञापन-मुक्त है—Google Play, PayPal QR या Ko-fi के माध्यम से डेवलपर को कॉफ़ी भेंट करने पर विचार करें।</string>
+    <string name="prompt_dont_ask_again">फिर कभी न पूछें</string>
+    <string name="prompt_update_now">अभी अपडेट करें</string>
+    <string name="prompt_rate_cta">Play Store पर रेट करें</string>
+    <string name="prompt_share_cta">ऐप साझा करें</string>
+    <string name="prompt_donation_cta">समर्थन विकल्प</string>
+    <string name="prompt_maybe_later">शायद बाद में</string>
+    <string name="share_app_text">मैं Pocket Sensei 3D के साथ उच्चारण और लाइव संवाद का अभ्यास कर रहा हूँ! जुड़ें: %1$s</string>
+    <string name="share_app_subject">Pocket Sensei — 3D भाषा और उच्चारण कोच</string>
+    <string name="share_app_chooser">Pocket Sensei साझा करें</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">अभ्यास वाक्यांश</string>
+    <string name="coach_dojo_blitz_btn">डोजो ब्लिट्ज़ ($0)</string>
+    <string name="cd_normal_speed">सामान्य गति</string>
+    <string name="cd_slow_speed">धीमी गति ऑडियो</string>
+    <string name="coach_focus_format">फ़ोकस: %1$s</string>
+    <string name="coach_listening_format">🎙️ सुन रहा है: \"%1$s\"</string>
+    <string name="coach_transcribed_format">लिखा गया: \"%1$s\"</string>
+    <string name="cd_speak_to_sensei">सेंसेई से बोलें</string>
+    <string name="coach_type_input">टाइप करें</string>
+    <string name="coach_waveform_title">लाइव वाक् पैटर्न</string>
+    <string name="coach_waveform_ready">माइक तैयार है</string>
+    <string name="coach_waveform_hint">आवाज़ के उतार-चढ़ाव, विराम और लय देखने के लिए माइक्रोफ़ोन में बोलें।</string>
+    <string name="coach_waveform_db_format">स्तर %1$s dB</string>
+    <string name="coach_evaluating">सेंसेई ध्वनि और स्वर-लहरी का मूल्यांकन कर रहे हैं…</string>
+    <string name="toast_saved_vocab_firestore">Firestore शब्दावली बैंक में सहेजा गया!</string>
+    <string name="coach_eval_note_format">मूल्यांकन नोट: %1$s</string>
+    <string name="manual_dialog_title">मैनुअल वाक् लेखन</string>
+    <string name="manual_dialog_desc">उच्चारण मूल्यांकन जांचने के लिए बोला गया वाक्य दर्ज करें:</string>
+    <string name="btn_analyze">विश्लेषण करें</string>
+    <string name="btn_cancel">रद्द करें</string>
+    <string name="result_title">उच्चारण कोच फ़ीडबैक</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">ध्वनि सटीकता</string>
+    <string name="result_pitch_accent">पिच एक्सेंट / स्वर</string>
+    <string name="result_fluency_rhythm">प्रवाह और लय</string>
+    <string name="cd_mouth_coach">उच्चारण कोच</string>
+    <string name="result_placement_tip_title">जीभ और मुँह रखने की सलाह:</string>
+    <string name="result_phonemes_to_refine">सुधारने योग्य ध्वनियाँ:</string>
+    <string name="result_native_phrasings">मूल वक्ता इसे ऐसे भी कहते हैं:</string>
+    <string name="cd_synced">सिंक किया गया</string>
+    <string name="result_saved_to_vocab">सहेजा गया</string>
+    <string name="result_support_micro_footer">बेहतरीन उच्चारण! यदि सेंसेई ने आज मदद की तो डेवलपर को कॉफ़ी पिलाएँ।</string>
+    <string name="result_support_cta_arrow">समर्थन →</string>
+    <string name="pitch_comparison_title">पिच वक्र तुलना</string>
+    <string name="pitch_legend_native">मूल लक्ष्य</string>
+    <string name="pitch_legend_yours">आपकी पिच</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">वॉइस रोलप्ले परिदृश्य</string>
+    <string name="roleplay_thinking">%1$s उत्तर सोच रहे हैं…</string>
+    <string name="roleplay_suggested_label">सुझाए गए उत्तर (बोलने या भेजने के लिए टैप करें):</string>
+    <string name="roleplay_listening_placeholder">🎙️ सुन रहा है…</string>
+    <string name="roleplay_input_placeholder">%1$s में बोलें या टाइप करें…</string>
+    <string name="cd_send">भेजें</string>
+    <string name="cd_normal_voice">सामान्य आवाज़</string>
+    <string name="cd_slow_voice">धीमी आवाज़</string>
+    <string name="roleplay_hide_translation">अनुवाद छिपाएँ</string>
+    <string name="roleplay_show_translation">अर्थ दिखाएँ</string>
+    <string name="roleplay_sensei_note">💡 सेंसेई: %1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">शब्दावली दक्षता</string>
+    <string name="vocab_tracked_count">Cloud Firestore में %1$d शब्द सहेजे गए</string>
+    <string name="vocab_empty_title">अभी तक कोई शब्द सहेजा नहीं गया</string>
+    <string name="vocab_empty_subtitle">यहाँ जोड़ने के लिए उच्चारण कोच में वाक्यांशों का अभ्यास करें!</string>
+    <string name="vocab_accuracy_format">%1$d%% सटीकता</string>
+    <string name="cd_play_normal">सामान्य चलाएँ</string>
+    <string name="vocab_btn_drill">अभ्यास</string>
+    <string name="vocab_flashcard_title">🥋 फ़्लैशकार्ड अभ्यास</string>
+    <string name="vocab_meaning_label">अर्थ:</string>
+    <string name="vocab_tap_to_reveal">👉 अर्थ देखने के लिए टैप करें</string>
+    <string name="vocab_btn_listen">सुनें</string>
+    <string name="vocab_btn_slow">0.75x धीमा</string>
+    <string name="vocab_btn_practice_coach">कोच में अभ्यास</string>
+    <string name="btn_close">बंद करें</string>
+    <string name="vocab_mastery_summary_format">%1$d ऑफ़लाइन • %2$d में दक्ष</string>
+    <string name="vocab_filter_mastery_all">सभी स्तर</string>
+    <string name="vocab_filter_needs_review">दोहराएँ (%1$d)</string>
+    <string name="vocab_filter_learning">सीख रहे (%1$d)</string>
+    <string name="vocab_filter_mastered">दक्ष (%1$d)</string>
+    <string name="vocab_status_needs_review">दोहराएँ</string>
+    <string name="vocab_status_learning">सीख रहे</string>
+    <string name="vocab_status_mastered">दक्ष</string>
+    <string name="vocab_level_format">स्तर %1$d/5</string>
+    <string name="vocab_practice_count_format">%1$d बार अभ्यास</string>
+    <string name="vocab_btn_drill_weakest">कमज़ोर अभ्यास</string>
+    <string name="vocab_empty_filtered_subtitle">इस दक्षता फ़िल्टर में अभी कोई शब्द नहीं है। अन्य फ़िल्टर आज़माएँ!</string>
+    <string name="vocab_btn_got_it">समझ गया</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">सेंसेई छात्र</string>
+    <string name="profile_signed_in_google">Google से साइन इन</string>
+    <string name="profile_tier_badge">🏆 मास्टर स्पीकर स्तर</string>
+    <string name="profile_outfit_title">3D सेंसेई पोशाक</string>
+    <string name="costume_traditional">इंडिगो गी</string>
+    <string name="costume_crimson">क्रिमसन समुराई</string>
+    <string name="costume_cyber">साइबर नियॉन</string>
+    <string name="costume_sakura">सकुरा वस्त्र</string>
+    <string name="profile_stats_title">निपुणता और स्ट्रीक्स</string>
+    <string name="profile_stat_streak">दैनिक स्ट्रीक</string>
+    <string name="profile_stat_streak_value">%1$d दिन</string>
+    <string name="profile_stat_mastered">सीखे शब्द</string>
+    <string name="profile_stat_practice_time">अभ्यास समय</string>
+    <string name="profile_stat_practice_value">%1$d मिनट</string>
+    <string name="profile_stat_avg_accuracy">औसत सटीकता</string>
+    <string name="profile_recent_sessions_title">हाल के वॉइस रोलप्ले सत्र</string>
+    <string name="profile_no_sessions">अभी कोई संवाद सहेजा नहीं गया। रोलप्ले टैब में अभ्यास करें!</string>
+    <string name="profile_telemetry_title">ऑन-डिवाइस Room कैश और टेलीमेट्री</string>
+    <string name="profile_telemetry_counts">%1$d शब्द • %2$d इवेंट</string>
+    <string name="profile_btn_share_app">ऐप साझा करें</string>
+    <string name="profile_btn_rate_app">ऐप रेट करें</string>
+    <string name="profile_btn_sign_out">Google खाते से साइन आउट</string>
+    <string name="session_accuracy_format">%1$d%% सटीकता</string>
+    <string name="session_meta_format">भाषा: %1$s • %2$d संवाद</string>
+
+    <!-- League Screen -->
+    <string name="league_title">डोजो उच्चारण लीग</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">रैंक बढ़ाने के लिए कोच (+30–50 XP) या रोलप्ले (+25 XP) का अभ्यास करें!</string>
+    <string name="league_empty_title">%1$s के लिए अभी कोई रैंक वाला छात्र नहीं</string>
+    <string name="league_empty_subtitle">Cloud Firestore पर अपना स्कोर पोस्ट करने के लिए उच्चारण अभ्यास पूरा करें!</string>
+    <string name="league_user_you">%1$s (आप)</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$dदि • %3$d%% औसत</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">AI कोचिंग इंजन और लागत नियंत्रण</string>
+    <string name="ai_cached_count">%1$d कैश किए गए ($0)</string>
+    <string name="ai_cloud_quota_summary">आज के मुफ़्त क्लाउड कॉल: %1$d/%2$d। दोहराए गए अभ्यास Room कैश से मुफ़्त लोड होते हैं।</string>
+    <string name="ai_mode_chip_hybrid">हाइब्रिड</string>
+    <string name="ai_mode_chip_offline">ऑफ़लाइन $0</string>
+    <string name="ai_mode_chip_byok">मेरी कुंजी</string>
+    <string name="ai_mode_desc_hybrid">Room कैश + दैनिक मुफ़्त क्लाउड AI और तुरंत ऑफ़लाइन बैकअप</string>
+    <string name="ai_mode_desc_offline">शून्य नेटवर्क उपयोग के साथ पूरी तरह डिवाइस पर ध्वनि और पिच मिलान</string>
+    <string name="ai_mode_desc_byok">आपकी निजी Gemini API कुंजी द्वारा संचालित असीमित AI कोचिंग</string>
+    <string name="ai_byok_edit_saved">निजी Gemini कुंजी सहेजी गई (संपादित करें)</string>
+    <string name="ai_byok_add_prompt">अपनी Gemini API कुंजी उपयोग करें (BYOK)</string>
+    <string name="ai_byok_clear">कुंजी हटाएँ</string>
+    <string name="ai_byok_input_label">आपकी Gemini API कुंजी (केवल डिवाइस पर सहेजी गई)</string>
+    <string name="ai_byok_save_btn">सहेजें और BYOK सक्षम करें</string>
+    <string name="blitz_title">डोजो स्पीक ब्लिट्ज़</string>
+    <string name="blitz_initial_feedback">कॉम्बो बनाने के लिए वाक्यांश बोलें या सुनें पर टैप करें!</string>
+    <string name="blitz_hit_feedback">सटीक! %1$d%% सटीकता (+%2$d XP, x%3$d कॉम्बो)</string>
+    <string name="blitz_miss_feedback">लगभग (%1$d%%)! सुनें दबाएँ और पुनः प्रयास करें।</string>
+    <string name="blitz_skip_feedback">छोड़ा गया — अगला वाक्यांश आज़माएँ!</string>
+    <string name="blitz_timer_label">समय: %1$dसे</string>
+    <string name="blitz_score_label">स्कोर: %1$d XP</string>
+    <string name="blitz_combo_label">कॉम्बो: x%1$d</string>
+    <string name="cd_hear_phrase">वाक्यांश सुनें</string>
+    <string name="blitz_btn_hear">सुनें</string>
+    <string name="cd_blitz_mic">डोजो ब्लिट्ज़ में बोलें</string>
+    <string name="blitz_btn_skip">छोड़ें</string>
+    <string name="blitz_times_up">समय समाप्त! +%1$d डोजो XP</string>
+    <string name="blitz_summary">आपने 100%% निःशुल्क ऑफ़लाइन मोड में %1$d वाक्यांश पूरे किए।</string>
+    <string name="blitz_play_again">फिर से खेलें</string>
+    <string name="blitz_finish_early">समाप्त करें</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">अभ्यास अच्छा लग रहा है?</string>
+    <string name="donation_banner_subtitle">एक कॉफ़ी के साथ विज्ञापन-मुक्त इंडी विकास का समर्थन करें।</string>
+    <string name="donation_banner_cta">समर्थन</string>
+    <string name="cd_dismiss_donation_banner">समर्थन बैनर बंद करें</string>
+    <string name="support_active_supporter">सक्रिय समर्थक</string>
+    <string name="support_development_title">विकास का समर्थन करें</string>
+    <string name="support_badge_ad_free">विज्ञापन-मुक्त इंडी ऐप</string>
+    <string name="support_active_desc">Pocket Sensei का समर्थन करने के लिए धन्यवाद! सभी दान संकेत स्थायी रूप से बंद कर दिए गए हैं।</string>
+    <string name="support_inactive_desc">Pocket Sensei 100%% विज्ञापन-मुक्त और गोपनीयता-प्रथम रहता है। आपने %1$d अभ्यास मील के पत्थर पूरे किए हैं — कभी भी नई भाषाओं का समर्थन करें।</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / QR</string>
+    <string name="channel_paypal_tab">PayPal और QR</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">गोपनीयता नीति और डेटा प्रकटीकरण देखें</string>
+    <string name="privacy_policy_title">गोपनीयता नीति</string>
+    <string name="donation_sheet_subtitle">Google Play, PayPal QR या Ko-fi चुनें</string>
+    <string name="donation_active_unlocked">सक्रिय समर्थक अनलॉक! सभी दान संकेत स्थायी रूप से बंद हो गए हैं।</string>
+    <string name="donation_play_desc">Google Pay से वन-टैप चेकआउट। रसीद सत्यापन पर स्थायी समर्थक बैज अपने आप खुल जाता है।</string>
+    <string name="donation_play_connecting">Google Play बिलिंग से जुड़ रहा है…</string>
+    <string name="donation_paypal_desc">दूसरे डिवाइस से लाइव PayPal QR कोड स्कैन करें या सीधे PayPal.me खोलें।</string>
+    <string name="donation_paypal_any">कोई भी</string>
+    <string name="donation_paypal_custom_label">कस्टम USD राशि (वैकल्पिक)</string>
+    <string name="donation_paypal_custom_hint">जैसे 15</string>
+    <string name="cd_paypal_qr">%1$s के लिए PayPal दान QR कोड</string>
+    <string name="cd_copy_paypal_url">PayPal URL कॉपी करें</string>
+    <string name="donation_btn_open_paypal">PayPal खोलें</string>
+    <string name="donation_btn_copy">कॉपी</string>
+    <string name="donation_btn_share">साझा करें</string>
+    <string name="donation_kofi_title">Ko-fi टिप जार</string>
+    <string name="donation_kofi_desc">Ko-fi के ज़रिए वर्चुअल कॉफ़ी भेजें। ब्राउज़र खोलता है या ब्राउज़र न होने पर लिंक कॉपी करता है।</string>
+    <string name="donation_btn_open_kofi">Ko-fi पेज खोलें</string>
+    <string name="donation_btn_copy_link">लिंक कॉपी करें</string>
+    <string name="tier1_title">माचा चाय</string>
+    <string name="tier1_subtitle">स्तर 1 • धन्यवाद का छोटा प्रतीक</string>
+    <string name="tier1_badge">स्तर 1</string>
+    <string name="tier2_title">सेंसेई की कॉफ़ी</string>
+    <string name="tier2_subtitle">स्तर 2 • नए वाक्यांश पैक को सहयोग</string>
+    <string name="tier2_badge">लोकप्रिय</string>
+    <string name="tier3_title">डोजो बेंटो</string>
+    <string name="tier3_subtitle">स्तर 3 • 3D वॉइस कोचिंग का समर्थन</string>
+    <string name="tier3_badge">स्तर 3</string>
+    <string name="tier4_title">मास्टर संरक्षक</string>
+    <string name="tier4_subtitle">स्तर 4 • इंडी शिक्षा का समर्थन</string>
+    <string name="tier4_badge">स्तर 4</string>
+    <string name="billing_purchase_canceled">खरीद रद्द कर दी गई — Pocket Sensei के समर्थन पर विचार करने के लिए धन्यवाद!</string>
+    <string name="billing_service_unavailable">सेवा अनुपलब्ध</string>
+    <string name="billing_error_fallback">Google Play बिलिंग ने लौटाया: %1$s। आप नीचे PayPal या Ko-fi का भी उपयोग कर सकते हैं।</string>
+    <string name="billing_receipt_failed">रसीद सत्यापन विफल। कृपया पुनः प्रयास करें।</string>
+    <string name="billing_pending">आपका Google Play योगदान लंबित है। पुष्टि होने पर समर्थक बैज अपने आप खुल जाएगा।</string>
+    <string name="billing_verified">धन्यवाद! आपका Google Play योगदान सत्यापित हो गया है और सक्रिय समर्थक बैज स्थायी रूप से खुल गया है।</string>
+    <string name="billing_missing_activity">Google Play चेकआउट के लिए सक्रिय विंडो नहीं मिली। मुख्य स्क्रीन से पुनः प्रयास करें या PayPal / Ko-fi चुनें।</string>
+    <string name="billing_store_unavailable">इस डिवाइस/बिल्ड पर Google Play Store बिलिंग उपलब्ध नहीं है (%1$s)। आप कभी भी PayPal QR या Ko-fi उपयोग कर सकते हैं।</string>
+    <string name="billing_code_prefix">कोड %1$d</string>
+    <string name="billing_disconnected">Google Play बिलिंग डिस्कनेक्ट हो गई। पुनः प्रयास करें या PayPal / Ko-fi चुनें।</string>
+    <string name="billing_item_unpublished">इन-ऐप आइटम \"%1$s\" अभी इस बिल्ड के Play Console ट्रैक पर प्रकाशित नहीं है। नीचे PayPal QR और Ko-fi तुरंत काम करते हैं!</string>
+    <string name="billing_checkout_error">Google Play चेकआउट नहीं खुल सका (%1$s)।</string>
+    <string name="paypal_label">PayPal दान लिंक</string>
+    <string name="paypal_no_browser_toast">कोई ब्राउज़र नहीं मिला — PayPal लिंक क्लिपबोर्ड पर कॉपी हो गया!</string>
+    <string name="paypal_copied_toast">PayPal लिंक कॉपी किया गया: %1$s</string>
+    <string name="paypal_share_subject">Pocket Sensei का समर्थन करें</string>
+    <string name="paypal_share_text">3D भाषा और उच्चारण कोच Pocket Sensei का समर्थन करें: %1$s</string>
+    <string name="paypal_share_chooser">समर्थन लिंक साझा करें</string>
+    <string name="kofi_label">Ko-fi पेज लिंक</string>
+    <string name="kofi_no_browser_toast">कोई ब्राउज़र नहीं मिला — Ko-fi लिंक क्लिपबोर्ड पर कॉपी हो गया!</string>
+    <string name="kofi_copied_toast">Ko-fi लिंक कॉपी किया गया: %1$s</string>
+    <string name="privacy_loaded_in_app">गोपनीयता नीति ऐप में लोड हो गई।</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">इस डिवाइस पर वाक् पहचान उपलब्ध नहीं है। इसके बजाय \'टेक्स्ट लिखें\' का उपयोग करें।</string>
+    <string name="hud_praise_speech">शाबाश! बहुत प्रभावशाली!</string>
+    <string name="hud_greet_speech">नमस्ते! आइए आज बोलने का अभ्यास करें!</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">मूल्यांकन विफल रहा</string>
+    <string name="error_roleplay_failed">सेंसेई उत्तर नहीं दे सके।</string>
+    <string name="coach_default_accent_focus">स्वर और व्यंजन की स्पष्टता</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">शुद्ध स्वर लंबाई और स्पष्ट व्यंजन उच्चारण! इसी सहज गति को बनाए रखें।</string>
+    <string name="eval_tip_missed_format">इनके स्पष्ट उच्चारण पर ध्यान दें: %1$s। बलाघात वाले स्वरों पर जबड़ा स्थिर रखें।</string>
+    <string name="eval_tip_slow_down">शब्दांशों के बीच थोड़ा धीमे बोलें और बलाघात वाले स्वरों को स्पष्ट उच्चारित करें।</string>
+    <string name="eval_encourage_high">बढ़िया! ऑन-डिवाइस मूल्यांकन ($0 ऑफलाइन मोड)।</string>
+    <string name="eval_encourage_mid">अच्छी लय! एक धीमा दूसरा प्रयास आपका उच्चारण निखारेगा।</string>
+    <string name="eval_encourage_low">अच्छा प्रयास — हर शब्दांश स्पष्ट सुनने के लिए \'धीमा\' ऑडियो टैप करें।</string>
+    <string name="eval_contour_type_format">%1$s ऑन-डिवाइस पिच आकृति</string>
+    <string name="eval_pitch_guidance_default">हरे डैश वाले मूल वक्ता के उतार-चढ़ाव से सटीक मेल बिठाएँ।</string>
+    <string name="eval_contour_default">प्राकृतिक उच्चारण आकृति</string>
+    <string name="eval_tip_default">मुँह को सहज रखें और स्पष्ट बोलें।</string>
+    <string name="eval_encourage_default">बेहतरीन प्रयास! अभ्यास से ही सिद्धि मिलती है।</string>
+    <string name="eval_pitch_guidance_cloud_default">मूल वक्ता की आकृति के साथ स्वर का उतार-चढ़ाव मिलाएँ।</string>
+    <string name="roleplay_offline_note_format">ऑफलाइन कोच ($0 मोड): \"%1$s\" सहजता से प्राप्त हुआ। अपनी प्राकृतिक गति बनाए रखें!</string>
+    <string name="roleplay_offline_translation_fallback">ऑफलाइन अभ्यास मोड उत्तर</string>
+    <string name="roleplay_offline_reply_default">शानदार! आइए %1$s में आपकी प्राकृतिक लय का अभ्यास जारी रखें।</string>
+    <string name="roleplay_offline_reply_ja_translation">जी ज़रूर! क्या आपको कुछ और चाहिए?</string>
+    <string name="roleplay_offline_reply_fr_translation">बहुत अच्छा! क्या इसके साथ कुछ और लेंगे?</string>
+    <string name="roleplay_offline_reply_es_translation">बिल्कुल ठीक! मैं अभी लाता हूँ। पीने के लिए कुछ और?</string>
+    <string name="roleplay_offline_reply_ko_translation">जी, समझ गया! कृपया बस एक पल प्रतीक्षा करें।</string>
+    <string name="roleplay_offline_reply_de_translation">उत्कृष्ट! क्या आप इसके बारे में कुछ और बताना चाहेंगे?</string>
+    <string name="roleplay_offline_reply_it_translation">बढ़िया! क्या आपको आज कुछ और चाहिए?</string>
+    <string name="roleplay_cloud_note_default">संवाद का प्रवाह बहुत अच्छा है!</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">नमस्ते, आप कैसे हैं?</string>
+    <string name="phrase_ja_1_focus">\'Konnichiwa\' पर समतल स्वर</string>
+    <string name="phrase_ja_2_translation">कृपया मुझे यह दे दीजिए।</string>
+    <string name="phrase_ja_2_focus">हल्का जीभ फ्लैप \'r\'</string>
+    <string name="phrase_ja_3_translation">बहुत-बहुत धन्यवाद!</string>
+    <string name="phrase_ja_3_focus">दीर्घ \'ou\' स्वर</string>
+    <string name="phrase_ja_4_translation">माफ़ कीजिए, स्टेशन कहाँ है?</string>
+    <string name="phrase_ja_4_focus">विनम्र उठता हुआ स्वर</string>
+    <string name="phrase_ja_5_translation">यह बहुत स्वादिष्ट है!</string>
+    <string name="phrase_ja_5_focus">\'desu\' में अघोष \'u\' का स्पष्ट उच्चारण</string>
+
+    <string name="phrase_fr_1_translation">नमस्ते, आपसे मिलकर खुशी हुई।</string>
+    <string name="phrase_fr_1_focus">कोमल अनुनासिक \'en\' और \'on\'</string>
+    <string name="phrase_fr_2_translation">कृपया एक क्रोइसैन और एक कॉफ़ी।</string>
+    <string name="phrase_fr_2_focus">कंठ्य फ्रेंच \'r\'</string>
+    <string name="phrase_fr_3_translation">शौचालय कहाँ है?</string>
+    <string name="phrase_fr_3_focus">सहज ध्वनि-संधि</string>
+    <string name="phrase_fr_4_translation">यह सचमुच शानदार है!</string>
+    <string name="phrase_fr_4_focus">गोल होंठों से शुद्ध \'u\'</string>
+
+    <string name="phrase_es_1_translation">नमस्ते! आज आप कैसे हैं?</string>
+    <string name="phrase_es_1_focus">स्पष्ट खुले स्वर</string>
+    <string name="phrase_es_2_translation">कृपया दो लोगों के लिए एक मेज़।</string>
+    <string name="phrase_es_2_focus">कोमल एकल टैप \'r\'</string>
+    <string name="phrase_es_3_translation">तेज़ रेलमार्ग।</string>
+    <string name="phrase_es_3_focus">दोहरा लुंठित \'rr\'</string>
+    <string name="phrase_es_4_translation">कृपया बिल ला दीजिए।</string>
+    <string name="phrase_es_4_focus">अंतिम शब्दांशों पर बलाघात</string>
+
+    <string name="phrase_de_1_translation">सुप्रभात, आप कैसे हैं?</string>
+    <string name="phrase_de_1_focus">Ihnen में दीर्घ \'ee\' स्वर</string>
+    <string name="phrase_de_2_translation">कृपया मुझे एक कॉफ़ी चाहिए।</string>
+    <string name="phrase_de_2_focus">कोमल तालव्य \'ch\' संघर्षी</string>
+    <string name="phrase_de_3_translation">आपकी मदद के लिए बहुत धन्यवाद!</string>
+    <string name="phrase_de_3_focus">गोलाकार \'ö\' और \'ü\'</string>
+
+    <string name="phrase_ko_1_translation">नमस्ते, आपसे मिलकर अच्छा लगा!</string>
+    <string name="phrase_ko_1_focus">विनम्र संगीतमय लय</string>
+    <string name="phrase_ko_2_translation">यह कितने का है?</string>
+    <string name="phrase_ko_2_focus">eol-ma में कोमल \'l\' ध्वनि</string>
+    <string name="phrase_ko_3_translation">अपने भोजन का आनंद लें!</string>
+    <string name="phrase_ko_3_focus">महाप्राण बनाम कठोर व्यंजन</string>
+
+    <string name="phrase_zh_1_translation">नमस्ते, आपसे मिलकर खुशी हुई!</string>
+    <string name="phrase_zh_1_focus">Nǐ hǎo में तीसरे स्वर का संधि परिवर्तन</string>
+    <string name="phrase_zh_2_translation">माफ़ कीजिए, यह कितने का है?</string>
+    <string name="phrase_zh_2_focus">zhè पर चौथा स्वर, qián पर दूसरा स्वर</string>
+    <string name="phrase_zh_3_translation">बेहद स्वादिष्ट, धन्यवाद!</string>
+    <string name="phrase_zh_3_focus">Tài और xiè पर गिरता हुआ चौथा स्वर</string>
+
+    <string name="phrase_it_1_translation">सुदिन! आप कैसे हैं?</string>
+    <string name="phrase_it_1_focus">संगीतमय शब्दांश लय</string>
+    <string name="phrase_it_2_translation">कृपया एक पिस्ता जेलाटो दीजिए।</string>
+    <string name="phrase_it_2_focus">द्वित्व व्यंजन \'cch\' विराम</string>
+    <string name="phrase_it_3_translation">सब कुछ के लिए हज़ारों धन्यवाद!</string>
+    <string name="phrase_it_3_focus">जीवंत दंत्य \'t\' और \'z\'</string>
+
+    <string name="phrase_en_1_translation">रास्ता पूछना</string>
+    <string name="phrase_en_1_focus">the में सघोष \'th\'</string>
+    <string name="phrase_en_2_translation">पेशेवर करियर प्रश्न</string>
+    <string name="phrase_en_2_focus">schedule में फ्लैप्ड \'d\'</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">टोक्यो कैफ़े ऑर्डर</string>
+    <string name="scenario_tokyo_cafe_sensei">कैफ़े बरिस्ता</string>
+    <string name="scenario_tokyo_cafe_user">ग्राहक</string>
+    <string name="scenario_tokyo_cafe_init_translation">स्वागत है! क्या आपने अपना ऑर्डर तय कर लिया है?</string>
+
+    <string name="scenario_paris_boulangerie_title">पेरिस की बेकरी</string>
+    <string name="scenario_paris_boulangerie_sensei">मुख्य बेकर</string>
+    <string name="scenario_paris_boulangerie_user">ग्राहक</string>
+    <string name="scenario_paris_boulangerie_init_translation">नमस्ते! आज आप क्या लेना पसंद करेंगे?</string>
+
+    <string name="scenario_madrid_tapas_title">मैड्रिड तापास बार</string>
+    <string name="scenario_madrid_tapas_sensei">टैवर्न मेज़बान</string>
+    <string name="scenario_madrid_tapas_user">अतिथि</string>
+    <string name="scenario_madrid_tapas_init_translation">शुभ दोपहर! शुरुआत में पीने के लिए मैं आपके लिए क्या लाऊँ?</string>
+
+    <string name="scenario_seoul_market_title">सियोल नाइट मार्केट</string>
+    <string name="scenario_seoul_market_sensei">स्ट्रीट फ़ूड शेफ़</string>
+    <string name="scenario_seoul_market_user">आगंतुक</string>
+    <string name="scenario_seoul_market_init_translation">स्वागत है! आइए गरमागरम त्तेओकबोक्की चखिए!</string>
+
+    <string name="scenario_rome_gelato_title">फ्लोरेंस जेलाटेरिया</string>
+    <string name="scenario_rome_gelato_sensei">जेलाटो विक्रेता</string>
+    <string name="scenario_rome_gelato_user">ग्राहक</string>
+    <string name="scenario_rome_gelato_init_translation">नमस्ते! कोन या कप? आप कौन-से फ़्लेवर चाहेंगे?</string>
+
+    <string name="scenario_berlin_tech_title">बर्लिन टेक मीटअप</string>
+    <string name="scenario_berlin_tech_sensei">टेक लीड</string>
+    <string name="scenario_berlin_tech_user">इंजीनियर</string>
+    <string name="scenario_berlin_tech_init_translation">नमस्ते! आपसे मिलकर खुशी हुई। आप किस प्रोजेक्ट पर काम कर रहे हैं?</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">छोड़ें</string>
+    <string name="onboarding_back">पीछे</string>
+    <string name="onboarding_next">आगे</string>
+    <string name="onboarding_get_started">बोलना शुरू करें</string>
+    <string name="onboarding_step_format">चरण %1$d / %2$d</string>
+    <string name="onboarding_page1_badge">3D वॉइस और पिच स्टूडियो</string>
+    <string name="onboarding_page1_title">अपने 3D सेंसई के साथ स्थानीय लोगों की तरह बोलें</string>
+    <string name="onboarding_page1_subtitle">60fps लाइव वेवफ़ॉर्म, पिच कर्व और मुँह व जीभ की स्थिति के सुझावों से अपनी आवाज़ निखारें।</string>
+    <string name="onboarding_page2_badge">इमर्सिव कल्चरल रोलप्ले</string>
+    <string name="onboarding_page2_title">वास्तविक यात्रा परिस्थितियों का अभ्यास करें</string>
+    <string name="onboarding_page2_subtitle">टोक्यो में माचा, पेरिस में क्रोसां या मैड्रिड में तापास ऑर्डर करें—ध्वन्यात्मक गाइड और स्मार्ट उत्तरों के साथ।</string>
+    <string name="onboarding_page3_badge">शब्द निपुणता और डोजो लीग</string>
+    <string name="onboarding_page3_title">शब्दावली बढ़ाएँ और लीग में ऊपर जाएँ</string>
+    <string name="onboarding_page3_subtitle">फ़्लैशकार्ड से शब्द दोहराएँ, 45-सेकंड डोजो ब्लिट्ज़ खेलें और नीचे अपनी पहली भाषा चुनें।</string>
+    <string name="onboarding_select_language_label">अभ्यास के लिए अपनी पहली भाषा चुनें:</string>
+    <string name="profile_btn_replay_onboarding">इंटरैक्टिव ऐप टूर</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">3D सेन्सेई मंच का आकार बदलें</string>
+    <string name="daily_goal_title">दैनिक डोजो लक्ष्य</string>
+    <string name="daily_goal_progress_format">आज %1$d / %2$d सत्र</string>
+    <string name="daily_goal_completed_badge">लक्ष्य पूरा!</string>
+    <string name="donation_perks_title">सपोर्टर लाभ शामिल</string>
+    <string name="donation_perks_summary">बैनर व संकेत स्थायी रूप से हटाता है और नई आवाज़ों व ऑफ़लाइन पैक में मदद करता है।</string>
+    <string name="donation_recommended_tag">सर्वश्रेष्ठ विकल्प</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">दैनिक सीखने की स्ट्रीक</string>
+    <string name="streak_best_format">सर्वश्रेष्ठ स्ट्रीक: %1$d दिन</string>
+    <string name="streak_status_active_today">आज की स्ट्रीक पक्की हो गई! अपना उच्चारण निखारने के लिए अभ्यास जारी रखें।</string>
+    <string name="streak_status_pending_today">अपनी स्ट्रीक पक्की करने के लिए आज 1 उच्चारण कोच मूल्यांकन पूरा करें।</string>
+    <string name="streak_new_day_banner_format">%1$d दिन की स्ट्रीक अनलॉक हुई!</string>
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">नमूना रिकॉर्ड करें</string>
+    <string name="coach_stop_pitch_rec">रोकें</string>
+    <string name="coach_play_mine">अपनी आवाज़ सुनें</string>
+    <string name="coach_stop_mine">ऑडियो रोकें</string>
+    <string name="pitch_live_mic_badge">लाइव F0 माइक</string>
+    <string name="result_play_sensei">सेंसेई आवाज़</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">आज के लिए (%1$d)</string>
+    <string name="vocab_due_now_badge">अभी दोहराएं</string>
+    <string name="vocab_next_interval_format">%1$d दिन में</string>
+    <string name="vocab_next_review_hint_format">याद रहने पर अगली पुनरावृत्ति %1$d दिन बाद</string>
+    <string name="vocab_btn_repeat">फिर अभ्यास करें</string>
+    <string name="streak_freeze_count_format">स्ट्रीक फ़्रीज़: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">एक स्ट्रीक फ़्रीज़ ने आपकी स्ट्रीक बचा ली!</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">सफ़र में शैडोइंग</string>
+    <string name="shadowing_subtitle">हैंड्स-फ़्री सुनें और दोहराएं लूप</string>
+    <string name="shadowing_speed_slow">0.75x</string>
+    <string name="shadowing_speed_normal">1.0x</string>
+    <string name="shadowing_btn_start">शुरू करें</string>
+    <string name="shadowing_btn_stop">रोकें</string>
+    <string name="shadowing_step_listening">सेंसेई बोल रहे हैं — ध्यान से सुनें…</string>
+    <string name="shadowing_step_repeat">आपकी बारी — ज़ोर से दोहराएं…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">वाक्य जोड़ें</string>
+    <string name="custom_phrase_dialog_title">कस्टम %1$s वाक्य जोड़ें</string>
+    <string name="custom_phrase_target_label">लक्ष्य भाषा में वाक्य</string>
+    <string name="custom_phrase_phonetic_label">ध्वन्यात्मक गाइड</string>
+    <string name="custom_phrase_translation_label">अर्थ</string>
+    <string name="custom_phrase_focus_label">उच्चारण फोकस नोट</string>
+    <string name="custom_save_btn">सहेजें</string>
+    <string name="custom_scenario_btn">नया परिदृश्य</string>
+    <string name="custom_scenario_dialog_title">%1$s रोलप्ले बनाएं</string>
+    <string name="custom_scenario_templates_label">त्वरित टेम्पलेट:</string>
+    <string name="custom_scenario_title_label">परिदृश्य शीर्षक</string>
+    <string name="custom_scenario_sensei_role_label">सेंसेई की भूमिका (जैसे साक्षात्कारकर्ता)</string>
+    <string name="custom_scenario_user_role_label">आपकी भूमिका (जैसे आवेदक)</string>
+    <string name="custom_scenario_opening_label">सेंसेई की शुरुआती पंक्ति</string>
+    <string name="scenario_template_interview_title">नौकरी का साक्षात्कार</string>
+    <string name="scenario_template_interview_sensei">भर्ती प्रबंधक</string>
+    <string name="scenario_template_interview_user">उम्मीदवार</string>
+    <string name="scenario_template_interview_open">नमस्ते! आज आने के लिए धन्यवाद। क्या आप संक्षेप में अपना परिचय दे सकते हैं?</string>
+    <string name="scenario_template_hotel_title">होटल चेक-इन</string>
+    <string name="scenario_template_hotel_sensei">रिसेप्शनिस्ट</string>
+    <string name="scenario_template_hotel_user">अतिथि</string>
+    <string name="scenario_template_hotel_open">हमारे होटल में स्वागत है! क्या आपके नाम से कोई आरक्षण है?</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">दैनिक अभ्यास अनुस्मारक</string>
+    <string name="reminder_channel_desc">यदि आपकी दैनिक स्ट्रीक पूरी नहीं हुई है तो शाम को वैकल्पिक सूचना।</string>
+    <string name="reminder_notif_title">अपनी डोजो स्ट्रीक जारी रखें! 🔥</string>
+    <string name="reminder_notif_body_format">आपकी %1$d दिन की स्ट्रीक है — सोने से पहले 1 छोटा वाक्य बोलें।</string>
+    <string name="reminder_card_title">शाम का स्ट्रीक रिमाइंडर</string>
+    <string name="reminder_card_subtitle">आज अभ्यास न करने पर ही स्मार्ट अलर्ट</string>
+    <string name="reminder_time_label">समय:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">रिमाइंडर पाने के लिए सिस्टम सेटिंग्स में सूचनाएं चालू करें।</string>
+    <string name="share_card_btn">कार्ड साझा करें</string>
+    <string name="share_card_chooser">उपलब्धि कार्ड साझा करें</string>
+    <string name="share_card_headline_score">उच्चारण दक्षता</string>
+    <string name="share_card_headline_streak">डोजो स्ट्रीक उपलब्धि</string>
+    <string name="share_card_streak_format">%1$d दिन की स्ट्रीक</string>
+    <string name="difficulty_custom">कस्टम</string>
+    <string name="ai_byok_get_key_btn">मुफ़्त Gemini कुंजी प्राप्त करें (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ AI विषय पाठ पैक बनाएँ</string>
+    <string name="roleplay_live_call_start">लाइव कॉल</string>
+    <string name="roleplay_live_call_active">कॉल समाप्त करें</string>
+    <string name="topic_pack_phrase1_trans">क्षमा करें, कृपया मुझे %1$s के बारे में बताएँ।</string>
+    <string name="topic_pack_phrase2_trans">आप किसकी सिफ़ारिश करते हैं?</string>
+    <string name="topic_pack_phrase3_trans">यह बहुत मददगार था, बहुत धन्यवाद!</string>
+    <string name="topic_pack_sensei_role">स्थानीय गाइड</string>
+    <string name="topic_pack_user_role">यात्री</string>
+    <string name="scenario_shanghai_tea_title">शंघाई टीहाउस</string>
+    <string name="scenario_shanghai_tea_sensei">चाय मास्टर</string>
+    <string name="scenario_shanghai_tea_user">अतिथि</string>
+    <string name="scenario_shanghai_tea_init_translation">स्वागत है! आज आप कौन सी चाय चखना चाहेंगे?</string>
+    <string name="scenario_london_interview_title">लंदन स्टूडियो कॉफ़ी</string>
+    <string name="scenario_london_interview_sensei">प्रोजेक्ट होस्ट</string>
+    <string name="scenario_london_interview_user">क्रिएटर</string>
+    <string name="scenario_london_interview_init_translation">सुप्रभात! मुझे बताएँ कि आपके अगले प्रोजेक्ट में आपको क्या उत्साहित करता है।</string>
+</resources>

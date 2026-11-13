@@ -1,0 +1,554 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">โค้ชสอนภาษาและสำเนียงแบบ 3D โต้ตอบได้</string>
+    <string name="splash_ready">พร้อมพูดอย่างมั่นใจแล้ว ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">เซ็นเซย์ 3D</string>
+    <string name="auth_subtitle">โค้ชภาษาและสำเนียงแบบ 3D โต้ตอบได้</string>
+    <string name="auth_feature_avatar_title">อวาตาร์เซ็นเซย์ 3D บนอุปกรณ์</string>
+    <string name="auth_feature_avatar_desc">ตัวละคร Three.js พร้อมลิปซิงก์และการแสดงสีหน้าแบบเรียลไทม์</string>
+    <string name="auth_feature_coach_title">โค้ชสำเนียงสดด้วย Gemini</string>
+    <string name="auth_feature_coach_desc">คำแนะนำการออกเสียงและตำแหน่งปาก/ลิ้นทันที</string>
+    <string name="auth_feature_roleplay_title">บทบาทสมมติสนทนาด้วยเสียง</string>
+    <string name="auth_feature_roleplay_desc">สั่งอาหารในคาเฟ่ คุยในตลาด หรือฝึกสัมภาษณ์งาน</string>
+    <string name="auth_feature_sync_title">ซิงก์คลาวด์ผ่าน Firestore</string>
+    <string name="auth_feature_sync_desc">บันทึกคำศัพท์ที่จำได้และรักษาสถิติเรียนต่อเนื่องทุกวัน</string>
+    <string name="cd_sign_in_icon">ไอคอนเข้าสู่ระบบ</string>
+    <string name="auth_sign_in_google">เข้าสู่ระบบด้วย Google</string>
+    <string name="auth_sign_in_footer">เข้าสู่ระบบเพื่อบันทึกสถิติและคลังคำศัพท์ไว้ใน Firestore</string>
+    <string name="auth_error_missing_client_id">ขาดการตั้งค่า Google Sign-In: ไม่พบ default_web_client_id</string>
+    <string name="auth_error_unexpected_credential">ประเภทข้อมูลประจำตัวไม่ถูกต้อง</string>
+    <string name="auth_error_sign_in_failed">เข้าสู่ระบบไม่สำเร็จ</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">โค้ช</string>
+    <string name="nav_roleplay">บทสนทนา</string>
+    <string name="nav_vocab">คำศัพท์</string>
+    <string name="nav_league">ลีก</string>
+    <string name="nav_profile">โปรไฟล์</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">ผู้สนับสนุน</string>
+    <string name="supporter_badge_short">ผู้สนับสนุน</string>
+    <string name="cd_support_app">สนับสนุน Pocket Sensei</string>
+    <string name="cd_streak">เรียนต่อเนื่อง</string>
+    <string name="streak_day_format">%1$d วัน</string>
+    <string name="cd_cycle_outfit">เปลี่ยนชุดเซ็นเซย์</string>
+    <string name="cd_praise_sensei">เซ็นเซย์ชมเชย</string>
+    <string name="cd_sensei_greet">เซ็นเซย์ทักทาย</string>
+    <string name="mic_permission_required">ต้องได้รับสิทธิ์ไมโครโฟนเพื่อวิเคราะห์เสียงพูดของคุณ</string>
+    <string name="mood_idle">เซ็นเซย์พร้อมแล้ว</string>
+    <string name="mood_listening">กำลังฟัง…</string>
+    <string name="mood_speaking">เซ็นเซย์กำลังพูด</string>
+    <string name="mood_praising">สุโก้ย! ยอดเยี่ยมมาก!</string>
+    <string name="mood_thinking">กำลังวิเคราะห์สำเนียง…</string>
+    <string name="mood_correcting">เคล็ดลับจากเซ็นเซย์</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">ทั้งหมด</string>
+    <string name="lang_japanese">ญี่ปุ่น</string>
+    <string name="lang_spanish">สเปน</string>
+    <string name="lang_french">ฝรั่งเศส</string>
+    <string name="lang_german">เยอรมัน</string>
+    <string name="lang_korean">เกาหลี</string>
+    <string name="lang_mandarin">จีนกลาง</string>
+    <string name="lang_italian">อิตาลี</string>
+    <string name="lang_english">อังกฤษ</string>
+    <string name="difficulty_beginner">เริ่มต้น</string>
+    <string name="difficulty_intermediate">ปานกลาง</string>
+    <string name="difficulty_advanced">ขั้นสูง</string>
+    <string name="difficulty_core">พื้นฐาน</string>
+    <string name="tier_black_belt">เซ็นเซย์สายดำ</string>
+    <string name="tier_gold">ระดับทอง</string>
+    <string name="tier_silver">ระดับเงิน</string>
+    <string name="tier_bronze">ระดับทองแดง</string>
+    <string name="tier_white_belt">สายขาว</string>
+    <string name="engine_cache">แคช Room ($0)</string>
+    <string name="engine_offline">โค้ชออฟไลน์ ($0)</string>
+    <string name="engine_offline_fallback">สำรองออฟไลน์ ($0)</string>
+    <string name="engine_offline_cap">สำรองออฟไลน์ ($0 • ประหยัดโควตา)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">คีย์ Gemini ของคุณ (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">มีอัปเดตใหม่พร้อมแล้ว (v%1$s)</string>
+    <string name="prompt_rate_title">ชอบ Pocket Sensei ไหม?</string>
+    <string name="prompt_share_title">แชร์ความก้าวหน้าของคุณ!</string>
+    <string name="prompt_donation_title">สนับสนุน Pocket Sensei?</string>
+    <string name="prompt_update_default_notes">เวอร์ชันใหม่พร้อมให้ดาวน์โหลดบน Google Play แล้ว พร้อมการฝึกสำเนียงและแอนิเมชัน 3D ที่ดีขึ้น</string>
+    <string name="prompt_rate_body">คุณฝึกครบ %1$d ครั้งและผ่านเป้าหมายการพูด %2$d ครั้งแล้ว! สนใจเขียนรีวิวบน Google Play ไหม?</string>
+    <string name="prompt_share_score_note">คุณเพิ่งได้คะแนน %1$d%%!</string>
+    <string name="prompt_share_body">ฝึกได้ดีมาก! %1$s ชวนเพื่อนมาฝึกพูดและเรียนภาษากับ Pocket Sensei 3D กัน</string>
+    <string name="prompt_share_body_plain">ฝึกได้ดีมาก! ชวนเพื่อนมาฝึกพูดและเรียนภาษากับ Pocket Sensei 3D กัน</string>
+    <string name="prompt_donation_body">คุณฝึกพูดไปแล้ว %1$d ครั้ง! Pocket Sensei ไร้โฆษณา 100%% — เลี้ยงกาแฟนักพัฒนาอิสระผ่าน Google Play, PayPal QR หรือ Ko-fi ได้นะ</string>
+    <string name="prompt_dont_ask_again">ไม่ต้องถามอีก</string>
+    <string name="prompt_update_now">อัปเดตเลย</string>
+    <string name="prompt_rate_cta">ให้คะแนนบน Play Store</string>
+    <string name="prompt_share_cta">แชร์แอป</string>
+    <string name="prompt_donation_cta">ดูวิธีสนับสนุน</string>
+    <string name="prompt_maybe_later">ไว้ทีหลัง</string>
+    <string name="share_app_text">ฉันกำลังฝึกออกเสียงและบทสนทนาจริงกับ Pocket Sensei 3D! มาลองด้วยกัน: %1$s</string>
+    <string name="share_app_subject">Pocket Sensei — โค้ชภาษาและสำเนียง 3D</string>
+    <string name="share_app_chooser">แชร์ Pocket Sensei</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">ประโยคฝึกพูด</string>
+    <string name="coach_dojo_blitz_btn">โดโจบลิตซ์ ($0)</string>
+    <string name="cd_normal_speed">ความเร็วปกติ</string>
+    <string name="cd_slow_speed">เสียงช้า</string>
+    <string name="coach_focus_format">จุดเน้น: %1$s</string>
+    <string name="coach_listening_format">🎙️ กำลังฟัง: \"%1$s\"</string>
+    <string name="coach_transcribed_format">ข้อความที่ฟังได้: \"%1$s\"</string>
+    <string name="cd_speak_to_sensei">พูดกับเซ็นเซย์</string>
+    <string name="coach_type_input">พิมพ์ข้อความ</string>
+    <string name="coach_waveform_title">รูปแบบคลื่นเสียงสด</string>
+    <string name="coach_waveform_ready">ไมโครโฟนพร้อม</string>
+    <string name="coach_waveform_hint">พูดใส่ไมโครโฟนเพื่อดูจุดพีคของเสียง จังหวะ และช่วงหยุด</string>
+    <string name="coach_waveform_db_format">ระดับ %1$s dB</string>
+    <string name="coach_evaluating">เซ็นเซย์กำลังประเมินสัทศาสตร์และระดับเสียง…</string>
+    <string name="toast_saved_vocab_firestore">บันทึกลงคลังคำศัพท์ใน Firestore แล้ว!</string>
+    <string name="coach_eval_note_format">บันทึกผล: %1$s</string>
+    <string name="manual_dialog_title">พิมพ์คำพูดด้วยตนเอง</string>
+    <string name="manual_dialog_desc">กรอกสิ่งที่พูดเพื่อทดสอบการประเมินการออกเสียง:</string>
+    <string name="btn_analyze">วิเคราะห์</string>
+    <string name="btn_cancel">ยกเลิก</string>
+    <string name="result_title">ผลประเมินจากโค้ชสำเนียง</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">ความแม่นยำของเสียง</string>
+    <string name="result_pitch_accent">ระดับเสียง / วรรณยุกต์</string>
+    <string name="result_fluency_rhythm">ความคล่องแคล่วและจังหวะ</string>
+    <string name="cd_mouth_coach">โค้ชการออกเสียง</string>
+    <string name="result_placement_tip_title">เคล็ดลับตำแหน่งลิ้นและรูปปาก:</string>
+    <string name="result_phonemes_to_refine">เสียงที่ควรปรับปรุง:</string>
+    <string name="result_native_phrasings">วิธีพูดแบบเจ้าของภาษา:</string>
+    <string name="cd_synced">ซิงก์แล้ว</string>
+    <string name="result_saved_to_vocab">บันทึกแล้ว</string>
+    <string name="result_support_micro_footer">ออกเสียงเยี่ยม! เลี้ยงกาแฟผู้พัฒนาได้หากเซ็นเซย์ช่วยคุณวันนี้</string>
+    <string name="result_support_cta_arrow">สนับสนุน →</string>
+    <string name="pitch_comparison_title">เปรียบเทียบกราฟระดับเสียง</string>
+    <string name="pitch_legend_native">เป้าหมายเจ้าของภาษา</string>
+    <string name="pitch_legend_yours">ระดับเสียงของคุณ</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">สถานการณ์สมมติด้วยเสียง</string>
+    <string name="roleplay_thinking">%1$s กำลังคิดคำตอบ…</string>
+    <string name="roleplay_suggested_label">คำตอบแนะนำ (แตะเพื่อพูดหรือส่ง):</string>
+    <string name="roleplay_listening_placeholder">🎙️ กำลังฟัง…</string>
+    <string name="roleplay_input_placeholder">พูดหรือพิมพ์เป็นภาษา%1$s…</string>
+    <string name="cd_send">ส่ง</string>
+    <string name="cd_normal_voice">เสียงปกติ</string>
+    <string name="cd_slow_voice">เสียงช้า</string>
+    <string name="roleplay_hide_translation">ซ่อนคำแปล</string>
+    <string name="roleplay_show_translation">ดูความหมาย</string>
+    <string name="roleplay_sensei_note">💡 เซ็นเซย์: %1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">ความเชี่ยวชาญคำศัพท์</string>
+    <string name="vocab_tracked_count">บันทึก %1$d คำไว้ใน Cloud Firestore</string>
+    <string name="vocab_empty_title">ยังไม่มีคำศัพท์ที่บันทึกไว้</string>
+    <string name="vocab_empty_subtitle">ฝึกพูดประโยคในหน้าโค้ชเพื่อเพิ่มคำที่นี่!</string>
+    <string name="vocab_accuracy_format">แม่นยำ %1$d%%</string>
+    <string name="cd_play_normal">เล่นความเร็วปกติ</string>
+    <string name="vocab_btn_drill">ฝึกซ้ำ</string>
+    <string name="vocab_flashcard_title">🥋 ทบทวนแฟลชการ์ด</string>
+    <string name="vocab_meaning_label">ความหมาย:</string>
+    <string name="vocab_tap_to_reveal">👉 แตะเพื่อดูความหมาย</string>
+    <string name="vocab_btn_listen">ฟัง</string>
+    <string name="vocab_btn_slow">ช้า 0.75x</string>
+    <string name="vocab_btn_practice_coach">ฝึกในหน้าโค้ช</string>
+    <string name="btn_close">ปิด</string>
+    <string name="vocab_mastery_summary_format">บันทึกออฟไลน์ %1$d คำ • ชำนาญ %2$d คำ</string>
+    <string name="vocab_filter_mastery_all">ทุกระดับ</string>
+    <string name="vocab_filter_needs_review">ต้องทบทวน (%1$d)</string>
+    <string name="vocab_filter_learning">กำลังเรียน (%1$d)</string>
+    <string name="vocab_filter_mastered">ชำนาญแล้ว (%1$d)</string>
+    <string name="vocab_status_needs_review">ต้องทบทวน</string>
+    <string name="vocab_status_learning">กำลังเรียน</string>
+    <string name="vocab_status_mastered">ชำนาญแล้ว</string>
+    <string name="vocab_level_format">ระดับ %1$d/5</string>
+    <string name="vocab_practice_count_format">ฝึก %1$d ครั้ง</string>
+    <string name="vocab_btn_drill_weakest">ฝึกคำที่อ่อน</string>
+    <string name="vocab_empty_filtered_subtitle">ยังไม่มีคำศัพท์ในตัวกรองระดับนี้ ลองเปลี่ยนตัวกรองหรือฝึกเพิ่มดูนะ!</string>
+    <string name="vocab_btn_got_it">จำได้แล้ว</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">นักเรียนโดโจ</string>
+    <string name="profile_signed_in_google">เข้าสู่ระบบด้วย Google แล้ว</string>
+    <string name="profile_tier_badge">🏆 ระดับผู้พูดเชี่ยวชาญ</string>
+    <string name="profile_outfit_title">ชุดเซ็นเซย์ 3D</string>
+    <string name="costume_traditional">ชุดกิสีคราม</string>
+    <string name="costume_crimson">ซามูไรสีชาด</string>
+    <string name="costume_cyber">ไซเบอร์นีออน</string>
+    <string name="costume_sakura">ชุดซากุระ</string>
+    <string name="profile_stats_title">ความเชี่ยวชาญและสถิติต่อเนื่อง</string>
+    <string name="profile_stat_streak">สถิติรายวัน</string>
+    <string name="profile_stat_streak_value">%1$d วัน</string>
+    <string name="profile_stat_mastered">คำที่จำได้</string>
+    <string name="profile_stat_practice_time">เวลาฝึกฝน</string>
+    <string name="profile_stat_practice_value">%1$d นาที</string>
+    <string name="profile_stat_avg_accuracy">ความแม่นยำเฉลี่ย</string>
+    <string name="profile_recent_sessions_title">ประวัติบทสนทนาล่าสุด</string>
+    <string name="profile_no_sessions">ยังไม่มีบทสนทนาที่บันทึกไว้ ลองฝึกในแท็บบทสนทนาเลย!</string>
+    <string name="profile_telemetry_title">แคช Room บนเครื่องและสถิติ</string>
+    <string name="profile_telemetry_counts">%1$d คำ • %2$d เหตุการณ์</string>
+    <string name="profile_btn_share_app">แชร์แอป</string>
+    <string name="profile_btn_rate_app">ให้คะแนน</string>
+    <string name="profile_btn_sign_out">ออกจากบัญชี Google</string>
+    <string name="session_accuracy_format">แม่นยำ %1$d%%</string>
+    <string name="session_meta_format">ภาษา: %1$s • %2$d รอบ</string>
+
+    <!-- League Screen -->
+    <string name="league_title">ลีกสำเนียงโดโจ</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">ฝึกกับโค้ช (+30–50 XP) หรือบทสนทนา (+25 XP) เพื่อเลื่อนอันดับ!</string>
+    <string name="league_empty_title">ยังไม่มีผู้เรียนจัดอันดับสำหรับภาษา%1$s</string>
+    <string name="league_empty_subtitle">ฝึกพูดให้จบเพื่อบันทึกคะแนนลง Cloud Firestore!</string>
+    <string name="league_user_you">%1$s (คุณ)</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$dว • เฉลี่ย %3$d%%</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">เอนจิน AI และควบคุมค่าใช้จ่าย</string>
+    <string name="ai_cached_count">แคชแล้ว %1$d รายการ ($0)</string>
+    <string name="ai_cloud_quota_summary">โควตาคลาวด์ฟรีวันนี้: %1$d/%2$d ประโยคซ้ำโหลดฟรีจาก Room</string>
+    <string name="ai_mode_chip_hybrid">ไฮบริด</string>
+    <string name="ai_mode_chip_offline">ออฟไลน์ $0</string>
+    <string name="ai_mode_chip_byok">คีย์ส่วนตัว</string>
+    <string name="ai_mode_desc_hybrid">แคช Room + AI คลาวด์ฟรีรายวัน พร้อมสลับออฟไลน์ทันที</string>
+    <string name="ai_mode_desc_offline">เทียบเสียงและระดับเสียงบนอุปกรณ์ 100%% ไม่ใช้เน็ต</string>
+    <string name="ai_mode_desc_byok">โค้ช AI ไม่จำกัดด้วยคีย์ Gemini API ส่วนตัวของคุณเอง</string>
+    <string name="ai_byok_edit_saved">บันทึกคีย์ Gemini ส่วนตัวแล้ว (แก้ไข)</string>
+    <string name="ai_byok_add_prompt">ใช้คีย์ Gemini API ของคุณเอง (BYOK)</string>
+    <string name="ai_byok_clear">ล้างคีย์</string>
+    <string name="ai_byok_input_label">คีย์ Gemini API ของคุณ (เก็บไว้บนเครื่องเท่านั้น)</string>
+    <string name="ai_byok_save_btn">บันทึกและเปิดใช้ BYOK</string>
+    <string name="blitz_title">โดโจ สปีค บลิตซ์</string>
+    <string name="blitz_initial_feedback">พูดประโยคหรือแตะ ฟัง เพื่อสะสมคอมโบ!</string>
+    <string name="blitz_hit_feedback">เป๊ะ! แม่นยำ %1$d%% (+%2$d XP, คอมโบ x%3$d)</string>
+    <string name="blitz_miss_feedback">เกือบแล้ว (%1$d%%)! แตะฟังแล้วลองใหม่</string>
+    <string name="blitz_skip_feedback">ข้ามแล้ว — ลองประโยคถัดไปเลย!</string>
+    <string name="blitz_timer_label">เวลา: %1$dวิ</string>
+    <string name="blitz_score_label">คะแนน: %1$d XP</string>
+    <string name="blitz_combo_label">คอมโบ: x%1$d</string>
+    <string name="cd_hear_phrase">ฟังประโยค</string>
+    <string name="blitz_btn_hear">ฟัง</string>
+    <string name="cd_blitz_mic">พูดในโดโจบลิตซ์</string>
+    <string name="blitz_btn_skip">ข้าม</string>
+    <string name="blitz_times_up">หมดเวลา! +%1$d โดโจ XP</string>
+    <string name="blitz_summary">คุณผ่าน %1$d ประโยคในโหมดออฟไลน์ฟรี 100%%</string>
+    <string name="blitz_play_again">เล่นอีกครั้ง</string>
+    <string name="blitz_finish_early">จบเกมก่อน</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">สนุกกับการฝึกไหม?</string>
+    <string name="donation_banner_subtitle">สนับสนุนนักพัฒนาอิสระไร้โฆษณาด้วยกาแฟสักแก้ว</string>
+    <string name="donation_banner_cta">สนับสนุน</string>
+    <string name="cd_dismiss_donation_banner">ปิดแบนเนอร์สนับสนุน</string>
+    <string name="support_active_supporter">ผู้สนับสนุน</string>
+    <string name="support_development_title">สนับสนุนการพัฒนา</string>
+    <string name="support_badge_ad_free">แอปอินดี้ไร้โฆษณา</string>
+    <string name="support_active_desc">ขอบคุณที่สนับสนุน Pocket Sensei! ปิดแบนเนอร์และข้อความขอรับบริจาคทั้งหมดให้คุณถาวรแล้ว</string>
+    <string name="support_inactive_desc">Pocket Sensei ไร้โฆษณา 100%% และเน้นความเป็นส่วนตัว คุณทำครบ %1$d เป้าหมายแล้ว — สนับสนุนภาษาใหม่ได้ทุกเมื่อ</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / QR</string>
+    <string name="channel_paypal_tab">PayPal และ QR</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">ดูนโยบายความเป็นส่วนตัวและข้อมูล</string>
+    <string name="privacy_policy_title">นโยบายความเป็นส่วนตัว</string>
+    <string name="donation_sheet_subtitle">เลือก Google Play, PayPal QR หรือ Ko-fi</string>
+    <string name="donation_active_unlocked">ปลดล็อกผู้สนับสนุนแล้ว! ปิดข้อความแนะนำการบริจาคทั้งหมดถาวร</string>
+    <string name="donation_play_desc">ชำระเงินแตะเดียวผ่าน Google Pay ปลดล็อกป้ายผู้สนับสนุนถาวรอัตโนมัติหลังตรวจสอบใบเสร็จ</string>
+    <string name="donation_play_connecting">กำลังเชื่อมต่อ Google Play Billing…</string>
+    <string name="donation_paypal_desc">สแกน PayPal QR ด้วยอีกเครื่องหรือเปิด PayPal.me โดยตรง</string>
+    <string name="donation_paypal_any">ตามศรัทธา</string>
+    <string name="donation_paypal_custom_label">จำนวนเงิน USD (ไม่บังคับ)</string>
+    <string name="donation_paypal_custom_hint">เช่น 15</string>
+    <string name="cd_paypal_qr">คิวอาร์โค้ด PayPal สำหรับ %1$s</string>
+    <string name="cd_copy_paypal_url">คัดลอกลิงก์ PayPal</string>
+    <string name="donation_btn_open_paypal">เปิด PayPal</string>
+    <string name="donation_btn_copy">คัดลอก</string>
+    <string name="donation_btn_share">แชร์</string>
+    <string name="donation_kofi_title">กล่องทิป Ko-fi</string>
+    <string name="donation_kofi_desc">ส่งกาแฟเสมือนผ่าน Ko-fi เปิดในเบราว์เซอร์หรือคัดลอกลิงก์อัตโนมัติ</string>
+    <string name="donation_btn_open_kofi">เปิดหน้า Ko-fi</string>
+    <string name="donation_btn_copy_link">คัดลอกลิงก์</string>
+    <string name="tier1_title">ชามัทฉะ</string>
+    <string name="tier1_subtitle">ระดับ 1 • น้ำใจเล็กๆ น้อยๆ</string>
+    <string name="tier1_badge">ระดับ 1</string>
+    <string name="tier2_title">กาแฟเซ็นเซย์</string>
+    <string name="tier2_subtitle">ระดับ 2 • เพิ่มชุดประโยคใหม่</string>
+    <string name="tier2_badge">ยอดนิยม</string>
+    <string name="tier3_title">เบนโตะโดโจ</string>
+    <string name="tier3_subtitle">ระดับ 3 • สนับสนุนระบบเสียง 3D</string>
+    <string name="tier3_badge">ระดับ 3</string>
+    <string name="tier4_title">ผู้อุปถัมภ์ระดับมาสเตอร์</string>
+    <string name="tier4_subtitle">ระดับ 4 • สนับสนุนการศึกษาอิสระ</string>
+    <string name="tier4_badge">ระดับ 4</string>
+    <string name="billing_purchase_canceled">ยกเลิกการซื้อแล้ว — ขอบคุณที่พิจารณาสนับสนุน Pocket Sensei!</string>
+    <string name="billing_service_unavailable">บริการไม่พร้อมใช้งาน</string>
+    <string name="billing_error_fallback">Google Play Billing แจ้ง: %1$s คุณสามารถใช้ PayPal หรือ Ko-fi ด้านล่างได้เช่นกัน</string>
+    <string name="billing_receipt_failed">ยืนยันใบเสร็จไม่สำเร็จ โปรดลองอีกครั้ง</string>
+    <string name="billing_pending">การบริจาคผ่าน Google Play กำลังรอดำเนินการ ป้ายผู้สนับสนุนจะเปิดอัตโนมัติเมื่อยืนยันแล้ว</string>
+    <string name="billing_verified">ขอบคุณ! ยืนยันการบริจาค Google Play แล้ว และปลดล็อกป้ายผู้สนับสนุนถาวรเรียบร้อย</string>
+    <string name="billing_missing_activity">ไม่พบหน้าต่างที่ใช้งานอยู่สำหรับ Google Play โปรดลองจากหน้าหลักหรือใช้ PayPal / Ko-fi</string>
+    <string name="billing_store_unavailable">การชำระเงิน Google Play ไม่พร้อมใช้งานบนอุปกรณ์/บิลด์นี้ (%1$s) คุณสามารถใช้ PayPal QR หรือ Ko-fi ได้ตลอดเวลา</string>
+    <string name="billing_code_prefix">รหัส %1$d</string>
+    <string name="billing_disconnected">การเชื่อมต่อ Google Play Billing หลุด โปรดลองใหม่หรือเลือก PayPal / Ko-fi</string>
+    <string name="billing_item_unpublished">รายการ \"%1$s\" ยังไม่เผยแพร่ในแทร็ก Play Console ของบิลด์นี้ ใช้ PayPal QR และ Ko-fi ด้านล่างได้ทันที!</string>
+    <string name="billing_checkout_error">ไม่สามารถเปิดหน้าชำระเงิน Google Play ได้ (%1$s)</string>
+    <string name="paypal_label">ลิงก์บริจาค PayPal</string>
+    <string name="paypal_no_browser_toast">ไม่พบเบราว์เซอร์ — คัดลอกลิงก์ PayPal แล้ว!</string>
+    <string name="paypal_copied_toast">คัดลอกลิงก์ PayPal แล้ว: %1$s</string>
+    <string name="paypal_share_subject">สนับสนุน Pocket Sensei</string>
+    <string name="paypal_share_text">สนับสนุนโค้ชภาษา 3D Pocket Sensei: %1$s</string>
+    <string name="paypal_share_chooser">แชร์ลิงก์สนับสนุน</string>
+    <string name="kofi_label">ลิงก์หน้า Ko-fi</string>
+    <string name="kofi_no_browser_toast">ไม่พบเบราว์เซอร์ — คัดลอกลิงก์ Ko-fi แล้ว!</string>
+    <string name="kofi_copied_toast">คัดลอกลิงก์ Ko-fi แล้ว: %1$s</string>
+    <string name="privacy_loaded_in_app">โหลดนโยบายความเป็นส่วนตัวในแอปแล้ว</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">อุปกรณ์นี้ไม่รองรับการรู้จำเสียงพูด โปรดใช้การพิมพ์ข้อความแทน</string>
+    <string name="hud_praise_speech">สุดยอด! น่าประทับใจมาก!</string>
+    <string name="hud_greet_speech">สวัสดี! มาฝึกพูดกันวันนี้เถอะ!</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">การประเมินผลล้มเหลว</string>
+    <string name="error_roleplay_failed">เซนเซย์ไม่สามารถตอบกลับได้</string>
+    <string name="coach_default_accent_focus">ความชัดเจนของสระและพยัญชนะ</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">ความยาวสระชัดเจนและออกเสียงพยัญชนะต้นได้คมชัด! รักษาจังหวะสบายๆ นี้ไว้</string>
+    <string name="eval_tip_missed_format">เน้นออกเสียงให้ชัดเจน: %1$s รักษาระดับขากรรไกรให้นิ่งในสระที่เน้นเสียง</string>
+    <string name="eval_tip_slow_down">พูดช้าลงเล็กน้อยระหว่างพยางค์และออกเสียงสระเน้นให้ชัดเจน</string>
+    <string name="eval_encourage_high">ยอดเยี่ยม! ประเมินผลบนอุปกรณ์แล้ว (โหมดออฟไลน์ $0)</string>
+    <string name="eval_encourage_mid">จังหวะดี! ลองพูดช้าลงอีกรอบจะช่วยให้สำเนียงคมชัดขึ้น</string>
+    <string name="eval_encourage_low">พยายามได้ดีมาก — แตะเสียง \'ช้า\' เพื่อฟังทุกพยางค์ให้ชัด</string>
+    <string name="eval_contour_type_format">เส้นระดับเสียง %1$s บนอุปกรณ์</string>
+    <string name="eval_pitch_guidance_default">เลียนแบบการขึ้นลงของเส้นประสีเขียวของเจ้าของภาษาให้แม่นยำ</string>
+    <string name="eval_contour_default">เส้นระดับเสียงสำเนียงธรรมชาติ</string>
+    <string name="eval_tip_default">ผ่อนคลายริมฝีปากและออกเสียงให้ชัดเจน</string>
+    <string name="eval_encourage_default">ความพยายามยอดเยี่ยม! การฝึกฝนทำให้ชำนาญ</string>
+    <string name="eval_pitch_guidance_cloud_default">ปรับจังหวะเสียงสูงต่ำให้ตรงกับเส้นระดับเสียงเจ้าของภาษา</string>
+    <string name="roleplay_offline_note_format">โค้ชออฟไลน์ (โหมด $0): ได้รับ \"%1$s\" อย่างราบรื่น รักษาจังหวะที่เป็นธรรมชาติไว้!</string>
+    <string name="roleplay_offline_translation_fallback">คำตอบจากโหมดฝึกออฟไลน์</string>
+    <string name="roleplay_offline_reply_default">ยอดเยี่ยม! มาฝึกจังหวะการพูดที่เป็นธรรมชาติในภาษา%1$sกันต่อเถอะ</string>
+    <string name="roleplay_offline_reply_ja_translation">ได้เลยครับ! รับอะไรเพิ่มไหมครับ?</string>
+    <string name="roleplay_offline_reply_fr_translation">ได้เลยค่ะ! ต้องการรับอะไรเพิ่มอีกไหมคะ?</string>
+    <string name="roleplay_offline_reply_es_translation">ได้เลยครับ! เดี๋ยวผมยกมาเสิร์ฟทันที รับเครื่องดื่มอะไรเพิ่มไหมครับ?</string>
+    <string name="roleplay_offline_reply_ko_translation">ครับ เข้าใจแล้ว! กรุณารอสักครู่ครับ</string>
+    <string name="roleplay_offline_reply_de_translation">เยี่ยมมาก! คุณอยากเล่าเพิ่มเติมเกี่ยวกับเรื่องนี้ไหม?</string>
+    <string name="roleplay_offline_reply_it_translation">ยอดเยี่ยม! วันนี้รับอะไรเพิ่มอีกไหมคะ?</string>
+    <string name="roleplay_cloud_note_default">จังหวะการสนทนาลื่นไหลมาก!</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">สวัสดี สบายดีไหม?</string>
+    <string name="phrase_ja_1_focus">ระดับเสียงเรียบใน \'Konnichiwa\'</string>
+    <string name="phrase_ja_2_translation">ขอรับอันนี้ครับ/ค่ะ</string>
+    <string name="phrase_ja_2_focus">การสะบัดลิ้นเบาๆ สำหรับเสียง \'r\'</string>
+    <string name="phrase_ja_3_translation">ขอบคุณมากครับ/ค่ะ!</string>
+    <string name="phrase_ja_3_focus">สระเสียงยาว \'ou\'</string>
+    <string name="phrase_ja_4_translation">ขอโทษครับ/ค่ะ สถานีอยู่ที่ไหน?</string>
+    <string name="phrase_ja_4_focus">น้ำเสียงสูงขึ้นอย่างสุภาพ</string>
+    <string name="phrase_ja_5_translation">อร่อยมากเลย!</string>
+    <string name="phrase_ja_5_focus">การออกเสียง \'desu\' แบบลดเสียง \'u\'</string>
+
+    <string name="phrase_fr_1_translation">สวัสดี ยินดีที่ได้รู้จัก</string>
+    <string name="phrase_fr_1_focus">เสียงขึ้นจมูกนุ่มนวล \'en\' และ \'on\'</string>
+    <string name="phrase_fr_2_translation">ขอครัวซองต์และกาแฟอย่างละหนึ่งครับ/ค่ะ</string>
+    <string name="phrase_fr_2_focus">เสียง \'r\' ในลำคอแบบฝรั่งเศส</string>
+    <string name="phrase_fr_3_translation">ห้องน้ำอยู่ที่ไหนครับ/คะ?</string>
+    <string name="phrase_fr_3_focus">การเชื่อมเสียงที่ราบรื่น</string>
+    <string name="phrase_fr_4_translation">มันวิเศษมากจริงๆ!</string>
+    <string name="phrase_fr_4_focus">เสียง \'u\' บริสุทธิ์โดยห่อริมฝีปากกลม</string>
+
+    <string name="phrase_es_1_translation">สวัสดี! วันนี้เป็นอย่างไรบ้าง?</string>
+    <string name="phrase_es_1_focus">สระเปิดที่ชัดเจน</string>
+    <string name="phrase_es_2_translation">ขอโต๊ะสำหรับสองที่ครับ/ค่ะ</string>
+    <string name="phrase_es_2_focus">การแตะลิ้นหนึ่งครั้งเบาๆ \'r\'</string>
+    <string name="phrase_es_3_translation">ทางรถไฟความเร็วสูง</string>
+    <string name="phrase_es_3_focus">การรัวลิ้นสองจังหวะ \'rr\'</string>
+    <string name="phrase_es_4_translation">ขอเก็บเงินด้วยครับ/ค่ะ</string>
+    <string name="phrase_es_4_focus">เน้นเสียงที่พยางค์ท้าย</string>
+
+    <string name="phrase_de_1_translation">สวัสดีตอนเช้า คุณสบายดีไหม?</string>
+    <string name="phrase_de_1_focus">สระเสียงยาว \'ee\' ใน Ihnen</string>
+    <string name="phrase_de_2_translation">ขอกาแฟสักแก้วครับ/ค่ะ</string>
+    <string name="phrase_de_2_focus">เสียงเสียดแทรกเพดานอ่อน \'ch\'</string>
+    <string name="phrase_de_3_translation">ขอบคุณมากสำหรับความช่วยเหลือ!</string>
+    <string name="phrase_de_3_focus">สระห่อปาก \'ö\' และ \'ü\'</string>
+
+    <string name="phrase_ko_1_translation">สวัสดี ยินดีที่ได้พบกัน!</string>
+    <string name="phrase_ko_1_focus">จังหวะไพเราะอย่างสุภาพ</string>
+    <string name="phrase_ko_2_translation">อันนี้ราคาเท่าไหร่?</string>
+    <string name="phrase_ko_2_focus">เสียง \'l\' นุ่มนวลใน eol-ma</string>
+    <string name="phrase_ko_3_translation">ทานให้อร่อยนะครับ/คะ!</string>
+    <string name="phrase_ko_3_focus">พยัญชนะธนิตกับพยัญชนะกักตึง</string>
+
+    <string name="phrase_zh_1_translation">สวัสดี ยินดีที่ได้รู้จัก!</string>
+    <string name="phrase_zh_1_focus">การเปลี่ยนเสียงวรรณยุกต์ที่ 3 ใน Nǐ hǎo</string>
+    <string name="phrase_zh_2_translation">ขอถามหน่อย อันนี้ราคาเท่าไหร่?</string>
+    <string name="phrase_zh_2_focus">เสียงที่ 4 ที่ zhè และเสียงที่ 2 ที่ qián</string>
+    <string name="phrase_zh_3_translation">อร่อยสุดๆ ขอบคุณ!</string>
+    <string name="phrase_zh_3_focus">เสียงที่ 4 ตกต่ำที่ Tài และ xiè</string>
+
+    <string name="phrase_it_1_translation">สวัสดี! สบายดีไหม?</string>
+    <string name="phrase_it_1_focus">จังหวะพยางค์ที่ไพเราะเหมือนดนตรี</string>
+    <string name="phrase_it_2_translation">ขอเจลาโต้รสพิสตาชิโอครับ/ค่ะ</string>
+    <string name="phrase_it_2_focus">การหยุดจังหวะพยัญชนะซ้อน \'cch\'</string>
+    <string name="phrase_it_3_translation">ขอบคุณมากๆ สำหรับทุกอย่าง!</string>
+    <string name="phrase_it_3_focus">เสียงฟัน \'t\' และ \'z\' ที่มีชีวิตชีวา</string>
+
+    <string name="phrase_en_1_translation">การถามทาง</string>
+    <string name="phrase_en_1_focus">เสียงก้อง \'th\' ใน the</string>
+    <string name="phrase_en_2_translation">คำถามด้านอาชีพและการงาน</string>
+    <string name="phrase_en_2_focus">เสียงสะบัด \'d\' ใน schedule</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">สั่งเครื่องดื่มคาเฟ่โตเกียว</string>
+    <string name="scenario_tokyo_cafe_sensei">บาริสต้าคาเฟ่</string>
+    <string name="scenario_tokyo_cafe_user">ลูกค้า</string>
+    <string name="scenario_tokyo_cafe_init_translation">ยินดีต้อนรับครับ! ตัดสินใจได้หรือยังว่าจะสั่งอะไร?</string>
+
+    <string name="scenario_paris_boulangerie_title">ร้านเบเกอรี่ปารีส</string>
+    <string name="scenario_paris_boulangerie_sensei">หัวหน้าเชฟทำขนมปัง</string>
+    <string name="scenario_paris_boulangerie_user">ลูกค้า</string>
+    <string name="scenario_paris_boulangerie_init_translation">สวัสดีครับ! วันนี้รับอะไรดีครับ?</string>
+
+    <string name="scenario_madrid_tapas_title">บาร์ทาปาสมาดริด</string>
+    <string name="scenario_madrid_tapas_sensei">เจ้าของร้าน</string>
+    <string name="scenario_madrid_tapas_user">ลูกค้า</string>
+    <string name="scenario_madrid_tapas_init_translation">สวัสดีตอนบ่ายครับ! เริ่มต้นด้วยเครื่องดื่มอะไรดีครับ?</string>
+
+    <string name="scenario_seoul_market_title">ตลาดกลางคืนโซล</string>
+    <string name="scenario_seoul_market_sensei">เชฟอาหารริมทาง</string>
+    <string name="scenario_seoul_market_user">นักท่องเที่ยว</string>
+    <string name="scenario_seoul_market_init_translation">เชิญเลยครับ! มาลองชิมต็อกบกกีร้อนๆ ของเราสิครับ!</string>
+
+    <string name="scenario_rome_gelato_title">ร้านเจลาโต้ฟลอเรนซ์</string>
+    <string name="scenario_rome_gelato_sensei">ช่างทำเจลาโต้</string>
+    <string name="scenario_rome_gelato_user">ลูกค้า</string>
+    <string name="scenario_rome_gelato_init_translation">สวัสดี! โคนหรือถ้วยดีคะ? อยากทานรสไหนบ้างคะ?</string>
+
+    <string name="scenario_berlin_tech_title">งานพบปะสายเทคเบอร์ลิน</string>
+    <string name="scenario_berlin_tech_sensei">หัวหน้าทีมเทคนิค</string>
+    <string name="scenario_berlin_tech_user">วิศวกร</string>
+    <string name="scenario_berlin_tech_init_translation">สวัสดี! ดีใจที่คุณมาร่วมงาน ตอนนี้คุณทำโปรเจกต์อะไรอยู่?</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">ข้าม</string>
+    <string name="onboarding_back">ย้อนกลับ</string>
+    <string name="onboarding_next">ถัดไป</string>
+    <string name="onboarding_get_started">เริ่มฝึกพูดเลย</string>
+    <string name="onboarding_step_format">ขั้นตอน %1$d จาก %2$d</string>
+    <string name="onboarding_page1_badge">สตูดิโอเสียงและระดับเสียง 3D</string>
+    <string name="onboarding_page1_title">พูดเหมือนเจ้าของภาษากับเซนเซ 3D ของคุณ</string>
+    <string name="onboarding_page1_subtitle">เห็นภาพคลื่นเสียงแบบเรียลไทม์ 60fps เส้นโค้งวรรณยุกต์ และเคล็ดลับการจัดรูปปากอย่างแม่นยำ</string>
+    <string name="onboarding_page2_badge">บทบาทสมมติสถานการณ์จริง</string>
+    <string name="onboarding_page2_title">ฝึกสนทนาในสถานการณ์ท่องเที่ยว</string>
+    <string name="onboarding_page2_subtitle">สั่งมัทฉะในโตเกียว ครัวซองต์ในปารีส หรือทาปาสในมาดริด พร้อมคำอ่านและประโยคแนะนำ</string>
+    <string name="onboarding_page3_badge">คลังคำศัพท์และโดโจลีก</string>
+    <string name="onboarding_page3_title">สะสมคำศัพท์และไต่อันดับสู่แชมป์ลีก</string>
+    <string name="onboarding_page3_subtitle">ทบทวนคำศัพท์ด้วยแฟลชการ์ด เล่นเกม Dojo Blitz 45 วินาที และเลือกภาษาแรกของคุณด้านล่าง</string>
+    <string name="onboarding_select_language_label">เลือกภาษาแรกที่คุณต้องการฝึก:</string>
+    <string name="profile_btn_replay_onboarding">ทัวร์แนะนำแอป</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">สลับขนาดเวที 3D ของอาจารย์</string>
+    <string name="daily_goal_title">เป้าหมายโดโจรายวัน</string>
+    <string name="daily_goal_progress_format">วันนี้ %1$d / %2$d รอบ</string>
+    <string name="daily_goal_completed_badge">บรรลุเป้าหมาย!</string>
+    <string name="donation_perks_title">สิทธิประโยชน์ผู้สนับสนุน</string>
+    <string name="donation_perks_summary">ซ่อนแบนเนอร์และคำเชิญชวนถาวร พร้อมร่วมพัฒนาเสียงและแพ็กออฟไลน์ใหม่</string>
+    <string name="donation_recommended_tag">คุ้มค่าที่สุด</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">สถิติการเรียนต่อเนื่องรายวัน</string>
+    <string name="streak_best_format">สถิติสูงสุด: %1$d วัน</string>
+    <string name="streak_status_active_today">บันทึกสถิติวันนี้เรียบร้อย! ฝึกพูดต่อเพื่อพัฒนาสำเนียง</string>
+    <string name="streak_status_pending_today">ประเมินการออกเสียงในโหมดโค้ช 1 ครั้งวันนี้เพื่อรักษาสถิติ</string>
+    <string name="streak_new_day_banner_format">ปลดล็อกสถิติต่อเนื่อง %1$d วัน!</string>
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">อัดเสียงตัวอย่าง</string>
+    <string name="coach_stop_pitch_rec">หยุดอัด</string>
+    <string name="coach_play_mine">ฟังเสียงตัวเอง</string>
+    <string name="coach_stop_mine">หยุดเสียง</string>
+    <string name="pitch_live_mic_badge">ไมค์ F0 สด</string>
+    <string name="result_play_sensei">เสียงเซนเซ</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">ครบกำหนดวันนี้ (%1$d)</string>
+    <string name="vocab_due_now_badge">ต้องทบทวน</string>
+    <string name="vocab_next_interval_format">อีก %1$d วัน</string>
+    <string name="vocab_next_review_hint_format">ทบทวนครั้งถัดไปในอีก %1$d วันหากจำได้</string>
+    <string name="vocab_btn_repeat">ต้องฝึกเพิ่ม</string>
+    <string name="streak_freeze_count_format">ตัวแช่แข็งสตรีค: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">ตัวแช่แข็งสตรีคช่วยปกป้องสถิติของคุณไว้แล้ว!</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">ชาโดว์อิงขณะเดินทาง</string>
+    <string name="shadowing_subtitle">ลูปฟังและพูดตามแบบแฮนด์ฟรี</string>
+    <string name="shadowing_speed_slow">0.75x</string>
+    <string name="shadowing_speed_normal">1.0x</string>
+    <string name="shadowing_btn_start">เริ่ม</string>
+    <string name="shadowing_btn_stop">หยุด</string>
+    <string name="shadowing_step_listening">เซนเซกำลังพูด — ตั้งใจฟัง…</string>
+    <string name="shadowing_step_repeat">ตาคุณแล้ว — พูดตามออกเสียงได้เลย…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">เพิ่มประโยค</string>
+    <string name="custom_phrase_dialog_title">เพิ่มประโยค%1$sเอง</string>
+    <string name="custom_phrase_target_label">ประโยคในภาษาเป้าหมาย</string>
+    <string name="custom_phrase_phonetic_label">คำอ่าน / สัทอักษร</string>
+    <string name="custom_phrase_translation_label">ความหมาย</string>
+    <string name="custom_phrase_focus_label">จุดเน้นการออกเสียง</string>
+    <string name="custom_save_btn">บันทึก</string>
+    <string name="custom_scenario_btn">สถานการณ์ใหม่</string>
+    <string name="custom_scenario_dialog_title">สร้างบทบาทสมมติ%1$s</string>
+    <string name="custom_scenario_templates_label">เทมเพลตด่วน:</string>
+    <string name="custom_scenario_title_label">ชื่อสถานการณ์</string>
+    <string name="custom_scenario_sensei_role_label">บทบาทเซนเซ (เช่น ผู้สัมภาษณ์)</string>
+    <string name="custom_scenario_user_role_label">บทบาทของคุณ (เช่น ผู้สมัคร)</string>
+    <string name="custom_scenario_opening_label">ประโยคเปิดของเซนเซ</string>
+    <string name="scenario_template_interview_title">สัมภาษณ์งาน</string>
+    <string name="scenario_template_interview_sensei">ผู้จัดการฝ่ายบุคคล</string>
+    <string name="scenario_template_interview_user">ผู้สมัครงาน</string>
+    <string name="scenario_template_interview_open">สวัสดีครับ/ค่ะ! ขอบคุณที่มาวันนี้ ช่วยแนะนำตัวสั้นๆ ได้ไหมครับ/คะ?</string>
+    <string name="scenario_template_hotel_title">เช็คอินโรงแรม</string>
+    <string name="scenario_template_hotel_sensei">พนักงานต้อนรับ</string>
+    <string name="scenario_template_hotel_user">ผู้เข้าพัก</string>
+    <string name="scenario_template_hotel_open">ยินดีต้อนรับสู่โรงแรมของเรา! คุณได้จองห้องพักไว้ในชื่อของคุณไหมครับ/คะ?</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">แจ้งเตือนฝึกประจำวัน</string>
+    <string name="reminder_channel_desc">การแจ้งเตือนช่วงเย็นแบบเลือกได้ หากสตรีคประจำวันยังไม่สำเร็จ</string>
+    <string name="reminder_notif_title">รักษาสตรีค Dojo ของคุณไว้! 🔥</string>
+    <string name="reminder_notif_body_format">คุณทำสตรีคได้ %1$d วันแล้ว — ฝึกพูด 1 ประโยคสั้นๆ ก่อนนอนนะ</string>
+    <string name="reminder_card_title">แจ้งเตือนสตรีคตอนเย็น</string>
+    <string name="reminder_card_subtitle">เตือนอัจฉริยะเฉพาะวันที่คุณยังไม่ได้ฝึก</string>
+    <string name="reminder_time_label">เตือนเวลา:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">โปรดเปิดสิทธิ์การแจ้งเตือนในการตั้งค่าระบบเพื่อรับการเตือน</string>
+    <string name="share_card_btn">แชร์การ์ด</string>
+    <string name="share_card_chooser">แชร์การ์ดความสำเร็จ</string>
+    <string name="share_card_headline_score">ความเชี่ยวชาญการออกเสียง</string>
+    <string name="share_card_headline_streak">เป้าหมายสตรีค Dojo</string>
+    <string name="share_card_streak_format">สตรีค %1$d วัน</string>
+    <string name="difficulty_custom">กำหนดเอง</string>
+    <string name="ai_byok_get_key_btn">รับคีย์ Gemini ฟรี (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ สร้างชุดบทเรียน AI ตามหัวข้อ</string>
+    <string name="roleplay_live_call_start">โทรคุยสด</string>
+    <string name="roleplay_live_call_active">วางสาย</string>
+    <string name="topic_pack_phrase1_trans">ขอโทษครับ/ค่ะ ช่วยเล่าเกี่ยวกับ %1$s ให้ฟังหน่อยได้ไหม</string>
+    <string name="topic_pack_phrase2_trans">คุณแนะนำอันไหนดี?</string>
+    <string name="topic_pack_phrase3_trans">มีประโยชน์มากเลย ขอบคุณมาก!</string>
+    <string name="topic_pack_sensei_role">ไกด์ท้องถิ่น</string>
+    <string name="topic_pack_user_role">นักเดินทาง</string>
+    <string name="scenario_shanghai_tea_title">โรงน้ำชาเซี่ยงไฮ้</string>
+    <string name="scenario_shanghai_tea_sensei">ปรมาจารย์ชา</string>
+    <string name="scenario_shanghai_tea_user">แขกผู้มาเยือน</string>
+    <string name="scenario_shanghai_tea_init_translation">ยินดีต้อนรับ! วันนี้คุณอยากชิมชาชนิดไหนดี?</string>
+    <string name="scenario_london_interview_title">กาแฟสตูดิโอลอนดอน</string>
+    <string name="scenario_london_interview_sensei">โฮสต์โปรเจกต์</string>
+    <string name="scenario_london_interview_user">ครีเอเตอร์</string>
+    <string name="scenario_london_interview_init_translation">อรุณสวัสดิ์! เล่าให้ฟังหน่อยว่าอะไรทำให้คุณตื่นเต้นกับโปรเจกต์ถัดไป</string>
+</resources>

@@ -1,0 +1,554 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">Интерактивный 3D-тренер языков и произношения</string>
+    <string name="splash_ready">Готовы говорить уверенно ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">3D Сэнсэй</string>
+    <string name="auth_subtitle">Интерактивный 3D-тренер языков и акцента</string>
+    <string name="auth_feature_avatar_title">3D-аватар Сэнсэя на устройстве</string>
+    <string name="auth_feature_avatar_desc">Персонаж Three.js с синхронизацией губ и мимикой в реальном времени</string>
+    <string name="auth_feature_coach_title">Живой разбор акцента с Gemini</string>
+    <string name="auth_feature_coach_desc">Мгновенная оценка произношения и советы по положению губ и языка</string>
+    <string name="auth_feature_roleplay_title">Голосовые ролевые диалоги</string>
+    <string name="auth_feature_roleplay_desc">Заказ в кафе, общение на рынке или тренировка собеседований</string>
+    <string name="auth_feature_sync_title">Облачная синхронизация Firestore</string>
+    <string name="auth_feature_sync_desc">Сохраняйте изученные слова и поддерживайте ежедневную серию</string>
+    <string name="cd_sign_in_icon">Значок входа</string>
+    <string name="auth_sign_in_google">Войти через Google</string>
+    <string name="auth_sign_in_footer">Войдите, чтобы сохранять серии и словарь в Firestore</string>
+    <string name="auth_error_missing_client_id">Нет конфигурации Google входа: default_web_client_id не найден</string>
+    <string name="auth_error_unexpected_credential">Неожиданный тип учётных данных</string>
+    <string name="auth_error_sign_in_failed">Ошибка входа</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">Тренер</string>
+    <string name="nav_roleplay">Диалог</string>
+    <string name="nav_vocab">Словарь</string>
+    <string name="nav_league">Лига</string>
+    <string name="nav_profile">Профиль</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">Активный спонсор</string>
+    <string name="supporter_badge_short">Спонсор</string>
+    <string name="cd_support_app">Поддержать Pocket Sensei</string>
+    <string name="cd_streak">Серия</string>
+    <string name="streak_day_format">%1$d дн</string>
+    <string name="cd_cycle_outfit">Сменить костюм Сэнсэя</string>
+    <string name="cd_praise_sensei">Похвала Сэнсэя</string>
+    <string name="cd_sensei_greet">Приветствие Сэнсэя</string>
+    <string name="mic_permission_required">Для анализа произношения требуется доступ к микрофону</string>
+    <string name="mood_idle">Сэнсэй готов</string>
+    <string name="mood_listening">Слушаю…</string>
+    <string name="mood_speaking">Сэнсэй говорит</string>
+    <string name="mood_praising">Сугой! Отлично!</string>
+    <string name="mood_thinking">Анализ акцента…</string>
+    <string name="mood_correcting">Совет Сэнсэя</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">Все</string>
+    <string name="lang_japanese">Японский</string>
+    <string name="lang_spanish">Испанский</string>
+    <string name="lang_french">Французский</string>
+    <string name="lang_german">Немецкий</string>
+    <string name="lang_korean">Корейский</string>
+    <string name="lang_mandarin">Китайский</string>
+    <string name="lang_italian">Итальянский</string>
+    <string name="lang_english">Английский</string>
+    <string name="difficulty_beginner">Начальный</string>
+    <string name="difficulty_intermediate">Средний</string>
+    <string name="difficulty_advanced">Продвинутый</string>
+    <string name="difficulty_core">Базовый</string>
+    <string name="tier_black_belt">Сэнсэй Чёрный пояс</string>
+    <string name="tier_gold">Золотая лига</string>
+    <string name="tier_silver">Серебряная лига</string>
+    <string name="tier_bronze">Бронзовая лига</string>
+    <string name="tier_white_belt">Белый пояс</string>
+    <string name="engine_cache">Кэш Room ($0)</string>
+    <string name="engine_offline">Офлайн-тренер ($0)</string>
+    <string name="engine_offline_fallback">Офлайн-резерв ($0)</string>
+    <string name="engine_offline_cap">Офлайн-резерв ($0 • Лимит сохранён)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">Ваш ключ Gemini (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">Доступно обновление (v%1$s)</string>
+    <string name="prompt_rate_title">Нравится Pocket Sensei?</string>
+    <string name="prompt_share_title">Поделитесь успехом!</string>
+    <string name="prompt_donation_title">Поддержать Pocket Sensei?</string>
+    <string name="prompt_update_default_notes">В Google Play вышла новая версия с улучшенным анализом акцента и 3D-анимацией.</string>
+    <string name="prompt_rate_body">Вы завершили %1$d занятий и достигли %2$d речевых этапов! Оставите честный отзыв в Google Play?</string>
+    <string name="prompt_share_score_note">Вы только что набрали %1$d%%!</string>
+    <string name="prompt_share_body">Отличная тренировка! %1$s Пригласите друга изучать языки в Pocket Sensei 3D.</string>
+    <string name="prompt_share_body_plain">Отличная тренировка! Пригласите друга изучать языки в Pocket Sensei 3D.</string>
+    <string name="prompt_donation_body">Вы прошли %1$d разговорных занятий! Pocket Sensei на 100%% без рекламы — угостите инди-разработчика кофе через Google Play, PayPal QR или Ko-fi.</string>
+    <string name="prompt_dont_ask_again">Больше не спрашивать</string>
+    <string name="prompt_update_now">Обновить</string>
+    <string name="prompt_rate_cta">Оценить в Play Store</string>
+    <string name="prompt_share_cta">Поделиться</string>
+    <string name="prompt_donation_cta">Варианты поддержки</string>
+    <string name="prompt_maybe_later">Позже</string>
+    <string name="share_app_text">Я тренирую произношение и живые диалоги в Pocket Sensei 3D! Присоединяйся: %1$s</string>
+    <string name="share_app_subject">Pocket Sensei — 3D-тренер языков и акцента</string>
+    <string name="share_app_chooser">Поделиться Pocket Sensei</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">Фразы для практики</string>
+    <string name="coach_dojo_blitz_btn">Додзё-блиц ($0)</string>
+    <string name="cd_normal_speed">Обычная скорость</string>
+    <string name="cd_slow_speed">Медленное аудио</string>
+    <string name="coach_focus_format">Акцент: %1$s</string>
+    <string name="coach_listening_format">🎙️ Слушаю: «%1$s»</string>
+    <string name="coach_transcribed_format">Распознано: «%1$s»</string>
+    <string name="cd_speak_to_sensei">Сказать Сэнсэю</string>
+    <string name="coach_type_input">Ввести текст</string>
+    <string name="coach_waveform_title">Живая волна речи</string>
+    <string name="coach_waveform_ready">Микрофон готов</string>
+    <string name="coach_waveform_hint">Говорите в микрофон, чтобы видеть пики громкости, паузы и ритм.</string>
+    <string name="coach_waveform_db_format">Уровень %1$s дБ</string>
+    <string name="coach_evaluating">Сэнсэй оценивает фонетику и интонацию…</string>
+    <string name="toast_saved_vocab_firestore">Сохранено в словарь Firestore!</string>
+    <string name="coach_eval_note_format">Заметка: %1$s</string>
+    <string name="manual_dialog_title">Ручной ввод речи</string>
+    <string name="manual_dialog_desc">Введите произнесённую фразу для проверки оценки:</string>
+    <string name="btn_analyze">Оценить</string>
+    <string name="btn_cancel">Отмена</string>
+    <string name="result_title">Оценка тренера</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">Точность фонетики</string>
+    <string name="result_pitch_accent">Тон / Интонация</string>
+    <string name="result_fluency_rhythm">Беглость и ритм</string>
+    <string name="cd_mouth_coach">Совет по артикуляции</string>
+    <string name="result_placement_tip_title">Положение языка и губ:</string>
+    <string name="result_phonemes_to_refine">Звуки для улучшения:</string>
+    <string name="result_native_phrasings">Как ещё говорят носители:</string>
+    <string name="cd_synced">Синхронизировано</string>
+    <string name="result_saved_to_vocab">В словаре</string>
+    <string name="result_support_micro_footer">Отличное произношение! Угостите автора кофе, если Сэнсэй помог.</string>
+    <string name="result_support_cta_arrow">Поддержать →</string>
+    <string name="pitch_comparison_title">Сравнение тонового контура</string>
+    <string name="pitch_legend_native">Эталон</string>
+    <string name="pitch_legend_yours">Ваш тон</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">Сценарии голосовых диалогов</string>
+    <string name="roleplay_thinking">%1$s обдумывает ответ…</string>
+    <string name="roleplay_suggested_label">Варианты ответа (нажмите, чтобы сказать или отправить):</string>
+    <string name="roleplay_listening_placeholder">🎙️ Слушаю…</string>
+    <string name="roleplay_input_placeholder">Говорите или пишите на: %1$s…</string>
+    <string name="cd_send">Отправить</string>
+    <string name="cd_normal_voice">Обычный голос</string>
+    <string name="cd_slow_voice">Медленный голос</string>
+    <string name="roleplay_hide_translation">Скрыть перевод</string>
+    <string name="roleplay_show_translation">Показать значение</string>
+    <string name="roleplay_sensei_note">💡 Сэнсэй: %1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">Освоение словаря</string>
+    <string name="vocab_tracked_count">Слов в Cloud Firestore: %1$d</string>
+    <string name="vocab_empty_title">Слов пока нет</string>
+    <string name="vocab_empty_subtitle">Тренируйте фразы у тренера, чтобы они появились здесь!</string>
+    <string name="vocab_accuracy_format">Точность %1$d%%</string>
+    <string name="cd_play_normal">Обычное воспроизведение</string>
+    <string name="vocab_btn_drill">Учить</string>
+    <string name="vocab_flashcard_title">🥋 Тренировка по карточке</string>
+    <string name="vocab_meaning_label">Значение:</string>
+    <string name="vocab_tap_to_reveal">👉 Нажмите, чтобы увидеть перевод</string>
+    <string name="vocab_btn_listen">Слушать</string>
+    <string name="vocab_btn_slow">0.75x Медленно</string>
+    <string name="vocab_btn_practice_coach">Тренировать</string>
+    <string name="btn_close">Закрыть</string>
+    <string name="vocab_mastery_summary_format">Офлайн: %1$d • Освоено: %2$d</string>
+    <string name="vocab_filter_mastery_all">Все уровни</string>
+    <string name="vocab_filter_needs_review">Повторить (%1$d)</string>
+    <string name="vocab_filter_learning">Изучаю (%1$d)</string>
+    <string name="vocab_filter_mastered">Освоено (%1$d)</string>
+    <string name="vocab_status_needs_review">Повторить</string>
+    <string name="vocab_status_learning">Изучаю</string>
+    <string name="vocab_status_mastered">Освоено</string>
+    <string name="vocab_level_format">Ур %1$d/5</string>
+    <string name="vocab_practice_count_format">%1$d раз</string>
+    <string name="vocab_btn_drill_weakest">Слабые слова</string>
+    <string name="vocab_empty_filtered_subtitle">В этом фильтре освоения пока нет слов. Попробуйте другой фильтр!</string>
+    <string name="vocab_btn_got_it">Знаю</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">Ученик додзё</string>
+    <string name="profile_signed_in_google">Вход через Google</string>
+    <string name="profile_tier_badge">🏆 Ранг Мастер речи</string>
+    <string name="profile_outfit_title">Костюм 3D Сэнсэя</string>
+    <string name="costume_traditional">Синее кимоно</string>
+    <string name="costume_crimson">Алый самурай</string>
+    <string name="costume_cyber">Кибер-неон</string>
+    <string name="costume_sakura">Одеяние сакуры</string>
+    <string name="profile_stats_title">Прогресс и серии</string>
+    <string name="profile_stat_streak">Серия дней</string>
+    <string name="profile_stat_streak_value">%1$d дн.</string>
+    <string name="profile_stat_mastered">Освоено слов</string>
+    <string name="profile_stat_practice_time">Время практики</string>
+    <string name="profile_stat_practice_value">%1$d мин</string>
+    <string name="profile_stat_avg_accuracy">Ср. точность</string>
+    <string name="profile_recent_sessions_title">Недавние ролевые сессии</string>
+    <string name="profile_no_sessions">Диалогов пока нет. Выберите сценарий во вкладке Диалог!</string>
+    <string name="profile_telemetry_title">Локальный кэш Room и события</string>
+    <string name="profile_telemetry_counts">%1$d слов • %2$d событий</string>
+    <string name="profile_btn_share_app">Поделиться</string>
+    <string name="profile_btn_rate_app">Оценить</string>
+    <string name="profile_btn_sign_out">Выйти из аккаунта Google</string>
+    <string name="session_accuracy_format">Точность %1$d%%</string>
+    <string name="session_meta_format">Язык: %1$s • %2$d реплик</string>
+
+    <!-- League Screen -->
+    <string name="league_title">Лига акцента Додзё</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">Тренируйтесь с тренером (+30–50 XP) или в диалогах (+25 XP)!</string>
+    <string name="league_empty_title">Пока нет участников для: %1$s</string>
+    <string name="league_empty_subtitle">Пройдите тренировку произношения, чтобы попасть в рейтинг Cloud Firestore!</string>
+    <string name="league_user_you">%1$s (Вы)</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$dд • %3$d%% ср.</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">ИИ-движок и контроль затрат</string>
+    <string name="ai_cached_count">В кэше: %1$d ($0)</string>
+    <string name="ai_cloud_quota_summary">Бесплатных вызовов сегодня: %1$d/%2$d. Повторы берутся бесплатно из Room.</string>
+    <string name="ai_mode_chip_hybrid">Гибрид</string>
+    <string name="ai_mode_chip_offline">Офлайн $0</string>
+    <string name="ai_mode_chip_byok">Свой ключ</string>
+    <string name="ai_mode_desc_hybrid">Кэш Room + бесплатный облачный ИИ с мгновенным офлайн-переходом</string>
+    <string name="ai_mode_desc_offline">Локальный фонетический и тоновый анализ без трафика</string>
+    <string name="ai_mode_desc_byok">Безлимитный ИИ-разбор по вашему личному ключу Gemini API</string>
+    <string name="ai_byok_edit_saved">Личный ключ Gemini сохранён (Изменить)</string>
+    <string name="ai_byok_add_prompt">Использовать свой ключ Gemini API (BYOK)</string>
+    <string name="ai_byok_clear">Очистить</string>
+    <string name="ai_byok_input_label">Ваш ключ Gemini API (хранится только на устройстве)</string>
+    <string name="ai_byok_save_btn">Сохранить и включить BYOK</string>
+    <string name="blitz_title">Додзё-блиц</string>
+    <string name="blitz_initial_feedback">Произнесите фразу или нажмите «Слушать», чтобы набрать комбо!</string>
+    <string name="blitz_hit_feedback">Точно! %1$d%% (+%2$d XP, комбо x%3$d)</string>
+    <string name="blitz_miss_feedback">Почти (%1$d%%)! Послушайте и попробуйте снова.</string>
+    <string name="blitz_skip_feedback">Пропущено — попробуйте следующую фразу!</string>
+    <string name="blitz_timer_label">Время: %1$dс</string>
+    <string name="blitz_score_label">Счёт: %1$d XP</string>
+    <string name="blitz_combo_label">Комбо: x%1$d</string>
+    <string name="cd_hear_phrase">Послушать фразу</string>
+    <string name="blitz_btn_hear">Слушать</string>
+    <string name="cd_blitz_mic">Говорить в Додзё-блице</string>
+    <string name="blitz_btn_skip">Пропуск</string>
+    <string name="blitz_times_up">Время вышло! +%1$d XP</string>
+    <string name="blitz_summary">Вы прошли %1$d фраз в полностью бесплатном офлайн-режиме (100%%).</string>
+    <string name="blitz_play_again">Играть снова</string>
+    <string name="blitz_finish_early">Завершить</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">Нравится заниматься?</string>
+    <string name="donation_banner_subtitle">Поддержите инди-разработку без рекламы чашкой кофе.</string>
+    <string name="donation_banner_cta">Поддержать</string>
+    <string name="cd_dismiss_donation_banner">Скрыть баннер поддержки</string>
+    <string name="support_active_supporter">Активный спонсор</string>
+    <string name="support_development_title">Поддержать проект</string>
+    <string name="support_badge_ad_free">Инди-приложение без рекламы</string>
+    <string name="support_active_desc">Спасибо за поддержку Pocket Sensei! Все предложения пожертвований навсегда отключены.</string>
+    <string name="support_inactive_desc">Pocket Sensei остаётся на 100%% без рекламы и с заботой о приватности. Вы достигли %1$d этапов — поддержите новые языки в любое время.</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / QR</string>
+    <string name="channel_paypal_tab">PayPal и QR</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">Политика конфиденциальности и данные</string>
+    <string name="privacy_policy_title">Политика конфиденциальности</string>
+    <string name="donation_sheet_subtitle">Выберите Google Play, PayPal QR или Ko-fi</string>
+    <string name="donation_active_unlocked">Статус спонсора открыт! Все запросы поддержки навсегда отключены.</string>
+    <string name="donation_play_desc">Оплата в одно касание через Google Pay. После проверки чека значок открывается навсегда.</string>
+    <string name="donation_play_connecting">Подключение к Google Play Billing…</string>
+    <string name="donation_paypal_desc">Отсканируйте QR-код PayPal с другого устройства или откройте PayPal.me напрямую.</string>
+    <string name="donation_paypal_any">Любая</string>
+    <string name="donation_paypal_custom_label">Своя сумма в USD (необязательно)</string>
+    <string name="donation_paypal_custom_hint">напр., 15</string>
+    <string name="cd_paypal_qr">QR-код PayPal для %1$s</string>
+    <string name="cd_copy_paypal_url">Копировать ссылку PayPal</string>
+    <string name="donation_btn_open_paypal">Открыть PayPal</string>
+    <string name="donation_btn_copy">Копировать</string>
+    <string name="donation_btn_share">Поделиться</string>
+    <string name="donation_kofi_title">Копилка Ko-fi</string>
+    <string name="donation_kofi_desc">Отправьте виртуальный кофе через Ko-fi. Откроет браузер или скопирует ссылку, если браузера нет.</string>
+    <string name="donation_btn_open_kofi">Открыть Ko-fi</string>
+    <string name="donation_btn_copy_link">Копировать ссылку</string>
+    <string name="tier1_title">Чай Матча</string>
+    <string name="tier1_subtitle">Уровень 1 • Небольшое спасибо</string>
+    <string name="tier1_badge">Уровень 1</string>
+    <string name="tier2_title">Кофе Сэнсэя</string>
+    <string name="tier2_subtitle">Уровень 2 • Новые наборы фраз</string>
+    <string name="tier2_badge">Популярно</string>
+    <string name="tier3_title">Бэнто Додзё</string>
+    <string name="tier3_subtitle">Уровень 3 • Развитие 3D-голоса</string>
+    <string name="tier3_badge">Уровень 3</string>
+    <string name="tier4_title">Мастер-меценат</string>
+    <string name="tier4_subtitle">Уровень 4 • Поддержка инди-обучения</string>
+    <string name="tier4_badge">Уровень 4</string>
+    <string name="billing_purchase_canceled">Покупка отменена — спасибо, что рассмотрели поддержку Pocket Sensei!</string>
+    <string name="billing_service_unavailable">Сервис недоступен</string>
+    <string name="billing_error_fallback">Google Play Billing вернул: %1$s. Ниже доступны PayPal и Ko-fi.</string>
+    <string name="billing_receipt_failed">Не удалось проверить чек. Попробуйте снова.</string>
+    <string name="billing_pending">Ваш платёж Google Play обрабатывается. Значок откроется автоматически после подтверждения.</string>
+    <string name="billing_verified">Спасибо! Платёж Google Play подтверждён, значок активного спонсора открыт навсегда.</string>
+    <string name="billing_missing_activity">Не удалось найти активное окно для оплаты Google Play. Повторите с главного экрана или используйте PayPal / Ko-fi.</string>
+    <string name="billing_store_unavailable">Оплата Google Play недоступна на этом устройстве (%1$s). Всегда можно воспользоваться PayPal QR или Ko-fi.</string>
+    <string name="billing_code_prefix">код %1$d</string>
+    <string name="billing_disconnected">Связь с Google Play Billing прервана. Повторите или выберите PayPal / Ko-fi.</string>
+    <string name="billing_item_unpublished">Товар «%1$s» ещё не опубликован в этом треке Play Console. PayPal QR и Ko-fi работают прямо сейчас ниже!</string>
+    <string name="billing_checkout_error">Не удалось открыть оплату Google Play (%1$s).</string>
+    <string name="paypal_label">Ссылка PayPal</string>
+    <string name="paypal_no_browser_toast">Браузер не найден — ссылка PayPal скопирована!</string>
+    <string name="paypal_copied_toast">Ссылка PayPal скопирована: %1$s</string>
+    <string name="paypal_share_subject">Поддержать Pocket Sensei</string>
+    <string name="paypal_share_text">Поддержите 3D-тренера языков Pocket Sensei: %1$s</string>
+    <string name="paypal_share_chooser">Поделиться ссылкой</string>
+    <string name="kofi_label">Ссылка на страницу Ko-fi</string>
+    <string name="kofi_no_browser_toast">Браузер не найден — ссылка Ko-fi скопирована!</string>
+    <string name="kofi_copied_toast">Ссылка Ko-fi скопирована: %1$s</string>
+    <string name="privacy_loaded_in_app">Политика конфиденциальности загружена в приложении.</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">Распознавание речи недоступно на этом устройстве. Используйте ручной ввод.</string>
+    <string name="hud_praise_speech">Сугой! Очень впечатляюще!</string>
+    <string name="hud_greet_speech">Коннитива! Давайте потренируем речь сегодня!</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">Не удалось оценить</string>
+    <string name="error_roleplay_failed">Сэнсэй не смог ответить.</string>
+    <string name="coach_default_accent_focus">Чёткость гласных и согласных</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">Чистая долгота гласных и чёткое начало согласных! Сохраняйте этот спокойный темп.</string>
+    <string name="eval_tip_missed_format">Старайтесь чётко произнести: %1$s. Держите челюсть ровно на ударных гласных.</string>
+    <string name="eval_tip_slow_down">Чуть замедлитесь между слогами и ясно выделяйте ударные гласные.</string>
+    <string name="eval_encourage_high">Сугой! Оценка на устройстве (офлайн-режим $0).</string>
+    <string name="eval_encourage_mid">Хороший ритм! Повтор в более медленном темпе отточит акцент.</string>
+    <string name="eval_encourage_low">Хорошая попытка — нажмите «Медленно», чтобы услышать каждый слог.</string>
+    <string name="eval_contour_type_format">%1$s: локальный контур тона</string>
+    <string name="eval_pitch_guidance_default">Плавно повторяйте подъёмы и спады зелёной пунктирной кривой носителя.</string>
+    <string name="eval_contour_default">Естественный контур акцента</string>
+    <string name="eval_tip_default">Расслабьте рот и артикулируйте чётко.</string>
+    <string name="eval_encourage_default">Отличная попытка! Практика ведёт к совершенству.</string>
+    <string name="eval_pitch_guidance_cloud_default">Совместите подъём ударения с интонацией носителя языка.</string>
+    <string name="roleplay_offline_note_format">Офлайн-тренер ($0): фраза «%1$s» успешно распознана. Держите естественный темп!</string>
+    <string name="roleplay_offline_translation_fallback">Ответ в офлайн-режиме</string>
+    <string name="roleplay_offline_reply_default">Прекрасно! Продолжим тренировать естественную интонацию на языке: %1$s.</string>
+    <string name="roleplay_offline_reply_ja_translation">Конечно! Желаете ли вы что-нибудь ещё?</string>
+    <string name="roleplay_offline_reply_fr_translation">Хорошо! Желаете ли вы что-то ещё к этому?</string>
+    <string name="roleplay_offline_reply_es_translation">Отлично! Сейчас принесу. Что-нибудь ещё из напитков?</string>
+    <string name="roleplay_offline_reply_ko_translation">Да, понял! Пожалуйста, подождите немного.</string>
+    <string name="roleplay_offline_reply_de_translation">Замечательно! Хотите рассказать об этом подробнее?</string>
+    <string name="roleplay_offline_reply_it_translation">Отлично! Хотите ли вы ещё что-нибудь сегодня?</string>
+    <string name="roleplay_cloud_note_default">Отличная плавность диалога!</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">Здравствуйте, как ваши дела?</string>
+    <string name="phrase_ja_1_focus">Ровная высота тона в «Konnichiwa»</string>
+    <string name="phrase_ja_2_translation">Я возьму это, пожалуйста.</string>
+    <string name="phrase_ja_2_focus">Лёгкий одноударный звук «r»</string>
+    <string name="phrase_ja_3_translation">Большое спасибо!</string>
+    <string name="phrase_ja_3_focus">Долгий гласный «ou»</string>
+    <string name="phrase_ja_4_translation">Извините, где находится вокзал?</string>
+    <string name="phrase_ja_4_focus">Вежливая восходящая интонация</string>
+    <string name="phrase_ja_5_translation">Очень вкусно!</string>
+    <string name="phrase_ja_5_focus">Оглушённый «u» в слове «desu»</string>
+
+    <string name="phrase_fr_1_translation">Здравствуйте, рад познакомиться.</string>
+    <string name="phrase_fr_1_focus">Мягкие носовые «en» и «on»</string>
+    <string name="phrase_fr_2_translation">Круассан и кофе, пожалуйста.</string>
+    <string name="phrase_fr_2_focus">Французское увулярное «r»</string>
+    <string name="phrase_fr_3_translation">Где находится туалет?</string>
+    <string name="phrase_fr_3_focus">Плавное связывание слов</string>
+    <string name="phrase_fr_4_translation">Это совершенно великолепно!</string>
+    <string name="phrase_fr_4_focus">Чистый звук «u» с округлёнными губами</string>
+
+    <string name="phrase_es_1_translation">Привет! Как ты сегодня?</string>
+    <string name="phrase_es_1_focus">Чёткие открытые гласные</string>
+    <string name="phrase_es_2_translation">Столик на двоих, пожалуйста.</string>
+    <string name="phrase_es_2_focus">Лёгкий одноударный звук «r»</string>
+    <string name="phrase_es_3_translation">Скорая железная дорога.</string>
+    <string name="phrase_es_3_focus">Раскатистый двойной «rr»</string>
+    <string name="phrase_es_4_translation">Счёт, пожалуйста.</string>
+    <string name="phrase_es_4_focus">Ударение на ключевые слоги</string>
+
+    <string name="phrase_de_1_translation">Доброе утро, как вы поживаете?</string>
+    <string name="phrase_de_1_focus">Долгий гласный «и» в Ihnen</string>
+    <string name="phrase_de_2_translation">Я хотел бы кофе, пожалуйста.</string>
+    <string name="phrase_de_2_focus">Мягкий нёбный щелевой «ch»</string>
+    <string name="phrase_de_3_translation">Большое спасибо за помощь!</string>
+    <string name="phrase_de_3_focus">Огублённые звуки «ö» и «ü»</string>
+
+    <string name="phrase_ko_1_translation">Здравствуйте, приятно познакомиться!</string>
+    <string name="phrase_ko_1_focus">Вежливая мелодичная каденция</string>
+    <string name="phrase_ko_2_translation">Сколько это стоит?</string>
+    <string name="phrase_ko_2_focus">Мягкий «l» в слове eol-ma</string>
+    <string name="phrase_ko_3_translation">Приятного аппетита!</string>
+    <string name="phrase_ko_3_focus">Придыхательные и напряжённые согласные</string>
+
+    <string name="phrase_zh_1_translation">Привет, рад познакомиться!</string>
+    <string name="phrase_zh_1_focus">Сандхи 3-го тона в Nǐ hǎo</string>
+    <string name="phrase_zh_2_translation">Извините, сколько это стоит?</string>
+    <string name="phrase_zh_2_focus">4-й тон на zhè и 2-й на qián</string>
+    <string name="phrase_zh_3_translation">Очень вкусно, спасибо!</string>
+    <string name="phrase_zh_3_focus">Нисходящий 4-й тон в Tài и xiè</string>
+
+    <string name="phrase_it_1_translation">Добрый день! Как дела?</string>
+    <string name="phrase_it_1_focus">Музыкальный слоговой ритм</string>
+    <string name="phrase_it_2_translation">Фисташковое мороженое, пожалуйста.</string>
+    <string name="phrase_it_2_focus">Пауза на двойном согласном «cch»</string>
+    <string name="phrase_it_3_translation">Тысяча благодарностей за всё!</string>
+    <string name="phrase_it_3_focus">Энергичные зубные «t» и «z»</string>
+
+    <string name="phrase_en_1_translation">Узнать дорогу</string>
+    <string name="phrase_en_1_focus">Звонкий «th» в слове the</string>
+    <string name="phrase_en_2_translation">Запрос на рабочее собеседование</string>
+    <string name="phrase_en_2_focus">Плавный «d» в schedule</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">Заказ в токийском кафе</string>
+    <string name="scenario_tokyo_cafe_sensei">Бариста</string>
+    <string name="scenario_tokyo_cafe_user">Гость</string>
+    <string name="scenario_tokyo_cafe_init_translation">Добро пожаловать! Вы уже выбрали заказ?</string>
+
+    <string name="scenario_paris_boulangerie_title">Парижская булочная</string>
+    <string name="scenario_paris_boulangerie_sensei">Мастер-пекарь</string>
+    <string name="scenario_paris_boulangerie_user">Покупатель</string>
+    <string name="scenario_paris_boulangerie_init_translation">Здравствуйте! Что бы вы хотели сегодня?</string>
+
+    <string name="scenario_madrid_tapas_title">Тапас-бар в Мадриде</string>
+    <string name="scenario_madrid_tapas_sensei">Хозяин таверны</string>
+    <string name="scenario_madrid_tapas_user">Посетитель</string>
+    <string name="scenario_madrid_tapas_init_translation">Добрый день! Что принести вам выпить для начала?</string>
+
+    <string name="scenario_seoul_market_title">Ночной рынок Сеула</string>
+    <string name="scenario_seoul_market_sensei">Уличный повар</string>
+    <string name="scenario_seoul_market_user">Гость</string>
+    <string name="scenario_seoul_market_init_translation">Добро пожаловать! Попробуйте наши горячие ттокпокки!</string>
+
+    <string name="scenario_rome_gelato_title">Джелатерия во Флоренции</string>
+    <string name="scenario_rome_gelato_sensei">Мастер джелато</string>
+    <string name="scenario_rome_gelato_user">Покупатель</string>
+    <string name="scenario_rome_gelato_init_translation">Привет! В рожке или в стаканчике? Какие вкусы выберете?</string>
+
+    <string name="scenario_berlin_tech_title">IT-митап в Берлине</string>
+    <string name="scenario_berlin_tech_sensei">Техлид</string>
+    <string name="scenario_berlin_tech_user">Инженер</string>
+    <string name="scenario_berlin_tech_init_translation">Привет! Рад, что ты здесь. Над каким проектом работаешь?</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">Пропустить</string>
+    <string name="onboarding_back">Назад</string>
+    <string name="onboarding_next">Далее</string>
+    <string name="onboarding_get_started">Начать говорить</string>
+    <string name="onboarding_step_format">Шаг %1$d из %2$d</string>
+    <string name="onboarding_page1_badge">3D-студия голоса и тона</string>
+    <string name="onboarding_page1_title">Говорите как носитель с вашим 3D-Сэнсэем</string>
+    <string name="onboarding_page1_subtitle">Визуализируйте речь в реальном времени: волна 60fps, кривые интонации и советы по артикуляции.</string>
+    <string name="onboarding_page2_badge">Ролевые диалоги о культуре</string>
+    <string name="onboarding_page2_title">Практикуйте реальные ситуации в поездках</string>
+    <string name="onboarding_page2_subtitle">Заказывайте матча в Токио, круассаны в Париже или тапас в Мадриде с транскрипцией и подсказками.</string>
+    <string name="onboarding_page3_badge">Словарь и Лига Додзё</string>
+    <string name="onboarding_page3_title">Пополняйте словарь и поднимайтесь в лиге</string>
+    <string name="onboarding_page3_subtitle">Повторяйте слова по карточкам, играйте в 45-секундный Додзё-блиц и выберите язык для старта ниже.</string>
+    <string name="onboarding_select_language_label">Выберите первый язык для практики:</string>
+    <string name="profile_btn_replay_onboarding">Обзор приложения</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">Изменить размер 3D-сцены Сэнсэя</string>
+    <string name="daily_goal_title">Дневная цель Додзё</string>
+    <string name="daily_goal_progress_format">%1$d / %2$d занятий сегодня</string>
+    <string name="daily_goal_completed_badge">Цель выполнена!</string>
+    <string name="donation_perks_title">Преимущества сторонника</string>
+    <string name="donation_perks_summary">Навсегда скрывает баннеры и помогает создавать новые голоса и офлайн-пакеты.</string>
+    <string name="donation_recommended_tag">Лучший выбор</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">Ежедневная серия</string>
+    <string name="streak_best_format">Лучшая серия: %1$d дн.</string>
+    <string name="streak_status_active_today">Серия на сегодня засчитана! Продолжайте говорить, чтобы отточить акцент.</string>
+    <string name="streak_status_pending_today">Пройдите 1 оценку в Тренере произношения сегодня, чтобы сохранить серию.</string>
+    <string name="streak_new_day_banner_format">Серия из %1$d дн. открыта!</string>
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">Записать образец</string>
+    <string name="coach_stop_pitch_rec">Стоп</string>
+    <string name="coach_play_mine">Послушать себя</string>
+    <string name="coach_stop_mine">Стоп аудио</string>
+    <string name="pitch_live_mic_badge">Живой F0 микрофон</string>
+    <string name="result_play_sensei">Голос Сэнсэя</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">На сегодня (%1$d)</string>
+    <string name="vocab_due_now_badge">Пора повторить</string>
+    <string name="vocab_next_interval_format">Через %1$dд</string>
+    <string name="vocab_next_review_hint_format">Следующее повторение через %1$d дн.</string>
+    <string name="vocab_btn_repeat">Повторить ещё</string>
+    <string name="streak_freeze_count_format">Заморозки серии: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">Заморозка спасла вашу серию дней!</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">Шэдоуинг в дороге</string>
+    <string name="shadowing_subtitle">Цикл «слушай и повторяй» без рук</string>
+    <string name="shadowing_speed_slow">0.75x</string>
+    <string name="shadowing_speed_normal">1.0x</string>
+    <string name="shadowing_btn_start">Старт</string>
+    <string name="shadowing_btn_stop">Стоп</string>
+    <string name="shadowing_step_listening">Сэнсэй говорит — слушайте внимательно…</string>
+    <string name="shadowing_step_repeat">Ваша очередь — повторите вслух…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">Добавить фразу</string>
+    <string name="custom_phrase_dialog_title">Своя фраза (%1$s)</string>
+    <string name="custom_phrase_target_label">Фраза на изучаемом языке</string>
+    <string name="custom_phrase_phonetic_label">Фонетика / транскрипция</string>
+    <string name="custom_phrase_translation_label">Перевод</string>
+    <string name="custom_phrase_focus_label">Акцент на произношении</string>
+    <string name="custom_save_btn">Сохранить</string>
+    <string name="custom_scenario_btn">Новый сценарий</string>
+    <string name="custom_scenario_dialog_title">Создать диалог (%1$s)</string>
+    <string name="custom_scenario_templates_label">Быстрые шаблоны:</string>
+    <string name="custom_scenario_title_label">Название сценария</string>
+    <string name="custom_scenario_sensei_role_label">Роль Сэнсэя (напр. Интервьюер)</string>
+    <string name="custom_scenario_user_role_label">Ваша роль (напр. Кандидат)</string>
+    <string name="custom_scenario_opening_label">Первая реплика Сэнсэя</string>
+    <string name="scenario_template_interview_title">Собеседование</string>
+    <string name="scenario_template_interview_sensei">Менеджер по найму</string>
+    <string name="scenario_template_interview_user">Кандидат</string>
+    <string name="scenario_template_interview_open">Здравствуйте! Спасибо, что пришли. Не могли бы вы кратко рассказать о себе?</string>
+    <string name="scenario_template_hotel_title">Заселение в отель</string>
+    <string name="scenario_template_hotel_sensei">Администратор</string>
+    <string name="scenario_template_hotel_user">Гость</string>
+    <string name="scenario_template_hotel_open">Добро пожаловать в наш отель! У вас есть бронь на ваше имя?</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">Ежедневные напоминания</string>
+    <string name="reminder_channel_desc">Необязательное вечернее уведомление, если серия за день ещё не закрыта.</string>
+    <string name="reminder_notif_title">Сохраните серию в Додзё! 🔥</string>
+    <string name="reminder_notif_body_format">У вас серия %1$d дн. — произнесите 1 быструю фразу перед сном.</string>
+    <string name="reminder_card_title">Вечернее напоминание</string>
+    <string name="reminder_card_subtitle">Умное уведомление только если сегодня вы ещё не занимались</string>
+    <string name="reminder_time_label">Напомнить в:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">Включите уведомления в настройках системы, чтобы получать напоминания.</string>
+    <string name="share_card_btn">Поделиться карточкой</string>
+    <string name="share_card_chooser">Поделиться карточкой успеха</string>
+    <string name="share_card_headline_score">Мастерство произношения</string>
+    <string name="share_card_headline_streak">Рубеж серии в Додзё</string>
+    <string name="share_card_streak_format">Серия: %1$d дн.</string>
+    <string name="difficulty_custom">Своя</string>
+    <string name="ai_byok_get_key_btn">Получить бесплатный ключ Gemini (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ Создать ИИ-урок по теме</string>
+    <string name="roleplay_live_call_start">Живой звонок</string>
+    <string name="roleplay_live_call_active">Завершить звонок</string>
+    <string name="topic_pack_phrase1_trans">Извините, расскажите, пожалуйста, про %1$s.</string>
+    <string name="topic_pack_phrase2_trans">Что вы порекомендуете?</string>
+    <string name="topic_pack_phrase3_trans">Это очень помогло, большое спасибо!</string>
+    <string name="topic_pack_sensei_role">Местный гид</string>
+    <string name="topic_pack_user_role">Путешественник</string>
+    <string name="scenario_shanghai_tea_title">Шанхайский чайный дом</string>
+    <string name="scenario_shanghai_tea_sensei">Чайный мастер</string>
+    <string name="scenario_shanghai_tea_user">Гость</string>
+    <string name="scenario_shanghai_tea_init_translation">Добро пожаловать! Какой чай вы хотели бы попробовать сегодня?</string>
+    <string name="scenario_london_interview_title">Кофе в лондонской студии</string>
+    <string name="scenario_london_interview_sensei">Ведущий проекта</string>
+    <string name="scenario_london_interview_user">Автор</string>
+    <string name="scenario_london_interview_init_translation">Доброе утро! Расскажите, что вас вдохновляет в вашем следующем проекте.</string>
+</resources>

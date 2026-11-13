@@ -1,0 +1,554 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">Etkileşimli 3D Dil ve Telaffuz Koçu</string>
+    <string name="splash_ready">Özgüvenle konuşmaya hazır ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">Sensei 3D</string>
+    <string name="auth_subtitle">3D Etkileşimli Dil ve Aksan Koçu</string>
+    <string name="auth_feature_avatar_title">Cihaz İçi 3D Sensei Avatarı</string>
+    <string name="auth_feature_avatar_desc">Gerçek zamanlı dudak senkronu ve yüz ifadeli Three.js karakteri</string>
+    <string name="auth_feature_coach_title">Gemini Canlı Aksan Koçluğu</string>
+    <string name="auth_feature_coach_desc">Anında telaffuz geri bildirimi ve ağız/dil konumu ipuçları</string>
+    <string name="auth_feature_roleplay_title">Sesli Rol Yapma Diyalogları</string>
+    <string name="auth_feature_roleplay_desc">Kafede sipariş verin, pazarda sohbet edin veya mülakat çalışın</string>
+    <string name="auth_feature_sync_title">Firestore Bulut Eşitleme</string>
+    <string name="auth_feature_sync_desc">Öğrenilen kelimeleri takip edin ve günlük serinizi koruyun</string>
+    <string name="cd_sign_in_icon">Oturum açma simgesi</string>
+    <string name="auth_sign_in_google">Google ile Oturum Aç</string>
+    <string name="auth_sign_in_footer">Serilerinizi ve kelime listenizi Firestore\'a kaydetmek için oturum açın</string>
+    <string name="auth_error_missing_client_id">Google Oturum Açma yapılandırması eksik: default_web_client_id bulunamadı</string>
+    <string name="auth_error_unexpected_credential">Beklenmeyen kimlik bilgisi türü</string>
+    <string name="auth_error_sign_in_failed">Oturum açılamadı</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">Koç</string>
+    <string name="nav_roleplay">Diyalog</string>
+    <string name="nav_vocab">Kelime</string>
+    <string name="nav_league">Lig</string>
+    <string name="nav_profile">Profil</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">Aktif Destekçi</string>
+    <string name="supporter_badge_short">Destekçi</string>
+    <string name="cd_support_app">Pocket Sensei\'yi Destekle</string>
+    <string name="cd_streak">Seri</string>
+    <string name="streak_day_format">%1$d Gün</string>
+    <string name="cd_cycle_outfit">Sensei Kıyafetini Değiştir</string>
+    <string name="cd_praise_sensei">Sensei Övgüsü</string>
+    <string name="cd_sensei_greet">Sensei Selamı</string>
+    <string name="mic_permission_required">Telaffuzunuzu analiz etmek için mikrofon izni gerekir</string>
+    <string name="mood_idle">Sensei Hazır</string>
+    <string name="mood_listening">Dinliyor…</string>
+    <string name="mood_speaking">Sensei Konuşuyor</string>
+    <string name="mood_praising">Sugoi! Harika!</string>
+    <string name="mood_thinking">Aksan Analiz Ediliyor…</string>
+    <string name="mood_correcting">Sensei\'den İpucu</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">Tümü</string>
+    <string name="lang_japanese">Japonca</string>
+    <string name="lang_spanish">İspanyolca</string>
+    <string name="lang_french">Fransızca</string>
+    <string name="lang_german">Almanca</string>
+    <string name="lang_korean">Korece</string>
+    <string name="lang_mandarin">Mandarin</string>
+    <string name="lang_italian">İtalyanca</string>
+    <string name="lang_english">İngilizce</string>
+    <string name="difficulty_beginner">Başlangıç</string>
+    <string name="difficulty_intermediate">Orta</string>
+    <string name="difficulty_advanced">İleri</string>
+    <string name="difficulty_core">Temel</string>
+    <string name="tier_black_belt">Siyah Kuşak Sensei</string>
+    <string name="tier_gold">Altın Lig</string>
+    <string name="tier_silver">Gümüş Lig</string>
+    <string name="tier_bronze">Bronz Lig</string>
+    <string name="tier_white_belt">Beyaz Kuşak</string>
+    <string name="engine_cache">Room Önbelleği ($0)</string>
+    <string name="engine_offline">Çevrimdışı Koç ($0)</string>
+    <string name="engine_offline_fallback">Çevrimdışı Yedek ($0)</string>
+    <string name="engine_offline_cap">Çevrimdışı Yedek ($0 • Kota korundu)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">Kendi Gemini Anahtarın (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">Yeni Güncelleme Hazır (v%1$s)</string>
+    <string name="prompt_rate_title">Pocket Sensei\'yi beğendiniz mi?</string>
+    <string name="prompt_share_title">İlerlemeni Paylaş!</string>
+    <string name="prompt_donation_title">Pocket Sensei\'yi Destekle?</string>
+    <string name="prompt_update_default_notes">Gelişmiş aksan koçluğu ve 3D animasyonlarla yeni sürüm Google Play\'de hazır.</string>
+    <string name="prompt_rate_body">%1$d oturum ve %2$d konuşma dönüm noktasını tamamladınız! Google Play\'de dürüst bir yorum bırakır mısınız?</string>
+    <string name="prompt_share_score_note">Az önce %1$d%% puan aldın!</string>
+    <string name="prompt_share_body">Harika pratik! %1$s Bir arkadaşını Pocket Sensei 3D ile konuşma pratiği yapmaya davet et.</string>
+    <string name="prompt_share_body_plain">Harika pratik! Bir arkadaşını Pocket Sensei 3D ile konuşma pratiği yapmaya davet et.</string>
+    <string name="prompt_donation_body">%1$d konuşma oturumu tamamladınız! Pocket Sensei 100%% reklamsız kalıyor — Google Play, PayPal QR veya Ko-fi ile bağımsız geliştiriciye bir kahve ısmarlayabilirsiniz.</string>
+    <string name="prompt_dont_ask_again">Bir daha sorma</string>
+    <string name="prompt_update_now">Şimdi Güncelle</string>
+    <string name="prompt_rate_cta">Play Store\'da Oyla</string>
+    <string name="prompt_share_cta">Uygulamayı Paylaş</string>
+    <string name="prompt_donation_cta">Destek Seçenekleri</string>
+    <string name="prompt_maybe_later">Daha Sonra</string>
+    <string name="share_app_text">Pocket Sensei 3D ile telaffuz ve canlı diyalog çalışıyorum! Sen de katıl: %1$s</string>
+    <string name="share_app_subject">Pocket Sensei — 3D Dil ve Aksan Koçu</string>
+    <string name="share_app_chooser">Pocket Sensei\'yi Paylaş</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">Pratik İfadeleri</string>
+    <string name="coach_dojo_blitz_btn">Dojo Yıldırım ($0)</string>
+    <string name="cd_normal_speed">Normal Hız</string>
+    <string name="cd_slow_speed">Yavaş Ses</string>
+    <string name="coach_focus_format">Odak: %1$s</string>
+    <string name="coach_listening_format">🎙️ Dinliyor: \"%1$s\"</string>
+    <string name="coach_transcribed_format">Algılanan: \"%1$s\"</string>
+    <string name="cd_speak_to_sensei">Sensei ile Konuş</string>
+    <string name="coach_type_input">Yazarak Gir</string>
+    <string name="coach_waveform_title">Canlı Konuşma Dalgası</string>
+    <string name="coach_waveform_ready">Mikrofon Hazır</string>
+    <string name="coach_waveform_hint">Ses tepelerini, duraklamaları ve ritmi görmek için mikrofona konuşun.</string>
+    <string name="coach_waveform_db_format">Seviye %1$s dB</string>
+    <string name="coach_evaluating">Sensei ses bilgisi ve tonlamayı değerlendiriyor…</string>
+    <string name="toast_saved_vocab_firestore">Firestore Kelime Bankasına kaydedildi!</string>
+    <string name="coach_eval_note_format">Değerlendirme notu: %1$s</string>
+    <string name="manual_dialog_title">Manuel Konuşma Metni</string>
+    <string name="manual_dialog_desc">Telaffuz değerlendirmesini test etmek için söylenen ifadeyi girin:</string>
+    <string name="btn_analyze">Analiz Et</string>
+    <string name="btn_cancel">İptal</string>
+    <string name="result_title">Aksan Koçu Geri Bildirimi</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">Fonetik Doğruluk</string>
+    <string name="result_pitch_accent">Perde Aksanı / Ton</string>
+    <string name="result_fluency_rhythm">Akıcılık ve Ritim</string>
+    <string name="cd_mouth_coach">Ağız koçu</string>
+    <string name="result_placement_tip_title">Dil ve Ağız Konumu İpucu:</string>
+    <string name="result_phonemes_to_refine">Geliştirilecek sesler:</string>
+    <string name="result_native_phrasings">Ana dili konuşanların diğer ifadeleri:</string>
+    <string name="cd_synced">Eşitlendi</string>
+    <string name="result_saved_to_vocab">Kaydedildi</string>
+    <string name="result_support_micro_footer">Harika telaffuz! Sensei bugün yardımcı olduysa geliştiriciye bir kahve ısmarla.</string>
+    <string name="result_support_cta_arrow">Destek →</string>
+    <string name="pitch_comparison_title">Perde Eğrisi Karşılaştırması</string>
+    <string name="pitch_legend_native">Ana Dil Hedefi</string>
+    <string name="pitch_legend_yours">Senin Tonun</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">Sesli Rol Yapma Senaryoları</string>
+    <string name="roleplay_thinking">%1$s yanıt düşünüyor…</string>
+    <string name="roleplay_suggested_label">Önerilen yanıtlar (konuşmak veya göndermek için dokun):</string>
+    <string name="roleplay_listening_placeholder">🎙️ Dinliyor…</string>
+    <string name="roleplay_input_placeholder">%1$s dilinde konuşun veya yazın…</string>
+    <string name="cd_send">Gönder</string>
+    <string name="cd_normal_voice">Normal ses</string>
+    <string name="cd_slow_voice">Yavaş ses</string>
+    <string name="roleplay_hide_translation">Çeviriyi gizle</string>
+    <string name="roleplay_show_translation">Anlamı göster</string>
+    <string name="roleplay_sensei_note">💡 Sensei Notu: %1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">Kelime Ustalığı</string>
+    <string name="vocab_tracked_count">Cloud Firestore\'da %1$d kelime takip ediliyor</string>
+    <string name="vocab_empty_title">Henüz kelime kaydedilmedi</string>
+    <string name="vocab_empty_subtitle">Buraya eklemek için Aksan Koçunda cümle çalışın!</string>
+    <string name="vocab_accuracy_format">%1$d%% doğruluk</string>
+    <string name="cd_play_normal">Normal oynat</string>
+    <string name="vocab_btn_drill">Çalış</string>
+    <string name="vocab_flashcard_title">🥋 Bilgi Kartı Alıştırması</string>
+    <string name="vocab_meaning_label">Anlamı:</string>
+    <string name="vocab_tap_to_reveal">👉 Anlamı görmek için dokun</string>
+    <string name="vocab_btn_listen">Dinle</string>
+    <string name="vocab_btn_slow">0.75x Yavaş</string>
+    <string name="vocab_btn_practice_coach">Koçta Çalış</string>
+    <string name="btn_close">Kapat</string>
+    <string name="vocab_mastery_summary_format">Çevrimdışı %1$d • %2$d uzmanlaşıldı</string>
+    <string name="vocab_filter_mastery_all">Tüm Seviyeler</string>
+    <string name="vocab_filter_needs_review">Tekrar Gerekli (%1$d)</string>
+    <string name="vocab_filter_learning">Öğreniliyor (%1$d)</string>
+    <string name="vocab_filter_mastered">Uzmanlaşıldı (%1$d)</string>
+    <string name="vocab_status_needs_review">Tekrar Gerekli</string>
+    <string name="vocab_status_learning">Öğreniliyor</string>
+    <string name="vocab_status_mastered">Uzmanlaşıldı</string>
+    <string name="vocab_level_format">Sv %1$d/5</string>
+    <string name="vocab_practice_count_format">%1$d× çalışıldı</string>
+    <string name="vocab_btn_drill_weakest">Zayıfı Çalış</string>
+    <string name="vocab_empty_filtered_subtitle">Bu ustalık filtresinde henüz kelime yok. Başka filtre deneyin veya daha fazla pratik yapın!</string>
+    <string name="vocab_btn_got_it">Anladım</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">Sensei Öğrencisi</string>
+    <string name="profile_signed_in_google">Google ile oturum açıldı</string>
+    <string name="profile_tier_badge">🏆 Usta Konuşmacı Seviyesi</string>
+    <string name="profile_outfit_title">3D Sensei Kıyafeti</string>
+    <string name="costume_traditional">Çivit Gi</string>
+    <string name="costume_crimson">Kızıl Samuray</string>
+    <string name="costume_cyber">Siber Neon</string>
+    <string name="costume_sakura">Sakura Cübbesi</string>
+    <string name="profile_stats_title">Öğrenme Hakimiyeti ve Seriler</string>
+    <string name="profile_stat_streak">Günlük Seri</string>
+    <string name="profile_stat_streak_value">%1$d Gün</string>
+    <string name="profile_stat_mastered">Öğrenilen Kelime</string>
+    <string name="profile_stat_practice_time">Pratik Süresi</string>
+    <string name="profile_stat_practice_value">%1$d dk</string>
+    <string name="profile_stat_avg_accuracy">Ort. Doğruluk</string>
+    <string name="profile_recent_sessions_title">Son Sesli Rol Yapma Oturumları</string>
+    <string name="profile_no_sessions">Henüz kayıtlı konuşma yok. Diyalog sekmesinde bir senaryo deneyin!</string>
+    <string name="profile_telemetry_title">Cihaz İçi Room Önbelleği ve Telemetri</string>
+    <string name="profile_telemetry_counts">%1$d kelime • %2$d olay</string>
+    <string name="profile_btn_share_app">Paylaş</string>
+    <string name="profile_btn_rate_app">Oyla</string>
+    <string name="profile_btn_sign_out">Google Hesabından Çıkış Yap</string>
+    <string name="session_accuracy_format">%1$d%% doğruluk</string>
+    <string name="session_meta_format">Dil: %1$s • %2$d tur</string>
+
+    <!-- League Screen -->
+    <string name="league_title">Dojo Aksan Ligi</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">Yükselmek için Aksan Koçu (+30–50 XP) veya Diyalog (+25 XP) çalışın!</string>
+    <string name="league_empty_title">%1$s için henüz sıralanan öğrenci yok</string>
+    <string name="league_empty_subtitle">Puanınızı Cloud Firestore\'a göndermek için bir aksan alıştırması tamamlayın!</string>
+    <string name="league_user_you">%1$s (Sen)</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$dg • %3$d%% ort</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">Yapay Zeka Motoru ve Maliyet Kontrolü</string>
+    <string name="ai_cached_count">%1$d önbellekte ($0)</string>
+    <string name="ai_cloud_quota_summary">Bugünkü ücretsiz bulut çağrısı: %1$d/%2$d. Tekrarlar Room önbelleğinden ücretsiz yüklenir.</string>
+    <string name="ai_mode_chip_hybrid">Hibrit</string>
+    <string name="ai_mode_chip_offline">Çevrimdışı $0</string>
+    <string name="ai_mode_chip_byok">Anahtarım</string>
+    <string name="ai_mode_desc_hybrid">Room önbelleği + günlük ücretsiz bulut YZ, anında çevrimdışı yedek</string>
+    <string name="ai_mode_desc_offline">İnternet kullanmadan tamamen cihaz üzerinde fonetik ve ton eşleştirme</string>
+    <string name="ai_mode_desc_byok">Kendi kişisel Gemini API anahtarınızla sınırsız YZ koçluğu</string>
+    <string name="ai_byok_edit_saved">Kişisel Gemini Anahtarı Kaydedildi (Düzenle)</string>
+    <string name="ai_byok_add_prompt">Kendi Gemini API Anahtarını Kullan (BYOK)</string>
+    <string name="ai_byok_clear">Anahtarı Temizle</string>
+    <string name="ai_byok_input_label">Gemini API Anahtarınız (yalnızca cihazda gizli saklanır)</string>
+    <string name="ai_byok_save_btn">Kaydet ve BYOK\'u Etkinleştir</string>
+    <string name="blitz_title">Dojo Konuşma Blitz</string>
+    <string name="blitz_initial_feedback">Kombo yapmak için ifadeyi söyleyin veya Dinle\'ye dokunun!</string>
+    <string name="blitz_hit_feedback">İsabet! %1$d%% doğruluk (+%2$d XP, x%3$d kombo)</string>
+    <string name="blitz_miss_feedback">Az kaldı (%1$d%%)! Dinle\'ye dokunup tekrar dene.</string>
+    <string name="blitz_skip_feedback">Atlandı — sıradaki ifadeyi dene!</string>
+    <string name="blitz_timer_label">Süre: %1$dsn</string>
+    <string name="blitz_score_label">Puan: %1$d XP</string>
+    <string name="blitz_combo_label">Kombo: x%1$d</string>
+    <string name="cd_hear_phrase">İfadeyi dinle</string>
+    <string name="blitz_btn_hear">Dinle</string>
+    <string name="cd_blitz_mic">Dojo Blitz\'de konuş</string>
+    <string name="blitz_btn_skip">Atla</string>
+    <string name="blitz_times_up">Süre Doldu! +%1$d Dojo XP</string>
+    <string name="blitz_summary">100%% ücretsiz çevrimdışı modda %1$d ifade tamamladınız.</string>
+    <string name="blitz_play_again">Tekrar Oyna</string>
+    <string name="blitz_finish_early">Erken Bitir</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">Pratikten keyif alıyor musun?</string>
+    <string name="donation_banner_subtitle">Reklamsız bağımsız geliştirmeyi bir kahveyle destekle.</string>
+    <string name="donation_banner_cta">Destekle</string>
+    <string name="cd_dismiss_donation_banner">Destek bildirimini kapat</string>
+    <string name="support_active_supporter">Aktif Destekçi</string>
+    <string name="support_development_title">Geliştirmeyi Destekle</string>
+    <string name="support_badge_ad_free">Reklamsız Bağımsız Uygulama</string>
+    <string name="support_active_desc">Pocket Sensei\'yi desteklediğiniz için teşekkürler! Tüm bağış afişleri ve uyarıları kalıcı olarak kapatıldı.</string>
+    <string name="support_inactive_desc">Pocket Sensei 100%% reklamsız ve gizlilik odaklı kalır. %1$d pratik dönüm noktası tamamladınız — dilediğiniz zaman yeni dilleri destekleyin.</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / QR</string>
+    <string name="channel_paypal_tab">PayPal ve QR</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">Gizlilik Politikası ve Veri Bildirimleri</string>
+    <string name="privacy_policy_title">Gizlilik Politikası</string>
+    <string name="donation_sheet_subtitle">Google Play, PayPal QR veya Ko-fi seçin</string>
+    <string name="donation_active_unlocked">Aktif Destekçi açıldı! Tüm bağış istemleri kalıcı olarak devre dışı bırakıldı.</string>
+    <string name="donation_play_desc">Google Pay ile tek dokunuşla ödeme. Makbuz doğrulandığında kalıcı destekçi rozeti otomatik açılır.</string>
+    <string name="donation_play_connecting">Google Play Faturalandırmaya bağlanılıyor…</string>
+    <string name="donation_paypal_desc">Canlı PayPal QR kodunu başka bir cihazla tarayın veya doğrudan PayPal.me\'yi açın.</string>
+    <string name="donation_paypal_any">Serbest</string>
+    <string name="donation_paypal_custom_label">Özel USD tutarı (isteğe bağlı)</string>
+    <string name="donation_paypal_custom_hint">örn. 15</string>
+    <string name="cd_paypal_qr">%1$s için PayPal bağış QR kodu</string>
+    <string name="cd_copy_paypal_url">PayPal URL\'sini kopyala</string>
+    <string name="donation_btn_open_paypal">PayPal\'ı Aç</string>
+    <string name="donation_btn_copy">Kopyala</string>
+    <string name="donation_btn_share">Paylaş</string>
+    <string name="donation_kofi_title">Ko-fi Bahşiş Kutusu</string>
+    <string name="donation_kofi_desc">Ko-fi üzerinden hızlı bir sanal kahve gönderin. Tarayıcıda açar veya tarayıcı yoksa bağlantıyı kopyalar.</string>
+    <string name="donation_btn_open_kofi">Ko-fi Sayfasını Aç</string>
+    <string name="donation_btn_copy_link">Bağlantıyı Kopyala</string>
+    <string name="tier1_title">Matcha Çayı</string>
+    <string name="tier1_subtitle">Kademe 1 • Küçük bir teşekkür</string>
+    <string name="tier1_badge">Kademe 1</string>
+    <string name="tier2_title">Sensei\'nin Kahvesi</string>
+    <string name="tier2_subtitle">Kademe 2 • Yeni ifade paketlerine destek</string>
+    <string name="tier2_badge">Popüler</string>
+    <string name="tier3_title">Dojo Bentosu</string>
+    <string name="tier3_subtitle">Kademe 3 • 3D sesli koçluğu destekle</string>
+    <string name="tier3_badge">Kademe 3</string>
+    <string name="tier4_title">Usta Hami</string>
+    <string name="tier4_subtitle">Kademe 4 • Bağımsız eğitime destek</string>
+    <string name="tier4_badge">Kademe 4</string>
+    <string name="billing_purchase_canceled">Satın alma iptal edildi — Pocket Sensei\'yi desteklemeyi düşündüğünüz için teşekkürler!</string>
+    <string name="billing_service_unavailable">Hizmet kullanılamıyor</string>
+    <string name="billing_error_fallback">Google Play Faturalandırma yanıtı: %1$s. Aşağıdan PayPal veya Ko-fi\'yi de kullanabilirsiniz.</string>
+    <string name="billing_receipt_failed">Makbuz doğrulaması başarısız oldu. Lütfen tekrar deneyin.</string>
+    <string name="billing_pending">Google Play bağışınız onay bekliyor. Onaylandığında rozet otomatik açılacaktır.</string>
+    <string name="billing_verified">Teşekkürler! Google Play bağışınız doğrulandı ve Aktif Destekçi rozetiniz kalıcı olarak açıldı.</string>
+    <string name="billing_missing_activity">Google Play ödemesi için aktif pencere bulunamadı. Ana ekrandan tekrar deneyin veya PayPal / Ko-fi kullanın.</string>
+    <string name="billing_store_unavailable">Google Play Store ödemesi bu cihazda/sürümde kullanılamıyor (%1$s). İstediğiniz zaman PayPal QR veya Ko-fi kullanabilirsiniz.</string>
+    <string name="billing_code_prefix">kod %1$d</string>
+    <string name="billing_disconnected">Google Play Faturalandırma bağlantısı kesildi. Tekrar deneyin veya PayPal / Ko-fi seçin.</string>
+    <string name="billing_item_unpublished">\"%1$s\" uygulama içi öğesi bu sürümün Play Console kanalında henüz yayınlanmadı. Aşağıdaki PayPal QR ve Ko-fi hemen çalışır!</string>
+    <string name="billing_checkout_error">Google Play ödeme ekranı açılamadı (%1$s).</string>
+    <string name="paypal_label">PayPal Bağış Bağlantısı</string>
+    <string name="paypal_no_browser_toast">Tarayıcı bulunamadı — PayPal bağlantısı panoya kopyalandı!</string>
+    <string name="paypal_copied_toast">PayPal bağlantısı kopyalandı: %1$s</string>
+    <string name="paypal_share_subject">Pocket Sensei\'yi Destekle</string>
+    <string name="paypal_share_text">3D Dil ve Aksan Koçu Pocket Sensei\'yi destekleyin: %1$s</string>
+    <string name="paypal_share_chooser">Destek Bağlantısını Paylaş</string>
+    <string name="kofi_label">Ko-fi Sayfa Bağlantısı</string>
+    <string name="kofi_no_browser_toast">Tarayıcı bulunamadı — Ko-fi bağlantısı panoya kopyalandı!</string>
+    <string name="kofi_copied_toast">Ko-fi bağlantısı kopyalandı: %1$s</string>
+    <string name="privacy_loaded_in_app">Gizlilik Politikası uygulama içinde yüklendi.</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">Bu cihazda konuşma tanıma kullanılamıyor. Bunun yerine Yazılı Giriş kullanın.</string>
+    <string name="hud_praise_speech">Harika! Çok etkileyici!</string>
+    <string name="hud_greet_speech">Merhaba! Hadi bugün konuşma pratiği yapalım!</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">Değerlendirme başarısız oldu</string>
+    <string name="error_roleplay_failed">Sensei yanıt veremedi.</string>
+    <string name="coach_default_accent_focus">Ünlü ve Ünsüz netliği</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">Temiz ünlü uzunluğu ve net ünsüz başlangıcı! Bu rahat tempoyu koruyun.</string>
+    <string name="eval_tip_missed_format">Şu heceleri net telaffuz etmeye odaklanın: %1$s. Vurgulu ünlülerde çenenizi sabit tutun.</string>
+    <string name="eval_tip_slow_down">Heceler arasında biraz yavaşlayın ve vurgulu ünlüleri net bir şekilde söyleyin.</string>
+    <string name="eval_encourage_high">Mükemmel! Cihaz üzerinde değerlendirildi ($0 çevrimdışı mod).</string>
+    <string name="eval_encourage_mid">İyi ritim! Daha yavaş bir ikinci deneme aksanınızı keskinleştirecektir.</string>
+    <string name="eval_encourage_low">Güzel deneme — her heceyi net duymak için \'Yavaş\' sesine dokunun.</string>
+    <string name="eval_contour_type_format">%1$s Cihaz İçi Ton Eğrisi</string>
+    <string name="eval_pitch_guidance_default">Kesik yeşil ana dil eğrisinin yükseliş ve düşüşünü tam olarak eşleştirin.</string>
+    <string name="eval_contour_default">Doğal Vurgu Eğrisi</string>
+    <string name="eval_tip_default">Ağzınızı rahat bırakın ve kelimeleri net telaffuz edin.</string>
+    <string name="eval_encourage_default">Harika çaba! Pratik mükemmelleştirir.</string>
+    <string name="eval_pitch_guidance_cloud_default">Vurgu yükselişini ana dil konuşmacısı eğrisiyle hizalayın.</string>
+    <string name="roleplay_offline_note_format">Çevrimdışı Koç ($0 modu): \"%1$s\" sorunsuz alındı. Doğal temponuzu koruyun!</string>
+    <string name="roleplay_offline_translation_fallback">Çevrimdışı Pratik Modu yanıtı</string>
+    <string name="roleplay_offline_reply_default">Harika! %1$s dilindeki doğal ritminizi geliştirmeye devam edelim.</string>
+    <string name="roleplay_offline_reply_ja_translation">Elbette! Başka bir şey ister miydiniz?</string>
+    <string name="roleplay_offline_reply_fr_translation">Çok iyi! Yanında başka bir şey ister misiniz?</string>
+    <string name="roleplay_offline_reply_es_translation">Mükemmel! Hemen getiriyorum. İçecek başka bir şey ister misiniz?</string>
+    <string name="roleplay_offline_reply_ko_translation">Evet, anlaşıldı! Lütfen bir saniye bekleyin.</string>
+    <string name="roleplay_offline_reply_de_translation">Harika! Bu konuda daha fazla şey anlatmak ister misiniz?</string>
+    <string name="roleplay_offline_reply_it_translation">Mükemmel! Bugün başka bir şey ister miydiniz?</string>
+    <string name="roleplay_cloud_note_default">Harika sohbet akışı!</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">Merhaba, nasılsınız?</string>
+    <string name="phrase_ja_1_focus">\'Konnichiwa\' üzerinde düz ton</string>
+    <string name="phrase_ja_2_translation">Bunu alacağım, lütfen.</string>
+    <string name="phrase_ja_2_focus">Hafif dil vuruşlu \'r\'</string>
+    <string name="phrase_ja_3_translation">Çok teşekkür ederim!</string>
+    <string name="phrase_ja_3_focus">Uzun \'ou\' ünlüsü</string>
+    <string name="phrase_ja_4_translation">Affedersiniz, istasyon nerede?</string>
+    <string name="phrase_ja_4_focus">Nazik yükselen tonlama</string>
+    <string name="phrase_ja_5_translation">Çok lezzetli!</string>
+    <string name="phrase_ja_5_focus">\'desu\' sonunda net ötümsüz \'u\'</string>
+
+    <string name="phrase_fr_1_translation">Merhaba, tanıştığımıza memnun oldum.</string>
+    <string name="phrase_fr_1_focus">Yumuşak genizsil \'en\' ve \'on\'</string>
+    <string name="phrase_fr_2_translation">Bir kruvasan ve bir kahve, lütfen.</string>
+    <string name="phrase_fr_2_focus">Gırtlaktan Fransız \'r\' sesi</string>
+    <string name="phrase_fr_3_translation">Tuvalet nerede?</string>
+    <string name="phrase_fr_3_focus">Akıcı ulama (liaison)</string>
+    <string name="phrase_fr_4_translation">Gerçekten muhteşem!</string>
+    <string name="phrase_fr_4_focus">Yuvarlatılmış dudaklarla saf \'u\'</string>
+
+    <string name="phrase_es_1_translation">Merhaba! Bugün nasılsın?</string>
+    <string name="phrase_es_1_focus">Net açık ünlüler</string>
+    <string name="phrase_es_2_translation">İki kişilik bir masa, lütfen.</string>
+    <string name="phrase_es_2_focus">Yumuşak tek vuruşlu \'r\'</string>
+    <string name="phrase_es_3_translation">Hızlı demir yolu.</string>
+    <string name="phrase_es_3_focus">Çift titreşimli \'rr\'</string>
+    <string name="phrase_es_4_translation">Hesap, lütfen.</string>
+    <string name="phrase_es_4_focus">Son hecelerde vurgu</string>
+
+    <string name="phrase_de_1_translation">Günaydın, nasılsınız?</string>
+    <string name="phrase_de_1_focus">Ihnen kelimesinde uzun \'ee\' ünlüsü</string>
+    <string name="phrase_de_2_translation">Bir kahve rica ediyorum, lütfen.</string>
+    <string name="phrase_de_2_focus">Yumuşak damak \'ch\' sürtünmelisi</string>
+    <string name="phrase_de_3_translation">Yardımınız için çok teşekkürler!</string>
+    <string name="phrase_de_3_focus">Yuvarlak \'ö\' ve \'ü\'</string>
+
+    <string name="phrase_ko_1_translation">Merhaba, tanıştığımıza memnun oldum!</string>
+    <string name="phrase_ko_1_focus">Nazik melodik ritim</string>
+    <string name="phrase_ko_2_translation">Bu ne kadar?</string>
+    <string name="phrase_ko_2_focus">eol-ma içinde yumuşak \'l\' sesi</string>
+    <string name="phrase_ko_3_translation">Afiyet olsun!</string>
+    <string name="phrase_ko_3_focus">Soluklu ve gergin ünsüzler farkı</string>
+
+    <string name="phrase_zh_1_translation">Merhaba, tanıştığımıza memnun oldum!</string>
+    <string name="phrase_zh_1_focus">Nǐ hǎo içinde 3. ton değişimi</string>
+    <string name="phrase_zh_2_translation">Affedersiniz, bu ne kadar?</string>
+    <string name="phrase_zh_2_focus">zhè için 4. ton, qián için 2. ton</string>
+    <string name="phrase_zh_3_translation">Son derece lezzetli, teşekkürler!</string>
+    <string name="phrase_zh_3_focus">Tài ve xiè üzerinde alçalan 4. ton</string>
+
+    <string name="phrase_it_1_translation">İyi günler! Nasılsınız?</string>
+    <string name="phrase_it_1_focus">Müzikal hece ritmi</string>
+    <string name="phrase_it_2_translation">Bir fıstıklı gelato, lütfen.</string>
+    <string name="phrase_it_2_focus">Çift ünsüz \'cch\' duraklaması</string>
+    <string name="phrase_it_3_translation">Her şey için binlerce teşekkür!</string>
+    <string name="phrase_it_3_focus">Canlı dişsil \'t\' ve \'z\'</string>
+
+    <string name="phrase_en_1_translation">Yol tarifi sorma</string>
+    <string name="phrase_en_1_focus">the içinde ötümlü \'th\'</string>
+    <string name="phrase_en_2_translation">Profesyonel kariyer sorusu</string>
+    <string name="phrase_en_2_focus">schedule içinde vuruşlu \'d\'</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">Tokyo Kafe Siparişi</string>
+    <string name="scenario_tokyo_cafe_sensei">Kafe Baristası</string>
+    <string name="scenario_tokyo_cafe_user">Müşteri</string>
+    <string name="scenario_tokyo_cafe_init_translation">Hoş geldiniz! Siparişinize karar verdiniz mi?</string>
+
+    <string name="scenario_paris_boulangerie_title">Paris Fırını</string>
+    <string name="scenario_paris_boulangerie_sensei">Usta Fırıncı</string>
+    <string name="scenario_paris_boulangerie_user">Müşteri</string>
+    <string name="scenario_paris_boulangerie_init_translation">Merhaba! Bugün ne arzu edersiniz?</string>
+
+    <string name="scenario_madrid_tapas_title">Madrid Tapas Barı</string>
+    <string name="scenario_madrid_tapas_sensei">Meyhane Ev Sahibi</string>
+    <string name="scenario_madrid_tapas_user">Konuk</string>
+    <string name="scenario_madrid_tapas_init_translation">İyi öğleden sonralar! İçecek olarak başlangıçta ne getirebilirim?</string>
+
+    <string name="scenario_seoul_market_title">Seul Gece Pazarı</string>
+    <string name="scenario_seoul_market_sensei">Sokak Lezzetleri Şefi</string>
+    <string name="scenario_seoul_market_user">Ziyaretçi</string>
+    <string name="scenario_seoul_market_init_translation">Hoş geldiniz! Gelin dumanı üstünde tteokbokki\'mizi tadın!</string>
+
+    <string name="scenario_rome_gelato_title">Floransa Gelateria</string>
+    <string name="scenario_rome_gelato_sensei">Dondurma Ustası</string>
+    <string name="scenario_rome_gelato_user">Müşteri</string>
+    <string name="scenario_rome_gelato_init_translation">Merhaba! Külah mı kap mı? Hangi aromaları istersiniz?</string>
+
+    <string name="scenario_berlin_tech_title">Berlin Teknoloji Buluşması</string>
+    <string name="scenario_berlin_tech_sensei">Teknik Lider</string>
+    <string name="scenario_berlin_tech_user">Mühendis</string>
+    <string name="scenario_berlin_tech_init_translation">Merhaba! Burada olmanız harika. Hangi proje üzerinde çalışıyorsunuz?</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">Atla</string>
+    <string name="onboarding_back">Geri</string>
+    <string name="onboarding_next">İleri</string>
+    <string name="onboarding_get_started">Konuşmaya Başla</string>
+    <string name="onboarding_step_format">Adım %1$d / %2$d</string>
+    <string name="onboarding_page1_badge">3D Ses ve Tonlama Stüdyosu</string>
+    <string name="onboarding_page1_title">3D Sensei ile Yerli Gibi Konuşun</string>
+    <string name="onboarding_page1_subtitle">60fps canlı ses dalgası, tonlama eğrileri ve ağız-dil pozisyonu ipuçlarıyla telaffuzunuzu görselleştirin.</string>
+    <string name="onboarding_page2_badge">Sürükleyici Kültürel Rol Yapma</string>
+    <string name="onboarding_page2_title">Gerçek Seyahat Senaryolarını Pratik Edin</string>
+    <string name="onboarding_page2_subtitle">Tokyo\'da matcha, Paris\'te kruvasan veya Madrid\'de tapas sipariş edin; fonetik rehber ve yanıt önerileriyle.</string>
+    <string name="onboarding_page3_badge">Kelime Ustası &amp; Dojo Ligi</string>
+    <string name="onboarding_page3_title">Kelime Dağarcığınızı Geliştirin ve Yükselin</string>
+    <string name="onboarding_page3_subtitle">Akıllı kartlarla kelimeleri tekrar edin, 45 saniyelik Dojo Blitz oynayın ve aşağıdan ilk dilinizi seçin.</string>
+    <string name="onboarding_select_language_label">Pratik yapmak için ilk dilinizi seçin:</string>
+    <string name="profile_btn_replay_onboarding">Etkileşimli Uygulama Turu</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">3D Sensei sahne boyutunu değiştir</string>
+    <string name="daily_goal_title">Günlük Dojo Hedefi</string>
+    <string name="daily_goal_progress_format">Bugün %1$d / %2$d oturum</string>
+    <string name="daily_goal_completed_badge">Hedef Tamam!</string>
+    <string name="donation_perks_title">Destekçi Ayrıcalıkları Dahil</string>
+    <string name="donation_perks_summary">Afişleri kalıcı olarak gizler ve yeni seslerle çevrimdışı paketleri destekler.</string>
+    <string name="donation_recommended_tag">En Popüler</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">Günlük Öğrenme Serisi</string>
+    <string name="streak_best_format">En iyi seri: %1$d gün</string>
+    <string name="streak_status_active_today">Bugünün serisi tamamlandı! Aksanını geliştirmek için konuşmaya devam et.</string>
+    <string name="streak_status_pending_today">Serini korumak için bugün 1 Telaffuz Koçu değerlendirmesi tamamla.</string>
+    <string name="streak_new_day_banner_format">%1$d günlük seri açıldı!</string>
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">Örnek kaydet</string>
+    <string name="coach_stop_pitch_rec">Kaydı durdur</string>
+    <string name="coach_play_mine">Kendini dinle</string>
+    <string name="coach_stop_mine">Sesi durdur</string>
+    <string name="pitch_live_mic_badge">Canlı F0 Mik</string>
+    <string name="result_play_sensei">Sensei Sesi</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">Bugünlük (%1$d)</string>
+    <string name="vocab_due_now_badge">Tekrar zamanı</string>
+    <string name="vocab_next_interval_format">%1$d gün sonra</string>
+    <string name="vocab_next_review_hint_format">Hatırlanırsa sonraki tekrar %1$d gün sonra</string>
+    <string name="vocab_btn_repeat">Tekrar çalış</string>
+    <string name="streak_freeze_count_format">Seri Dondurma: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">Bir Seri Dondurma serini korudu!</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">Yolda Gölgeleme</string>
+    <string name="shadowing_subtitle">Eller serbest dinle ve tekrarla döngüsü</string>
+    <string name="shadowing_speed_slow">0,75x</string>
+    <string name="shadowing_speed_normal">1,0x</string>
+    <string name="shadowing_btn_start">Başlat</string>
+    <string name="shadowing_btn_stop">Durdur</string>
+    <string name="shadowing_step_listening">Sensei konuşuyor — dikkatle dinle…</string>
+    <string name="shadowing_step_repeat">Sıra sende — şimdi yüksek sesle tekrarla…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">İfade Ekle</string>
+    <string name="custom_phrase_dialog_title">Özel %1$s İfadesi Ekle</string>
+    <string name="custom_phrase_target_label">Hedef dildeki ifade</string>
+    <string name="custom_phrase_phonetic_label">Fonetik rehber</string>
+    <string name="custom_phrase_translation_label">Anlamı</string>
+    <string name="custom_phrase_focus_label">Telaffuz odak notu</string>
+    <string name="custom_save_btn">Kaydet</string>
+    <string name="custom_scenario_btn">Yeni Senaryo</string>
+    <string name="custom_scenario_dialog_title">%1$s Rol Yapma Oluştur</string>
+    <string name="custom_scenario_templates_label">Hızlı şablonlar:</string>
+    <string name="custom_scenario_title_label">Senaryo başlığı</string>
+    <string name="custom_scenario_sensei_role_label">Sensei\'nin rolü (ör. Mülakatçı)</string>
+    <string name="custom_scenario_user_role_label">Senin rolün (ör. Aday)</string>
+    <string name="custom_scenario_opening_label">Sensei\'nin açılış cümlesi</string>
+    <string name="scenario_template_interview_title">İş Görüşmesi</string>
+    <string name="scenario_template_interview_sensei">İşe Alım Müdürü</string>
+    <string name="scenario_template_interview_user">Aday</string>
+    <string name="scenario_template_interview_open">Merhaba! Bugün geldiğiniz için teşekkürler. Kendinizi kısaca tanıtır mısınız?</string>
+    <string name="scenario_template_hotel_title">Otel Girişi</string>
+    <string name="scenario_template_hotel_sensei">Resepsiyonist</string>
+    <string name="scenario_template_hotel_user">Misafir</string>
+    <string name="scenario_template_hotel_open">Otelimize hoş geldiniz! Adınıza bir rezervasyonunuz var mı?</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">Günlük Pratik Hatırlatıcıları</string>
+    <string name="reminder_channel_desc">Günlük seriniz henüz tamamlanmadıysa isteğe bağlı akşam uyarısı.</string>
+    <string name="reminder_notif_title">Dojo serini canlı tut! 🔥</string>
+    <string name="reminder_notif_body_format">%1$d günlük seridesin — uyumadan önce 1 hızlı ifade söyle.</string>
+    <string name="reminder_card_title">Akşam Seri Hatırlatıcısı</string>
+    <string name="reminder_card_subtitle">Yalnızca bugün henüz pratik yapmadıysanız akıllı uyarı</string>
+    <string name="reminder_time_label">Hatırlatma saati:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">Hatırlatıcı almak için sistem ayarlarından bildirimleri açın.</string>
+    <string name="share_card_btn">Kartı Paylaş</string>
+    <string name="share_card_chooser">Başarı Kartını Paylaş</string>
+    <string name="share_card_headline_score">Telaffuz Ustalığı</string>
+    <string name="share_card_headline_streak">Dojo Seri Dönüm Noktası</string>
+    <string name="share_card_streak_format">%1$d Günlük Seri</string>
+    <string name="difficulty_custom">Özel</string>
+    <string name="ai_byok_get_key_btn">Ücretsiz Gemini Anahtarı Al (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ Yapay Zeka Konu Paketi Oluştur</string>
+    <string name="roleplay_live_call_start">Canlı Arama</string>
+    <string name="roleplay_live_call_active">Aramayı Bitir</string>
+    <string name="topic_pack_phrase1_trans">Affedersiniz, lütfen bana %1$s hakkında bilgi verin.</string>
+    <string name="topic_pack_phrase2_trans">Hangisini tavsiye edersiniz?</string>
+    <string name="topic_pack_phrase3_trans">Bu çok yardımcı oldu, çok teşekkürler!</string>
+    <string name="topic_pack_sensei_role">Yerel Rehber</string>
+    <string name="topic_pack_user_role">Gezgin</string>
+    <string name="scenario_shanghai_tea_title">Şanghay Çay Evi</string>
+    <string name="scenario_shanghai_tea_sensei">Çay Ustası</string>
+    <string name="scenario_shanghai_tea_user">Misafir</string>
+    <string name="scenario_shanghai_tea_init_translation">Hoş geldiniz! Bugün hangi çayı tatmak istersiniz?</string>
+    <string name="scenario_london_interview_title">Londra Stüdyo Kahvesi</string>
+    <string name="scenario_london_interview_sensei">Proje Ev Sahibi</string>
+    <string name="scenario_london_interview_user">Üretici</string>
+    <string name="scenario_london_interview_init_translation">Günaydın! Bir sonraki projenizde sizi neyin heyecanlandırdığını anlatın.</string>
+</resources>

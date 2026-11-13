@@ -1,0 +1,554 @@
+<resources>
+    <string name="app_name">Pocket Sensei</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">Interaktiv 3D språk- och uttalscoach</string>
+    <string name="splash_ready">Redo att tala med självförtroende ✨</string>
+
+    <!-- Auth Screen -->
+    <string name="cd_sensei_3d">Sensei 3D</string>
+    <string name="auth_subtitle">Interaktiv 3D språk- &amp; accentcoach</string>
+    <string name="auth_feature_avatar_title">Lokal 3D Sensei-avatar</string>
+    <string name="auth_feature_avatar_desc">Three.js-karaktär med läppsynk &amp; ansiktsuttryck i realtid</string>
+    <string name="auth_feature_coach_title">Gemini Live accentcoachning</string>
+    <string name="auth_feature_coach_desc">Direkt uttalsfeedback &amp; tips för tung- och munposition</string>
+    <string name="auth_feature_roleplay_title">Röstbaserade rollspel</string>
+    <string name="auth_feature_roleplay_desc">Beställ på kafé, prata på marknaden eller öva anställningsintervjuer</string>
+    <string name="auth_feature_sync_title">Firestore-molnsynk</string>
+    <string name="auth_feature_sync_desc">Spara inlärda glosor och behåll din dagliga svit</string>
+    <string name="cd_sign_in_icon">Inloggningsikon</string>
+    <string name="auth_sign_in_google">Logga in med Google</string>
+    <string name="auth_sign_in_footer">Logga in för att spara dina sviter och glosor i Firestore</string>
+    <string name="auth_error_missing_client_id">Google-inloggning saknar konfiguration: default_web_client_id hittades inte</string>
+    <string name="auth_error_unexpected_credential">Oväntad inloggningstyp</string>
+    <string name="auth_error_sign_in_failed">Inloggning misslyckades</string>
+
+    <!-- Navigation & Top Bar & 3D HUD -->
+    <string name="nav_coach">Tränare</string>
+    <string name="nav_roleplay">Dialog</string>
+    <string name="nav_vocab">Glosor</string>
+    <string name="nav_league">Liga</string>
+    <string name="nav_profile">Profil</string>
+    <string name="topbar_brand_title">🥋 Pocket Sensei</string>
+    <string name="cd_active_supporter">Aktiv supporter</string>
+    <string name="supporter_badge_short">Stödjare</string>
+    <string name="cd_support_app">Stöd Pocket Sensei</string>
+    <string name="cd_streak">Svit</string>
+    <string name="streak_day_format">%1$d d</string>
+    <string name="cd_cycle_outfit">Byt Senseis klädsel</string>
+    <string name="cd_praise_sensei">Beröm från Sensei</string>
+    <string name="cd_sensei_greet">Senseis hälsning</string>
+    <string name="mic_permission_required">Mikrofonbehörighet krävs för att analysera ditt uttal</string>
+    <string name="mood_idle">Sensei redo</string>
+    <string name="mood_listening">Lyssnar…</string>
+    <string name="mood_speaking">Sensei talar</string>
+    <string name="mood_praising">Sugoi! Utmärkt!</string>
+    <string name="mood_thinking">Analyserar accent…</string>
+    <string name="mood_correcting">Tips från Sensei</string>
+
+    <!-- Languages, Difficulties, Tiers & Engines -->
+    <string name="lang_all">Alla</string>
+    <string name="lang_japanese">Japanska</string>
+    <string name="lang_spanish">Spanska</string>
+    <string name="lang_french">Franska</string>
+    <string name="lang_german">Tyska</string>
+    <string name="lang_korean">Koreanska</string>
+    <string name="lang_mandarin">Mandarin</string>
+    <string name="lang_italian">Italienska</string>
+    <string name="lang_english">Engelska</string>
+    <string name="difficulty_beginner">Nybörjare</string>
+    <string name="difficulty_intermediate">Medel</string>
+    <string name="difficulty_advanced">Avancerad</string>
+    <string name="difficulty_core">Bas</string>
+    <string name="tier_black_belt">Svart bälte Sensei</string>
+    <string name="tier_gold">Guldnivå</string>
+    <string name="tier_silver">Silvernivå</string>
+    <string name="tier_bronze">Bronsnivå</string>
+    <string name="tier_white_belt">Vitt bälte</string>
+    <string name="engine_cache">Room-cache ($0)</string>
+    <string name="engine_offline">Offlinecoach ($0)</string>
+    <string name="engine_offline_fallback">Offline-reserv ($0)</string>
+    <string name="engine_offline_cap">Offline-reserv ($0 • Kvot sparad)</string>
+    <string name="engine_firebase">Firebase AI</string>
+    <string name="engine_byok">Din Gemini-nyckel (BYOK)</string>
+
+    <!-- Engagement Auto Prompts & Sharing -->
+    <string name="prompt_update_title">Ny uppdatering redo (v%1$s)</string>
+    <string name="prompt_rate_title">Gillar du Pocket Sensei?</string>
+    <string name="prompt_share_title">Dela dina framsteg!</string>
+    <string name="prompt_donation_title">Stödja Pocket Sensei?</string>
+    <string name="prompt_update_default_notes">En nyare version finns på Google Play med förbättrad accentcoachning och 3D-animationer.</string>
+    <string name="prompt_rate_body">Du har klarat %1$d sessioner och %2$d talmilstolpar! Vill du lämna ett ärligt omdöme på Google Play?</string>
+    <string name="prompt_share_score_note">Du fick nyss %1$d%%!</string>
+    <string name="prompt_share_body">Grym övning! %1$s Bjud in en vän att tala och lära sig språk med Pocket Sensei 3D.</string>
+    <string name="prompt_share_body_plain">Grym övning! Bjud in en vän att tala och lära sig språk med Pocket Sensei 3D.</string>
+    <string name="prompt_donation_body">Du har genomfört %1$d talsessioner! Pocket Sensei är 100%% reklamfri — bjud indieutvecklaren på en kaffe via Google Play, PayPal QR eller Ko-fi.</string>
+    <string name="prompt_dont_ask_again">Fråga inte igen</string>
+    <string name="prompt_update_now">Uppdatera nu</string>
+    <string name="prompt_rate_cta">Betygsätt på Play Store</string>
+    <string name="prompt_share_cta">Dela appen</string>
+    <string name="prompt_donation_cta">Stödalternativ</string>
+    <string name="prompt_maybe_later">Kanske senare</string>
+    <string name="share_app_text">Jag tränar uttal och live-rollspel med Pocket Sensei 3D! Häng med: %1$s</string>
+    <string name="share_app_subject">Pocket Sensei — 3D Språk- &amp; Accentcoach</string>
+    <string name="share_app_chooser">Dela Pocket Sensei</string>
+
+    <!-- Coach Screen & Feedback Card -->
+    <string name="coach_practice_phrases">Övningsfraser</string>
+    <string name="coach_dojo_blitz_btn">Dojo Blixt ($0)</string>
+    <string name="cd_normal_speed">Normal hastighet</string>
+    <string name="cd_slow_speed">Långsamt ljud</string>
+    <string name="coach_focus_format">Fokus: %1$s</string>
+    <string name="coach_listening_format">🎙️ Lyssnar: \"%1$s\"</string>
+    <string name="coach_transcribed_format">Tolkat: \"%1$s\"</string>
+    <string name="cd_speak_to_sensei">Tala till Sensei</string>
+    <string name="coach_type_input">Skriv text</string>
+    <string name="coach_waveform_title">Talmönster i realtid</string>
+    <string name="coach_waveform_ready">Mikrofon redo</string>
+    <string name="coach_waveform_hint">Tala i mikrofonen för att se ljudtoppar, pauser och rytm.</string>
+    <string name="coach_waveform_db_format">Nivå %1$s dB</string>
+    <string name="coach_evaluating">Sensei utvärderar fonetik &amp; tonhöjd…</string>
+    <string name="toast_saved_vocab_firestore">Sparat i glosbanken i Firestore!</string>
+    <string name="coach_eval_note_format">Utvärderingsnotis: %1$s</string>
+    <string name="manual_dialog_title">Manuell rösttranskribering</string>
+    <string name="manual_dialog_desc">Skriv det som sades för att testa uttalsbedömningen:</string>
+    <string name="btn_analyze">Analysera</string>
+    <string name="btn_cancel">Avbryt</string>
+    <string name="result_title">Feedback från Accentcoachen</string>
+    <string name="result_score_denominator">/100</string>
+    <string name="result_phonetic_precision">Fonetisk precision</string>
+    <string name="result_pitch_accent">Tonhöjdsaccent / Ton</string>
+    <string name="result_fluency_rhythm">Flyt &amp; rytm</string>
+    <string name="cd_mouth_coach">Uttalscoach</string>
+    <string name="result_placement_tip_title">Tips för tung- &amp; munposition:</string>
+    <string name="result_phonemes_to_refine">Ljud att finslipa:</string>
+    <string name="result_native_phrasings">Så säger modersmålstalare också:</string>
+    <string name="cd_synced">Synkroniserad</string>
+    <string name="result_saved_to_vocab">Sparad</string>
+    <string name="result_support_micro_footer">Bra uttal! Bjud utvecklaren på kaffe om Sensei hjälpte i dag.</string>
+    <string name="result_support_cta_arrow">Stöd →</string>
+    <string name="pitch_comparison_title">Jämförelse av tonkurva</string>
+    <string name="pitch_legend_native">Infödd mål</string>
+    <string name="pitch_legend_yours">Din ton</string>
+
+    <!-- Roleplay Screen -->
+    <string name="roleplay_scenarios_title">Scenarier för röstrollspel</string>
+    <string name="roleplay_thinking">%1$s funderar på ett svar…</string>
+    <string name="roleplay_suggested_label">Föreslagna svar (tryck för att tala eller skicka):</string>
+    <string name="roleplay_listening_placeholder">🎙️ Lyssnar…</string>
+    <string name="roleplay_input_placeholder">Tala eller skriv på %1$s…</string>
+    <string name="cd_send">Skicka</string>
+    <string name="cd_normal_voice">Normal röst</string>
+    <string name="cd_slow_voice">Långsam röst</string>
+    <string name="roleplay_hide_translation">Dölj översättning</string>
+    <string name="roleplay_show_translation">Visa betydelse</string>
+    <string name="roleplay_sensei_note">💡 Sensei-tips: %1$s</string>
+
+    <!-- Vocab Screen -->
+    <string name="vocab_bank_title">Ordförrådsbehärskning</string>
+    <string name="vocab_tracked_count">%1$d ord spårade i Cloud Firestore</string>
+    <string name="vocab_empty_title">Inga sparade ord ännu</string>
+    <string name="vocab_empty_subtitle">Öva fraser i Accentcoachen för att lägga till dem här!</string>
+    <string name="vocab_accuracy_format">%1$d%% träffsäkerhet</string>
+    <string name="cd_play_normal">Spela normalt</string>
+    <string name="vocab_btn_drill">Öva</string>
+    <string name="vocab_flashcard_title">🥋 Flashcard-övning</string>
+    <string name="vocab_meaning_label">Betydelse:</string>
+    <string name="vocab_tap_to_reveal">👉 Tryck för att visa betydelse</string>
+    <string name="vocab_btn_listen">Lyssna</string>
+    <string name="vocab_btn_slow">0.75x Långsam</string>
+    <string name="vocab_btn_practice_coach">Öva i Coach</string>
+    <string name="btn_close">Stäng</string>
+    <string name="vocab_mastery_summary_format">%1$d offline • %2$d bemästrade</string>
+    <string name="vocab_filter_mastery_all">Alla nivåer</string>
+    <string name="vocab_filter_needs_review">Repetera (%1$d)</string>
+    <string name="vocab_filter_learning">Lär sig (%1$d)</string>
+    <string name="vocab_filter_mastered">Bemästrade (%1$d)</string>
+    <string name="vocab_status_needs_review">Repetera</string>
+    <string name="vocab_status_learning">Lär sig</string>
+    <string name="vocab_status_mastered">Bemästrad</string>
+    <string name="vocab_level_format">Nivå %1$d/5</string>
+    <string name="vocab_practice_count_format">%1$d× övad</string>
+    <string name="vocab_btn_drill_weakest">Öva svagaste</string>
+    <string name="vocab_empty_filtered_subtitle">Inga ord matchar detta nivåfilter ännu. Prova ett annat filter eller öva mer!</string>
+    <string name="vocab_btn_got_it">Kan den</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_default_name">Sensei-elev</string>
+    <string name="profile_signed_in_google">Inloggad med Google</string>
+    <string name="profile_tier_badge">🏆 Mästartalare-nivå</string>
+    <string name="profile_outfit_title">3D Sensei-klädsel</string>
+    <string name="costume_traditional">Indigoblå Gi</string>
+    <string name="costume_crimson">Karmosin Samuraj</string>
+    <string name="costume_cyber">Cyberneon</string>
+    <string name="costume_sakura">Sakura-dräkt</string>
+    <string name="profile_stats_title">Behärskning &amp; sviter</string>
+    <string name="profile_stat_streak">Daglig svit</string>
+    <string name="profile_stat_streak_value">%1$d dagar</string>
+    <string name="profile_stat_mastered">Behärskade ord</string>
+    <string name="profile_stat_practice_time">Övningstid</string>
+    <string name="profile_stat_practice_value">%1$d min</string>
+    <string name="profile_stat_avg_accuracy">Snittprecision</string>
+    <string name="profile_recent_sessions_title">Senaste rollspelssessioner</string>
+    <string name="profile_no_sessions">Inga sparade dialoger ännu. Testa ett scenario under fliken Dialog!</string>
+    <string name="profile_telemetry_title">Lokal Room-cache &amp; telemetri</string>
+    <string name="profile_telemetry_counts">%1$d ord • %2$d händelser</string>
+    <string name="profile_btn_share_app">Dela app</string>
+    <string name="profile_btn_rate_app">Betygsätt</string>
+    <string name="profile_btn_sign_out">Logga ut från Google-konto</string>
+    <string name="session_accuracy_format">%1$d%% precision</string>
+    <string name="session_meta_format">Språk: %1$s • %2$d turer</string>
+
+    <!-- League Screen -->
+    <string name="league_title">Dojo Accentliga</string>
+    <string name="league_xp_badge">%1$d XP</string>
+    <string name="league_rank_up_hint">Öva Accentcoach (+30–50 XP) eller Dialog (+25 XP) för att stiga i rang!</string>
+    <string name="league_empty_title">Inga rankade elever för %1$s ännu</string>
+    <string name="league_empty_subtitle">Slutför en accentövning för att lägga upp din poäng i Cloud Firestore!</string>
+    <string name="league_user_you">%1$s (Du)</string>
+    <string name="league_row_meta">%1$s • 🔥 %2$dd • %3$d%% snitt</string>
+
+    <!-- AI Cost Control & Dojo Blitz -->
+    <string name="ai_card_title">AI-coachmotor &amp; kostnadskontroll</string>
+    <string name="ai_cached_count">%1$d cachade ($0)</string>
+    <string name="ai_cloud_quota_summary">Dagens gratis molnanrop: %1$d/%2$d. Upprepade fraser laddas gratis från Room.</string>
+    <string name="ai_mode_chip_hybrid">Hybrid-AI</string>
+    <string name="ai_mode_chip_offline">Lokalt $0</string>
+    <string name="ai_mode_chip_byok">Min nyckel</string>
+    <string name="ai_mode_desc_hybrid">Room-cache + gratis daglig moln-AI med direkt offlinereserv</string>
+    <string name="ai_mode_desc_offline">Lokal fonetik- &amp; tonmatchning helt utan nätverkstrafik</string>
+    <string name="ai_mode_desc_byok">Obegränsad AI-coachning med din egen personliga Gemini API-nyckel</string>
+    <string name="ai_byok_edit_saved">Personlig Gemini-nyckel sparad (Redigera)</string>
+    <string name="ai_byok_add_prompt">Använd egen Gemini API-nyckel (BYOK)</string>
+    <string name="ai_byok_clear">Rensa nyckel</string>
+    <string name="ai_byok_input_label">Din Gemini API-nyckel (sparas privat på enheten)</string>
+    <string name="ai_byok_save_btn">Spara &amp; aktivera BYOK</string>
+    <string name="blitz_title">Dojo Snabbutmaning</string>
+    <string name="blitz_initial_feedback">Säg frasen eller tryck på Lyssna för att bygga combo!</string>
+    <string name="blitz_hit_feedback">Träff! %1$d%% precision (+%2$d XP, x%3$d combo)</string>
+    <string name="blitz_miss_feedback">Nästan (%1$d%%)! Tryck på Lyssna och försök igen.</string>
+    <string name="blitz_skip_feedback">Hoppade över — testa nästa fras!</string>
+    <string name="blitz_timer_label">Tid: %1$ds</string>
+    <string name="blitz_score_label">Poäng: %1$d XP</string>
+    <string name="blitz_combo_label">Svit: x%1$d</string>
+    <string name="cd_hear_phrase">Lyssna på fras</string>
+    <string name="blitz_btn_hear">Lyssna</string>
+    <string name="cd_blitz_mic">Tala i Dojo Blitz</string>
+    <string name="blitz_btn_skip">Hoppa</string>
+    <string name="blitz_times_up">Tiden ute! +%1$d Dojo XP</string>
+    <string name="blitz_summary">Du klarade %1$d fraser i 100%% gratis offlineläge.</string>
+    <string name="blitz_play_again">Spela igen</string>
+    <string name="blitz_finish_early">Avsluta</string>
+
+    <!-- Donation & Billing -->
+    <string name="donation_banner_title">Gillar du övningen?</string>
+    <string name="donation_banner_subtitle">Stöd reklamfri indieutveckling med en kopp kaffe.</string>
+    <string name="donation_banner_cta">Stöd</string>
+    <string name="cd_dismiss_donation_banner">Stäng stödbanner</string>
+    <string name="support_active_supporter">Aktiv supporter</string>
+    <string name="support_development_title">Stöd utvecklingen</string>
+    <string name="support_badge_ad_free">Reklamfri indie-app</string>
+    <string name="support_active_desc">Tack för att du stöder Pocket Sensei! Alla donationsuppmaningar är permanent avstängda.</string>
+    <string name="support_inactive_desc">Pocket Sensei är 100%% reklamfri med fokus på integritet. Du har nått %1$d milstolpar — stöd nya språk när som helst.</string>
+    <string name="channel_google_play">Google Play</string>
+    <string name="channel_paypal_qr">PayPal / QR</string>
+    <string name="channel_paypal_tab">PayPal &amp; QR</string>
+    <string name="channel_kofi">Ko-fi</string>
+    <string name="privacy_policy_link">Visa integritetspolicy &amp; data</string>
+    <string name="privacy_policy_title">Integritetspolicy</string>
+    <string name="donation_sheet_subtitle">Välj Google Play, PayPal QR eller Ko-fi</string>
+    <string name="donation_active_unlocked">Aktiv supporter upplåst! Alla donationsfrågor är permanent inaktiverade.</string>
+    <string name="donation_play_desc">Betalning med ett tryck via Google Pay. Låser automatiskt upp det permanenta märket efter kvittokoll.</string>
+    <string name="donation_play_connecting">Ansluter till Google Play Billing…</string>
+    <string name="donation_paypal_desc">Skanna live PayPal QR-koden med en annan enhet eller öppna PayPal.me direkt.</string>
+    <string name="donation_paypal_any">Valfritt</string>
+    <string name="donation_paypal_custom_label">Eget USD-belopp (valfritt)</string>
+    <string name="donation_paypal_custom_hint">t.ex. 15</string>
+    <string name="cd_paypal_qr">PayPal-donations QR-kod för %1$s</string>
+    <string name="cd_copy_paypal_url">Kopiera PayPal-URL</string>
+    <string name="donation_btn_open_paypal">Öppna PayPal</string>
+    <string name="donation_btn_copy">Kopiera</string>
+    <string name="donation_btn_share">Dela</string>
+    <string name="donation_kofi_title">Ko-fi Dricksburk</string>
+    <string name="donation_kofi_desc">Skicka en virtuell kaffe via Ko-fi. Öppnar webbläsaren eller kopierar länken automatiskt.</string>
+    <string name="donation_btn_open_kofi">Öppna Ko-fi-sida</string>
+    <string name="donation_btn_copy_link">Kopiera länk</string>
+    <string name="tier1_title">Matcha-te</string>
+    <string name="tier1_subtitle">Nivå 1 • Litet tack</string>
+    <string name="tier1_badge">Nivå 1</string>
+    <string name="tier2_title">Senseis kaffe</string>
+    <string name="tier2_subtitle">Nivå 2 • Nya fraspaket</string>
+    <string name="tier2_badge">Populär</string>
+    <string name="tier3_title">Dojo Bento</string>
+    <string name="tier3_subtitle">Nivå 3 • Stöd 3D-röstcoachning</string>
+    <string name="tier3_badge">Nivå 3</string>
+    <string name="tier4_title">Mästarbeskyddare</string>
+    <string name="tier4_subtitle">Nivå 4 • Stöd indieutbildning</string>
+    <string name="tier4_badge">Nivå 4</string>
+    <string name="billing_purchase_canceled">Köp avbrutet — tack för att du övervägde att stödja Pocket Sensei!</string>
+    <string name="billing_service_unavailable">Tjänsten otillgänglig</string>
+    <string name="billing_error_fallback">Google Play Billing returnerade: %1$s. Du kan även använda PayPal eller Ko-fi nedan.</string>
+    <string name="billing_receipt_failed">Kvittoverifikation misslyckades. Försök igen.</string>
+    <string name="billing_pending">Din Google Play-donation väntar på bekräftelse. Märket låses upp automatiskt när den är klar.</string>
+    <string name="billing_verified">Tack! Din Google Play-donation är verifierad och ditt Aktiv supporter-märke är upplåst för alltid.</string>
+    <string name="billing_missing_activity">Kunde inte hitta aktivt fönster för Google Play. Försök från startskärmen eller använd PayPal / Ko-fi.</string>
+    <string name="billing_store_unavailable">Google Play-fakturering är inte tillgänglig på den här enheten (%1$s). Du kan alltid använda PayPal QR eller Ko-fi.</string>
+    <string name="billing_code_prefix">kod %1$d</string>
+    <string name="billing_disconnected">Google Play Billing frånkopplad. Försök igen eller välj PayPal / Ko-fi.</string>
+    <string name="billing_item_unpublished">Objektet \"%1$s\" är inte publicerat i den här Play Console-kanalen ännu. PayPal QR och Ko-fi fungerar direkt nedan!</string>
+    <string name="billing_checkout_error">Kunde inte öppna Google Play-kassan (%1$s).</string>
+    <string name="paypal_label">PayPal-donationslänk</string>
+    <string name="paypal_no_browser_toast">Ingen webbläsare hittades — PayPal-länk kopierad!</string>
+    <string name="paypal_copied_toast">PayPal-länk kopierad: %1$s</string>
+    <string name="paypal_share_subject">Stöd Pocket Sensei</string>
+    <string name="paypal_share_text">Stöd 3D Språk- &amp; Accentcoachen Pocket Sensei: %1$s</string>
+    <string name="paypal_share_chooser">Dela donationslänk</string>
+    <string name="kofi_label">Ko-fi-sidlänk</string>
+    <string name="kofi_no_browser_toast">Ingen webbläsare hittades — Ko-fi-länk kopierad!</string>
+    <string name="kofi_copied_toast">Ko-fi-länk kopierad: %1$s</string>
+    <string name="privacy_loaded_in_app">Integritetspolicy laddad i appen.</string>
+
+    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <string name="speech_recognizer_unavailable">Taligenkänning är inte tillgänglig på den här enheten. Använd Skriv in text i stället.</string>
+    <string name="hud_praise_speech">Fantastiskt! Mycket imponerande!</string>
+    <string name="hud_greet_speech">Hej! Låt oss öva på att prata idag!</string>
+    <string name="percent_format">%1$d%%</string>
+    <string name="error_evaluation_failed">Utvärdering misslyckades</string>
+    <string name="error_roleplay_failed">Sensei kunde inte svara.</string>
+    <string name="coach_default_accent_focus">Vokal- &amp; konsonanttydlighet</string>
+    <string name="donation_usd_preset_format">$%1$s</string>
+    <string name="eval_tip_clean">Ren vokallängd och distinkt konsonantstart! Behåll det här avslappnade tempot.</string>
+    <string name="eval_tip_missed_format">Fokusera tydligt på att uttala: %1$s. Håll käken stabil på betonade vokaler.</string>
+    <string name="eval_tip_slow_down">Sakta ner något mellan stavelserna och uttala betonade vokaler tydligt.</string>
+    <string name="eval_encourage_high">Suveränt! Utvärderat på enheten ($0 offlineläge).</string>
+    <string name="eval_encourage_mid">Bra rytm! Ett andra långsammare försök kommer vässa ditt uttal.</string>
+    <string name="eval_encourage_low">Bra försök — tryck på \'Långsam\' för att höra varje stavelse tydligt.</string>
+    <string name="eval_contour_type_format">%1$s-kontur på enheten</string>
+    <string name="eval_pitch_guidance_default">Följ den streckade gröna modersmålskonturens uppgång och nedgång exakt.</string>
+    <string name="eval_contour_default">Naturlig betoningkurva</string>
+    <string name="eval_tip_default">Slappna av i munnen och artikulera tydligt.</string>
+    <string name="eval_encourage_default">Bra insats! Övning ger färdighet.</string>
+    <string name="eval_pitch_guidance_cloud_default">Anpassa betoningshöjningen efter modersmålstalarens kontur.</string>
+    <string name="roleplay_offline_note_format">Offlinecoach ($0-läge): Tog emot \"%1$s\" smidigt. Behåll ditt naturliga tempo!</string>
+    <string name="roleplay_offline_translation_fallback">Svar från offline-övningsläge</string>
+    <string name="roleplay_offline_reply_default">Underbart! Låt oss fortsätta öva på din naturliga rytm på %1$s.</string>
+    <string name="roleplay_offline_reply_ja_translation">Självklart! Skulle du vilja ha något mer?</string>
+    <string name="roleplay_offline_reply_fr_translation">Utmärkt! Vill du ha något mer till det?</string>
+    <string name="roleplay_offline_reply_es_translation">Perfekt! Jag kommer ut med det direkt. Något mer att dricka?</string>
+    <string name="roleplay_offline_reply_ko_translation">Ja, uppfattat! Vänta bara ett ögonblick.</string>
+    <string name="roleplay_offline_reply_de_translation">Utmärkt! Vill du berätta mer om det?</string>
+    <string name="roleplay_offline_reply_it_translation">Perfekt! Vill du ha något mer idag?</string>
+    <string name="roleplay_cloud_note_default">Jättebra samtalsflöde!</string>
+
+    <!-- Practice Phrases -->
+    <string name="phrase_ja_1_translation">Hej, hur mår du?</string>
+    <string name="phrase_ja_1_focus">Rak tonhöjd på \'Konnichiwa\'</string>
+    <string name="phrase_ja_2_translation">Jag tar den här, tack.</string>
+    <string name="phrase_ja_2_focus">Lätt tungslag på \'r\'</string>
+    <string name="phrase_ja_3_translation">Tack så hemskt mycket!</string>
+    <string name="phrase_ja_3_focus">Lång \'ou\'-vokal</string>
+    <string name="phrase_ja_4_translation">Ursäkta, var ligger stationen?</string>
+    <string name="phrase_ja_4_focus">Hövlig stigande intonation</string>
+    <string name="phrase_ja_5_translation">Det är väldigt gott!</string>
+    <string name="phrase_ja_5_focus">Rent tonlöst \'u\' i \'desu\'</string>
+
+    <string name="phrase_fr_1_translation">Hej, trevligt att träffas.</string>
+    <string name="phrase_fr_1_focus">Mjuka nasala \'en\' &amp; \'on\'</string>
+    <string name="phrase_fr_2_translation">En croissant och en kaffe, tack.</string>
+    <string name="phrase_fr_2_focus">Franskt tungrots-\'r\'</string>
+    <string name="phrase_fr_3_translation">Var ligger toaletten?</string>
+    <string name="phrase_fr_3_focus">Mjuk sammanbindning (liaison)</string>
+    <string name="phrase_fr_4_translation">Det är helt magnifikt!</string>
+    <string name="phrase_fr_4_focus">Rent \'u\' med rundade läppar</string>
+
+    <string name="phrase_es_1_translation">Hej! Hur mår du idag?</string>
+    <string name="phrase_es_1_focus">Tydliga öppna vokaler</string>
+    <string name="phrase_es_2_translation">Ett bord för två, tack.</string>
+    <string name="phrase_es_2_focus">Mjukt enkelt slag \'r\'</string>
+    <string name="phrase_es_3_translation">Snabbtågsjärnvägen.</string>
+    <string name="phrase_es_3_focus">Dubbelt rullande \'rr\'</string>
+    <string name="phrase_es_4_translation">Notan, tack.</string>
+    <string name="phrase_es_4_focus">Betoning på de sista stavelserna</string>
+
+    <string name="phrase_de_1_translation">God morgon, hur mår ni?</string>
+    <string name="phrase_de_1_focus">Lång \'ee\'-vokal i Ihnen</string>
+    <string name="phrase_de_2_translation">Jag skulle vilja ha en kaffe, tack.</string>
+    <string name="phrase_de_2_focus">Mjukt gom-\'ch\'-frikativa</string>
+    <string name="phrase_de_3_translation">Tack så mycket för hjälpen!</string>
+    <string name="phrase_de_3_focus">Rundade \'ö\' och \'ü\'</string>
+
+    <string name="phrase_ko_1_translation">Hej, trevligt att träffas!</string>
+    <string name="phrase_ko_1_focus">Hövlig melodisk kadens</string>
+    <string name="phrase_ko_2_translation">Hur mycket kostar den här?</string>
+    <string name="phrase_ko_2_focus">Mjukt \'l\'-ljud i eol-ma</string>
+    <string name="phrase_ko_3_translation">Smaklig måltid!</string>
+    <string name="phrase_ko_3_focus">Aspirerade vs spända konsonanter</string>
+
+    <string name="phrase_zh_1_translation">Hej, trevligt att träffas!</string>
+    <string name="phrase_zh_1_focus">Tredje tonens sandhi på Nǐ hǎo</string>
+    <string name="phrase_zh_2_translation">Ursäkta, hur mycket kostar den här?</string>
+    <string name="phrase_zh_2_focus">4:e ton på zhè, 2:a ton på qián</string>
+    <string name="phrase_zh_3_translation">Otroligt gott, tack!</string>
+    <string name="phrase_zh_3_focus">Fallande 4:e ton på Tài och xiè</string>
+
+    <string name="phrase_it_1_translation">God dag! Hur mår du?</string>
+    <string name="phrase_it_1_focus">Musikalisk stavelserytm</string>
+    <string name="phrase_it_2_translation">En pistagegelato, tack.</string>
+    <string name="phrase_it_2_focus">Paus vid dubbelkonsonsant \'cch\'</string>
+    <string name="phrase_it_3_translation">Tusen tack för allt!</string>
+    <string name="phrase_it_3_focus">Livliga dentala \'t\' &amp; \'z\'</string>
+
+    <string name="phrase_en_1_translation">Fråga efter vägen</string>
+    <string name="phrase_en_1_focus">Tonande \'th\' i the</string>
+    <string name="phrase_en_2_translation">Professionell karriärfråga</string>
+    <string name="phrase_en_2_focus">Slaget \'d\' i schedule</string>
+
+    <!-- Roleplay Scenarios -->
+    <string name="scenario_tokyo_cafe_title">Beställning på Tokyokafé</string>
+    <string name="scenario_tokyo_cafe_sensei">Kafébarista</string>
+    <string name="scenario_tokyo_cafe_user">Kund</string>
+    <string name="scenario_tokyo_cafe_init_translation">Välkommen! Har du bestämt vad du vill beställa?</string>
+
+    <string name="scenario_paris_boulangerie_title">Parisiskt bageri</string>
+    <string name="scenario_paris_boulangerie_sensei">Mästerbagare</string>
+    <string name="scenario_paris_boulangerie_user">Kund</string>
+    <string name="scenario_paris_boulangerie_init_translation">Hej! Vad får det lov att vara idag?</string>
+
+    <string name="scenario_madrid_tapas_title">Tapasbar i Madrid</string>
+    <string name="scenario_madrid_tapas_sensei">Tavernavärd</string>
+    <string name="scenario_madrid_tapas_user">Gäst</string>
+    <string name="scenario_madrid_tapas_init_translation">God eftermiddag! Vad kan jag servera dig att dricka till att börja med?</string>
+
+    <string name="scenario_seoul_market_title">Nattmarknad i Seoul</string>
+    <string name="scenario_seoul_market_sensei">Gatukökskock</string>
+    <string name="scenario_seoul_market_user">Besökare</string>
+    <string name="scenario_seoul_market_init_translation">Välkommen! Kom och smaka vår rykande heta tteokbokki!</string>
+
+    <string name="scenario_rome_gelato_title">Gelateria i Florens</string>
+    <string name="scenario_rome_gelato_sensei">Glassmästare</string>
+    <string name="scenario_rome_gelato_user">Kund</string>
+    <string name="scenario_rome_gelato_init_translation">Hej! Strut eller bägare? Vilka smaker vill du ha?</string>
+
+    <string name="scenario_berlin_tech_title">Berlins teknikträff</string>
+    <string name="scenario_berlin_tech_sensei">Teknisk ledare</string>
+    <string name="scenario_berlin_tech_user">Ingenjör</string>
+    <string name="scenario_berlin_tech_init_translation">Hej! Kul att ha dig här. Vilket projekt jobbar du med?</string>
+
+    <!-- Onboarding Screens -->
+    <string name="onboarding_skip">Hoppa över</string>
+    <string name="onboarding_back">Tillbaka</string>
+    <string name="onboarding_next">Nästa</string>
+    <string name="onboarding_get_started">Börja tala</string>
+    <string name="onboarding_step_format">Steg %1$d av %2$d</string>
+    <string name="onboarding_page1_badge">3D-röst- och tonstudio</string>
+    <string name="onboarding_page1_title">Tala som en infödd med din 3D-Sensei</string>
+    <string name="onboarding_page1_subtitle">Visualisera din röst i realtid med 60fps vågform, tonhöjdskurvor och uttalstips för mun och tunga.</string>
+    <string name="onboarding_page2_badge">Levande kulturella rollspel</string>
+    <string name="onboarding_page2_title">Öva på verkliga resescenarier</string>
+    <string name="onboarding_page2_subtitle">Beställ matcha i Tokyo, croissanter i Paris eller tapas i Madrid med fonetisk guide och svarsförslag.</string>
+    <string name="onboarding_page3_badge">Ordförråd &amp; Dojo-ligan</string>
+    <string name="onboarding_page3_title">Bygg ditt ordförråd och klättra i ligan</string>
+    <string name="onboarding_page3_subtitle">Repetera ord med flashcards, spela Dojo Blitz på 45s och välj ditt första språk nedan.</string>
+    <string name="onboarding_select_language_label">Välj ditt första språk att öva på:</string>
+    <string name="profile_btn_replay_onboarding">Interaktiv rundtur</string>
+
+    <!-- UX & Business Polish -->
+    <string name="cd_toggle_sensei_stage">Växla storlek på 3D-scenen</string>
+    <string name="daily_goal_title">Dagligt Dojo-mål</string>
+    <string name="daily_goal_progress_format">%1$d / %2$d pass idag</string>
+    <string name="daily_goal_completed_badge">Mål nått!</string>
+    <string name="donation_perks_title">Supporterförmåner ingår</string>
+    <string name="donation_perks_summary">Döljer banners permanent och finansierar nya röster och offlinepaket.</string>
+    <string name="donation_recommended_tag">Bäst värde</string>
+
+    <!-- Daily Streak -->
+    <string name="streak_dialog_title">Daglig inlärningssvit</string>
+    <string name="streak_best_format">Bästa svit: %1$d dagar</string>
+    <string name="streak_status_active_today">Dagens svit är säkrad! Fortsätt öva för att finslipa ditt uttal.</string>
+    <string name="streak_status_pending_today">Slutför 1 uttalsbedömning idag för att säkra din svit.</string>
+    <string name="streak_new_day_banner_format">%1$d-dagars svit upplåst!</string>
+    <!-- Voice Compare & Live Pitch -->
+    <string name="coach_record_pitch_sample">Spela in prov</string>
+    <string name="coach_stop_pitch_rec">Stoppa</string>
+    <string name="coach_play_mine">Hör dig själv</string>
+    <string name="coach_stop_mine">Stoppa ljud</string>
+    <string name="pitch_live_mic_badge">Live F0-mik</string>
+    <string name="result_play_sensei">Senseis röst</string>
+
+    <!-- Spaced Repetition & Streak Freeze -->
+    <string name="vocab_filter_due_today">Idag (%1$d)</string>
+    <string name="vocab_due_now_badge">Att repetera</string>
+    <string name="vocab_next_interval_format">Om %1$dd</string>
+    <string name="vocab_next_review_hint_format">Nästa repetition om %1$d dagar om du minns</string>
+    <string name="vocab_btn_repeat">Behöver övas</string>
+    <string name="streak_freeze_count_format">Svit-frysningar: %1$d/3</string>
+    <string name="streak_freeze_saved_banner">En svit-frysning skyddade din svit!</string>
+
+    <!-- Hands-Free Commuter Shadowing -->
+    <string name="shadowing_title">Pendlings-shadowing</string>
+    <string name="shadowing_subtitle">Handsfree lyssna- och upprepa-loop</string>
+    <string name="shadowing_speed_slow">0,75x</string>
+    <string name="shadowing_speed_normal">1,0x</string>
+    <string name="shadowing_btn_start">Starta</string>
+    <string name="shadowing_btn_stop">Stopp</string>
+    <string name="shadowing_step_listening">Sensei talar — lyssna noga…</string>
+    <string name="shadowing_step_repeat">Din tur — upprepa högt nu…</string>
+
+    <!-- Custom Phrases & Roleplay Scenarios -->
+    <string name="custom_phrase_btn">Ny fras</string>
+    <string name="custom_phrase_dialog_title">Lägg till egen %1$s-fras</string>
+    <string name="custom_phrase_target_label">Fras på målspråket</string>
+    <string name="custom_phrase_phonetic_label">Fonetisk guide</string>
+    <string name="custom_phrase_translation_label">Betydelse</string>
+    <string name="custom_phrase_focus_label">Uttalsfokusnotering</string>
+    <string name="custom_save_btn">Spara</string>
+    <string name="custom_scenario_btn">Nytt scenario</string>
+    <string name="custom_scenario_dialog_title">Skapa %1$s-rollspel</string>
+    <string name="custom_scenario_templates_label">Snabbmallar:</string>
+    <string name="custom_scenario_title_label">Scenariotitel</string>
+    <string name="custom_scenario_sensei_role_label">Senseis roll (t.ex. Intervjuare)</string>
+    <string name="custom_scenario_user_role_label">Din roll (t.ex. Sökande)</string>
+    <string name="custom_scenario_opening_label">Senseis öppningsreplik</string>
+    <string name="scenario_template_interview_title">Anställningsintervju</string>
+    <string name="scenario_template_interview_sensei">Rekryteringschef</string>
+    <string name="scenario_template_interview_user">Kandidat</string>
+    <string name="scenario_template_interview_open">Hej! Tack för att du kom idag. Kan du presentera dig kort?</string>
+    <string name="scenario_template_hotel_title">Hotellincheckning</string>
+    <string name="scenario_template_hotel_sensei">Receptionist</string>
+    <string name="scenario_template_hotel_user">Gäst</string>
+    <string name="scenario_template_hotel_open">Välkommen till vårt hotell! Har du en bokning i ditt namn?</string>
+
+    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <string name="reminder_channel_name">Dagliga övningspåminnelser</string>
+    <string name="reminder_channel_desc">Valfri kvällspåminnelse om din dagliga svit ännu inte är låst.</string>
+    <string name="reminder_notif_title">Håll din Dojo-svit vid liv! 🔥</string>
+    <string name="reminder_notif_body_format">Du har en %1$d-dagarssvit — säg 1 snabb fras innan läggdags.</string>
+    <string name="reminder_card_title">Kvällspåminnelse för svit</string>
+    <string name="reminder_card_subtitle">Smart avisering bara om du inte har övat idag</string>
+    <string name="reminder_time_label">Påminn kl:</string>
+    <string name="reminder_hour_format">%1$d:00</string>
+    <string name="reminder_permission_denied">Aktivera aviseringar i systeminställningarna för att få påminnelser.</string>
+    <string name="share_card_btn">Dela kort</string>
+    <string name="share_card_chooser">Dela milstolpekort</string>
+    <string name="share_card_headline_score">Uttalsmästerskap</string>
+    <string name="share_card_headline_streak">Dojo-svitmilstolpe</string>
+    <string name="share_card_streak_format">%1$d dagars svit</string>
+    <string name="difficulty_custom">Anpassad</string>
+    <string name="ai_byok_get_key_btn">Hämta gratis Gemini-nyckel (AI Studio)</string>
+    <string name="topic_pack_generate_btn">⚡ Skapa AI-lektionspaket</string>
+    <string name="roleplay_live_call_start">Livesamtal</string>
+    <string name="roleplay_live_call_active">Avsluta samtal</string>
+    <string name="topic_pack_phrase1_trans">Ursäkta, kan du berätta om %1$s?</string>
+    <string name="topic_pack_phrase2_trans">Vilken rekommenderar du?</string>
+    <string name="topic_pack_phrase3_trans">Det var till stor hjälp, tack så mycket!</string>
+    <string name="topic_pack_sensei_role">Lokal guide</string>
+    <string name="topic_pack_user_role">Resenär</string>
+    <string name="scenario_shanghai_tea_title">Tehus i Shanghai</string>
+    <string name="scenario_shanghai_tea_sensei">Temästare</string>
+    <string name="scenario_shanghai_tea_user">Gäst</string>
+    <string name="scenario_shanghai_tea_init_translation">Välkommen! Vilket te vill du smaka på idag?</string>
+    <string name="scenario_london_interview_title">Studiokaffe i London</string>
+    <string name="scenario_london_interview_sensei">Projektvärd</string>
+    <string name="scenario_london_interview_user">Skapare</string>
+    <string name="scenario_london_interview_init_translation">God morgon! Berätta vad som inspirerar dig med ditt nästa projekt.</string>
+</resources>
