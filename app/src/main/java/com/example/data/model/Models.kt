@@ -28,7 +28,7 @@ data class VocabItem(
     val phonetic: String = "",
     val language: String = "Japanese",
     val masteryLevel: Long = 1L,
-    val pronunciationScore: Long = 80L,
+    val pronunciationScore: Long = 0L,
     @ServerTimestamp val createdAt: Timestamp? = null,
     @ServerTimestamp val updatedAt: Timestamp? = null
 )
@@ -53,8 +53,8 @@ data class LeaderboardEntry(
     val targetLanguage: String = "Japanese",
     val leagueTier: String = "White Belt",
     val totalXp: Long = 0L,
-    val streakDays: Long = 1L,
-    val avgAccuracy: Long = 85L,
+    val streakDays: Long = 0L,
+    val avgAccuracy: Long = 0L,
     @ServerTimestamp val updatedAt: Timestamp? = null
 )
 

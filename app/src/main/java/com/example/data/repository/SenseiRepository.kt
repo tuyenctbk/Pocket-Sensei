@@ -58,22 +58,14 @@ class SenseiRepository(
             userId = "guest_local",
             displayName = defaultStudentName,
             targetLanguage = "Japanese",
-            currentStreak = 1L,
+            currentStreak = 0L,
             wordsMastered = 0L,
-            totalMinutesPracticed = 5L,
-            avgPronunciationScore = 85L
+            totalMinutesPracticed = 0L,
+            avgPronunciationScore = 0L
         )
     )
 
     private val localSessionsFlow = MutableStateFlow<List<PracticeSession>>(emptyList())
-
-    private val localLeaderboardSeed = listOf(
-        LeaderboardEntry(id = "sensei_kenji", userId = "sensei_kenji", displayName = "Kenji Sato", targetLanguage = "Japanese", leagueTier = "Black Belt Sensei", totalXp = 2840L, streakDays = 21L, avgAccuracy = 94L),
-        LeaderboardEntry(id = "sensei_marie", userId = "sensei_marie", displayName = "Marie Laurent", targetLanguage = "French", leagueTier = "Gold Tier", totalXp = 1920L, streakDays = 14L, avgAccuracy = 91L),
-        LeaderboardEntry(id = "sensei_mateo", userId = "sensei_mateo", displayName = "Mateo Silva", targetLanguage = "Spanish", leagueTier = "Gold Tier", totalXp = 1640L, streakDays = 11L, avgAccuracy = 89L),
-        LeaderboardEntry(id = "sensei_minji", userId = "sensei_minji", displayName = "Min-ji Park", targetLanguage = "Korean", leagueTier = "Silver Tier", totalXp = 1120L, streakDays = 8L, avgAccuracy = 88L),
-        LeaderboardEntry(id = "sensei_lukas", userId = "sensei_lukas", displayName = "Lukas Weber", targetLanguage = "German", leagueTier = "Bronze Tier", totalXp = 640L, streakDays = 5L, avgAccuracy = 84L)
-    )
 
     private val isCloudSignedIn: Boolean
         get() = db != null && auth?.currentUser != null
@@ -109,8 +101,8 @@ class SenseiRepository(
                     "targetLanguage" to targetLanguage,
                     "currentStreak" to 0L,
                     "wordsMastered" to 0L,
-                    "totalMinutesPracticed" to 5L,
-                    "avgPronunciationScore" to 85L,
+                    "totalMinutesPracticed" to 0L,
+                    "avgPronunciationScore" to 0L,
                     "createdAt" to FieldValue.serverTimestamp(),
                     "updatedAt" to FieldValue.serverTimestamp()
                 )
@@ -631,7 +623,7 @@ class SenseiRepository(
                         streakDays = profile.currentStreak,
                         avgAccuracy = profile.avgPronunciationScore
                     )
-                    val combined = localLeaderboardSeed + me
+                    val combined = listOf(me)
                     val filtered = if (language == "All") combined else combined.filter {
                         it.targetLanguage.equals(language, ignoreCase = true)
                     }
