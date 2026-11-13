@@ -151,8 +151,9 @@ class DonationBillingManager(
             .setProductList(productList)
             .build()
 
-        billingClient.queryProductDetailsAsync(params) { billingResult, productDetailsList ->
+        billingClient.queryProductDetailsAsync(params) { billingResult, queryProductDetailsResult ->
             if (isDestroyed) return@queryProductDetailsAsync
+            val productDetailsList = queryProductDetailsResult.productDetailsList
             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK && productDetailsList.isNotEmpty()) {
                 val priceMap = mutableMapOf<String, String>()
                 productDetailsList.forEach { details ->
