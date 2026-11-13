@@ -18,6 +18,7 @@
     <string name="auth_feature_sync_desc">Track mastered vocabulary and keep your daily learning streak</string>
     <string name="cd_sign_in_icon">Sign in icon</string>
     <string name="auth_sign_in_google">Sign in with Google</string>
+    <string name="auth_continue_guest">Continue as Guest (Offline)</string>
     <string name="auth_sign_in_footer">Sign in to persist your streaks and mastered vocabulary in Firestore</string>
     <string name="auth_error_missing_client_id">Google Sign-In configuration missing: default_web_client_id not found</string>
     <string name="auth_error_unexpected_credential">Unexpected credential type</string>
@@ -95,7 +96,7 @@
 
     <!-- Coach Screen & Feedback Card -->
     <string name="coach_practice_phrases">Practice Phrases</string>
-    <string name="coach_dojo_blitz_btn">Dojo Blitz ($0)</string>
+    <string name="coach_dojo_blitz_btn">Dojo Blitz • Free</string>
     <string name="cd_normal_speed">Normal Speed</string>
     <string name="cd_slow_speed">Slow Speed Audio</string>
     <string name="coach_focus_format">Focus: %1$s</string>
@@ -176,6 +177,7 @@
     <!-- Profile Screen -->
     <string name="profile_default_name">Sensei Student</string>
     <string name="profile_signed_in_google">Signed in with Google</string>
+    <string name="profile_guest_mode">Offline Guest Mode</string>
     <string name="profile_tier_badge">🏆 Master Speaker Tier</string>
     <string name="profile_outfit_title">3D Sensei Outfit</string>
     <string name="costume_traditional">Indigo Gi</string>

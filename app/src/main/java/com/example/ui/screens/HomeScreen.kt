@@ -1,8 +1,10 @@
 package com.example.ui.screens
 
 import android.Manifest
+import android.app.UiModeManager
 import android.content.Context
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.os.Build
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
@@ -36,6 +38,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -105,6 +108,9 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -133,6 +139,7 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -285,22 +292,43 @@ fun HomeScreen(
         }
     }
 
+    val configuration = LocalConfiguration.current
+    val isTv = remember(context) {
+        val uiModeManager = context.getSystemService(Context.UI_MODE_SERVICE) as? UiModeManager
+        uiModeManager?.currentModeType == Configuration.UI_MODE_TYPE_TELEVISION
+    }
+    val isTvOrWide = isTv || (configuration.screenWidthDp >= 840 && configuration.screenWidthDp > configuration.screenHeightDp)
+
     Scaffold(
         bottomBar = {
-            SenseiBottomNavigation(
-                currentTab = currentTab,
-                onTabSelected = { viewModel.setTab(it) }
-            )
+            if (!isTvOrWide) {
+                SenseiBottomNavigation(
+                    currentTab = currentTab,
+                    onTabSelected = { viewModel.setTab(it) }
+                )
+            }
         },
         containerColor = Color(0xFF0F0E26)
     ) { innerPadding ->
-        Column(
+        Row(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            // Top App Bar
-            TopBar(
+            if (isTvOrWide) {
+                SenseiNavigationRail(
+                    currentTab = currentTab,
+                    onTabSelected = { viewModel.setTab(it) }
+                )
+            }
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+            ) {
+                // Top App Bar
+                TopBar(
                 targetLanguage = targetLanguage,
                 languages = viewModel.supportedLanguages,
                 streak = effectiveStreak,
@@ -323,8 +351,154 @@ fun HomeScreen(
                 }
             )
 
-            // Context-aware & User-Collapsible 3D Sensei Stage
-            val autoStageHeight = when (currentTab) {
+                if (isTvOrWide) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .weight(0.36f)
+                                .fillMaxHeight()
+                                .background(Color(0xFF0F0E26))
+                        ) {
+                            Sensei3DView(
+                                controller = controller,
+                                modifier = Modifier.fillMaxSize()
+                            )
+                            Row(
+                                modifier = Modifier
+                                    .align(Alignment.BottomEnd)
+                                    .padding(10.dp),
+                                horizontalArrangement = Arrangement.spacedBy(4.dp)
+                            ) {
+                                IconButton(
+                                    onClick = {
+                                        val costumes = listOf("traditional", "crimson", "cyber", "sakura")
+                                        val nextIdx = (costumes.indexOf(senseiCostume) + 1) % costumes.size
+                                        val nextCostume = costumes[nextIdx]
+                                        viewModel.setSenseiCostume(nextCostume)
+                                        controller.setCostume(nextCostume)
+                                    },
+                                    modifier = Modifier.size(48.dp)
+                                ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(36.dp)
+                                            .clip(CircleShape)
+                                            .background(Color(0xFF312E81).copy(alpha = 0.85f)),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.Palette,
+                                            contentDescription = stringResource(R.string.cd_cycle_outfit),
+                                            tint = Color(0xFF34D399),
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                    }
+                                }
+                                IconButton(
+                                    onClick = {
+                                        controller.praise()
+                                        controller.playChime("praise")
+                                        speechManager.speak(context.getString(R.string.hud_praise_speech), targetLanguage)
+                                    },
+                                    modifier = Modifier.size(48.dp)
+                                ) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(36.dp)
+                                            .clip(CircleShape)
+                                            .background(Color(0xFF312E81).copy(alpha = 0.85f)),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.AutoAwesome,
+                                            contentDescription = stringResource(R.string.cd_praise_sensei),
+                                            tint = Color(0xFFF472B6),
+                                            modifier = Modifier.size(18.dp)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        Box(
+                            modifier = Modifier
+                                .weight(0.64f)
+                                .fillMaxHeight()
+                                .background(Color(0xFF141233))
+                        ) {
+                            AnimatedContent(
+                                targetState = currentTab,
+                                transitionSpec = {
+                                    (fadeIn(animationSpec = tween(180)) +
+                                        slideInVertically(animationSpec = tween(180)) { it / 24 })
+                                        .togetherWith(fadeOut(animationSpec = tween(140)))
+                                },
+                                label = "tvTabTransition"
+                            ) { tab ->
+                                when (tab) {
+                                    LearningTab.COACH -> CoachScreen(
+                                        viewModel = viewModel,
+                                        speechManager = speechManager,
+                                        hasMicPermission = hasMicPermission,
+                                        shouldShowDonationBanner = shouldShowDonationBanner && !isActiveSupporter,
+                                        onOpenDonationSheet = {
+                                            donationInitialChannel = DonationChannel.GOOGLE_PLAY
+                                            viewModel.trackDonationSheetOpened(DonationChannel.GOOGLE_PLAY)
+                                            showDonationModal = true
+                                        },
+                                        onDismissDonationBanner = { viewModel.dismissHomeDonationBanner() },
+                                        onRequestMicPermission = { permissionLauncher.launch(Manifest.permission.RECORD_AUDIO) },
+                                        onPraiseAndChime = {
+                                            controller.praise()
+                                            controller.playChime("praise")
+                                        }
+                                    )
+                                    LearningTab.ROLEPLAY -> RoleplayScreen(
+                                        viewModel = viewModel,
+                                        speechManager = speechManager,
+                                        hasMicPermission = hasMicPermission,
+                                        onRequestMicPermission = { permissionLauncher.launch(Manifest.permission.RECORD_AUDIO) }
+                                    )
+                                    LearningTab.VOCAB -> VocabMasteryScreen(
+                                        viewModel = viewModel,
+                                        speechManager = speechManager
+                                    )
+                                    LearningTab.LEAGUE -> LeagueScreen(viewModel = viewModel)
+                                    LearningTab.PROFILE -> ProfileScreen(
+                                        viewModel = viewModel,
+                                        isActiveSupporter = isActiveSupporter,
+                                        successfulOperationsCount = successfulOperations,
+                                        onOpenDonationSheet = { channel ->
+                                            donationInitialChannel = channel
+                                            viewModel.trackDonationSheetOpened(channel)
+                                            showDonationModal = true
+                                        },
+                                        onOpenPrivacyPolicy = { showPrivacyPolicyDialog = true },
+                                        onReplayOnboarding = onReplayOnboarding,
+                                        onSignOut = {
+                                            val credentialManager = CredentialManager.create(context)
+                                            coroutineScope.launch {
+                                                withContext(NonCancellable) {
+                                                    try {
+                                                        credentialManager.clearCredentialState(ClearCredentialStateRequest())
+                                                    } catch (_: Exception) {}
+                                                    runCatching { Firebase.auth.signOut() }
+                                                    onSignOutComplete()
+                                                }
+                                            }
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    // Context-aware & User-Collapsible 3D Sensei Stage
+                    val autoStageHeight = when (currentTab) {
                 LearningTab.COACH -> 220.dp
                 LearningTab.ROLEPLAY -> 150.dp
                 LearningTab.VOCAB, LearningTab.LEAGUE, LearningTab.PROFILE -> 108.dp
@@ -525,7 +699,7 @@ fun HomeScreen(
                                         try {
                                             credentialManager.clearCredentialState(ClearCredentialStateRequest())
                                         } catch (_: Exception) {}
-                                        Firebase.auth.signOut()
+                                        runCatching { Firebase.auth.signOut() }
                                         onSignOutComplete()
                                     }
                                 }
@@ -534,6 +708,8 @@ fun HomeScreen(
                     }
                 }
             }
+            }
+        }
         }
     }
 
@@ -2867,7 +3043,7 @@ private fun ProfileScreen(
     } else {
         (profile?.currentStreak ?: 0L).toInt()
     }
-    val user = Firebase.auth.currentUser
+    val user = runCatching { Firebase.auth.currentUser }.getOrNull()
 
     LazyColumn(
         modifier = Modifier
@@ -2916,7 +3092,11 @@ private fun ProfileScreen(
                             color = Color.White
                         )
                         Text(
-                            text = safeEmail ?: stringResource(R.string.profile_signed_in_google),
+                            text = safeEmail ?: if (user != null) {
+                                stringResource(R.string.profile_signed_in_google)
+                            } else {
+                                stringResource(R.string.profile_guest_mode)
+                            },
                             fontSize = 12.sp,
                             color = Color(0xFFA5B4FC)
                         )
@@ -2991,10 +3171,11 @@ private fun ProfileScreen(
                 StatCard(
                     modifier = Modifier.weight(1f),
                     title = stringResource(R.string.profile_stat_streak),
-                    value = stringResource(
-                        R.string.profile_stat_streak_value,
-                        effectiveStreakCount
-                    ),
+                    value = if (effectiveStreakCount == 1) {
+                        stringResource(R.string.streak_day_format, effectiveStreakCount)
+                    } else {
+                        stringResource(R.string.profile_stat_streak_value, effectiveStreakCount)
+                    },
                     icon = Icons.Default.LocalFireDepartment,
                     color = Color(0xFFF97316)
                 )
@@ -3319,7 +3500,7 @@ private fun LeagueScreen(viewModel: MainViewModel) {
     val leaderboard by viewModel.leaderboardState.collectAsState()
     val profile by viewModel.profileState.collectAsState()
     val filter by viewModel.leaderboardFilter.collectAsState()
-    val currentUid = Firebase.auth.currentUser?.uid
+    val currentUid = runCatching { Firebase.auth.currentUser?.uid }.getOrNull() ?: "guest_local"
 
     val filteredEntries = remember(leaderboard, filter) {
         if (filter == "All") leaderboard
@@ -3706,6 +3887,48 @@ private fun LeaderboardRowCard(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.ExtraBold,
                 color = Color(0xFF34D399)
+            )
+        }
+    }
+}
+
+@Composable
+private fun SenseiNavigationRail(
+    currentTab: LearningTab,
+    onTabSelected: (LearningTab) -> Unit
+) {
+    NavigationRail(
+        containerColor = Color(0xFF0F0E26),
+        contentColor = Color.White,
+        modifier = Modifier.fillMaxHeight()
+    ) {
+        val items = listOf(
+            Triple(LearningTab.COACH, stringResource(R.string.nav_coach), Icons.Filled.School to Icons.Outlined.School),
+            Triple(LearningTab.ROLEPLAY, stringResource(R.string.nav_roleplay), Icons.Filled.ChatBubble to Icons.Outlined.ChatBubble),
+            Triple(LearningTab.VOCAB, stringResource(R.string.nav_vocab), Icons.Filled.Star to Icons.Outlined.Star),
+            Triple(LearningTab.LEAGUE, stringResource(R.string.nav_league), Icons.Filled.EmojiEvents to Icons.Outlined.EmojiEvents),
+            Triple(LearningTab.PROFILE, stringResource(R.string.nav_profile), Icons.Filled.Person to Icons.Outlined.Person)
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        items.forEach { (tab, label, icons) ->
+            val selected = currentTab == tab
+            NavigationRailItem(
+                selected = selected,
+                onClick = { onTabSelected(tab) },
+                icon = {
+                    Icon(
+                        imageVector = if (selected) icons.first else icons.second,
+                        contentDescription = label
+                    )
+                },
+                label = { Text(label, fontSize = 11.sp, maxLines = 1) },
+                colors = NavigationRailItemDefaults.colors(
+                    selectedIconColor = Color.White,
+                    selectedTextColor = Color.White,
+                    indicatorColor = Color(0xFF4F46E5),
+                    unselectedIconColor = Color(0xFF818CF8),
+                    unselectedTextColor = Color(0xFF818CF8)
+                )
             )
         }
     }

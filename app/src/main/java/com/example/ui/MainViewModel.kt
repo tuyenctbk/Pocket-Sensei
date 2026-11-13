@@ -306,7 +306,7 @@ class MainViewModel(
     val senseiMood: StateFlow<String> = _senseiMood.asStateFlow()
 
     init {
-        val user = Firebase.auth.currentUser
+        val user = runCatching { Firebase.auth.currentUser }.getOrNull()
         if (user != null) {
             viewModelScope.launch {
                 val profileResult = repository.getOrCreateProfile(

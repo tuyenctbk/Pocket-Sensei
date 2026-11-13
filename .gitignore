@@ -1,19 +1,41 @@
+# Gradle & Kotlin
+.gradle/
+.kotlin/
+build/
+/build/
+*/build/
+
+# IDE & OS
 *.iml
-.gradle
-.kotlin
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+.idea/
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local & Secrets
 local.properties
+/local.properties
 .env
-debug.keystore
+.env.*
+!.env.example
+*.jks
+*.keystore
+!debug.keystore.example
+
+# Build outputs & Logs
+*.apk
+*.ap_
+*.aab
+*.apks
+*.dex
+*.class
+*.log
 *-debug.log
+*.hprof
+
+# Node / Firebase emulator
+node_modules/
+firebase-debug.log
+firestore-debug.log
+.firebase/

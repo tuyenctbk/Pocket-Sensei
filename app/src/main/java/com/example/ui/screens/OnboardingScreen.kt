@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -67,6 +68,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -158,6 +160,7 @@ fun OnboardingScreen(
     val pagerState = rememberPagerState(initialPage = 0, pageCount = { pages.size })
     val coroutineScope = rememberCoroutineScope()
     var selectedLanguage by remember(initialLanguage) { mutableStateOf(initialLanguage) }
+    val isCompactHeight = LocalConfiguration.current.screenHeightDp < 640
 
     BackHandler(enabled = pagerState.currentPage > 0) {
         coroutineScope.launch {
@@ -188,9 +191,9 @@ fun OnboardingScreen(
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .widthIn(max = 560.dp)
-                    .padding(horizontal = 20.dp, vertical = 14.dp),
+                    .fillMaxHeight()
+                    .widthIn(max = if (isCompactHeight) 700.dp else 560.dp)
+                    .padding(horizontal = 20.dp, vertical = if (isCompactHeight) 10.dp else 14.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 // Top Header: Step indicator + Skip button
@@ -261,7 +264,14 @@ fun OnboardingScreen(
                         Card(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(if (pageIndex == pages.lastIndex) 160.dp else 220.dp)
+                                .height(
+                                    when {
+                                        isCompactHeight && pageIndex == pages.lastIndex -> 96.dp
+                                        isCompactHeight -> 156.dp
+                                        pageIndex == pages.lastIndex -> 160.dp
+                                        else -> 220.dp
+                                    }
+                                )
                                 .graphicsLayer {
                                     scaleX = cardScale
                                     scaleY = cardScale
@@ -318,15 +328,15 @@ fun OnboardingScreen(
                             }
                         }
 
-                        Spacer(modifier = Modifier.height(20.dp))
+                        Spacer(modifier = Modifier.height(if (isCompactHeight) 10.dp else 20.dp))
 
                         Text(
                             text = stringResource(page.titleRes),
-                            fontSize = 23.sp,
+                            fontSize = if (isCompactHeight) 20.sp else 23.sp,
                             fontWeight = FontWeight.ExtraBold,
                             color = Color.White,
                             textAlign = TextAlign.Center,
-                            lineHeight = 29.sp,
+                            lineHeight = if (isCompactHeight) 25.sp else 29.sp,
                             modifier = Modifier.padding(horizontal = 6.dp)
                         )
 

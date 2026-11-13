@@ -2,6 +2,7 @@ package com.example
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,6 +33,7 @@ import com.example.ui.screens.SenseiSplashScreen
 import com.example.ui.theme.MyApplicationTheme
 import com.example.util.configureAppCheck
 import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 
@@ -42,7 +44,10 @@ class MainActivity : ComponentActivity() {
         // MANDATORY: Configure App Check with launch intent before any UI or Firebase operations
         configureAppCheck(this, intent)
 
-        enableEdgeToEdge()
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT)
+        )
 
         setContent {
             MyApplicationTheme {
@@ -68,15 +73,23 @@ fun PocketSenseiApp() {
         mutableStateOf(OnboardingPreferences.getPreferredLanguage(appContext) ?: "Japanese")
     }
     var onboardingJustCompleted by remember { mutableStateOf(false) }
-    var currentUser by remember { mutableStateOf(Firebase.auth.currentUser) }
+    val isFirebaseInitialized = remember { FirebaseApp.getApps(appContext).isNotEmpty() }
+    var currentUser by remember {
+        mutableStateOf(if (isFirebaseInitialized) Firebase.auth.currentUser else null)
+    }
+    var isGuestMode by remember { mutableStateOf(false) }
 
-    DisposableEffect(Unit) {
-        val listener = FirebaseAuth.AuthStateListener { auth ->
-            currentUser = auth.currentUser
-        }
-        Firebase.auth.addAuthStateListener(listener)
-        onDispose {
-            Firebase.auth.removeAuthStateListener(listener)
+    DisposableEffect(isFirebaseInitialized) {
+        if (!isFirebaseInitialized) {
+            onDispose {}
+        } else {
+            val listener = FirebaseAuth.AuthStateListener { auth ->
+                currentUser = auth.currentUser
+            }
+            Firebase.auth.addAuthStateListener(listener)
+            onDispose {
+                Firebase.auth.removeAuthStateListener(listener)
+            }
         }
     }
 
@@ -94,14 +107,17 @@ fun PocketSenseiApp() {
                 showOnboarding = false
             }
         )
-    } else if (currentUser == null) {
+    } else if (currentUser == null && !isGuestMode) {
         AuthScreen(
             onAuthSuccess = {
-                currentUser = Firebase.auth.currentUser
+                currentUser = if (isFirebaseInitialized) Firebase.auth.currentUser else null
+            },
+            onContinueAsGuest = {
+                isGuestMode = true
             }
         )
     } else {
-        val uid = currentUser!!.uid
+        val uid = currentUser?.uid ?: "guest_local"
         key(uid) {
             val context = LocalContext.current
             val repository = remember(uid) { SenseiRepository(context) }
@@ -140,6 +156,7 @@ fun PocketSenseiApp() {
                 },
                 onSignOutComplete = {
                     currentUser = null
+                    isGuestMode = false
                 }
             )
         }
