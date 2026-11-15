@@ -27,12 +27,23 @@ data class AiSettingsSnapshot(
     val mode: AiCoachingMode = AiCoachingMode.HYBRID_FREE,
     val hasByokKey: Boolean = false,
     val dailyCloudCallsUsed: Int = 0,
-    val dailyFreeCloudCap: Int = AiSettingsManager.DEFAULT_DAILY_FREE_CAP
+    val dailyFreeCloudCap: Int = AiSettingsManager.DEFAULT_DAILY_FREE_CAP,
+    val ecoLiteMode: Boolean = false,
+    val graceCredits: Int = 0,
+    val currentTier: AiModelConfig.AiCapabilityTier = AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY
 )
 
-class AiSettingsManager(context: Context) {
+class AiSettingsManager(
+    context: Context,
+    val quotaManager: UsageQuotaManager? = null
+) {
 
-    private val prefs = context.applicationContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    private val appContext = context.applicationContext
+    private val prefs = appContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+    val usageQuotaManager: UsageQuotaManager by lazy {
+        quotaManager ?: UsageQuotaManager(appContext)
+    }
 
     private val _settings = MutableStateFlow(readSnapshot())
     val settings: StateFlow<AiSettingsSnapshot> = _settings.asStateFlow()
@@ -67,7 +78,42 @@ class AiSettingsManager(context: Context) {
     }
 
     fun canUseFreeCloudQuota(): Boolean {
-        return getDailyCloudCount() < DEFAULT_DAILY_FREE_CAP
+        if (getCurrentMode() == AiCoachingMode.LOCAL_OFFLINE_ONLY) return false
+        return usageQuotaManager.canConsume(QuotaFeature.PRONUNCIATION_EVALUATION)
+    }
+
+    @Synchronized
+    fun tryConsumeCloudQuota(feature: QuotaFeature = QuotaFeature.PRONUNCIATION_EVALUATION): Boolean {
+        return when (getCurrentMode()) {
+            AiCoachingMode.LOCAL_OFFLINE_ONLY -> false
+            AiCoachingMode.BYOK_USER_KEY -> true
+            AiCoachingMode.HYBRID_FREE -> {
+                val deducted = usageQuotaManager.deductInteraction(feature)
+                if (deducted && feature == QuotaFeature.PRONUNCIATION_EVALUATION) {
+                    val dayKey = currentDayKey()
+                    val updated = getDailyCloudCount() + 1
+                    prefs.edit()
+                        .putString(KEY_CLOUD_USAGE_DAY, dayKey)
+                        .putInt(KEY_CLOUD_USAGE_COUNT, updated)
+                        .apply()
+                }
+                _settings.value = readSnapshot()
+                deducted
+            }
+        }
+    }
+
+    @Synchronized
+    fun refundCloudQuota(feature: QuotaFeature = QuotaFeature.PRONUNCIATION_EVALUATION) {
+        if (getCurrentMode() != AiCoachingMode.HYBRID_FREE) return
+        if (feature == QuotaFeature.PRONUNCIATION_EVALUATION) {
+            val count = getDailyCloudCount()
+            if (count > 0) {
+                prefs.edit().putInt(KEY_CLOUD_USAGE_COUNT, count - 1).apply()
+            }
+        }
+        usageQuotaManager.refundInteraction(feature)
+        _settings.value = readSnapshot()
     }
 
     fun incrementDailyCloudUsage() {
@@ -77,6 +123,33 @@ class AiSettingsManager(context: Context) {
             .putString(KEY_CLOUD_USAGE_DAY, dayKey)
             .putInt(KEY_CLOUD_USAGE_COUNT, updated)
             .apply()
+        usageQuotaManager.deductInteraction(QuotaFeature.PRONUNCIATION_EVALUATION)
+        _settings.value = readSnapshot()
+    }
+
+    fun refundDailyCloudUsage() {
+        val count = getDailyCloudCount()
+        if (count > 0) {
+            prefs.edit().putInt(KEY_CLOUD_USAGE_COUNT, count - 1).apply()
+        }
+        usageQuotaManager.refundInteraction(QuotaFeature.PRONUNCIATION_EVALUATION)
+        _settings.value = readSnapshot()
+    }
+
+    fun toggleEcoLiteMode(enabled: Boolean) {
+        usageQuotaManager.toggleEcoLiteMode(enabled)
+        _settings.value = readSnapshot()
+    }
+
+    fun claimGraceCredits(): Boolean {
+        val success = usageQuotaManager.claimDailyGraceCredits()
+        if (success) {
+            _settings.value = readSnapshot()
+        }
+        return success
+    }
+
+    fun refreshSettings() {
         _settings.value = readSnapshot()
     }
 
@@ -94,11 +167,25 @@ class AiSettingsManager(context: Context) {
     }
 
     private fun readSnapshot(): AiSettingsSnapshot {
+        val quotaSnap = usageQuotaManager.quotaState.value
+        val activeBaseCap = if (quotaSnap.isSignedIn) {
+            UsageQuotaManager.SIGNED_IN_CAP_EVALUATIONS
+        } else {
+            UsageQuotaManager.GUEST_CAP_EVALUATIONS
+        }
+        val tier = when (getCurrentMode()) {
+            AiCoachingMode.LOCAL_OFFLINE_ONLY -> AiModelConfig.AiCapabilityTier.TIER_3_ZERO_COST_LOCAL
+            AiCoachingMode.BYOK_USER_KEY -> AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY
+            AiCoachingMode.HYBRID_FREE -> usageQuotaManager.resolveCurrentTier(QuotaFeature.PRONUNCIATION_EVALUATION)
+        }
         return AiSettingsSnapshot(
             mode = getCurrentMode(),
             hasByokKey = getUserApiKey().isNotBlank(),
-            dailyCloudCallsUsed = getDailyCloudCount(),
-            dailyFreeCloudCap = DEFAULT_DAILY_FREE_CAP
+            dailyCloudCallsUsed = maxOf(getDailyCloudCount(), quotaSnap.evaluationsUsed),
+            dailyFreeCloudCap = activeBaseCap + quotaSnap.bonusGraceCredits,
+            ecoLiteMode = quotaSnap.ecoLiteMode,
+            graceCredits = quotaSnap.bonusGraceCredits,
+            currentTier = tier
         )
     }
 

@@ -1,7 +1,5 @@
 package com.example.audio
 
-import kotlin.math.abs
-
 /**
  * Zero-cost on-device speech DSP helper using time-domain autocorrelation (AMDF/YIN-inspired)
  * to extract fundamental vocal frequency (F0 in Hz) and 4-point intonation contours.
@@ -105,9 +103,6 @@ object AudioPitchAnalyzer {
         val base = if (current.size == targetSize) current else List(targetSize) { 0.08f }
         val last = base.lastOrNull() ?: 0.08f
         val smoothed = (last * 0.35f) + (nextNormalizedSample.coerceIn(0.05f, 1f) * 0.65f)
-        val shifted = base.drop(1) + smoothed
-        return shifted.mapIndexed { idx, v ->
-            if (idx < shifted.lastIndex - 6 && abs(v - 0.08f) > 0.01f) v else v
-        }
+        return base.drop(1) + smoothed
     }
 }

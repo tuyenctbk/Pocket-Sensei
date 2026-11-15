@@ -348,7 +348,32 @@ class LocalizationResourcesTest {
                 R.string.scenario_london_interview_title,
                 R.string.scenario_london_interview_sensei,
                 R.string.scenario_london_interview_user,
-                R.string.scenario_london_interview_init_translation
+                R.string.scenario_london_interview_init_translation,
+                R.string.auth_continue_guest,
+                R.string.profile_guest_mode,
+                R.string.quota_switch_eco_lite,
+                R.string.quota_eco_lite_desc,
+                R.string.quota_card_title,
+                R.string.quota_card_subtitle,
+                R.string.quota_action_grace_title,
+                R.string.quota_action_grace_desc,
+                R.string.quota_action_grace_btn,
+                R.string.quota_action_grace_claimed,
+                R.string.quota_action_eco_title,
+                R.string.quota_action_eco_desc,
+                R.string.quota_action_eco_btn,
+                R.string.quota_action_local_title,
+                R.string.quota_action_local_desc,
+                R.string.quota_action_local_btn,
+                R.string.quota_action_reset_title,
+                R.string.quota_value_receipt_title,
+                R.string.quota_guest_unlock_title,
+                R.string.quota_guest_unlock_desc,
+                R.string.quota_guest_unlock_btn,
+                R.string.quota_eco_mode_active_badge,
+                R.string.quota_tier_primary_badge,
+                R.string.quota_tier_eco_badge,
+                R.string.quota_tier_local_badge
             )
             for (resId in extraNonFormatIds) {
                 val value = localizedContext.getString(resId)
@@ -360,6 +385,9 @@ class LocalizationResourcesTest {
             assertTrue(localizedContext.getString(R.string.reminder_notif_body_format, 9).contains(num(9)))
             assertTrue(localizedContext.getString(R.string.reminder_hour_format, 20).contains(num(20)))
             assertTrue(localizedContext.getString(R.string.share_card_streak_format, 12).contains(num(12)))
+            assertTrue(localizedContext.getString(R.string.quota_soft_nudge_banner, 80, 2, "4h 15m").contains("4h 15m"))
+            assertTrue(localizedContext.getString(R.string.quota_action_reset_desc, "4h 15m").contains("4h 15m"))
+            assertTrue(localizedContext.getString(R.string.quota_value_receipt_summary, 7, 3, 1).contains(num(7)))
         }
     }
 

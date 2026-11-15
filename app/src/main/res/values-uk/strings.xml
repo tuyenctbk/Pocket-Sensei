@@ -23,7 +23,7 @@
     <string name="auth_error_unexpected_credential">Неочікуваний тип облікових даних</string>
     <string name="auth_error_sign_in_failed">Помилка входу</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">Тренер</string>
     <string name="nav_roleplay">Діалог</string>
     <string name="nav_vocab">Словник</string>
@@ -46,7 +46,7 @@
     <string name="mood_thinking">Аналіз акценту…</string>
     <string name="mood_correcting">Порада від Сенсея</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">Усі</string>
     <string name="lang_japanese">Японська</string>
     <string name="lang_spanish">Іспанська</string>
@@ -72,7 +72,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">Ваш ключ Gemini (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">Доступне оновлення (v%1$s)</string>
     <string name="prompt_rate_title">Подобається Pocket Sensei?</string>
     <string name="prompt_share_title">Поділіться прогресом!</string>
@@ -93,7 +93,7 @@
     <string name="share_app_subject">Pocket Sensei — 3D-тренер мов і акценту</string>
     <string name="share_app_chooser">Поділитися Pocket Sensei</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">Фрази для практики</string>
     <string name="coach_dojo_blitz_btn">Додзьо-бліц ($0)</string>
     <string name="cd_normal_speed">Звичайна швидкість</string>
@@ -208,7 +208,7 @@
     <string name="league_user_you">%1$s (Ви)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$dд • %3$d%% сер.</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">ШІ-рушій і контроль витрат</string>
     <string name="ai_cached_count">%1$d в кеші ($0)</string>
     <string name="ai_cloud_quota_summary">Безкоштовні виклики сьогодні: %1$d/%2$d. Повтори завантажуються безкоштовно з Room.</string>
@@ -240,7 +240,7 @@
     <string name="blitz_play_again">Грати ще</string>
     <string name="blitz_finish_early">Завершити</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">Подобається практика?</string>
     <string name="donation_banner_subtitle">Підтримайте незалежну розробку без реклами чашкою кави.</string>
     <string name="donation_banner_cta">Підтримати</string>
@@ -308,7 +308,7 @@
     <string name="kofi_copied_toast">Посилання Ko-fi скопійовано: %1$s</string>
     <string name="privacy_loaded_in_app">Політику конфіденційності завантажено в застосунку.</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">Розпізнавання мовлення недоступне на цьому пристрої. Використовуйте введення тексту.</string>
     <string name="hud_praise_speech">Чудово! Дуже вражаюче!</string>
     <string name="hud_greet_speech">Привіт! Потренуймося говорити сьогодні!</string>
@@ -452,7 +452,7 @@
     <string name="onboarding_select_language_label">Оберіть першу мову для практики:</string>
     <string name="profile_btn_replay_onboarding">Огляд застосунку</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">Змінити розмір 3D-сцени Сенсея</string>
     <string name="daily_goal_title">Щоденна ціль Додзьо</string>
     <string name="daily_goal_progress_format">%1$d / %2$d занять сьогодні</string>
@@ -467,7 +467,7 @@
     <string name="streak_status_active_today">Серію на сьогодні зафіксовано! Продовжуйте говорити, щоб відточити акцент.</string>
     <string name="streak_status_pending_today">Пройдіть сьогодні 1 оцінку в Тренері вимови, щоб зберегти серію.</string>
     <string name="streak_new_day_banner_format">Серію з %1$d дн. відкрито!</string>
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">Записати зразок</string>
     <string name="coach_stop_pitch_rec">Стоп запис</string>
     <string name="coach_play_mine">Почути себе</string>
@@ -475,7 +475,7 @@
     <string name="pitch_live_mic_badge">Живий F0 мікрофон</string>
     <string name="result_play_sensei">Голос Сенсея</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">На сьогодні (%1$d)</string>
     <string name="vocab_due_now_badge">Час повторити</string>
     <string name="vocab_next_interval_format">Через %1$dд</string>
@@ -494,7 +494,7 @@
     <string name="shadowing_step_listening">Сенсей говорить — слухайте уважно…</string>
     <string name="shadowing_step_repeat">Ваша черга — повторіть уголос…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">Додати фразу</string>
     <string name="custom_phrase_dialog_title">Своя фраза (%1$s)</string>
     <string name="custom_phrase_target_label">Фраза цільовою мовою</string>
@@ -518,7 +518,7 @@
     <string name="scenario_template_hotel_user">Гість</string>
     <string name="scenario_template_hotel_open">Ласкаво просимо до нашого готелю! Чи є у вас бронювання на ваше ім\'я?</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">Щоденні нагадування</string>
     <string name="reminder_channel_desc">Додаткове вечірнє сповіщення, якщо серія за день ще не зафіксована.</string>
     <string name="reminder_notif_title">Збережіть серію в Додзьо! 🔥</string>
@@ -551,4 +551,32 @@
     <string name="scenario_london_interview_sensei">Ведучий проєкту</string>
     <string name="scenario_london_interview_user">Творець</string>
     <string name="scenario_london_interview_init_translation">Доброго ранку! Розкажіть, що вас надихає у вашому наступному проєкті.</string>
+    <string name="auth_continue_guest">Продовжити як гість (Офлайн)</string>
+    <string name="profile_guest_mode">Офлайн-режим гостя</string>
+    <string name="quota_soft_nudge_banner">Ви використали %1$d%% денного ліміту ШІ (залишилось %2$d • Скидання через %3$s).</string>
+    <string name="quota_switch_eco_lite">Увімкнути режим Еко Лайт</string>
+    <string name="quota_eco_lite_desc">Увімкніть Еко Лайт, щоб використовувати швидку легку модель і подовжити ліміт у 3 рази.</string>
+    <string name="quota_card_title">Розумне відновлення квоти</string>
+    <string name="quota_card_subtitle">Ви досягли стандартного ліміту ШІ на сьогодні. Оберіть варіант миттєвого продовження:</string>
+    <string name="quota_action_grace_title">Отримати +3 бонусні кредити</string>
+    <string name="quota_action_grace_desc">У процесі заняття? Отримайте +3 безкоштовні кредити (1 раз на день), щоб завершити вправу.</string>
+    <string name="quota_action_grace_btn">Отримати +3 кредити</string>
+    <string name="quota_action_grace_claimed">Сьогодні вже отримано</string>
+    <string name="quota_action_eco_title">Повторити з Еко Лайт ШІ</string>
+    <string name="quota_action_eco_desc">Виконати цей запит за допомогою легшої та швидшої моделі з високою доступністю.</string>
+    <string name="quota_action_eco_btn">Використовувати Еко Лайт ШІ</string>
+    <string name="quota_action_local_title">Локальний Сенсей без лімітів ($0)</string>
+    <string name="quota_action_local_desc">Тренуйтеся на пристрої ($0 витрат на хмару) — зберігайте серію днів та заробляйте XP.</string>
+    <string name="quota_action_local_btn">Продовжити з локальним Сенсеєм</string>
+    <string name="quota_action_reset_title">Зворотний відлік до оновлення</string>
+    <string name="quota_action_reset_desc">Ваш безкоштовний ліміт автоматично відновиться через %1$s (опівночі).</string>
+    <string name="quota_value_receipt_title">Звіт про цінність ШІ за сьогодні</string>
+    <string name="quota_value_receipt_summary">Оцінено фраз: %1$d • Реплік у діалогах: %2$d • Слів вивчено: %3$d</string>
+    <string name="quota_guest_unlock_title">Розблокуйте повний стартовий ліміт</string>
+    <string name="quota_guest_unlock_desc">Навчаєтеся як гість? Увійдіть через Google безкоштовно, щоб отримати 25 оцінок щодня та синхронізацію.</string>
+    <string name="quota_guest_unlock_btn">Увійти для розблокування</string>
+    <string name="quota_eco_mode_active_badge">Еко Лайт активний</string>
+    <string name="quota_tier_primary_badge">Стандартний ШІ</string>
+    <string name="quota_tier_eco_badge">Еко Лайт ШІ</string>
+    <string name="quota_tier_local_badge">Локальний тренер ($0)</string>
 </resources>

@@ -23,7 +23,7 @@
     <string name="auth_error_unexpected_credential">Nieoczekiwany typ poświadczeń</string>
     <string name="auth_error_sign_in_failed">Logowanie nie powiodło się</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">Trener</string>
     <string name="nav_roleplay">Dialogi</string>
     <string name="nav_vocab">Słówka</string>
@@ -46,7 +46,7 @@
     <string name="mood_thinking">Analiza akcentu…</string>
     <string name="mood_correcting">Wskazówka od Sensei</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">Wszystkie</string>
     <string name="lang_japanese">Japoński</string>
     <string name="lang_spanish">Hiszpański</string>
@@ -72,7 +72,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">Twój klucz Gemini (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">Dostępna aktualizacja (v%1$s)</string>
     <string name="prompt_rate_title">Podoba Ci się Pocket Sensei?</string>
     <string name="prompt_share_title">Podziel się postępami!</string>
@@ -93,7 +93,7 @@
     <string name="share_app_subject">Pocket Sensei — Trener 3D języków i akcentu</string>
     <string name="share_app_chooser">Udostępnij Pocket Sensei</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">Zwroty do ćwiczeń</string>
     <string name="coach_dojo_blitz_btn">Błyskawica Dojo ($0)</string>
     <string name="cd_normal_speed">Normalna prędkość</string>
@@ -208,7 +208,7 @@
     <string name="league_user_you">%1$s (Ty)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$dd • %3$d%% śr.</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">Silnik AI i kontrola kosztów</string>
     <string name="ai_cached_count">%1$d w pamięci ($0)</string>
     <string name="ai_cloud_quota_summary">Darmowe zapytania dziś: %1$d/%2$d. Powtórki ładują się bezpłatnie z Room.</string>
@@ -240,7 +240,7 @@
     <string name="blitz_play_again">Zagraj ponownie</string>
     <string name="blitz_finish_early">Zakończ</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">Podoba Ci się nauka?</string>
     <string name="donation_banner_subtitle">Wesprzyj niezależny rozwój bez reklam symboliczną kawą.</string>
     <string name="donation_banner_cta">Wesprzyj</string>
@@ -308,7 +308,7 @@
     <string name="kofi_copied_toast">Skopiowano link Ko-fi: %1$s</string>
     <string name="privacy_loaded_in_app">Polityka prywatności wczytana w aplikacji.</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">Rozpoznawanie mowy jest niedostępne na tym urządzeniu. Użyj opcji Wpisz tekst.</string>
     <string name="hud_praise_speech">Wspaniale! Bardzo imponujące!</string>
     <string name="hud_greet_speech">Cześć! Poćwiczmy dziś mówienie!</string>
@@ -452,7 +452,7 @@
     <string name="onboarding_select_language_label">Wybierz pierwszy język do nauki:</string>
     <string name="profile_btn_replay_onboarding">Przewodnik po aplikacji</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">Przełącz rozmiar sceny 3D Sensei</string>
     <string name="daily_goal_title">Dzienny Cel Dojo</string>
     <string name="daily_goal_progress_format">%1$d / %2$d sesji dzisiaj</string>
@@ -467,7 +467,7 @@
     <string name="streak_status_active_today">Dzisiejsza seria zaliczona! Mów dalej, aby szlifować akcent.</string>
     <string name="streak_status_pending_today">Ukończ dziś 1 ocenę Trenera wymowy, aby utrzymać serię.</string>
     <string name="streak_new_day_banner_format">Odblokowano %1$d-dniową serię!</string>
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">Nagraj próbkę</string>
     <string name="coach_stop_pitch_rec">Zatrzymaj</string>
     <string name="coach_play_mine">Posłuchaj siebie</string>
@@ -475,7 +475,7 @@
     <string name="pitch_live_mic_badge">Mik F0 na żywo</string>
     <string name="result_play_sensei">Głos Sensei</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">Na dziś (%1$d)</string>
     <string name="vocab_due_now_badge">Do powtórki</string>
     <string name="vocab_next_interval_format">Za %1$dd</string>
@@ -494,7 +494,7 @@
     <string name="shadowing_step_listening">Sensei mówi — słuchaj uważnie…</string>
     <string name="shadowing_step_repeat">Twoja kolej — powtórz głośno teraz…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">Dodaj frazę</string>
     <string name="custom_phrase_dialog_title">Dodaj własną frazę (%1$s)</string>
     <string name="custom_phrase_target_label">Fraza w języku docelowym</string>
@@ -518,7 +518,7 @@
     <string name="scenario_template_hotel_user">Gość</string>
     <string name="scenario_template_hotel_open">Witamy w naszym hotelu! Czy ma Pan/Pani rezerwację na swoje nazwisko?</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">Codzienne przypomnienia</string>
     <string name="reminder_channel_desc">Opcjonalne wieczorne powiadomienie, gdy seria dnia nie jest jeszcze ukończona.</string>
     <string name="reminder_notif_title">Utrzymaj swoją serię w Dojo! 🔥</string>
@@ -551,4 +551,32 @@
     <string name="scenario_london_interview_sensei">Gospodarz projektu</string>
     <string name="scenario_london_interview_user">Twórca</string>
     <string name="scenario_london_interview_init_translation">Dzień dobry! Opowiedz, co najbardziej ekscytuje Cię w kolejnym projekcie.</string>
+    <string name="auth_continue_guest">Kontynuuj jako gość (Offline)</string>
+    <string name="profile_guest_mode">Tryb gościa offline</string>
+    <string name="quota_soft_nudge_banner">Wykorzystano %1$d%% dzisiejszego limitu AI (pozostało: %2$d • Reset za %3$s).</string>
+    <string name="quota_switch_eco_lite">Przełącz na tryb Eco Lite</string>
+    <string name="quota_eco_lite_desc">Włącz tryb Eco Lite, aby korzystać z szybkiego i lekkiego AI wydłużającego limit 3-krotnie.</string>
+    <string name="quota_card_title">Inteligentne odnawianie limitu</string>
+    <string name="quota_card_subtitle">Osiągnięto dzisiejszy standardowy limit AI. Wybierz natychmiastową opcję kontynuacji:</string>
+    <string name="quota_action_grace_title">Odbierz +3 darmowe punkty ratunkowe</string>
+    <string name="quota_action_grace_desc">W trakcie ćwiczenia? Odbierz +3 darmowe punkty (raz dziennie), aby dokończyć obecną lekcję.</string>
+    <string name="quota_action_grace_btn">Odbierz +3 punkty</string>
+    <string name="quota_action_grace_claimed">Odebrano na dziś</string>
+    <string name="quota_action_eco_title">Ponów z Eco Lite AI</string>
+    <string name="quota_action_eco_desc">Wykonaj to zapytanie za pomocą lżejszego, szybszego modelu o wysokiej dostępności.</string>
+    <string name="quota_action_eco_btn">Użyj Eco Lite AI</string>
+    <string name="quota_action_local_title">Lokalny Sensei bez limitu (0 $)</string>
+    <string name="quota_action_local_desc">Ćwicz na urządzeniu (0 $ kosztów chmury) — chroń dzienną serię i zdobywaj XP.</string>
+    <string name="quota_action_local_btn">Kontynuuj z lokalnym Sensei</string>
+    <string name="quota_action_reset_title">Odliczanie do resetu</string>
+    <string name="quota_action_reset_desc">Twój darmowy limit odnowi się automatycznie za %1$s (o północy).</string>
+    <string name="quota_value_receipt_title">Dzisiejsze podsumowanie wartości AI</string>
+    <string name="quota_value_receipt_summary">Oceniono %1$d zwrotów • %2$d tur dialogu • %3$d przećwiczonych słówek</string>
+    <string name="quota_guest_unlock_title">Odblokuj pełny dzienny pakiet startowy</string>
+    <string name="quota_guest_unlock_desc">Ćwiczysz jako gość? Zaloguj się bezpłatnie przez Google, aby zyskać 25 ocen dziennie i kopię w chmurze.</string>
+    <string name="quota_guest_unlock_btn">Zaloguj się, aby odblokować</string>
+    <string name="quota_eco_mode_active_badge">Eco Lite aktywny</string>
+    <string name="quota_tier_primary_badge">Standardowe AI</string>
+    <string name="quota_tier_eco_badge">Eco Lite AI</string>
+    <string name="quota_tier_local_badge">Trener lokalny (0 $)</string>
 </resources>

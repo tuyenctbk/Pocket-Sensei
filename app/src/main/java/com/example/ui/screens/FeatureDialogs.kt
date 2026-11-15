@@ -30,6 +30,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
@@ -250,6 +251,14 @@ fun CustomPhraseDialog(
                             .testTag("generate_topic_pack_btn"),
                         colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF38BDF8))
                     ) {
+                        if (isGeneratingTopicPack) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(14.dp),
+                                strokeWidth = 2.dp,
+                                color = Color(0xFF38BDF8)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                        }
                         Text(
                             text = stringResource(R.string.topic_pack_generate_btn),
                             fontSize = 11.sp,
@@ -417,6 +426,14 @@ fun CustomScenarioBuilderDialog(
                             .testTag("generate_topic_pack_btn"),
                         colors = ButtonDefaults.outlinedButtonColors(contentColor = Color(0xFF38BDF8))
                     ) {
+                        if (isGeneratingTopicPack) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(14.dp),
+                                strokeWidth = 2.dp,
+                                color = Color(0xFF38BDF8)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                        }
                         Text(
                             text = stringResource(R.string.topic_pack_generate_btn),
                             fontSize = 11.sp,

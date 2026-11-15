@@ -186,3 +186,61 @@ test("Leaderboard: signed-in user can write own entry, read all, and cannot over
     })
   );
 });
+
+test("UsageQuota: authenticated owner can sync daily quota, unauth and cross-user denied", async () => {
+  const aliceDb = testEnv.authenticatedContext(ALICE_UID).firestore();
+  const bobDb = testEnv.authenticatedContext(BOB_UID).firestore();
+  const unauthDb = testEnv.unauthenticatedContext().firestore();
+
+  const aliceQuotaRef = aliceDb.collection("users").doc(ALICE_UID).collection("usageQuota").doc("daily");
+  await assertSucceeds(
+    aliceQuotaRef.set({
+      userId: ALICE_UID,
+      evaluationsUsed: 3,
+      chatTurnsUsed: 1,
+      topicPacksUsed: 0,
+      bonusGraceCredits: 2,
+      graceClaimed: true,
+      ecoLiteMode: false,
+      fallbackCascadeCount: 1,
+      dateIso: "2026-11-15",
+      updatedAt: new Date(),
+    })
+  );
+
+  await assertSucceeds(aliceQuotaRef.get());
+
+  // Negative evaluationsUsed rejected by schema rules
+  await assertFails(
+    aliceQuotaRef.set({
+      userId: ALICE_UID,
+      evaluationsUsed: -1,
+      chatTurnsUsed: 0,
+      topicPacksUsed: 0,
+      bonusGraceCredits: 0,
+      graceClaimed: false,
+      ecoLiteMode: false,
+      fallbackCascadeCount: 0,
+      dateIso: "2026-11-15",
+      updatedAt: new Date(),
+    })
+  );
+
+  // Cross-user Bob and unauthenticated user cannot read or overwrite Alice's quota
+  await assertFails(bobDb.collection("users").doc(ALICE_UID).collection("usageQuota").doc("daily").get());
+  await assertFails(
+    bobDb.collection("users").doc(ALICE_UID).collection("usageQuota").doc("daily").set({
+      userId: ALICE_UID,
+      evaluationsUsed: 0,
+      chatTurnsUsed: 0,
+      topicPacksUsed: 0,
+      bonusGraceCredits: 0,
+      graceClaimed: false,
+      ecoLiteMode: false,
+      fallbackCascadeCount: 0,
+      dateIso: "2026-11-15",
+    })
+  );
+  await assertFails(unauthDb.collection("users").doc(ALICE_UID).collection("usageQuota").doc("daily").get());
+});
+

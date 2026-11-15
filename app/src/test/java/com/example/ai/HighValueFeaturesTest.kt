@@ -48,6 +48,10 @@ class HighValueFeaturesTest {
             .edit()
             .clear()
             .commit()
+        context.getSharedPreferences("pocket_sensei_usage_quota", Context.MODE_PRIVATE)
+            .edit()
+            .clear()
+            .commit()
         database = Room.inMemoryDatabaseBuilder(context, SenseiLocalDatabase::class.java)
             .allowMainThreadQueries()
             .build()
@@ -177,6 +181,16 @@ class HighValueFeaturesTest {
         settingsManager.saveUserApiKey("")
         assertEquals(AiCoachingMode.HYBRID_FREE, settingsManager.getCurrentMode())
         assertFalse(settingsManager.settings.value.hasByokKey)
+
+        // Claim +3 Grace Credits unlocks cloud quota even after reaching base cap
+        assertTrue(settingsManager.claimGraceCredits())
+        assertTrue(settingsManager.canUseFreeCloudQuota())
+
+        // Signed-in users receive higher allowance (25 vs guest 10)
+        settingsManager.usageQuotaManager.updateAuthStatus(isSignedIn = true, isPro = false)
+        settingsManager.refreshSettings()
+        assertEquals(UsageQuotaManager.SIGNED_IN_CAP_EVALUATIONS + 3, settingsManager.settings.value.dailyFreeCloudCap)
+        assertTrue(settingsManager.canUseFreeCloudQuota())
     }
 
     @Test
@@ -242,5 +256,48 @@ class HighValueFeaturesTest {
         assertFalse(manager.isListening.value)
         manager.destroy()
         manager.stopListening()
+    }
+
+    @Test
+    fun aiSenseiCoach_byokModeDoesNotLeakIntoHybridQuotaAndTopicPackRespectsOfflineMode() = runBlocking {
+        settingsManager.setMode(AiCoachingMode.LOCAL_OFFLINE_ONLY)
+        val coach = AiSenseiCoach(
+            cacheDao = cacheDao,
+            aiSettingsManager = settingsManager,
+            appContext = context
+        )
+
+        val offlinePack = coach.generateByokTopicPack("Japanese", "Ramen Shop").getOrThrow()
+        assertFalse(offlinePack.usedByokCloud)
+        assertEquals(3, offlinePack.phrases.size)
+        assertEquals(0, settingsManager.usageQuotaManager.quotaState.value.topicPacksUsed)
+
+        // Switch to BYOK mode without an active key (simulating cleared/unusable BYOK path)
+        settingsManager.setMode(AiCoachingMode.BYOK_USER_KEY)
+        val evalFallback = coach.evaluatePronunciation(
+            targetLanguage = "Spanish",
+            promptOrWord = "Hola",
+            spokenTranscript = "Hola"
+        ).getOrThrow()
+        assertEquals("Local Sensei ($0 • Streak Preserved)", evalFallback.engineSource)
+
+        val roleplayFallback = coach.conductRoleplayTurn(
+            language = "Spanish",
+            scenarioTitle = "Madrid Tapas Bar",
+            conversationHistory = emptyList(),
+            userSpokenMessage = "Una mesa por favor"
+        ).getOrThrow()
+        assertTrue(roleplayFallback.senseiReply.isNotBlank())
+
+        val packFallback = coach.generateByokTopicPack("Spanish", "Airport").getOrThrow()
+        assertFalse(packFallback.usedByokCloud)
+        assertEquals(3, packFallback.phrases.size)
+
+        // Ensure developer Hybrid Free quota counters were never deducted by BYOK fallback
+        val quota = settingsManager.usageQuotaManager.quotaState.value
+        assertEquals(0, quota.evaluationsUsed)
+        assertEquals(0, quota.chatTurnsUsed)
+        assertEquals(0, quota.topicPacksUsed)
+        assertTrue(quota.fallbackCascadeCount >= 3)
     }
 }

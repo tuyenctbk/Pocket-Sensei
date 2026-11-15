@@ -23,7 +23,7 @@
     <string name="auth_error_unexpected_credential">Beklenmeyen kimlik bilgisi türü</string>
     <string name="auth_error_sign_in_failed">Oturum açılamadı</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">Koç</string>
     <string name="nav_roleplay">Diyalog</string>
     <string name="nav_vocab">Kelime</string>
@@ -46,7 +46,7 @@
     <string name="mood_thinking">Aksan Analiz Ediliyor…</string>
     <string name="mood_correcting">Sensei\'den İpucu</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">Tümü</string>
     <string name="lang_japanese">Japonca</string>
     <string name="lang_spanish">İspanyolca</string>
@@ -72,7 +72,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">Kendi Gemini Anahtarın (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">Yeni Güncelleme Hazır (v%1$s)</string>
     <string name="prompt_rate_title">Pocket Sensei\'yi beğendiniz mi?</string>
     <string name="prompt_share_title">İlerlemeni Paylaş!</string>
@@ -93,7 +93,7 @@
     <string name="share_app_subject">Pocket Sensei — 3D Dil ve Aksan Koçu</string>
     <string name="share_app_chooser">Pocket Sensei\'yi Paylaş</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">Pratik İfadeleri</string>
     <string name="coach_dojo_blitz_btn">Dojo Yıldırım ($0)</string>
     <string name="cd_normal_speed">Normal Hız</string>
@@ -208,7 +208,7 @@
     <string name="league_user_you">%1$s (Sen)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$dg • %3$d%% ort</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">Yapay Zeka Motoru ve Maliyet Kontrolü</string>
     <string name="ai_cached_count">%1$d önbellekte ($0)</string>
     <string name="ai_cloud_quota_summary">Bugünkü ücretsiz bulut çağrısı: %1$d/%2$d. Tekrarlar Room önbelleğinden ücretsiz yüklenir.</string>
@@ -240,7 +240,7 @@
     <string name="blitz_play_again">Tekrar Oyna</string>
     <string name="blitz_finish_early">Erken Bitir</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">Pratikten keyif alıyor musun?</string>
     <string name="donation_banner_subtitle">Reklamsız bağımsız geliştirmeyi bir kahveyle destekle.</string>
     <string name="donation_banner_cta">Destekle</string>
@@ -308,7 +308,7 @@
     <string name="kofi_copied_toast">Ko-fi bağlantısı kopyalandı: %1$s</string>
     <string name="privacy_loaded_in_app">Gizlilik Politikası uygulama içinde yüklendi.</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">Bu cihazda konuşma tanıma kullanılamıyor. Bunun yerine Yazılı Giriş kullanın.</string>
     <string name="hud_praise_speech">Harika! Çok etkileyici!</string>
     <string name="hud_greet_speech">Merhaba! Hadi bugün konuşma pratiği yapalım!</string>
@@ -452,7 +452,7 @@
     <string name="onboarding_select_language_label">Pratik yapmak için ilk dilinizi seçin:</string>
     <string name="profile_btn_replay_onboarding">Etkileşimli Uygulama Turu</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">3D Sensei sahne boyutunu değiştir</string>
     <string name="daily_goal_title">Günlük Dojo Hedefi</string>
     <string name="daily_goal_progress_format">Bugün %1$d / %2$d oturum</string>
@@ -467,7 +467,7 @@
     <string name="streak_status_active_today">Bugünün serisi tamamlandı! Aksanını geliştirmek için konuşmaya devam et.</string>
     <string name="streak_status_pending_today">Serini korumak için bugün 1 Telaffuz Koçu değerlendirmesi tamamla.</string>
     <string name="streak_new_day_banner_format">%1$d günlük seri açıldı!</string>
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">Örnek kaydet</string>
     <string name="coach_stop_pitch_rec">Kaydı durdur</string>
     <string name="coach_play_mine">Kendini dinle</string>
@@ -475,7 +475,7 @@
     <string name="pitch_live_mic_badge">Canlı F0 Mik</string>
     <string name="result_play_sensei">Sensei Sesi</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">Bugünlük (%1$d)</string>
     <string name="vocab_due_now_badge">Tekrar zamanı</string>
     <string name="vocab_next_interval_format">%1$d gün sonra</string>
@@ -494,7 +494,7 @@
     <string name="shadowing_step_listening">Sensei konuşuyor — dikkatle dinle…</string>
     <string name="shadowing_step_repeat">Sıra sende — şimdi yüksek sesle tekrarla…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">İfade Ekle</string>
     <string name="custom_phrase_dialog_title">Özel %1$s İfadesi Ekle</string>
     <string name="custom_phrase_target_label">Hedef dildeki ifade</string>
@@ -518,7 +518,7 @@
     <string name="scenario_template_hotel_user">Misafir</string>
     <string name="scenario_template_hotel_open">Otelimize hoş geldiniz! Adınıza bir rezervasyonunuz var mı?</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">Günlük Pratik Hatırlatıcıları</string>
     <string name="reminder_channel_desc">Günlük seriniz henüz tamamlanmadıysa isteğe bağlı akşam uyarısı.</string>
     <string name="reminder_notif_title">Dojo serini canlı tut! 🔥</string>
@@ -551,4 +551,32 @@
     <string name="scenario_london_interview_sensei">Proje Ev Sahibi</string>
     <string name="scenario_london_interview_user">Üretici</string>
     <string name="scenario_london_interview_init_translation">Günaydın! Bir sonraki projenizde sizi neyin heyecanlandırdığını anlatın.</string>
+    <string name="auth_continue_guest">Misafir olarak devam et (Çevrimdışı)</string>
+    <string name="profile_guest_mode">Çevrimdışı Misafir Modu</string>
+    <string name="quota_soft_nudge_banner">Bugünkü yapay zeka kotanızın %%%1$d kadarını kullandınız (kalan: %2$d • Sıfırlanma: %3$s).</string>
+    <string name="quota_switch_eco_lite">Eco Lite Moduna Geç</string>
+    <string name="quota_eco_lite_desc">Eco Lite modunu açarak hızlı ve hafif modeli kullanın, kotanızı 3 kat daha uzun süre değerlendirin.</string>
+    <string name="quota_card_title">Akıllı Kota Kurtarma</string>
+    <string name="quota_card_subtitle">Bugünkü standart yapay zeka sınırına ulaştınız. Anında devam etmek için bir seçenek belirleyin:</string>
+    <string name="quota_action_grace_title">+3 Ücretsiz Ek Hak Al</string>
+    <string name="quota_action_grace_desc">Alıştırmanın ortasında mısınız? Mevcut çalışmanızı tamamlamak için günde bir defa +3 ücretsiz hak alın.</string>
+    <string name="quota_action_grace_btn">+3 Hak Al</string>
+    <string name="quota_action_grace_claimed">Bugün için zaten alındı</string>
+    <string name="quota_action_eco_title">Eco Lite Yapay Zeka ile Tekrar Dene</string>
+    <string name="quota_action_eco_desc">Bu isteği daha hafif, hızlı ve yüksek erişilebilirliğe sahip modelle çalıştırın.</string>
+    <string name="quota_action_eco_btn">Eco Lite Yapay Zeka Kullan</string>
+    <string name="quota_action_local_title">Sıfır Kotalı Yerel Sensei ($0)</string>
+    <string name="quota_action_local_desc">Cihaz içi Sensei koçuyla çalışın ($0 bulut masrafı) — serinizi koruyun ve XP kazanın.</string>
+    <string name="quota_action_local_btn">Yerel Sensei ile Devam Et</string>
+    <string name="quota_action_reset_title">Günlük Sıfırlama Sayacı</string>
+    <string name="quota_action_reset_desc">Ücretsiz kotanız %1$s sonra (gece yarısı) otomatik olarak sıfırlanacaktır.</string>
+    <string name="quota_value_receipt_title">Bugünkü Yapay Zeka Değer Özeti</string>
+    <string name="quota_value_receipt_summary">%1$d ifade değerlendirildi • %2$d diyalog turu • %3$d kelime çalışıldı</string>
+    <string name="quota_guest_unlock_title">Tam Günlük Başlangıç Kotasını Aç</string>
+    <string name="quota_guest_unlock_desc">Misafir olarak mı çalışıyorsunuz? Günlük 25 değerlendirme ve bulut yedekleme için Google ile ücretsiz giriş yapın.</string>
+    <string name="quota_guest_unlock_btn">Açmak için Giriş Yap</string>
+    <string name="quota_eco_mode_active_badge">Eco Lite Etkin</string>
+    <string name="quota_tier_primary_badge">Standart Yapay Zeka</string>
+    <string name="quota_tier_eco_badge">Eco Lite Yapay Zeka</string>
+    <string name="quota_tier_local_badge">Yerel Koç ($0)</string>
 </resources>

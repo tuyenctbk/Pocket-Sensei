@@ -23,7 +23,7 @@
     <string name="auth_error_unexpected_credential">Oväntad inloggningstyp</string>
     <string name="auth_error_sign_in_failed">Inloggning misslyckades</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">Tränare</string>
     <string name="nav_roleplay">Dialog</string>
     <string name="nav_vocab">Glosor</string>
@@ -46,7 +46,7 @@
     <string name="mood_thinking">Analyserar accent…</string>
     <string name="mood_correcting">Tips från Sensei</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">Alla</string>
     <string name="lang_japanese">Japanska</string>
     <string name="lang_spanish">Spanska</string>
@@ -72,7 +72,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">Din Gemini-nyckel (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">Ny uppdatering redo (v%1$s)</string>
     <string name="prompt_rate_title">Gillar du Pocket Sensei?</string>
     <string name="prompt_share_title">Dela dina framsteg!</string>
@@ -93,7 +93,7 @@
     <string name="share_app_subject">Pocket Sensei — 3D Språk- &amp; Accentcoach</string>
     <string name="share_app_chooser">Dela Pocket Sensei</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">Övningsfraser</string>
     <string name="coach_dojo_blitz_btn">Dojo Blixt ($0)</string>
     <string name="cd_normal_speed">Normal hastighet</string>
@@ -208,7 +208,7 @@
     <string name="league_user_you">%1$s (Du)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$dd • %3$d%% snitt</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">AI-coachmotor &amp; kostnadskontroll</string>
     <string name="ai_cached_count">%1$d cachade ($0)</string>
     <string name="ai_cloud_quota_summary">Dagens gratis molnanrop: %1$d/%2$d. Upprepade fraser laddas gratis från Room.</string>
@@ -240,7 +240,7 @@
     <string name="blitz_play_again">Spela igen</string>
     <string name="blitz_finish_early">Avsluta</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">Gillar du övningen?</string>
     <string name="donation_banner_subtitle">Stöd reklamfri indieutveckling med en kopp kaffe.</string>
     <string name="donation_banner_cta">Stöd</string>
@@ -308,7 +308,7 @@
     <string name="kofi_copied_toast">Ko-fi-länk kopierad: %1$s</string>
     <string name="privacy_loaded_in_app">Integritetspolicy laddad i appen.</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">Taligenkänning är inte tillgänglig på den här enheten. Använd Skriv in text i stället.</string>
     <string name="hud_praise_speech">Fantastiskt! Mycket imponerande!</string>
     <string name="hud_greet_speech">Hej! Låt oss öva på att prata idag!</string>
@@ -452,7 +452,7 @@
     <string name="onboarding_select_language_label">Välj ditt första språk att öva på:</string>
     <string name="profile_btn_replay_onboarding">Interaktiv rundtur</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">Växla storlek på 3D-scenen</string>
     <string name="daily_goal_title">Dagligt Dojo-mål</string>
     <string name="daily_goal_progress_format">%1$d / %2$d pass idag</string>
@@ -467,7 +467,7 @@
     <string name="streak_status_active_today">Dagens svit är säkrad! Fortsätt öva för att finslipa ditt uttal.</string>
     <string name="streak_status_pending_today">Slutför 1 uttalsbedömning idag för att säkra din svit.</string>
     <string name="streak_new_day_banner_format">%1$d-dagars svit upplåst!</string>
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">Spela in prov</string>
     <string name="coach_stop_pitch_rec">Stoppa</string>
     <string name="coach_play_mine">Hör dig själv</string>
@@ -475,7 +475,7 @@
     <string name="pitch_live_mic_badge">Live F0-mik</string>
     <string name="result_play_sensei">Senseis röst</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">Idag (%1$d)</string>
     <string name="vocab_due_now_badge">Att repetera</string>
     <string name="vocab_next_interval_format">Om %1$dd</string>
@@ -494,7 +494,7 @@
     <string name="shadowing_step_listening">Sensei talar — lyssna noga…</string>
     <string name="shadowing_step_repeat">Din tur — upprepa högt nu…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">Ny fras</string>
     <string name="custom_phrase_dialog_title">Lägg till egen %1$s-fras</string>
     <string name="custom_phrase_target_label">Fras på målspråket</string>
@@ -518,7 +518,7 @@
     <string name="scenario_template_hotel_user">Gäst</string>
     <string name="scenario_template_hotel_open">Välkommen till vårt hotell! Har du en bokning i ditt namn?</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">Dagliga övningspåminnelser</string>
     <string name="reminder_channel_desc">Valfri kvällspåminnelse om din dagliga svit ännu inte är låst.</string>
     <string name="reminder_notif_title">Håll din Dojo-svit vid liv! 🔥</string>
@@ -551,4 +551,32 @@
     <string name="scenario_london_interview_sensei">Projektvärd</string>
     <string name="scenario_london_interview_user">Skapare</string>
     <string name="scenario_london_interview_init_translation">God morgon! Berätta vad som inspirerar dig med ditt nästa projekt.</string>
+    <string name="auth_continue_guest">Fortsätt som gäst (Offline)</string>
+    <string name="profile_guest_mode">Offline gästläge</string>
+    <string name="quota_soft_nudge_banner">Du har använt %1$d%% av dagens AI-kvot (%2$d kvar • Återställs om %3$s).</string>
+    <string name="quota_switch_eco_lite">Växla till Eco Lite-läge</string>
+    <string name="quota_eco_lite_desc">Aktivera Eco Lite-läget för en snabb och lätt modell som räcker 3 gånger längre.</string>
+    <string name="quota_card_title">Smart kvotåterställning</string>
+    <string name="quota_card_subtitle">Du har nått dagens standardgräns för AI. Välj ett alternativ för att fortsätta direkt:</string>
+    <string name="quota_action_grace_title">Hämta +3 gratis extrakrediter</string>
+    <string name="quota_action_grace_desc">Mitt i en lektion? Hämta +3 gratiskrediter (1 gång per dag) för att slutföra övningen direkt.</string>
+    <string name="quota_action_grace_btn">Hämta +3 krediter</string>
+    <string name="quota_action_grace_claimed">Redan hämtat idag</string>
+    <string name="quota_action_eco_title">Försök igen med Eco Lite AI</string>
+    <string name="quota_action_eco_desc">Kör förfrågan med en lättare och snabbare modell med högre tillgänglighet.</string>
+    <string name="quota_action_eco_btn">Använd Eco Lite AI</string>
+    <string name="quota_action_local_title">Lokal Sensei utan kvot ($0)</string>
+    <string name="quota_action_local_desc">Träna på enheten ($0 molnkostnad) — skydda din svit och samla XP lokalt.</string>
+    <string name="quota_action_local_btn">Fortsätt med lokal Sensei</string>
+    <string name="quota_action_reset_title">Nedräkning till återställning</string>
+    <string name="quota_action_reset_desc">Din gratiskvot återställs automatiskt om %1$s (vid midnatt).</string>
+    <string name="quota_value_receipt_title">Dagens AI-värdekvitto</string>
+    <string name="quota_value_receipt_summary">%1$d fraser bedömda • %2$d dialogturer • %3$d ord övade</string>
+    <string name="quota_guest_unlock_title">Lås upp hela den dagliga startkvoten</string>
+    <string name="quota_guest_unlock_desc">Övar du som gäst? Logga in gratis med Google för 25 dagliga kontroller och molnsynkronisering.</string>
+    <string name="quota_guest_unlock_btn">Logga in för att låsa upp</string>
+    <string name="quota_eco_mode_active_badge">Eco Lite aktivt</string>
+    <string name="quota_tier_primary_badge">Standard-AI</string>
+    <string name="quota_tier_eco_badge">Eco Lite AI</string>
+    <string name="quota_tier_local_badge">Lokal coach ($0)</string>
 </resources>

@@ -224,6 +224,10 @@ class MainViewModel(
     val aiSettingsState: StateFlow<AiSettingsSnapshot> =
         aiSettingsManager?.settings ?: MutableStateFlow(AiSettingsSnapshot()).asStateFlow()
 
+    val quotaState: StateFlow<com.example.ai.QuotaSnapshot> =
+        aiSettingsManager?.usageQuotaManager?.quotaState
+            ?: MutableStateFlow(com.example.ai.QuotaSnapshot()).asStateFlow()
+
     val cachedEvalCount: StateFlow<Int> =
         (cacheDao?.observeCacheCount() ?: emptyFlow())
             .catch { emit(0) }
@@ -306,6 +310,13 @@ class MainViewModel(
     val senseiMood: StateFlow<String> = _senseiMood.asStateFlow()
 
     init {
+        aiSettingsManager?.let { settingsMgr ->
+            viewModelScope.launch {
+                settingsMgr.usageQuotaManager.quotaState.collect {
+                    settingsMgr.refreshSettings()
+                }
+            }
+        }
         val user = runCatching { Firebase.auth.currentUser }.getOrNull()
         if (user != null) {
             viewModelScope.launch {
@@ -604,13 +615,15 @@ class MainViewModel(
         if (item.language.isNotBlank()) {
             _targetLanguage.value = item.language
         }
+        val defaultFocus = appContext?.getString(R.string.coach_default_accent_focus)
+            ?: "Vowel & Consonant clarity"
         val matching = PracticePhrase(
             id = item.id,
             targetText = item.word,
             phonetic = item.phonetic.ifBlank { item.word },
             translation = item.translation,
             difficulty = if (item.masteryLevel >= 4) "Advanced" else "Core",
-            accentFocus = "Vowel & Consonant clarity",
+            accentFocus = defaultFocus,
             accentFocusRes = R.string.coach_default_accent_focus
         )
         _selectedPhrase.value = matching
@@ -620,13 +633,15 @@ class MainViewModel(
 
     fun practiceLocalWord(word: VocabularyWord) {
         _targetLanguage.value = word.language
+        val defaultFocus = appContext?.getString(R.string.coach_default_accent_focus)
+            ?: "Vowel & Consonant clarity"
         val matching = PracticePhrase(
             id = word.remoteId.ifBlank { "local_${word.id}" },
             targetText = word.word,
             phonetic = word.phonetics.ifBlank { word.word },
             translation = word.translation,
             difficulty = if (word.masteryLevel >= 4) "Advanced" else "Core",
-            accentFocus = "Vowel & Consonant clarity",
+            accentFocus = defaultFocus,
             accentFocusRes = R.string.coach_default_accent_focus
         )
         _selectedPhrase.value = matching
@@ -756,6 +771,31 @@ class MainViewModel(
         )
     }
 
+    fun toggleEcoLiteMode(enabled: Boolean) {
+        aiSettingsManager?.toggleEcoLiteMode(enabled)
+        engagementManager?.trackEvent(
+            eventName = "eco_lite_toggled",
+            category = "settings",
+            metadata = mapOf("enabled" to enabled.toString())
+        )
+    }
+
+    fun claimGraceCredits(): Boolean {
+        val claimed = aiSettingsManager?.claimGraceCredits() ?: false
+        if (claimed) {
+            engagementManager?.trackEvent(
+                eventName = "grace_credits_claimed",
+                category = "quota"
+            )
+        }
+        return claimed
+    }
+
+    fun getValueReceipt(): com.example.ai.ValueReceiptSnapshot {
+        return aiSettingsManager?.usageQuotaManager?.getValueReceipt()
+            ?: com.example.ai.ValueReceiptSnapshot(0, 0, 0, 0, 0L)
+    }
+
     fun completeDojoBlitzSession(pointsEarned: Int, phrasesCleared: Int) {
         viewModelScope.launch {
             val streakOutcome = if (phrasesCleared > 0) {
@@ -818,15 +858,16 @@ class MainViewModel(
                     accentFocus = accentFocus.trim()
                 )
             ) ?: 0L
+            val defaultFocus = appContext?.getString(R.string.coach_default_accent_focus) ?: "Natural cadence"
+            val cleanFocus = accentFocus.trim()
             val created = PracticePhrase(
                 id = "custom_phrase_$insertedId",
                 targetText = cleanTarget,
                 phonetic = phonetic.trim().ifBlank { cleanTarget },
                 translation = translation.trim(),
                 difficulty = "Custom",
-                accentFocus = accentFocus.trim().ifBlank {
-                    appContext?.getString(R.string.coach_default_accent_focus) ?: "Natural cadence"
-                }
+                accentFocus = cleanFocus.ifBlank { defaultFocus },
+                accentFocusRes = if (cleanFocus.isBlank()) R.string.coach_default_accent_focus else 0
             )
             _selectedPhrase.value = created
             _evaluationState.value = EvaluationUiState.Idle
@@ -858,13 +899,17 @@ class MainViewModel(
         val cleanTitle = title.trim()
         val cleanOpening = openingLine.trim()
         if (cleanTitle.isBlank() || cleanOpening.isBlank()) return
+        val defaultSensei = appContext?.getString(R.string.topic_pack_sensei_role) ?: "Sensei"
+        val defaultUser = appContext?.getString(R.string.topic_pack_user_role) ?: "Traveler"
+        val resolvedSenseiRole = senseiRole.trim().ifBlank { defaultSensei }
+        val resolvedUserRole = userRole.trim().ifBlank { defaultUser }
         viewModelScope.launch {
             val insertedId = customScenarioDao?.insertScenario(
                 CustomScenarioEntity(
                     title = cleanTitle,
                     language = language,
-                    senseiRole = senseiRole.trim().ifBlank { "Sensei" },
-                    userRole = userRole.trim().ifBlank { "Traveler" },
+                    senseiRole = resolvedSenseiRole,
+                    userRole = resolvedUserRole,
                     openingLine = cleanOpening
                 )
             ) ?: 0L
@@ -873,8 +918,8 @@ class MainViewModel(
                 title = cleanTitle,
                 language = language,
                 description = cleanTitle,
-                senseiRole = senseiRole.trim().ifBlank { "Sensei" },
-                userRole = userRole.trim().ifBlank { "Traveler" },
+                senseiRole = resolvedSenseiRole,
+                userRole = resolvedUserRole,
                 initialMessage = cleanOpening,
                 initialPhonetic = "",
                 initialTranslation = ""
@@ -915,15 +960,15 @@ class MainViewModel(
                         )
                     ) ?: (idx + 1).toLong()
                     if (firstPhrase == null) {
+                        val defaultFocus = appContext?.getString(R.string.coach_default_accent_focus) ?: "Natural cadence"
                         firstPhrase = PracticePhrase(
                             id = "custom_phrase_$insertedId",
                             targetText = item.targetText,
                             phonetic = item.phonetic.ifBlank { item.targetText },
                             translation = item.translation,
                             difficulty = "Custom",
-                            accentFocus = item.accentFocus.ifBlank {
-                                appContext?.getString(R.string.coach_default_accent_focus) ?: "Natural cadence"
-                            }
+                            accentFocus = item.accentFocus.ifBlank { defaultFocus },
+                            accentFocusRes = if (item.accentFocus.isBlank()) R.string.coach_default_accent_focus else 0
                         )
                     }
                 }

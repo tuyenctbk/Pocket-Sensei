@@ -168,6 +168,11 @@ import com.example.ui.MainViewModel
 import com.example.ui.PracticePhrase
 import com.example.ui.RoleplayScenario
 import com.example.ui.RoleplayUiState
+import com.example.ui.components.GuestTierUnlockBanner
+import com.example.ui.components.QuotaExhaustedBanner
+import com.example.ui.components.QuotaSoftNudgeBanner
+import com.example.ui.components.SmartQuotaRecoveryDialog
+import com.example.ui.components.ValueReceiptCard
 import com.example.ui.view.Sensei3DView
 import com.example.ui.view.SenseiViewController
 import com.google.firebase.Firebase
@@ -455,7 +460,8 @@ fun HomeScreen(
                                         onPraiseAndChime = {
                                             controller.praise()
                                             controller.playChime("praise")
-                                        }
+                                        },
+                                        onSignInClick = onSignOutComplete
                                     )
                                     LearningTab.ROLEPLAY -> RoleplayScreen(
                                         viewModel = viewModel,
@@ -666,7 +672,8 @@ fun HomeScreen(
                             onPraiseAndChime = {
                                 controller.praise()
                                 controller.playChime("praise")
-                            }
+                            },
+                            onSignInClick = onSignOutComplete
                         )
                         LearningTab.ROLEPLAY -> RoleplayScreen(
                             viewModel = viewModel,
@@ -1310,7 +1317,8 @@ private fun CoachScreen(
     onOpenDonationSheet: () -> Unit,
     onDismissDonationBanner: () -> Unit,
     onRequestMicPermission: () -> Unit,
-    onPraiseAndChime: () -> Unit = {}
+    onPraiseAndChime: () -> Unit = {},
+    onSignInClick: (() -> Unit)? = null
 ) {
     val context = LocalContext.current
     val selectedPhrase by viewModel.selectedPhrase.collectAsState()
@@ -1320,11 +1328,14 @@ private fun CoachScreen(
     val dailyStreak by viewModel.dailyStreakState.collectAsState()
     val customPhrasesAll by viewModel.customPhrasesState.collectAsState()
     val aiSettings by viewModel.aiSettingsState.collectAsState()
+    val quotaSnapshot by viewModel.quotaState.collectAsState()
     val isGeneratingTopicPack by viewModel.isGeneratingTopicPack.collectAsState()
     val hasRecordedAudio by speechManager.hasRecordedAudio.collectAsState()
     val isPlayingRecording by speechManager.isPlayingRecording.collectAsState()
     val isPcmRecording by speechManager.isPcmRecording.collectAsState()
     val isListening by speechManager.isListening.collectAsState()
+
+    var showQuotaRecoveryDialog by remember { mutableStateOf(false) }
 
     val customPhrasesForLang = remember(customPhrasesAll, targetLanguage) {
         customPhrasesAll
@@ -1434,6 +1445,27 @@ private fun CoachScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp)
     ) {
+        if (aiSettings.mode == com.example.ai.AiCoachingMode.HYBRID_FREE && !quotaSnapshot.isPro) {
+            if (quotaSnapshot.remainingEvaluations <= 0) {
+                item {
+                    QuotaExhaustedBanner(
+                        countdownFormatted = quotaSnapshot.resetCountdownFormatted,
+                        onOpenRecoverySheet = { showQuotaRecoveryDialog = true }
+                    )
+                }
+            } else if (quotaSnapshot.evaluationUsagePercent >= 0.80f && !quotaSnapshot.ecoLiteMode) {
+                item {
+                    QuotaSoftNudgeBanner(
+                        usagePercent = quotaSnapshot.evaluationUsagePercent,
+                        remainingChecks = quotaSnapshot.remainingEvaluations,
+                        countdownFormatted = quotaSnapshot.resetCountdownFormatted,
+                        ecoLiteActive = quotaSnapshot.ecoLiteMode,
+                        onEnableEcoLite = { viewModel.toggleEcoLiteMode(true) },
+                        onOpenRecoverySheet = { showQuotaRecoveryDialog = true }
+                    )
+                }
+            }
+        }
         item {
             DailyDojoGoalCard(
                 doneCount = dailyGoal.first,
@@ -1885,6 +1917,23 @@ private fun CoachScreen(
             onDismiss = { showDojoBlitzDialog = false }
         )
     }
+
+    if (showQuotaRecoveryDialog) {
+        SmartQuotaRecoveryDialog(
+            snapshot = quotaSnapshot,
+            onClaimGraceCredits = { viewModel.claimGraceCredits() },
+            onEnableEcoLite = {
+                viewModel.toggleEcoLiteMode(true)
+                showQuotaRecoveryDialog = false
+            },
+            onUseLocalSensei = {
+                viewModel.setAiCoachingMode(com.example.ai.AiCoachingMode.LOCAL_OFFLINE_ONLY)
+                showQuotaRecoveryDialog = false
+            },
+            onDismiss = { showQuotaRecoveryDialog = false },
+            onSignInUnlock = onSignInClick
+        )
+    }
 }
 
 @Composable
@@ -2200,6 +2249,7 @@ private fun PronunciationResultCard(
             if (onUnlockByokClick != null &&
                 (result.engineSource.contains("Daily cap", ignoreCase = true) ||
                     result.engineSource.contains("Offline", ignoreCase = true) ||
+                    result.engineSource.contains("Local Sensei", ignoreCase = true) ||
                     result.engineSource.contains("On-Device", ignoreCase = true))
             ) {
                 OutlinedButton(
@@ -3320,6 +3370,18 @@ private fun ProfileScreen(
             }
         }
 
+        // Today's AI Value Receipt & Guest-to-Google Tier Unlock
+        item {
+            val quotaSnapshot by viewModel.quotaState.collectAsState()
+            val receipt = remember(quotaSnapshot) { viewModel.getValueReceipt() }
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                ValueReceiptCard(receipt = receipt)
+                if (!quotaSnapshot.isSignedIn) {
+                    GuestTierUnlockBanner(onSignIn = onSignOut)
+                }
+            }
+        }
+
         // Zero-Cost AI Coaching Engine & Personal BYOK Key Settings
         item {
             val aiSettings by viewModel.aiSettingsState.collectAsState()
@@ -3329,7 +3391,8 @@ private fun ProfileScreen(
                 settings = aiSettings,
                 cachedEvalCount = cachedEvalCount,
                 onModeSelected = { mode -> viewModel.setAiCoachingMode(mode) },
-                onSaveByokKey = { key -> viewModel.saveByokApiKey(key) }
+                onSaveByokKey = { key -> viewModel.saveByokApiKey(key) },
+                onToggleEcoLite = { enabled -> viewModel.toggleEcoLiteMode(enabled) }
             )
         }
 
@@ -4102,6 +4165,9 @@ private fun localizedTierName(tier: String): String {
 private fun localizedEngineSource(source: String): String {
     return when {
         source.contains("Room Cache", ignoreCase = true) -> stringResource(R.string.engine_cache)
+        source.contains("Eco Lite", ignoreCase = true) -> stringResource(R.string.quota_tier_eco_badge)
+        source.contains("Standard AI", ignoreCase = true) -> stringResource(R.string.quota_tier_primary_badge)
+        source.contains("Local Sensei", ignoreCase = true) -> stringResource(R.string.quota_action_local_title)
         source.contains("Offline Coach", ignoreCase = true) -> stringResource(R.string.engine_offline)
         source.contains("Daily cap", ignoreCase = true) -> stringResource(R.string.engine_offline_cap)
         source.contains("Offline Fallback", ignoreCase = true) -> stringResource(R.string.engine_offline_fallback)

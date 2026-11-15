@@ -40,6 +40,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.minimumInteractiveComponentSize
@@ -69,6 +70,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.R
 import com.example.ai.AiCoachingMode
+import com.example.ai.AiModelConfig
 import com.example.ai.AiSettingsSnapshot
 import com.example.ai.LocalPronunciationEvaluator
 import com.example.audio.SpeechManager
@@ -259,7 +261,8 @@ fun AiModeSettingsCard(
     settings: AiSettingsSnapshot,
     cachedEvalCount: Int,
     onModeSelected: (AiCoachingMode) -> Unit,
-    onSaveByokKey: (String) -> Unit
+    onSaveByokKey: (String) -> Unit,
+    onToggleEcoLite: ((Boolean) -> Unit)? = null
 ) {
     var keyDraft by remember { mutableStateOf("") }
     var showKeyEditor by remember { mutableStateOf(false) }
@@ -306,15 +309,46 @@ fun AiModeSettingsCard(
                 )
             }
 
-            Text(
-                text = stringResource(
-                    R.string.ai_cloud_quota_summary,
-                    settings.dailyCloudCallsUsed,
-                    settings.dailyFreeCloudCap
-                ),
-                fontSize = 11.sp,
-                color = Color(0xFFA5B4FC)
-            )
+            val tierBadgeText = when (settings.currentTier) {
+                AiModelConfig.AiCapabilityTier.TIER_3_ZERO_COST_LOCAL -> stringResource(R.string.quota_tier_local_badge)
+                AiModelConfig.AiCapabilityTier.TIER_2_ECONOMY_LITE -> stringResource(R.string.quota_tier_eco_badge)
+                AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY -> stringResource(R.string.quota_tier_primary_badge)
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(
+                        R.string.ai_cloud_quota_summary,
+                        settings.dailyCloudCallsUsed,
+                        settings.dailyFreeCloudCap
+                    ),
+                    fontSize = 11.sp,
+                    color = Color(0xFFA5B4FC)
+                )
+
+                val badgeBg = when (settings.currentTier) {
+                    AiModelConfig.AiCapabilityTier.TIER_2_ECONOMY_LITE -> Color(0xFF065F46)
+                    AiModelConfig.AiCapabilityTier.TIER_3_ZERO_COST_LOCAL -> Color(0xFF334155)
+                    AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY -> Color(0xFF312E81)
+                }
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(8.dp))
+                        .background(badgeBg)
+                        .padding(horizontal = 8.dp, vertical = 3.dp)
+                ) {
+                    Text(
+                        text = tierBadgeText,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White
+                    )
+                }
+            }
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -359,6 +393,41 @@ fun AiModeSettingsCard(
                 fontSize = 11.sp,
                 color = Color(0xFFC7D2FE)
             )
+
+            if (settings.mode == AiCoachingMode.HYBRID_FREE && onToggleEcoLite != null) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(Color(0xFF141233))
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f).padding(end = 8.dp)) {
+                        Text(
+                            text = if (settings.ecoLiteMode) {
+                                stringResource(R.string.quota_eco_mode_active_badge)
+                            } else {
+                                stringResource(R.string.quota_switch_eco_lite)
+                            },
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = if (settings.ecoLiteMode) Color(0xFF34D399) else Color.White
+                        )
+                        Text(
+                            text = stringResource(R.string.quota_eco_lite_desc),
+                            fontSize = 10.sp,
+                            color = Color(0xFFA5B4FC)
+                        )
+                    }
+                    Switch(
+                        checked = settings.ecoLiteMode,
+                        onCheckedChange = onToggleEcoLite,
+                        modifier = Modifier.testTag("switch_eco_lite_mode")
+                    )
+                }
+            }
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -631,12 +700,14 @@ fun DojoBlitzGameDialog(
 
     LaunchedEffect(gameFinished) {
         if (!gameFinished) {
-            while (secondsLeft > 0) {
+            while (secondsLeft > 0 && !gameFinished) {
                 delay(1000L)
                 secondsLeft -= 1
             }
-            gameFinished = true
-            onGameFinished(score, clearedCount)
+            if (!gameFinished) {
+                gameFinished = true
+                onGameFinished(score, clearedCount)
+            }
         }
     }
 
@@ -849,8 +920,10 @@ fun DojoBlitzGameDialog(
             } else {
                 TextButton(
                     onClick = {
-                        gameFinished = true
-                        onGameFinished(score, clearedCount)
+                        if (!gameFinished) {
+                            gameFinished = true
+                            onGameFinished(score, clearedCount)
+                        }
                     }
                 ) {
                     Text(stringResource(R.string.blitz_finish_early), color = Color(0xFFA5B4FC))

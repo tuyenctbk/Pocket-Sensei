@@ -24,7 +24,7 @@
     <string name="auth_error_unexpected_credential">Unexpected credential type</string>
     <string name="auth_error_sign_in_failed">Sign in failed</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">Coach</string>
     <string name="nav_roleplay">Roleplay</string>
     <string name="nav_vocab">Vocab</string>
@@ -47,7 +47,7 @@
     <string name="mood_thinking">Analyzing Accent…</string>
     <string name="mood_correcting">Tip from Sensei</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">All</string>
     <string name="lang_japanese">Japanese</string>
     <string name="lang_spanish">Spanish</string>
@@ -73,7 +73,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">Your Gemini Key (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">New Update Ready (v%1$s)</string>
     <string name="prompt_rate_title">Enjoying Pocket Sensei?</string>
     <string name="prompt_share_title">Share Your Progress!</string>
@@ -94,7 +94,7 @@
     <string name="share_app_subject">Pocket Sensei — 3D Language &amp; Accent Coach</string>
     <string name="share_app_chooser">Share Pocket Sensei</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">Practice Phrases</string>
     <string name="coach_dojo_blitz_btn">Dojo Blitz • Free</string>
     <string name="cd_normal_speed">Normal Speed</string>
@@ -210,7 +210,7 @@
     <string name="league_user_you">%1$s (You)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$dd • %3$d%% avg</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">AI Coaching Engine &amp; Cost Control</string>
     <string name="ai_cached_count">%1$d cached ($0)</string>
     <string name="ai_cloud_quota_summary">Today\'s free cloud calls: %1$d/%2$d. Repeated drills load free from Room cache.</string>
@@ -242,7 +242,7 @@
     <string name="blitz_play_again">Play Again</string>
     <string name="blitz_finish_early">Finish Early</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">Enjoying your practice?</string>
     <string name="donation_banner_subtitle">Support ad-free indie development with a coffee.</string>
     <string name="donation_banner_cta">Support</string>
@@ -310,7 +310,7 @@
     <string name="kofi_copied_toast">Copied Ko-fi link: %1$s</string>
     <string name="privacy_loaded_in_app">Privacy Policy loaded in-app.</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">Speech recognition is not available on this device. Use Type Input instead.</string>
     <string name="hud_praise_speech">Sugoi! Very impressive!</string>
     <string name="hud_greet_speech">Konnichiwa! Let\'s practice speaking today!</string>
@@ -454,7 +454,7 @@
     <string name="onboarding_select_language_label">Choose your first language to practice:</string>
     <string name="profile_btn_replay_onboarding">Interactive App Tour</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">Toggle 3D Sensei stage size</string>
     <string name="daily_goal_title">Daily Dojo Goal</string>
     <string name="daily_goal_progress_format">%1$d / %2$d sessions today</string>
@@ -470,7 +470,7 @@
     <string name="streak_status_pending_today">Complete 1 Pronunciation Coach evaluation today to lock in your streak.</string>
     <string name="streak_new_day_banner_format">%1$d-day streak unlocked!</string>
 
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">Record Sample</string>
     <string name="coach_stop_pitch_rec">Stop Rec</string>
     <string name="coach_play_mine">Hear Yourself</string>
@@ -478,7 +478,7 @@
     <string name="pitch_live_mic_badge">Live F0 Mic</string>
     <string name="result_play_sensei">Sensei Voice</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">Due Today (%1$d)</string>
     <string name="vocab_due_now_badge">Due Now</string>
     <string name="vocab_next_interval_format">In %1$dd</string>
@@ -497,7 +497,7 @@
     <string name="shadowing_step_listening">Sensei speaking — listen closely…</string>
     <string name="shadowing_step_repeat">Your turn — repeat aloud now…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">Add Phrase</string>
     <string name="custom_phrase_dialog_title">Add Custom %1$s Phrase</string>
     <string name="custom_phrase_target_label">Phrase in target language</string>
@@ -521,7 +521,7 @@
     <string name="scenario_template_hotel_user">Guest</string>
     <string name="scenario_template_hotel_open">Welcome to our hotel! Do you have a reservation under your name?</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">Daily Practice Reminders</string>
     <string name="reminder_channel_desc">Optional evening reminder if your daily streak is not locked in yet.</string>
     <string name="reminder_notif_title">Keep your Dojo streak alive! 🔥</string>
@@ -554,4 +554,30 @@
     <string name="scenario_london_interview_sensei">Project Host</string>
     <string name="scenario_london_interview_user">Creator</string>
     <string name="scenario_london_interview_init_translation">Good morning! Tell me what excites you about your next project.</string>
+    <string name="quota_soft_nudge_banner">You\'ve used %1$d%% of today\'s AI allowance (%2$d checks left • Resets in %3$s).</string>
+    <string name="quota_switch_eco_lite">Switch to Eco Lite Mode</string>
+    <string name="quota_eco_lite_desc">Turn on Eco Lite Mode to use high-speed lightweight AI and stretch remaining quota 3× further.</string>
+    <string name="quota_card_title">Smart Quota Recovery</string>
+    <string name="quota_card_subtitle">You reached today\'s standard AI allowance. Select an instant recovery option:</string>
+    <string name="quota_action_grace_title">Claim +3 Free Grace Credits</string>
+    <string name="quota_action_grace_desc">Mid-task? Claim +3 Free Grace Credits (once per day) to finish what you\'re working on right now.</string>
+    <string name="quota_action_grace_btn">Claim +3 Credits</string>
+    <string name="quota_action_grace_claimed">Claimed for today</string>
+    <string name="quota_action_eco_title">Retry with Eco Lite AI</string>
+    <string name="quota_action_eco_desc">Run this request using Eco Lite AI — uses a lighter, faster model tier with higher availability.</string>
+    <string name="quota_action_eco_btn">Use Eco Lite AI</string>
+    <string name="quota_action_local_title">Zero-Quota Local Sensei ($0)</string>
+    <string name="quota_action_local_desc">Practice with on-device Sensei coach ($0 cloud credits) — protect your daily streak and earn XP locally.</string>
+    <string name="quota_action_local_btn">Continue with Local Sensei</string>
+    <string name="quota_action_reset_title">Daily Reset Countdown</string>
+    <string name="quota_action_reset_desc">Your free allowance automatically resets in %1$s (at midnight).</string>
+    <string name="quota_value_receipt_title">Today\'s AI Value Receipt</string>
+    <string name="quota_value_receipt_summary">%1$d phrases evaluated • %2$d roleplay turns • %3$d vocab practiced</string>
+    <string name="quota_guest_unlock_title">Unlock Full Daily Starter Allowance</string>
+    <string name="quota_guest_unlock_desc">Practicing as Guest? Sign in with Google for free to unlock 25 daily evaluations &amp; cloud sync.</string>
+    <string name="quota_guest_unlock_btn">Sign in to Unlock</string>
+    <string name="quota_eco_mode_active_badge">Eco Lite Active</string>
+    <string name="quota_tier_primary_badge">Standard AI</string>
+    <string name="quota_tier_eco_badge">Eco Lite AI</string>
+    <string name="quota_tier_local_badge">Local Coach ($0)</string>
 </resources>

@@ -23,7 +23,7 @@
     <string name="auth_error_unexpected_credential">예기치 않은 인증 정보 유형입니다</string>
     <string name="auth_error_sign_in_failed">로그인에 실패했습니다</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">코치</string>
     <string name="nav_roleplay">롤플레이</string>
     <string name="nav_vocab">단어장</string>
@@ -46,7 +46,7 @@
     <string name="mood_thinking">억양 분석 중…</string>
     <string name="mood_correcting">센세이의 팁</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">전체</string>
     <string name="lang_japanese">일본어</string>
     <string name="lang_spanish">스페인어</string>
@@ -72,7 +72,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">내 Gemini 키 (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">새 업데이트 준비됨 (v%1$s)</string>
     <string name="prompt_rate_title">Pocket Sensei가 마음에 드시나요?</string>
     <string name="prompt_share_title">학습 성과를 공유하세요!</string>
@@ -93,7 +93,7 @@
     <string name="share_app_subject">Pocket Sensei — 3D 언어 &amp; 발음 코치</string>
     <string name="share_app_chooser">Pocket Sensei 공유</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">연습 문장</string>
     <string name="coach_dojo_blitz_btn">도장 블리츠 ($0)</string>
     <string name="cd_normal_speed">보통 속도</string>
@@ -208,7 +208,7 @@
     <string name="league_user_you">%1$s (나)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$d일 • 평균 %3$d%%</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">AI 코칭 엔진 &amp; 비용 관리</string>
     <string name="ai_cached_count">%1$d개 캐시됨 ($0)</string>
     <string name="ai_cloud_quota_summary">오늘 무료 클라우드 호출: %1$d/%2$d회. 반복 연습은 Room 캐시에서 무료로 불러옵니다.</string>
@@ -240,7 +240,7 @@
     <string name="blitz_play_again">다시 플레이</string>
     <string name="blitz_finish_early">일찍 끝내기</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">연습이 즐거우신가요?</string>
     <string name="donation_banner_subtitle">광고 없는 인디 개발을 커피 한 잔으로 응원해 주세요.</string>
     <string name="donation_banner_cta">후원</string>
@@ -308,7 +308,7 @@
     <string name="kofi_copied_toast">Ko-fi 링크 복사됨: %1$s</string>
     <string name="privacy_loaded_in_app">앱 내에서 개인정보 처리방침을 불러왔습니다.</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">이 기기에서는 음성 인식을 사용할 수 없습니다. 직접 입력을 이용해 주세요.</string>
     <string name="hud_praise_speech">스고이! 정말 훌륭해요!</string>
     <string name="hud_greet_speech">곤니치와! 오늘도 말하기 연습을 해 봐요!</string>
@@ -452,7 +452,7 @@
     <string name="onboarding_select_language_label">먼저 연습할 언어를 선택하세요:</string>
     <string name="profile_btn_replay_onboarding">앱 가이드 다시 보기</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">3D 센세 스테이지 크기 전환</string>
     <string name="daily_goal_title">오늘의 도장 목표</string>
     <string name="daily_goal_progress_format">오늘 %1$d / %2$d회 완료</string>
@@ -467,7 +467,7 @@
     <string name="streak_status_active_today">오늘 연속 학습을 달성했습니다! 계속 연습해 억양을 다듬어 보세요.</string>
     <string name="streak_status_pending_today">오늘 발음 코치 평가를 1회 완료하여 연속 기록을 유지하세요.</string>
     <string name="streak_new_day_banner_format">%1$d일 연속 학습 달성!</string>
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">샘플 녹음</string>
     <string name="coach_stop_pitch_rec">녹음 중지</string>
     <string name="coach_play_mine">내 발음 듣기</string>
@@ -475,7 +475,7 @@
     <string name="pitch_live_mic_badge">실시간 F0 마이크</string>
     <string name="result_play_sensei">센세 음성</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">오늘 복습 (%1$d)</string>
     <string name="vocab_due_now_badge">복습 필요</string>
     <string name="vocab_next_interval_format">%1$d일 후</string>
@@ -494,7 +494,7 @@
     <string name="shadowing_step_listening">센세가 말하고 있어요 — 집중해서 들으세요…</string>
     <string name="shadowing_step_repeat">이제 내 차례 — 큰 소리로 따라 말하세요…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">문장 추가</string>
     <string name="custom_phrase_dialog_title">나만의 %1$s 문장 추가</string>
     <string name="custom_phrase_target_label">학습 언어 문장</string>
@@ -518,7 +518,7 @@
     <string name="scenario_template_hotel_user">투숙객</string>
     <string name="scenario_template_hotel_open">호텔에 오신 것을 환영합니다! 성함으로 예약하셨나요?</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">매일 학습 알림</string>
     <string name="reminder_channel_desc">오늘 연속 학습을 아직 완료하지 않았을 때 저녁 알림을 보냅니다.</string>
     <string name="reminder_notif_title">도장 연속 기록을 이어가세요! 🔥</string>
@@ -551,4 +551,32 @@
     <string name="scenario_london_interview_sensei">프로젝트 호스트</string>
     <string name="scenario_london_interview_user">크리에이터</string>
     <string name="scenario_london_interview_init_translation">좋은 아침입니다! 다음 프로젝트에서 가장 기대되는 점을 들려주세요.</string>
+    <string name="auth_continue_guest">게스트로 계속 (오프라인)</string>
+    <string name="profile_guest_mode">오프라인 게스트 모드</string>
+    <string name="quota_soft_nudge_banner">오늘의 AI 제공량 중 %1$d%%를 사용했습니다 (%2$d회 남음 • %3$s 후 초기화).</string>
+    <string name="quota_switch_eco_lite">에코 라이트 모드로 전환</string>
+    <string name="quota_eco_lite_desc">에코 라이트 모드를 켜서 고속 경량 AI로 남은 한도를 3배 더 길게 사용하세요.</string>
+    <string name="quota_card_title">스마트 할당량 복구</string>
+    <string name="quota_card_subtitle">오늘의 표준 AI 한도에 도달했습니다. 즉시 이용할 수 있는 복구 옵션을 선택하세요:</string>
+    <string name="quota_action_grace_title">+3회 무료 유예 크레딧 받기</string>
+    <string name="quota_action_grace_desc">학습 중이신가요? 하루 한 번 +3 무료 크레딧을 받아 지금 진행 중인 세션을 완료하세요.</string>
+    <string name="quota_action_grace_btn">+3 크레딧 받기</string>
+    <string name="quota_action_grace_claimed">오늘 이미 수령함</string>
+    <string name="quota_action_eco_title">에코 라이트 AI로 재시도</string>
+    <string name="quota_action_eco_desc">가볍고 빠른 고가용성 모델을 사용하여 요청을 처리합니다.</string>
+    <string name="quota_action_eco_btn">에코 라이트 AI 사용</string>
+    <string name="quota_action_local_title">한도 없는 로컬 센세이 ($0)</string>
+    <string name="quota_action_local_desc">기기 내 센세이 코치로 학습 ($0 클라우드 크레딧) — 연속 기록을 지키고 XP 획득.</string>
+    <string name="quota_action_local_btn">로컬 센세이로 계속하기</string>
+    <string name="quota_action_reset_title">일일 초기화 카운트다운</string>
+    <string name="quota_action_reset_desc">무료 이용 한도는 %1$s 후(자정)에 자동으로 초기화됩니다.</string>
+    <string name="quota_value_receipt_title">오늘의 AI 가치 영수증</string>
+    <string name="quota_value_receipt_summary">발음 평가 %1$d회 • 롤플레잉 %2$d턴 • 단어 학습 %3$d개</string>
+    <string name="quota_guest_unlock_title">일일 스타터 전용 한도 전체 잠금 해제</string>
+    <string name="quota_guest_unlock_desc">게스트로 이용 중이신가요? Google로 무료 로그인하여 매일 25회 평가와 클라우드 동기화를 누리세요.</string>
+    <string name="quota_guest_unlock_btn">로그인하여 잠금 해제</string>
+    <string name="quota_eco_mode_active_badge">에코 라이트 활성</string>
+    <string name="quota_tier_primary_badge">표준 AI</string>
+    <string name="quota_tier_eco_badge">에코 라이트 AI</string>
+    <string name="quota_tier_local_badge">로컬 코치 ($0)</string>
 </resources>

@@ -115,9 +115,30 @@ class AiSenseiCoach(
         )
     )
 
-    private val pronunciationModel by lazy {
+    // Schema for AI Topic Lesson Pack
+    private val topicPackSchema = Schema.obj(
+        properties = mapOf(
+            "phrases" to Schema.array(
+                items = Schema.obj(
+                    properties = mapOf(
+                        "targetText" to Schema.string(description = "Phrase in target language"),
+                        "phonetic" to Schema.string(description = "Romaji, Pinyin, IPA, or phonetic pronunciation guide"),
+                        "translation" to Schema.string(description = "Natural translation in the learner's UI language"),
+                        "accentFocus" to Schema.string(description = "Brief pronunciation focus tip")
+                    )
+                ),
+                description = "3 practical speaking phrases for this topic"
+            ),
+            "scenarioTitle" to Schema.string(description = "Short title for a roleplay on this topic"),
+            "senseiRole" to Schema.string(description = "Sensei's character role in the roleplay"),
+            "userRole" to Schema.string(description = "Learner's character role in the roleplay"),
+            "openingLine" to Schema.string(description = "Sensei's first dialogue line in target language")
+        )
+    )
+
+    private val primaryPronunciationModel by lazy {
         Firebase.ai.generativeModel(
-            modelName = "gemini-3.8-flash",
+            modelName = AiModelConfig.PRIMARY_REASONING_MODEL,
             generationConfig = generationConfig {
                 responseMimeType = "application/json"
                 responseSchema = pronunciationSchema
@@ -125,12 +146,52 @@ class AiSenseiCoach(
         )
     }
 
-    private val roleplayModel by lazy {
+    private val economyPronunciationModel by lazy {
         Firebase.ai.generativeModel(
-            modelName = "gemini-3.8-flash",
+            modelName = AiModelConfig.ECONOMY_LITE_MODEL,
+            generationConfig = generationConfig {
+                responseMimeType = "application/json"
+                responseSchema = pronunciationSchema
+            }
+        )
+    }
+
+    private val primaryRoleplayModel by lazy {
+        Firebase.ai.generativeModel(
+            modelName = AiModelConfig.PRIMARY_REASONING_MODEL,
             generationConfig = generationConfig {
                 responseMimeType = "application/json"
                 responseSchema = roleplaySchema
+            }
+        )
+    }
+
+    private val economyRoleplayModel by lazy {
+        Firebase.ai.generativeModel(
+            modelName = AiModelConfig.ECONOMY_LITE_MODEL,
+            generationConfig = generationConfig {
+                responseMimeType = "application/json"
+                responseSchema = roleplaySchema
+            }
+        )
+    }
+
+    private val primaryTopicPackModel by lazy {
+        Firebase.ai.generativeModel(
+            modelName = AiModelConfig.PRIMARY_REASONING_MODEL,
+            generationConfig = generationConfig {
+                responseMimeType = "application/json"
+                responseSchema = topicPackSchema
+            }
+        )
+    }
+
+    private val economyTopicPackModel by lazy {
+        Firebase.ai.generativeModel(
+            modelName = AiModelConfig.ECONOMY_LITE_MODEL,
+            generationConfig = generationConfig {
+                responseMimeType = "application/json"
+                responseSchema = topicPackSchema
             }
         )
     }
@@ -144,7 +205,7 @@ class AiSenseiCoach(
         val validContour = measuredPitchContour?.takeIf { it.size >= 3 }
         val cacheKey = buildCacheKey(targetLanguage, promptOrWord, spokenTranscript)
 
-        // 1. Instant $0 Room cache lookup for repeat practice attempts
+        // 1. Instant $0 Room cache lookup for repeat practice attempts (30-45s deduplication)
         cacheDao?.findByKey(cacheKey)?.let { cached ->
             val domain = cached.toDomain(engineSource = "Room Cache ($0)")
             return@withContext Result.success(applyMeasuredContour(domain, validContour))
@@ -179,7 +240,7 @@ class AiSenseiCoach(
             Respond as raw JSON matching keys: score, phoneticAccuracy, intonationPitch, fluency, phoneticBreakdown, mispronouncedParts, coachingTip, nativePhrasings, encouragement, pitchContourType, targetPitchPoints (4 ints 20..90), learnerPitchPoints (4 ints 20..90), pitchGuidance.
         """.trimIndent()
 
-        // 3. User-funded BYOK Gemini Key path (zero developer liability)
+        // 3. User-funded BYOK Gemini Key path (zero developer liability; never leaks into Hybrid quota)
         if (mode == AiCoachingMode.BYOK_USER_KEY) {
             val userKey = aiSettingsManager?.getUserApiKey().orEmpty()
             if (userKey.isNotBlank()) {
@@ -191,12 +252,31 @@ class AiSenseiCoach(
                     cacheDao?.insertOrReplace(eval.toEntity(cacheKey, targetLanguage, promptOrWord, spokenTranscript))
                     return@withContext Result.success(applyMeasuredContour(eval, validContour))
                 }
+                byokResult.onFailure { e ->
+                    if (e is CancellationException && e !is TimeoutCancellationException) throw e
+                    Log.w(TAG, "BYOK pronunciation evaluation failed, falling back to Local Sensei", e)
+                }
             }
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
+            val byokFallback = LocalPronunciationEvaluator.evaluate(
+                targetLanguage = targetLanguage,
+                targetPhrase = promptOrWord,
+                spokenTranscript = spokenTranscript,
+                measuredPitchContour = validContour,
+                context = appContext
+            ).copy(
+                engineSource = "Local Sensei ($0 • Streak Preserved)",
+                hasMeasuredAudioContour = validContour != null
+            )
+            return@withContext Result.success(byokFallback)
         }
 
-        // 4. Smart Hybrid: Firebase AI within daily free cap, graceful $0 local fallback on cap/error
-        val hasQuota = aiSettingsManager?.canUseFreeCloudQuota() ?: true
-        if (!hasQuota) {
+        // 4. Smart Hybrid: Atomic deduct-with-refund inside daily free cap, graceful $0 local fallback on cap/error
+        val activeTier = aiSettingsManager?.usageQuotaManager?.resolveCurrentTier(QuotaFeature.PRONUNCIATION_EVALUATION)
+            ?: AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY
+        val reserved = aiSettingsManager?.tryConsumeCloudQuota(QuotaFeature.PRONUNCIATION_EVALUATION) ?: true
+        if (!reserved) {
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
             val fallback = LocalPronunciationEvaluator.evaluate(
                 targetLanguage = targetLanguage,
                 targetPhrase = promptOrWord,
@@ -204,39 +284,63 @@ class AiSenseiCoach(
                 measuredPitchContour = validContour,
                 context = appContext
             ).copy(
-                engineSource = "Offline Fallback ($0 • Daily cap saved)",
+                engineSource = "Local Sensei ($0 • Streak Preserved)",
                 hasMeasuredAudioContour = validContour != null
             )
             return@withContext Result.success(fallback)
         }
 
+        val targetModel = if (activeTier == AiModelConfig.AiCapabilityTier.TIER_2_ECONOMY_LITE) {
+            economyPronunciationModel
+        } else {
+            primaryPronunciationModel
+        }
+        val sourceLabel = if (activeTier == AiModelConfig.AiCapabilityTier.TIER_2_ECONOMY_LITE) {
+            "Eco Lite AI"
+        } else {
+            "Standard AI"
+        }
+
         try {
             val response = withTimeout(45_000L) {
-                pronunciationModel.generateContent(prompt)
+                targetModel.generateContent(prompt)
             }
             val jsonText = response.text ?: throw IllegalStateException("Model returned empty text.")
-            val parsed = parsePronunciationJson(jsonText, promptOrWord, engineSource = "Firebase AI")
-            aiSettingsManager?.incrementDailyCloudUsage()
+            val parsed = parsePronunciationJson(jsonText, promptOrWord, engineSource = sourceLabel)
             cacheDao?.insertOrReplace(parsed.toEntity(cacheKey, targetLanguage, promptOrWord, spokenTranscript))
             Result.success(applyMeasuredContour(parsed, validContour))
-        } catch (e: TimeoutCancellationException) {
-            Log.w(TAG, "Cloud evaluation timed out, falling back to $0 offline coach", e)
-            Result.success(
-                LocalPronunciationEvaluator.evaluate(
-                    targetLanguage,
-                    promptOrWord,
-                    spokenTranscript,
-                    measuredPitchContour = validContour,
-                    context = appContext
-                ).copy(
-                    engineSource = "Offline Fallback ($0)",
-                    hasMeasuredAudioContour = validContour != null
-                )
-            )
-        } catch (e: CancellationException) {
-            throw e
         } catch (e: Exception) {
-            Log.w(TAG, "Cloud evaluation unavailable, falling back to $0 offline coach", e)
+            if (e is CancellationException && e !is TimeoutCancellationException) {
+                aiSettingsManager?.refundCloudQuota(QuotaFeature.PRONUNCIATION_EVALUATION)
+                throw e
+            }
+            Log.w(TAG, "Cloud evaluation failed with $activeTier, cascading to economy or local coach", e)
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
+
+            if (activeTier == AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY) {
+                val cascadeResult = runCatching {
+                    val fallbackResponse = withTimeout(20_000L) {
+                        economyPronunciationModel.generateContent(prompt)
+                    }
+                    val jsonText = fallbackResponse.text ?: throw IllegalStateException("Economy model empty text.")
+                    val parsed = parsePronunciationJson(jsonText, promptOrWord, engineSource = "Eco Lite AI (Auto-Cascade)")
+                    cacheDao?.insertOrReplace(parsed.toEntity(cacheKey, targetLanguage, promptOrWord, spokenTranscript))
+                    applyMeasuredContour(parsed, validContour)
+                }
+                cascadeResult.onSuccess {
+                    return@withContext Result.success(it)
+                }.onFailure { cascadeErr ->
+                    if (cascadeErr is CancellationException && cascadeErr !is TimeoutCancellationException) {
+                        aiSettingsManager?.refundCloudQuota(QuotaFeature.PRONUNCIATION_EVALUATION)
+                        throw cascadeErr
+                    }
+                }
+            }
+
+            // Refund reserved credit since cloud & auto-cascade both failed
+            aiSettingsManager?.refundCloudQuota(QuotaFeature.PRONUNCIATION_EVALUATION)
+
+            // Zero-Cost Local / Deterministic Fallback: Streak preserved, XP earned, $0 tokens
             Result.success(
                 LocalPronunciationEvaluator.evaluate(
                     targetLanguage,
@@ -245,7 +349,7 @@ class AiSenseiCoach(
                     measuredPitchContour = validContour,
                     context = appContext
                 ).copy(
-                    engineSource = "Offline Fallback ($0)",
+                    engineSource = "Local Sensei ($0 • Streak Preserved)",
                     hasMeasuredAudioContour = validContour != null
                 )
             )
@@ -279,8 +383,9 @@ class AiSenseiCoach(
             )
         }
 
+        // Sliding context window: send only last 6 turns to stretch free tier 3x
         val historyBuilder = StringBuilder()
-        conversationHistory.takeLast(6).forEach { (speaker, text) ->
+        conversationHistory.takeLast(AiModelConfig.SLIDING_CONTEXT_MAX_TURNS).forEach { (speaker, text) ->
             historyBuilder.append("$speaker: $text\n")
         }
 
@@ -305,28 +410,67 @@ class AiSenseiCoach(
                     parseRoleplayJson(jsonText)
                 }
                 byokResult.onSuccess { return@withContext Result.success(it) }
+                byokResult.onFailure { e ->
+                    if (e is CancellationException && e !is TimeoutCancellationException) throw e
+                    Log.w(TAG, "BYOK roleplay turn failed, falling back to Local Sensei", e)
+                }
             }
-        }
-
-        val hasQuota = aiSettingsManager?.canUseFreeCloudQuota() ?: true
-        if (!hasQuota) {
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
             return@withContext Result.success(
                 LocalPronunciationEvaluator.conductLocalRoleplayTurn(language, scenarioTitle, userSpokenMessage, context = appContext)
             )
         }
 
+        val activeTier = aiSettingsManager?.usageQuotaManager?.resolveCurrentTier(QuotaFeature.ROLEPLAY_CHAT)
+            ?: AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY
+        val reserved = aiSettingsManager?.tryConsumeCloudQuota(QuotaFeature.ROLEPLAY_CHAT) ?: true
+        if (!reserved) {
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
+            return@withContext Result.success(
+                LocalPronunciationEvaluator.conductLocalRoleplayTurn(language, scenarioTitle, userSpokenMessage, context = appContext)
+            )
+        }
+
+        val targetRoleplayModel = if (activeTier == AiModelConfig.AiCapabilityTier.TIER_2_ECONOMY_LITE) {
+            economyRoleplayModel
+        } else {
+            primaryRoleplayModel
+        }
+
         try {
             val response = withTimeout(45_000L) {
-                roleplayModel.generateContent(prompt)
+                targetRoleplayModel.generateContent(prompt)
             }
             val jsonText = response.text ?: throw IllegalStateException("Model returned empty text.")
             val turn = parseRoleplayJson(jsonText)
-            aiSettingsManager?.incrementDailyCloudUsage()
             Result.success(turn)
-        } catch (e: CancellationException) {
-            throw e
         } catch (e: Exception) {
-            Log.w(TAG, "Roleplay cloud unavailable, falling back to offline turn", e)
+            if (e is CancellationException && e !is TimeoutCancellationException) {
+                aiSettingsManager?.refundCloudQuota(QuotaFeature.ROLEPLAY_CHAT)
+                throw e
+            }
+            Log.w(TAG, "Roleplay cloud failed with $activeTier, cascading to economy or local reflex engine", e)
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
+
+            if (activeTier == AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY) {
+                val cascadeResult = runCatching {
+                    val fallbackResponse = withTimeout(20_000L) {
+                        economyRoleplayModel.generateContent(prompt)
+                    }
+                    val jsonText = fallbackResponse.text ?: throw IllegalStateException("Economy roleplay model empty text.")
+                    parseRoleplayJson(jsonText)
+                }
+                cascadeResult.onSuccess {
+                    return@withContext Result.success(it)
+                }.onFailure { cascadeErr ->
+                    if (cascadeErr is CancellationException && cascadeErr !is TimeoutCancellationException) {
+                        aiSettingsManager?.refundCloudQuota(QuotaFeature.ROLEPLAY_CHAT)
+                        throw cascadeErr
+                    }
+                }
+            }
+
+            aiSettingsManager?.refundCloudQuota(QuotaFeature.ROLEPLAY_CHAT)
             Result.success(
                 LocalPronunciationEvaluator.conductLocalRoleplayTurn(language, scenarioTitle, userSpokenMessage, context = appContext)
             )
@@ -351,7 +495,7 @@ class AiSenseiCoach(
         }.toString()
 
         val request = Request.Builder()
-            .url("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent")
+            .url("${AiModelConfig.BYOK_ENDPOINT_BASE}${AiModelConfig.PRIMARY_REASONING_MODEL}:generateContent")
             .addHeader("x-goog-api-key", userApiKey)
             .post(bodyJson.toRequestBody("application/json".toMediaType()))
             .build()
@@ -450,57 +594,129 @@ class AiSenseiCoach(
         topic: String
     ): Result<GeneratedTopicPack> = withContext(Dispatchers.IO) {
         val cleanTopic = topic.trim().ifBlank { "Travel Conversation" }
-        val userKey = aiSettingsManager?.getUserApiKey().orEmpty().trim()
-        val responseLang = Locale.getDefault().displayLanguage.ifBlank { "English" }
+        val mode = aiSettingsManager?.getCurrentMode() ?: AiCoachingMode.HYBRID_FREE
 
-        if (userKey.isNotBlank()) {
-            val prompt = """
-                You are 'Pocket Sensei', an expert language coach.
-                Create a custom speaking lesson pack in $language for the topic: "$cleanTopic".
-                Write translations and pronunciation focus tips in $responseLang.
-                Return raw JSON with keys:
-                - "phrases": array of 3 objects, each with "targetText", "phonetic", "translation", "accentFocus"
-                - "scenarioTitle": short title for a roleplay on this topic
-                - "senseiRole": Sensei's role in the roleplay
-                - "userRole": learner's role
-                - "openingLine": Sensei's first line in $language
-            """.trimIndent()
-
-            val byokAttempt = runCatching {
-                val rawJson = callByokGeminiJson(userKey, prompt)
-                val root = JSONObject(rawJson)
-                val arr = root.optJSONArray("phrases") ?: JSONArray()
-                val parsedPhrases = (0 until arr.length()).mapNotNull { idx ->
-                    val item = arr.optJSONObject(idx) ?: return@mapNotNull null
-                    val target = item.optString("targetText").trim()
-                    if (target.isBlank()) return@mapNotNull null
-                    GeneratedTopicPhrase(
-                        targetText = target,
-                        phonetic = item.optString("phonetic", target).trim(),
-                        translation = item.optString("translation", cleanTopic).trim(),
-                        accentFocus = item.optString(
-                            "accentFocus",
-                            appContext?.getString(R.string.coach_default_accent_focus) ?: "Natural cadence"
-                        ).trim()
-                    )
-                }
-                if (parsedPhrases.isEmpty()) error("Empty phrases from BYOK")
-                GeneratedTopicPack(
-                    topic = cleanTopic,
-                    language = language,
-                    phrases = parsedPhrases,
-                    scenarioTitle = root.optString("scenarioTitle", cleanTopic).trim().ifBlank { cleanTopic },
-                    senseiRole = root.optString("senseiRole", "Sensei").trim().ifBlank { "Sensei" },
-                    userRole = root.optString("userRole", "Learner").trim().ifBlank { "Learner" },
-                    openingLine = root.optString("openingLine", parsedPhrases.first().targetText).trim()
-                        .ifBlank { parsedPhrases.first().targetText },
-                    usedByokCloud = true
-                )
-            }
-            byokAttempt.onSuccess { return@withContext Result.success(it) }
+        if (mode == AiCoachingMode.LOCAL_OFFLINE_ONLY) {
+            return@withContext Result.success(buildLocalTopicPackFallback(language, cleanTopic))
         }
 
-        Result.success(buildLocalTopicPackFallback(language, cleanTopic))
+        val responseLang = Locale.getDefault().displayLanguage.ifBlank { "English" }
+        val prompt = """
+            You are 'Pocket Sensei', an expert language coach.
+            Create a custom speaking lesson pack in $language for the topic: "$cleanTopic".
+            Write translations and pronunciation focus tips in $responseLang.
+            Return raw JSON with keys:
+            - "phrases": array of 3 objects, each with "targetText", "phonetic", "translation", "accentFocus"
+            - "scenarioTitle": short title for a roleplay on this topic
+            - "senseiRole": Sensei's role in the roleplay
+            - "userRole": learner's role
+            - "openingLine": Sensei's first line in $language
+        """.trimIndent()
+
+        if (mode == AiCoachingMode.BYOK_USER_KEY) {
+            val userKey = aiSettingsManager?.getUserApiKey().orEmpty().trim()
+            if (userKey.isNotBlank()) {
+                val byokAttempt = runCatching {
+                    val rawJson = callByokGeminiJson(userKey, prompt)
+                    parseTopicPackJson(rawJson, cleanTopic, language, usedByokCloud = true)
+                }
+                byokAttempt.onSuccess { return@withContext Result.success(it) }
+                byokAttempt.onFailure { e ->
+                    if (e is CancellationException && e !is TimeoutCancellationException) throw e
+                    Log.w(TAG, "BYOK topic pack generation failed, using local pack", e)
+                }
+            }
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
+            return@withContext Result.success(buildLocalTopicPackFallback(language, cleanTopic))
+        }
+
+        val activeTier = aiSettingsManager?.usageQuotaManager?.resolveCurrentTier(QuotaFeature.TOPIC_PACK)
+            ?: AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY
+        val reserved = aiSettingsManager?.tryConsumeCloudQuota(QuotaFeature.TOPIC_PACK) ?: true
+        if (!reserved) {
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
+            return@withContext Result.success(buildLocalTopicPackFallback(language, cleanTopic))
+        }
+
+        val targetTopicModel = if (activeTier == AiModelConfig.AiCapabilityTier.TIER_2_ECONOMY_LITE) {
+            economyTopicPackModel
+        } else {
+            primaryTopicPackModel
+        }
+
+        try {
+            val response = withTimeout(45_000L) {
+                targetTopicModel.generateContent(prompt)
+            }
+            val rawJson = response.text ?: throw IllegalStateException("Topic pack model returned empty text.")
+            Result.success(parseTopicPackJson(rawJson, cleanTopic, language, usedByokCloud = false))
+        } catch (e: Exception) {
+            if (e is CancellationException && e !is TimeoutCancellationException) {
+                aiSettingsManager?.refundCloudQuota(QuotaFeature.TOPIC_PACK)
+                throw e
+            }
+            Log.w(TAG, "Topic pack cloud failed with $activeTier, cascading to economy or local pack", e)
+            aiSettingsManager?.usageQuotaManager?.recordFallbackCascade()
+
+            if (activeTier == AiModelConfig.AiCapabilityTier.TIER_1_PRIMARY) {
+                val cascadeAttempt = runCatching {
+                    val fallbackResponse = withTimeout(20_000L) {
+                        economyTopicPackModel.generateContent(prompt)
+                    }
+                    val rawJson = fallbackResponse.text ?: throw IllegalStateException("Economy topic pack model empty text.")
+                    parseTopicPackJson(rawJson, cleanTopic, language, usedByokCloud = false)
+                }
+                cascadeAttempt.onSuccess {
+                    return@withContext Result.success(it)
+                }.onFailure { cascadeErr ->
+                    if (cascadeErr is CancellationException && cascadeErr !is TimeoutCancellationException) {
+                        aiSettingsManager?.refundCloudQuota(QuotaFeature.TOPIC_PACK)
+                        throw cascadeErr
+                    }
+                }
+            }
+
+            aiSettingsManager?.refundCloudQuota(QuotaFeature.TOPIC_PACK)
+            Result.success(buildLocalTopicPackFallback(language, cleanTopic))
+        }
+    }
+
+    private fun parseTopicPackJson(
+        rawJson: String,
+        cleanTopic: String,
+        language: String,
+        usedByokCloud: Boolean
+    ): GeneratedTopicPack {
+        val root = JSONObject(rawJson)
+        val arr = root.optJSONArray("phrases") ?: JSONArray()
+        val parsedPhrases = (0 until arr.length()).mapNotNull { idx ->
+            val item = arr.optJSONObject(idx) ?: return@mapNotNull null
+            val target = item.optString("targetText").trim()
+            if (target.isBlank()) return@mapNotNull null
+            GeneratedTopicPhrase(
+                targetText = target,
+                phonetic = item.optString("phonetic", target).trim(),
+                translation = item.optString("translation", cleanTopic).trim(),
+                accentFocus = item.optString(
+                    "accentFocus",
+                    appContext?.getString(R.string.coach_default_accent_focus) ?: "Natural cadence"
+                ).trim()
+            )
+        }
+        if (parsedPhrases.isEmpty()) error("Empty phrases from AI topic pack")
+        val defaultSenseiRole = appContext?.getString(R.string.topic_pack_sensei_role) ?: "Sensei"
+        val defaultUserRole = appContext?.getString(R.string.topic_pack_user_role) ?: "Traveler"
+        return GeneratedTopicPack(
+            topic = cleanTopic,
+            language = language,
+            phrases = parsedPhrases,
+            scenarioTitle = root.optString("scenarioTitle", cleanTopic).trim().ifBlank { cleanTopic },
+            senseiRole = root.optString("senseiRole", defaultSenseiRole).trim().ifBlank { defaultSenseiRole },
+            userRole = root.optString("userRole", defaultUserRole).trim().ifBlank { defaultUserRole },
+            openingLine = root.optString("openingLine", parsedPhrases.first().targetText).trim()
+                .ifBlank { parsedPhrases.first().targetText },
+            usedByokCloud = usedByokCloud
+        )
     }
 
     fun buildLocalTopicPackFallback(language: String, topic: String): GeneratedTopicPack {

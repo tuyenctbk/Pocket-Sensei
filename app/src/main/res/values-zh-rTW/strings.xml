@@ -23,7 +23,7 @@
     <string name="auth_error_unexpected_credential">未預期的憑證類型</string>
     <string name="auth_error_sign_in_failed">登入失敗</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">教練</string>
     <string name="nav_roleplay">對話</string>
     <string name="nav_vocab">字彙</string>
@@ -46,7 +46,7 @@
     <string name="mood_thinking">分析發音中…</string>
     <string name="mood_correcting">老師小叮嚀</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">全部</string>
     <string name="lang_japanese">日語</string>
     <string name="lang_spanish">西班牙語</string>
@@ -72,7 +72,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">個人 Gemini 金鑰 (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">新版本已就緒 (v%1$s)</string>
     <string name="prompt_rate_title">喜歡 Pocket Sensei 嗎？</string>
     <string name="prompt_share_title">分享您的學習進度！</string>
@@ -93,7 +93,7 @@
     <string name="share_app_subject">Pocket Sensei — 3D 語言與發音教練</string>
     <string name="share_app_chooser">分享 Pocket Sensei</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">練習短句</string>
     <string name="coach_dojo_blitz_btn">道場閃電戰 ($0)</string>
     <string name="cd_normal_speed">正常語速</string>
@@ -208,7 +208,7 @@
     <string name="league_user_you">%1$s (您)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$d天 • 平均 %3$d%%</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">AI 教練引擎與成本控制</string>
     <string name="ai_cached_count">%1$d 筆已快取 ($0)</string>
     <string name="ai_cloud_quota_summary">今日免費雲端呼叫：%1$d/%2$d。重複練習直接從 Room 快取免費載入。</string>
@@ -240,7 +240,7 @@
     <string name="blitz_play_again">再玩一次</string>
     <string name="blitz_finish_early">提前結束</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">喜歡這次練習嗎？</string>
     <string name="donation_banner_subtitle">請獨立開發者喝杯咖啡，支持無廣告持續開發。</string>
     <string name="donation_banner_cta">贊助</string>
@@ -308,7 +308,7 @@
     <string name="kofi_copied_toast">已複製 Ko-fi 連結：%1$s</string>
     <string name="privacy_loaded_in_app">已在應用程式內載入隱私權政策。</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">此裝置不支援語音辨識，請改用「輸入」功能。</string>
     <string name="hud_praise_speech">太棒了！非常出色！</string>
     <string name="hud_greet_speech">你好！今天一起來練習口說吧！</string>
@@ -452,7 +452,7 @@
     <string name="onboarding_select_language_label">選擇你要開始練習的語言：</string>
     <string name="profile_btn_replay_onboarding">互動導覽</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">切換 3D 先生舞台大小</string>
     <string name="daily_goal_title">每日道場目標</string>
     <string name="daily_goal_progress_format">今日已完成 %1$d / %2$d 次練習</string>
@@ -467,7 +467,7 @@
     <string name="streak_status_active_today">今日連勝已鎖定！繼續開口練習讓發音更道地。</string>
     <string name="streak_status_pending_today">今天完成 1 次發音教練評估即可延續連勝紀錄。</string>
     <string name="streak_new_day_banner_format">已解鎖 %1$d 天連勝！</string>
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">錄製音樣</string>
     <string name="coach_stop_pitch_rec">停止錄音</string>
     <string name="coach_play_mine">聽聽自己</string>
@@ -475,7 +475,7 @@
     <string name="pitch_live_mic_badge">即時F0麥克風</string>
     <string name="result_play_sensei">老師原聲</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">今日待複習 (%1$d)</string>
     <string name="vocab_due_now_badge">待複習</string>
     <string name="vocab_next_interval_format">%1$d天後</string>
@@ -494,7 +494,7 @@
     <string name="shadowing_step_listening">老師朗讀中 — 請仔細聆聽…</string>
     <string name="shadowing_step_repeat">輪到你了 — 請大聲跟讀…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">新增片語</string>
     <string name="custom_phrase_dialog_title">新增自訂%1$s片語</string>
     <string name="custom_phrase_target_label">目標語言片語</string>
@@ -518,7 +518,7 @@
     <string name="scenario_template_hotel_user">房客</string>
     <string name="scenario_template_hotel_open">歡迎蒞臨本飯店！請問您有使用您的姓名預訂房間嗎？</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">每日練習提醒</string>
     <string name="reminder_channel_desc">若當天的連勝尚未完成，將於晚間發送可選提醒。</string>
     <string name="reminder_notif_title">保持道場連勝不中斷！ 🔥</string>
@@ -551,4 +551,32 @@
     <string name="scenario_london_interview_sensei">專案負責人</string>
     <string name="scenario_london_interview_user">創作者</string>
     <string name="scenario_london_interview_init_translation">早安！聊聊你的下一個專案中最讓你興奮的地方吧。</string>
+    <string name="auth_continue_guest">以訪客身分繼續 (離線)</string>
+    <string name="profile_guest_mode">離線訪客模式</string>
+    <string name="quota_soft_nudge_banner">您已使用今日AI額度的%1$d%% (剩餘%2$d次 • %3$s後重設)。</string>
+    <string name="quota_switch_eco_lite">切換至節能輕量模式</string>
+    <string name="quota_eco_lite_desc">開啟節能輕量模式，使用輕快AI模型，讓剩餘額度延長3倍使用量。</string>
+    <string name="quota_card_title">智慧額度恢復</string>
+    <string name="quota_card_subtitle">您已達到今日標準AI額度上限。請選擇即時恢復選項：</string>
+    <string name="quota_action_grace_title">領取+3次免費寬限額度</string>
+    <string name="quota_action_grace_desc">練習進行中？每日可領取一次+3免費額度，立即完成目前的練習。</string>
+    <string name="quota_action_grace_btn">領取+3額度</string>
+    <string name="quota_action_grace_claimed">今日已領取</string>
+    <string name="quota_action_eco_title">使用節能輕量AI重試</string>
+    <string name="quota_action_eco_desc">使用更輕量快速、高可用性的模型完成此次評估。</string>
+    <string name="quota_action_eco_btn">使用節能輕量AI</string>
+    <string name="quota_action_local_title">免額度本機導師 ($0)</string>
+    <string name="quota_action_local_desc">在裝置端與本機導師練習 ($0雲端消耗) — 保留連續打卡紀錄並累積XP。</string>
+    <string name="quota_action_local_btn">繼續使用本機導師</string>
+    <string name="quota_action_reset_title">每日重設倒數</string>
+    <string name="quota_action_reset_desc">您的免費額度將在%1$s後 (午夜) 自動恢復。</string>
+    <string name="quota_value_receipt_title">今日AI價值清單</string>
+    <string name="quota_value_receipt_summary">發音評估 %1$d次 • 對話練習 %2$d輪 • 詞彙練習 %3$d個</string>
+    <string name="quota_guest_unlock_title">解鎖每日完整新手額度</string>
+    <string name="quota_guest_unlock_desc">正在以訪客練習？免費使用Google登入，立即享有每日25次評估與雲端備份。</string>
+    <string name="quota_guest_unlock_btn">登入以解鎖</string>
+    <string name="quota_eco_mode_active_badge">節能輕量啟用</string>
+    <string name="quota_tier_primary_badge">標準AI</string>
+    <string name="quota_tier_eco_badge">節能輕量AI</string>
+    <string name="quota_tier_local_badge">本機教練 ($0)</string>
 </resources>

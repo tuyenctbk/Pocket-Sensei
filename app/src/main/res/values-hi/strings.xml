@@ -23,7 +23,7 @@
     <string name="auth_error_unexpected_credential">अप्रत्याशित क्रेडेंशियल प्रकार</string>
     <string name="auth_error_sign_in_failed">साइन इन विफल रहा</string>
 
-    <!-- Navigation & Top Bar & 3D HUD -->
+    <!-- Navigation &amp; Top Bar &amp; 3D HUD -->
     <string name="nav_coach">कोच</string>
     <string name="nav_roleplay">संवाद</string>
     <string name="nav_vocab">शब्दावली</string>
@@ -46,7 +46,7 @@
     <string name="mood_thinking">लहजा जांच रहे हैं…</string>
     <string name="mood_correcting">सेंसेई की सलाह</string>
 
-    <!-- Languages, Difficulties, Tiers & Engines -->
+    <!-- Languages, Difficulties, Tiers &amp; Engines -->
     <string name="lang_all">सभी</string>
     <string name="lang_japanese">जापानी</string>
     <string name="lang_spanish">स्पेनिश</string>
@@ -72,7 +72,7 @@
     <string name="engine_firebase">Firebase AI</string>
     <string name="engine_byok">आपकी Gemini कुंजी (BYOK)</string>
 
-    <!-- Engagement Auto Prompts & Sharing -->
+    <!-- Engagement Auto Prompts &amp; Sharing -->
     <string name="prompt_update_title">नया अपडेट तैयार (v%1$s)</string>
     <string name="prompt_rate_title">क्या आपको Pocket Sensei पसंद है?</string>
     <string name="prompt_share_title">अपनी प्रगति साझा करें!</string>
@@ -93,7 +93,7 @@
     <string name="share_app_subject">Pocket Sensei — 3D भाषा और उच्चारण कोच</string>
     <string name="share_app_chooser">Pocket Sensei साझा करें</string>
 
-    <!-- Coach Screen & Feedback Card -->
+    <!-- Coach Screen &amp; Feedback Card -->
     <string name="coach_practice_phrases">अभ्यास वाक्यांश</string>
     <string name="coach_dojo_blitz_btn">डोजो ब्लिट्ज़ ($0)</string>
     <string name="cd_normal_speed">सामान्य गति</string>
@@ -208,7 +208,7 @@
     <string name="league_user_you">%1$s (आप)</string>
     <string name="league_row_meta">%1$s • 🔥 %2$dदि • %3$d%% औसत</string>
 
-    <!-- AI Cost Control & Dojo Blitz -->
+    <!-- AI Cost Control &amp; Dojo Blitz -->
     <string name="ai_card_title">AI कोचिंग इंजन और लागत नियंत्रण</string>
     <string name="ai_cached_count">%1$d कैश किए गए ($0)</string>
     <string name="ai_cloud_quota_summary">आज के मुफ़्त क्लाउड कॉल: %1$d/%2$d। दोहराए गए अभ्यास Room कैश से मुफ़्त लोड होते हैं।</string>
@@ -240,7 +240,7 @@
     <string name="blitz_play_again">फिर से खेलें</string>
     <string name="blitz_finish_early">समाप्त करें</string>
 
-    <!-- Donation & Billing -->
+    <!-- Donation &amp; Billing -->
     <string name="donation_banner_title">अभ्यास अच्छा लग रहा है?</string>
     <string name="donation_banner_subtitle">एक कॉफ़ी के साथ विज्ञापन-मुक्त इंडी विकास का समर्थन करें।</string>
     <string name="donation_banner_cta">समर्थन</string>
@@ -308,7 +308,7 @@
     <string name="kofi_copied_toast">Ko-fi लिंक कॉपी किया गया: %1$s</string>
     <string name="privacy_loaded_in_app">गोपनीयता नीति ऐप में लोड हो गई।</string>
 
-    <!-- Speech, Errors, HUD & Offline Evaluator -->
+    <!-- Speech, Errors, HUD &amp; Offline Evaluator -->
     <string name="speech_recognizer_unavailable">इस डिवाइस पर वाक् पहचान उपलब्ध नहीं है। इसके बजाय \'टेक्स्ट लिखें\' का उपयोग करें।</string>
     <string name="hud_praise_speech">शाबाश! बहुत प्रभावशाली!</string>
     <string name="hud_greet_speech">नमस्ते! आइए आज बोलने का अभ्यास करें!</string>
@@ -452,7 +452,7 @@
     <string name="onboarding_select_language_label">अभ्यास के लिए अपनी पहली भाषा चुनें:</string>
     <string name="profile_btn_replay_onboarding">इंटरैक्टिव ऐप टूर</string>
 
-    <!-- UX & Business Polish -->
+    <!-- UX &amp; Business Polish -->
     <string name="cd_toggle_sensei_stage">3D सेन्सेई मंच का आकार बदलें</string>
     <string name="daily_goal_title">दैनिक डोजो लक्ष्य</string>
     <string name="daily_goal_progress_format">आज %1$d / %2$d सत्र</string>
@@ -467,7 +467,7 @@
     <string name="streak_status_active_today">आज की स्ट्रीक पक्की हो गई! अपना उच्चारण निखारने के लिए अभ्यास जारी रखें।</string>
     <string name="streak_status_pending_today">अपनी स्ट्रीक पक्की करने के लिए आज 1 उच्चारण कोच मूल्यांकन पूरा करें।</string>
     <string name="streak_new_day_banner_format">%1$d दिन की स्ट्रीक अनलॉक हुई!</string>
-    <!-- Voice Compare & Live Pitch -->
+    <!-- Voice Compare &amp; Live Pitch -->
     <string name="coach_record_pitch_sample">नमूना रिकॉर्ड करें</string>
     <string name="coach_stop_pitch_rec">रोकें</string>
     <string name="coach_play_mine">अपनी आवाज़ सुनें</string>
@@ -475,7 +475,7 @@
     <string name="pitch_live_mic_badge">लाइव F0 माइक</string>
     <string name="result_play_sensei">सेंसेई आवाज़</string>
 
-    <!-- Spaced Repetition & Streak Freeze -->
+    <!-- Spaced Repetition &amp; Streak Freeze -->
     <string name="vocab_filter_due_today">आज के लिए (%1$d)</string>
     <string name="vocab_due_now_badge">अभी दोहराएं</string>
     <string name="vocab_next_interval_format">%1$d दिन में</string>
@@ -494,7 +494,7 @@
     <string name="shadowing_step_listening">सेंसेई बोल रहे हैं — ध्यान से सुनें…</string>
     <string name="shadowing_step_repeat">आपकी बारी — ज़ोर से दोहराएं…</string>
 
-    <!-- Custom Phrases & Roleplay Scenarios -->
+    <!-- Custom Phrases &amp; Roleplay Scenarios -->
     <string name="custom_phrase_btn">वाक्य जोड़ें</string>
     <string name="custom_phrase_dialog_title">कस्टम %1$s वाक्य जोड़ें</string>
     <string name="custom_phrase_target_label">लक्ष्य भाषा में वाक्य</string>
@@ -518,7 +518,7 @@
     <string name="scenario_template_hotel_user">अतिथि</string>
     <string name="scenario_template_hotel_open">हमारे होटल में स्वागत है! क्या आपके नाम से कोई आरक्षण है?</string>
 
-    <!-- Smart Evening Streak Reminder & Milestone Share Card -->
+    <!-- Smart Evening Streak Reminder &amp; Milestone Share Card -->
     <string name="reminder_channel_name">दैनिक अभ्यास अनुस्मारक</string>
     <string name="reminder_channel_desc">यदि आपकी दैनिक स्ट्रीक पूरी नहीं हुई है तो शाम को वैकल्पिक सूचना।</string>
     <string name="reminder_notif_title">अपनी डोजो स्ट्रीक जारी रखें! 🔥</string>
@@ -551,4 +551,32 @@
     <string name="scenario_london_interview_sensei">प्रोजेक्ट होस्ट</string>
     <string name="scenario_london_interview_user">क्रिएटर</string>
     <string name="scenario_london_interview_init_translation">सुप्रभात! मुझे बताएँ कि आपके अगले प्रोजेक्ट में आपको क्या उत्साहित करता है।</string>
+    <string name="auth_continue_guest">अतिथि के रूप में जारी रखें (ऑफ़लाइन)</string>
+    <string name="profile_guest_mode">ऑफ़लाइन अतिथि मोड</string>
+    <string name="quota_soft_nudge_banner">आपने आज के AI कोटे का %1$d%% उपयोग कर लिया है (%2$d शेष • %3$s में रीसेट होगा)।</string>
+    <string name="quota_switch_eco_lite">इको लाइट मोड पर स्विच करें</string>
+    <string name="quota_eco_lite_desc">तेज़ और हल्के AI मॉडल का उपयोग करने के लिए इको लाइट मोड चालू करें और कोटे को 3 गुना बढ़ाएं।</string>
+    <string name="quota_card_title">स्मार्ट कोटा रिकवरी</string>
+    <string name="quota_card_subtitle">आप आज के मानक AI कोटे तक पहुँच गए हैं। तुरंत अभ्यास जारी रखने का विकल्प चुनें:</string>
+    <string name="quota_action_grace_title">+3 निःशुल्क ग्रेस क्रेडिट प्राप्त करें</string>
+    <string name="quota_action_grace_desc">अभ्यास के बीच में हैं? अभी अपना पाठ पूरा करने के लिए दिन में एक बार +3 निःशुल्क क्रेडिट प्राप्त करें।</string>
+    <string name="quota_action_grace_btn">+3 क्रेडिट प्राप्त करें</string>
+    <string name="quota_action_grace_claimed">आज के लिए पहले ही प्राप्त किया जा चुका है</string>
+    <string name="quota_action_eco_title">इको लाइट AI के साथ पुनः प्रयास करें</string>
+    <string name="quota_action_eco_desc">उच्च उपलब्धता वाले हल्के और तेज़ मॉडल के साथ इस अनुरोध को पूरा करें।</string>
+    <string name="quota_action_eco_btn">इको लाइट AI का उपयोग करें</string>
+    <string name="quota_action_local_title">शून्य-कोटा स्थानीय सेंसेई ($0)</string>
+    <string name="quota_action_local_desc">डिवाइस पर स्थानीय सेंसेई के साथ अभ्यास करें ($0 क्लाउड लागत) — अपनी स्ट्रीक सुरक्षित रखें और XP अर्जित करें।</string>
+    <string name="quota_action_local_btn">स्थानीय सेंसेई के साथ जारी रखें</string>
+    <string name="quota_action_reset_title">दैनिक रीसेट उलटी गिनती</string>
+    <string name="quota_action_reset_desc">आपका निःशुल्क कोटा %1$s में (मध्यरात्रि को) स्वतः रीसेट हो जाएगा।</string>
+    <string name="quota_value_receipt_title">आज की AI मूल्य रसीद</string>
+    <string name="quota_value_receipt_summary">%1$d वाक्यांशों का मूल्यांकन • %2$d संवाद राउंड • %3$d शब्दों का अभ्यास</string>
+    <string name="quota_guest_unlock_title">पूर्ण दैनिक स्टार्टर कोटा अनलॉक करें</string>
+    <string name="quota_guest_unlock_desc">अतिथि के रूप में अभ्यास कर रहे हैं? दैनिक 25 मूल्यांकन और क्लाउड बैकअप के लिए Google से मुफ़्त साइन इन करें।</string>
+    <string name="quota_guest_unlock_btn">अनलॉक करने के लिए साइन इन करें</string>
+    <string name="quota_eco_mode_active_badge">इको लाइट सक्रिय</string>
+    <string name="quota_tier_primary_badge">मानक AI</string>
+    <string name="quota_tier_eco_badge">इको लाइट AI</string>
+    <string name="quota_tier_local_badge">स्थानीय कोच ($0)</string>
 </resources>

@@ -116,7 +116,7 @@ fun PronunciationCoachPanel(
                 speechManager.stopListening()
             } else {
                 speechManager.startListening(targetLanguage) { resultText ->
-                    onTranscriptReady(resultText, lastUserPitchContour)
+                    onTranscriptReady(resultText, speechManager.lastUserPitchContour.value)
                 }
             }
         },

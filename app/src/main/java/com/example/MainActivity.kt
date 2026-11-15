@@ -11,6 +11,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ai.AiSettingsManager
+import com.example.ai.UsageQuotaManager
 import com.example.analytics.EngagementManager
 import com.example.data.local.SenseiLocalDatabase
 import com.example.data.repository.SenseiRepository
@@ -36,6 +38,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,7 +125,27 @@ fun PocketSenseiApp() {
             val context = LocalContext.current
             val repository = remember(uid) { SenseiRepository(context) }
             val localDb = remember(uid) { SenseiLocalDatabase.getInstance(context) }
-            val aiSettingsManager = remember(uid) { AiSettingsManager(context) }
+            val firestoreDb = remember(isFirebaseInitialized) {
+                if (isFirebaseInitialized) {
+                    runCatching {
+                        FirebaseFirestore.getInstance(
+                            appContext.getString(R.string.firestore_database_id)
+                        )
+                    }.getOrNull()
+                } else {
+                    null
+                }
+            }
+            val usageQuotaManager = remember(uid) {
+                UsageQuotaManager(
+                    context = context,
+                    firestore = firestoreDb,
+                    currentUserIdProvider = {
+                        if (isFirebaseInitialized) Firebase.auth.currentUser?.uid else null
+                    }
+                )
+            }
+            val aiSettingsManager = remember(uid) { AiSettingsManager(context, usageQuotaManager) }
             val engagementManager = remember(uid) { EngagementManager(context) }
             val donationBillingManager = remember(uid) {
                 DonationBillingManager(context, engagementManager)
@@ -140,6 +163,14 @@ fun PocketSenseiApp() {
                     customScenarioDao = localDb.customScenarioDao()
                 )
             )
+            val isActiveSupporter by viewModel.isActiveSupporter.collectAsState()
+            LaunchedEffect(uid, currentUser, isActiveSupporter) {
+                usageQuotaManager.updateAuthStatus(
+                    isSignedIn = currentUser != null,
+                    isPro = isActiveSupporter
+                )
+                aiSettingsManager.refreshSettings()
+            }
             LaunchedEffect(onboardingJustCompleted, pendingOnboardingLanguage) {
                 if (onboardingJustCompleted) {
                     if (!viewModel.targetLanguage.value.equals(pendingOnboardingLanguage, ignoreCase = true)) {

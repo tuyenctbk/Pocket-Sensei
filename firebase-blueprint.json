@@ -169,6 +169,55 @@
         }
       },
       "required": ["userId", "displayName", "targetLanguage", "leagueTier", "totalXp", "streakDays", "avgAccuracy", "updatedAt"]
+    },
+    "UsageQuota": {
+      "title": "UsageQuota",
+      "description": "Daily AI usage ledger and eco-mode preferences synced per user.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the owner."
+        },
+        "evaluationsUsed": {
+          "type": "integer",
+          "description": "Pronunciation evaluations consumed today."
+        },
+        "chatTurnsUsed": {
+          "type": "integer",
+          "description": "Roleplay chat turns consumed today."
+        },
+        "topicPacksUsed": {
+          "type": "integer",
+          "description": "AI topic packs generated today."
+        },
+        "bonusGraceCredits": {
+          "type": "integer",
+          "description": "Remaining daily +3 bonus grace credits."
+        },
+        "graceClaimed": {
+          "type": "boolean",
+          "description": "Whether daily grace credits were claimed today."
+        },
+        "ecoLiteMode": {
+          "type": "boolean",
+          "description": "Whether Eco Lite AI model routing is enabled."
+        },
+        "fallbackCascadeCount": {
+          "type": "integer",
+          "description": "Number of times requests cascaded to Eco Lite or Local coach today."
+        },
+        "dateIso": {
+          "type": "string",
+          "description": "Current UTC/local calendar day in YYYY-MM-DD format."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last sync timestamp. Clients must submit FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["userId", "evaluationsUsed", "chatTurnsUsed", "topicPacksUsed", "bonusGraceCredits", "graceClaimed", "ecoLiteMode", "fallbackCascadeCount", "dateIso"]
     }
   },
   "firestore": {
@@ -183,6 +232,10 @@
     "/users/{userId}/sessions/{sessionId}": {
       "schema": { "$ref": "PracticeSession" },
       "description": "Subcollection of voice conversation session history."
+    },
+    "/users/{userId}/usageQuota/{quotaId}": {
+      "schema": { "$ref": "UsageQuota" },
+      "description": "Daily AI credit tracking document synced with local SharedPreferences."
     },
     "/leaderboard/{entryUserId}": {
       "schema": { "$ref": "LeaderboardEntry" },

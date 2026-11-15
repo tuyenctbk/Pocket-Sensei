@@ -132,6 +132,29 @@ service cloud.firestore {
 
         allow delete: if isSignedIn() && request.auth.uid == userId && isValidId(sessionId);
       }
+
+      match /usageQuota/{quotaId} {
+        allow get, list: if isSignedIn() && request.auth.uid == userId;
+
+        allow create, update: if isSignedIn() &&
+                                 request.auth.uid == userId &&
+                                 isValidId(quotaId) &&
+                                 incoming().userId is string &&
+                                 incoming().userId == request.auth.uid &&
+                                 incoming().keys().hasAll(['userId', 'evaluationsUsed', 'chatTurnsUsed', 'topicPacksUsed', 'bonusGraceCredits', 'graceClaimed', 'ecoLiteMode', 'fallbackCascadeCount', 'dateIso']) &&
+                                 incoming().keys().hasOnly(['userId', 'evaluationsUsed', 'chatTurnsUsed', 'topicPacksUsed', 'bonusGraceCredits', 'graceClaimed', 'ecoLiteMode', 'fallbackCascadeCount', 'dateIso', 'updatedAt']) &&
+                                 incoming().evaluationsUsed is int && incoming().evaluationsUsed >= 0 && incoming().evaluationsUsed <= 10000 &&
+                                 incoming().chatTurnsUsed is int && incoming().chatTurnsUsed >= 0 && incoming().chatTurnsUsed <= 10000 &&
+                                 incoming().topicPacksUsed is int && incoming().topicPacksUsed >= 0 && incoming().topicPacksUsed <= 1000 &&
+                                 incoming().bonusGraceCredits is int && incoming().bonusGraceCredits >= 0 && incoming().bonusGraceCredits <= 5 &&
+                                 incoming().graceClaimed is bool &&
+                                 incoming().ecoLiteMode is bool &&
+                                 incoming().fallbackCascadeCount is int && incoming().fallbackCascadeCount >= 0 && incoming().fallbackCascadeCount <= 10000 &&
+                                 incoming().dateIso is string && incoming().dateIso.size() >= 8 && incoming().dateIso.size() <= 16 &&
+                                 (!('updatedAt' in incoming()) || (incoming().updatedAt is timestamp && incoming().updatedAt <= request.time));
+
+        allow delete: if isSignedIn() && request.auth.uid == userId && isValidId(quotaId);
+      }
     }
 
     match /leaderboard/{entryUserId} {

@@ -2,6 +2,7 @@ package com.example.data.repository
 
 import com.example.base.FirestoreEmulatorTestBase
 import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.snapshots
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
@@ -101,13 +102,16 @@ class SenseiRepositoryRuleTest : FirestoreEmulatorTestBase() {
     @Test
     fun observeVocab_unauthenticatedUser_failsWithPermissionDenied() = runBlocking {
         auth.signOut()
-        val repository = SenseiRepository(firestore)
 
         try {
             withTimeout(FLOW_TIMEOUT_MS) {
-                repository.observeVocab().first()
+                firestore.collection("users")
+                    .document("unauthenticated_target")
+                    .collection("vocab")
+                    .snapshots()
+                    .first()
             }
-            fail("Expected exception when unauthenticated")
+            fail("Expected PERMISSION_DENIED when unauthenticated")
         } catch (e: Exception) {
             val firestoreException = checkNotNull(e.unwrapFirestoreException()) {
                 "Expected nested FirebaseFirestoreException, got $e"
@@ -165,7 +169,8 @@ class SenseiRepositoryRuleTest : FirestoreEmulatorTestBase() {
 
     @Test
     fun updateStreak_authenticatedUser_updatesProfileAndLeaderboardStreak() = runBlocking {
-        signInTestUser(ALICE_EMAIL)
+        val streakEmail = "streak_${java.util.UUID.randomUUID().toString().take(8)}@sensei.test"
+        signInTestUser(streakEmail)
         val repository = SenseiRepository(firestore)
         val profile = withTimeout(DEFAULT_TIMEOUT_MS) {
             repository.getOrCreateProfile("Alice Learner", "Japanese").getOrThrow()
@@ -186,6 +191,76 @@ class SenseiRepositoryRuleTest : FirestoreEmulatorTestBase() {
             repository.observeLeaderboard().first { list -> list.any { it.userId == profile.userId && it.streakDays == 7L } }
         }
         assertEquals(7L, leaderboardEntries.first { it.userId == profile.userId }.streakDays)
+    }
+
+    @Test
+    fun usageQuota_ownerCanSyncAndRefund_crossUserDenied() = runBlocking {
+        val context = androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        context.getSharedPreferences("pocket_sensei_usage_quota", android.content.Context.MODE_PRIVATE)
+            .edit()
+            .clear()
+            .commit()
+
+        val aliceUid = signInTestUser(ALICE_EMAIL)
+        val quotaManager = com.example.ai.UsageQuotaManager(
+            context = context,
+            firestore = firestore,
+            currentUserIdProvider = { auth.currentUser?.uid }
+        )
+        quotaManager.updateAuthStatus(isSignedIn = true, isPro = false)
+
+        assertTrue(quotaManager.deductInteraction(com.example.ai.QuotaFeature.PRONUNCIATION_EVALUATION))
+        val syncResult = withTimeout(DEFAULT_TIMEOUT_MS) {
+            quotaManager.syncNowToFirestore()
+        }
+        assertTrue("UsageQuotaManager should sync to Firestore under signed-in owner", syncResult.isSuccess)
+
+        val remoteDoc = withTimeout(DEFAULT_TIMEOUT_MS) {
+            firestore.collection("users")
+                .document(aliceUid)
+                .collection("usageQuota")
+                .document("daily")
+                .get()
+                .await()
+        }
+        assertTrue(remoteDoc.exists())
+        assertEquals(1L, remoteDoc.getLong("evaluationsUsed"))
+
+        signInTestUser(BOB_EMAIL)
+        try {
+            withTimeout(DEFAULT_TIMEOUT_MS) {
+                firestore.collection("users")
+                    .document(aliceUid)
+                    .collection("usageQuota")
+                    .document("daily")
+                    .get()
+                    .await()
+            }
+            fail("Expected PERMISSION_DENIED when Bob reads Alice's usageQuota")
+        } catch (e: Exception) {
+            val firestoreException = checkNotNull(e.unwrapFirestoreException()) {
+                "Expected nested FirebaseFirestoreException, got $e"
+            }
+            assertEquals(FirebaseFirestoreException.Code.PERMISSION_DENIED, firestoreException.code)
+        }
+
+        auth.signOut()
+        try {
+            withTimeout(DEFAULT_TIMEOUT_MS) {
+                firestore.collection("users")
+                    .document(aliceUid)
+                    .collection("usageQuota")
+                    .document("daily")
+                    .get()
+                    .await()
+            }
+            fail("Expected PERMISSION_DENIED when unauthenticated caller reads usageQuota")
+        } catch (e: Exception) {
+            val firestoreException = checkNotNull(e.unwrapFirestoreException()) {
+                "Expected nested FirebaseFirestoreException, got $e"
+            }
+            assertEquals(FirebaseFirestoreException.Code.PERMISSION_DENIED, firestoreException.code)
+        }
     }
 
     private companion object {
