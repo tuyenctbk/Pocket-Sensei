@@ -25,8 +25,8 @@ android {
     applicationId = "com.soloprono.pocketsensei"
     minSdk = 24
     targetSdk = 36
-    versionCode = 5
-    versionName = "1.4"
+    versionCode = 7
+    versionName = "1.6"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -61,7 +61,8 @@ android {
   buildTypes {
     release {
       isCrunchPngs = false
-      isMinifyEnabled = false
+      isMinifyEnabled = true
+      isShrinkResources = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
       // Do not remove or modify this signingConfig assignment. It is necessary for Android apps in
       // AI Studio.

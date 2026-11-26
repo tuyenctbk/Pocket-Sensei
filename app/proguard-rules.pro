@@ -1,21 +1,19 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# Pocket Sensei R8 / ProGuard rules
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Keep line numbers for readable crash stack traces in Play Console.
+-keepattributes SourceFile,LineNumberTable,Signature,*Annotation*,InnerClasses,EnclosingMethod
+-renamesourcefileattribute SourceFile
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# WebView <-> JS bridge (Sensei 3D avatar). Methods are invoked by name from JavaScript.
+-keepclassmembers class com.example.ui.view.** {
+    @android.webkit.JavascriptInterface <methods>;
+}
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# Firestore maps documents to these POJOs by reflection (field/property names must survive).
+-keep class com.example.data.model.** { *; }
+
+# Room entities / DAOs are referenced by generated code; keep their members.
+-keep class com.example.data.local.** { *; }
+
+# Play Billing
+-keep class com.android.billingclient.** { *; }

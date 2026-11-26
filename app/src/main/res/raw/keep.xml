@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Resources referenced only via Resources.getIdentifier() must survive resource shrinking. -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@string/default_web_client_id,@string/recaptcha_site_key,@string/gcm_defaultSenderId,@string/google_app_id,@string/google_api_key,@string/google_storage_bucket,@string/project_id,@string/default_web_client_id" />

@@ -218,9 +218,11 @@ fun Sensei3DView(
                     settings.apply {
                         javaScriptEnabled = true
                         domStorageEnabled = true
-                        allowFileAccess = true
-                        allowContentAccess = true
-                        cacheMode = WebSettings.LOAD_NO_CACHE
+                        // The page is loaded from file:///android_asset, which is always readable;
+                        // broader file/content access is unnecessary attack surface.
+                        allowFileAccess = false
+                        allowContentAccess = false
+                        cacheMode = WebSettings.LOAD_DEFAULT
                     }
                     webChromeClient = WebChromeClient()
                     webViewClient = object : WebViewClient() {
@@ -236,6 +238,13 @@ fun Sensei3DView(
             },
             update = { webView ->
                 controller.attachWebView(webView)
+            },
+            onRelease = { webView ->
+                // Free the WebView's native renderer resources; otherwise each recomposition-driven
+                // dispose leaks a Chromium instance.
+                webView.stopLoading()
+                webView.removeJavascriptInterface("SenseiBridge")
+                webView.destroy()
             }
         )
     }

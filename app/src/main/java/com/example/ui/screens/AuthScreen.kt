@@ -66,6 +66,12 @@ import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.exceptions.GetCredentialCancellationException
+import androidx.credentials.exceptions.NoCredentialException
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.slideInVertically
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.material3.OutlinedButton
 import com.example.R
@@ -309,11 +315,11 @@ fun AuthScreen(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(24.dp)
                     ) {
-                        heroHeader()
-                        authActions()
+                        EntranceFade(0) { heroHeader() }
+                        EntranceFade(320) { authActions() }
                     }
                     Box(modifier = Modifier.weight(1f)) {
-                        featureCard()
+                        EntranceFade(160) { featureCard() }
                     }
                 }
             } else {
@@ -327,14 +333,27 @@ fun AuthScreen(
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
                     Spacer(modifier = Modifier.height(8.dp))
-                    heroHeader()
+                    EntranceFade(0) { heroHeader() }
                     Spacer(modifier = Modifier.height(20.dp))
-                    featureCard()
+                    EntranceFade(160) { featureCard() }
                     Spacer(modifier = Modifier.height(20.dp))
-                    authActions()
+                    EntranceFade(320) { authActions() }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun EntranceFade(delayMillis: Int, content: @Composable () -> Unit) {
+    var entered by remember { mutableStateOf(false) }
+    LaunchedEffect(Unit) { entered = true }
+    AnimatedVisibility(
+        visible = entered,
+        enter = fadeIn(tween(480, delayMillis)) +
+            slideInVertically(tween(480, delayMillis)) { it / 8 }
+    ) {
+        content()
     }
 }
 
@@ -416,6 +435,9 @@ fun signInWithGoogle(
         } catch (e: GetCredentialCancellationException) {
             Log.w(TAG, "Google Sign-In flow cancelled or dismissed: ${e.message}", e)
             onCancel()
+        } catch (e: NoCredentialException) {
+            Log.w(TAG, "No Google credential available on device", e)
+            onError(context.getString(R.string.auth_error_sign_in_failed))
         } catch (e: Exception) {
             Log.e(TAG, "Google Sign-In failed", e)
             onError(e.localizedMessage ?: context.getString(R.string.auth_error_sign_in_failed))
